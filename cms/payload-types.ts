@@ -124,6 +124,8 @@ export interface UserAuthOperations {
   };
 }
 /**
+ * Yeni yazı için sağ üstteki "Yeni oluştur" düğmesini kullanın. Taslak olarak kaydedilen yazı sitede görünmez.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts".
  */
@@ -131,9 +133,12 @@ export interface Post {
   id: number;
   title: string;
   /**
-   * /blog/ sonrası, örn. e-fatura-nedir
+   * Boş bırakırsanız başlıktan otomatik oluşur. /blog/ sonrası, örn. e-fatura-nedir
    */
   slug: string;
+  /**
+   * Boşsa metinden hesaplanır
+   */
   readingMinutes?: number | null;
   cover?: (number | null) | Media;
   body?: {

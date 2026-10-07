@@ -1,5 +1,6 @@
 import type { CollectionConfig } from 'payload'
 import { revalidatePath } from 'next/cache'
+import { readingTime, slugFromTitle } from '../hooks'
 
 // Blog yazıları. Taslak → yayın akışı açık; yayınlanan yazı /blog/<slug> adresinde görünür.
 // Gövdenin ortasındaki deneme kutusu (inline CTA) şablon tarafından eklenir, burada saklanmaz.
@@ -10,12 +11,16 @@ export const Posts: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     group: 'Blog',
-    defaultColumns: ['title', 'category', 'publishedAt', '_status'],
+    defaultColumns: ['cover', 'title', 'category', 'publishedAt', '_status'],
     listSearchableFields: ['title', 'slug'],
+    pagination: { defaultLimit: 20 },
+    // "Önizleme" düğmesi yazıyı sitede açar
+    preview: (doc) => (doc?.slug ? `/blog/${doc.slug}` : null),
   },
   defaultSort: '-publishedAt',
   versions: { drafts: true, maxPerDoc: 20 },
   hooks: {
+    beforeChange: [readingTime],
     // Yayınlanan/güncellenen yazının sayfası ve blog listesi yeniden üretilir (Vercel ISR)
     afterChange: [
       ({ doc, previousDoc }) => {
@@ -34,8 +39,8 @@ export const Posts: CollectionConfig = {
     {
       type: 'row',
       fields: [
-        { name: 'slug', type: 'text', label: 'Adres', required: true, unique: true, index: true, admin: { description: '/blog/ sonrası, örn. e-fatura-nedir', width: '50%' } },
-        { name: 'readingMinutes', type: 'number', label: 'Okuma süresi (dk)', admin: { width: '25%' } },
+        { name: 'slug', type: 'text', label: 'Adres', required: true, unique: true, index: true, hooks: { beforeValidate: [slugFromTitle] }, admin: { description: 'Boş bırakırsanız başlıktan otomatik oluşur. /blog/ sonrası, örn. e-fatura-nedir', width: '50%' } },
+        { name: 'readingMinutes', type: 'number', label: 'Okuma süresi (dk)', admin: { width: '25%', description: 'Boşsa metinden hesaplanır' } },
       ],
     },
     {
@@ -61,6 +66,7 @@ export const Posts: CollectionConfig = {
         {
           label: 'SEO',
           fields: [
+            { name: 'seoPreview', type: 'ui', admin: { components: { Field: '/cms/admin/SeoPreview#SeoPreview' } } },
             { name: 'metaTitle', type: 'text', label: 'Sayfa başlığı (title)', admin: { description: 'Boş bırakılırsa "Başlık | KolayBi" kullanılır' } },
             { name: 'description', type: 'textarea', label: 'Açıklama (meta description)', admin: { description: 'Google sonuçlarında görünen 150–160 karakterlik özet; liste kartında da kullanılır' } },
           ],

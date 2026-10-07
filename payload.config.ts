@@ -23,6 +23,11 @@ export default buildConfig({
   admin: {
     user: Users.slug,
     meta: { titleSuffix: ' · KolayBi CMS' },
+    theme: 'light',
+    components: {
+      graphics: { Logo: '/cms/admin/Brand#Logo', Icon: '/cms/admin/Brand#Icon' },
+      beforeDashboard: ['/cms/admin/Dashboard#Dashboard'],
+    },
     importMap: { baseDir: dirname },
   },
   i18n: { supportedLanguages: { tr }, fallbackLanguage: 'tr' },
