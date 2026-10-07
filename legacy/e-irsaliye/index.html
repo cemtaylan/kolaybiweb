@@ -575,10 +575,11 @@
       <h2>Ön muhasebenizin tüm süreçlerini <span style="color:var(--primary)">tek yerden</span> yönetin</h2>
       <p>Cari hesap, fatura, gelir-gider, raporlama, stok, sipariş ve proje süreçleriniz KolayBi’de birbirine bağlı çalışır, her kayıt kendiliğinden güncellenir.</p>
     </div>
-    <div class="fg" role="group" aria-label="Özellik grupları" id="fg">
+    <div class="sr-only" role="tablist" aria-label="Özellik grupları" aria-owns="fg-tab-1 fg-tab-2 fg-tab-3"></div>
+    <div class="fg" id="fg">
       <div class="fg-group theme-ofis is-open">
-        <button class="fg-tab" type="button" id="fg-tab-1" aria-expanded="true" aria-controls="fg-body-1"><span>Ön Muhasebe</span><em aria-hidden="true">7</em><span class="sr-only">, 7 özellik</span></button>
-        <div class="fg-body" id="fg-body-1" role="region" aria-labelledby="fg-tab-1">
+        <button class="fg-tab" type="button" role="tab" id="fg-tab-1" aria-selected="true" tabindex="0" aria-controls="fg-body-1"><span>Ön Muhasebe</span><em aria-hidden="true">7</em><span class="sr-only">, 7 özellik</span></button>
+        <div class="fg-body" id="fg-body-1" role="tabpanel" aria-labelledby="fg-tab-1">
           <div class="fg-track">
             <a href="/cari-hesap-programi" class="fcard theme-ofis"><span class="fcard-ic"><svg><use href="#i-users"/></svg></span><span class="fcard-go"><svg><use href="#i-arrow"/></svg></span><b>Cari hesap takibi</b><span class="fcard-p">Borç ve alacak dengenizi anlık görün, gecikmiş ödemeleri otomatik takip edin.</span></a>
             <a href="/fatura-kesme-programi" class="fcard theme-link"><span class="fcard-ic"><svg><use href="#i-invoice"/></svg></span><span class="fcard-go"><svg><use href="#i-arrow"/></svg></span><b><span class="nw">e-Belge</span></b><span class="fcard-p"><span class="nw">e-Fatura</span>, <span class="nw">e-Arşiv</span>, <span class="nw">e-İrsaliye</span> ve <span class="nw">e-SMM’lerinizi</span> tek ekrandan kesin ve takip edin.</span></a>
@@ -591,8 +592,8 @@
         </div>
       </div>
       <div class="fg-group theme-jet">
-        <button class="fg-tab" type="button" id="fg-tab-2" aria-expanded="false" aria-controls="fg-body-2"><span>e-Belge</span><em aria-hidden="true">6</em><span class="sr-only">, 6 özellik</span></button>
-        <div class="fg-body" id="fg-body-2" role="region" aria-labelledby="fg-tab-2">
+        <button class="fg-tab" type="button" role="tab" id="fg-tab-2" aria-selected="false" tabindex="-1" aria-controls="fg-body-2"><span>e-Belge</span><em aria-hidden="true">6</em><span class="sr-only">, 6 özellik</span></button>
+        <div class="fg-body" id="fg-body-2" role="tabpanel" aria-labelledby="fg-tab-2">
           <div class="fg-track">
             <a href="/e-fatura" class="fcard theme-ofis"><span class="fcard-ic"><svg><use href="#i-invoice"/></svg></span><span class="fcard-go"><svg><use href="#i-arrow"/></svg></span><b>e-Fatura</b><span class="fcard-p">Müşterilerinize saniyeler içinde e-Fatura kesin, GİB’e otomatik iletin.</span></a>
             <a href="/e-arsiv" class="fcard theme-jet"><span class="fcard-ic"><svg><use href="#i-archive"/></svg></span><span class="fcard-go"><svg><use href="#i-arrow"/></svg></span><b>e-Arşiv</b><span class="fcard-p">e-Fatura mükellefi olmayan alıcılarınız için e-Arşiv fatura oluşturun.</span></a>
@@ -604,8 +605,8 @@
         </div>
       </div>
       <div class="fg-group theme-link">
-        <button class="fg-tab" type="button" id="fg-tab-3" aria-expanded="false" aria-controls="fg-body-3"><span>Entegrasyonlar</span><em aria-hidden="true">4</em><span class="sr-only">, 4 özellik</span></button>
-        <div class="fg-body" id="fg-body-3" role="region" aria-labelledby="fg-tab-3">
+        <button class="fg-tab" type="button" role="tab" id="fg-tab-3" aria-selected="false" tabindex="-1" aria-controls="fg-body-3"><span>Entegrasyonlar</span><em aria-hidden="true">4</em><span class="sr-only">, 4 özellik</span></button>
+        <div class="fg-body" id="fg-body-3" role="tabpanel" aria-labelledby="fg-tab-3">
           <div class="fg-track">
             <a href="/pazaryeri-entegrasyonu#e-ticaret" class="fcard theme-ofis"><span class="fcard-ic"><svg><use href="#i-cart"/></svg></span><span class="fcard-go"><svg><use href="#i-arrow"/></svg></span><b>e-Ticaret entegrasyonu</b><span class="fcard-p">Web sitenizdeki siparişler otomatik olarak KolayBi’ye aktarılsın.</span></a>
             <a href="/pazaryeri-entegrasyonu#pazaryeri" class="fcard theme-jet"><span class="fcard-ic"><svg><use href="#i-store"/></svg></span><span class="fcard-go"><svg><use href="#i-arrow"/></svg></span><b>Pazaryeri entegrasyonu</b><span class="fcard-p">Pazaryeri siparişlerinizi tek panelde toplayın, anında faturalaştırın.</span></a>
@@ -852,7 +853,7 @@
 </footer>
 
 <script src="/js/menu.js?v=3"></script>
-<script src="/js/features.js?v=6"></script>
+<script src="/js/features.js?v=7"></script>
 <script src="/js/faq.js?v=5"></script>
 </body>
 </html>

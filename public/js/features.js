@@ -17,7 +17,7 @@ document.querySelectorAll('.fg').forEach(root => {
   function render() {
     groups.forEach((el, i) => {
       el.classList.toggle('is-open', i === g);
-      const tab = el.querySelector('.fg-tab'); if (tab.tagName === 'BUTTON') tab.setAttribute('aria-expanded', i === g);
+      const tab = el.querySelector('.fg-tab'); if (tab.tagName === 'BUTTON') { tab.setAttribute('aria-selected', i === g); tab.tabIndex = i === g ? 0 : -1 } // sekme: yalnız açık olan Tab ile seçilir
       el.querySelector('.fg-track').style.transform = `translateX(${i === g ? -pos * step(i) : 0}px)`;
     });
     dots.innerHTML = Array.from({ length: maxPos(g) + 1 }, (_, i) => `<i class="${i === pos ? 'on' : ''}"></i>`).join('');
