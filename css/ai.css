@@ -386,3 +386,5 @@
 .ss-stage[data-step="2"] .ss-draft { border-color: color-mix(in srgb, var(--green-500) 40%, transparent); }
 .ss-photo { width: 40%; }
 @media (prefers-reduced-motion: reduce) { .ss-m, .ss-typing i { transition: none; animation: none; } }
+/* Nasıl çalışır fotoğrafı: eliyle sohbet kartını gösteren kişi (aynalı) */
+.ss-photo img { height: 96%; transform: translateX(-38%) scaleX(-1); }
