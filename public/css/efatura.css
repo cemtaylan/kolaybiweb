@@ -736,27 +736,29 @@ body.vd-lock { overflow: hidden; }
 .sc-sheet { fill: var(--card); stroke: var(--line); stroke-width: 1.5; }
 .sc-fold { fill: var(--blue-50); stroke: var(--line); stroke-width: 1.5; stroke-linejoin: round; }
 .sc-line { fill: none; stroke: var(--logo-blue); stroke-width: 2.6; stroke-linecap: round; }
-.sc-pl { fill: var(--card); stroke: var(--primary); stroke-width: 1.6; stroke-linejoin: round; }
-.sc-pl2 { fill: var(--blue-100); stroke: var(--primary); stroke-width: 1.6; stroke-linejoin: round; }
 /* Uçan parça: soldaki ekrandan (e-Arşiv'de elden) çıkar, yay çizerek karşıya iner */
 .sc-fly { position: absolute; bottom: 92px; left: calc(max(16px, 7%) + 116px); width: 36px; opacity: 0; animation: scFlyX 5s cubic-bezier(.45, 0, .55, 1) infinite; }
 .sc-fly svg { animation: scFlyY 5s ease-in-out infinite; filter: drop-shadow(0 8px 10px color-mix(in srgb, var(--navy-600) 22%, transparent)); }
 @keyframes scFlyX { 0%, 8% { left: calc(max(16px, 7%) + 116px); opacity: 0; } 14% { opacity: 1; } 70% { left: calc(100% - max(16px, 7%) - 152px); opacity: 1; } 78%, 100% { left: calc(100% - max(16px, 7%) - 152px); opacity: 0; } }
 @keyframes scFlyY { 0%, 8% { transform: translateY(0) rotate(0); } 40% { transform: translateY(-58px) rotate(-8deg); } 70%, 100% { transform: translateY(0) rotate(6deg); } }
+/* e-Arşiv: karşıdaki kişi bilgisayardan gelen ipi çeker, ipe asılı kâğıt fatura ona doğru kayar */
+.sc-rope { position: absolute; left: calc(max(16px, 7%) + 150px); right: calc(max(16px, 9%) + 96px); bottom: 80px; height: 3px; border-radius: 3px; background: repeating-linear-gradient(90deg, var(--navy) 0 7px, var(--navy-500) 7px 10px); animation: scRope .7s linear infinite; }
+@keyframes scRope { to { background-position-x: 20px; } }
+.sc-paper { position: absolute; bottom: 41px; left: calc(max(16px, 7%) + 150px); width: 30px; animation: scPaper 6s ease-in-out infinite; }
+.sc-paper svg { filter: drop-shadow(0 6px 8px color-mix(in srgb, var(--navy-600) 22%, transparent)); transform-origin: 50% 0; animation: scSway 1.4s ease-in-out infinite; }
+.sc-clip { fill: var(--navy); }
+@keyframes scPaper { 0%, 6% { left: calc(max(16px, 7%) + 150px); opacity: 0; } 12% { opacity: 1; } 80%, 94% { left: calc(100% - max(16px, 9%) - 126px); opacity: 1; } 100% { left: calc(100% - max(16px, 9%) - 126px); opacity: 0; } }
+@keyframes scSway { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
+.sc-pull1, .sc-pull2 { animation: scPull .7s ease-in-out infinite alternate; }
+.sc-pull2 { animation-delay: -.35s; }
+@keyframes scPull { from { transform: translateX(-5px); } to { transform: translateX(4px); } }
 /* Belge ulaşınca sağdaki ekranda onay işareti */
 .sc-desk-r .sc-check { animation: scCheck 5s infinite; }
 @keyframes scCheck { 0%, 70% { opacity: 0; } 74%, 94% { opacity: 1; } 100% { opacity: 0; } }
-/* e-Arşiv: kağıt uçak elden atılır, karşıdaki kişi yakalar */
-.sc-earsiv .sc-fly { left: calc(max(16px, 7%) + 78px); width: 44px; bottom: 96px; animation-name: scPlaneX; }
-.sc-earsiv .sc-fly svg { animation-name: scPlaneY; }
-@keyframes scPlaneX { 0%, 8% { left: calc(max(16px, 7%) + 78px); opacity: 0; } 12% { opacity: 1; } 72% { left: calc(100% - max(16px, 9%) - 84px); opacity: 1; } 80%, 100% { left: calc(100% - max(16px, 9%) - 84px); opacity: 0; } }
-@keyframes scPlaneY { 0%, 8% { transform: translateY(0) rotate(-14deg); } 38% { transform: translateY(-64px) rotate(-4deg); } 72%, 100% { transform: translateY(-10px) rotate(10deg); } }
-.sc-earsiv .sc-desk-l .sc-arm { transform-box: fill-box; transform-origin: 0 0; animation: scThrow 5s infinite; }
-@keyframes scThrow { 0%, 2% { transform: rotate(0); } 7% { transform: rotate(-38deg); } 12%, 100% { transform: rotate(0); } }
-.sc-catch { transform-box: fill-box; transform-origin: 50% 100%; animation: scCatch 5s infinite; }
-@keyframes scCatch { 0%, 66% { transform: none; } 72% { transform: translateY(-3px); } 80%, 100% { transform: none; } }
-@media (max-width: 600px) { .sc-desk-l, .sc-desk-r { width: 112px; } .sc-stand { width: 70px; } .scene { height: 120px; bottom: 40px; } .scene-band { padding-bottom: 220px; } .sc-fly { bottom: 64px; left: calc(max(16px, 7%) + 76px); } .sc-earsiv .sc-fly { bottom: 66px; left: calc(max(16px, 7%) + 52px); }
-  .sc-efatura .sc-fly { animation-name: scFlyXm; } .sc-earsiv .sc-fly { animation-name: scPlaneXm; } }
+@media (max-width: 600px) { .sc-desk-l, .sc-desk-r { width: 112px; } .sc-stand { width: 70px; } .scene { height: 120px; bottom: 40px; } .scene-band { padding-bottom: 220px; } .sc-fly { bottom: 64px; left: calc(max(16px, 7%) + 76px); }
+  .sc-efatura .sc-fly { animation-name: scFlyXm; }
+  .sc-rope { left: calc(max(16px, 7%) + 100px); right: calc(max(16px, 9%) + 64px); bottom: 53px; }
+  .sc-paper { width: 22px; bottom: 23px; animation-name: scPaperM; } }
+@keyframes scPaperM { 0%, 6% { left: calc(max(16px, 7%) + 100px); opacity: 0; } 12% { opacity: 1; } 80%, 94% { left: calc(100% - max(16px, 9%) - 86px); opacity: 1; } 100% { left: calc(100% - max(16px, 9%) - 86px); opacity: 0; } }
 @keyframes scFlyXm { 0%, 8% { left: calc(max(16px, 7%) + 76px); opacity: 0; } 14% { opacity: 1; } 70% { left: calc(100% - max(16px, 7%) - 104px); opacity: 1; } 78%, 100% { left: calc(100% - max(16px, 7%) - 104px); opacity: 0; } }
-@keyframes scPlaneXm { 0%, 8% { left: calc(max(16px, 7%) + 52px); opacity: 0; } 12% { opacity: 1; } 72% { left: calc(100% - max(16px, 9%) - 58px); opacity: 1; } 80%, 100% { left: calc(100% - max(16px, 9%) - 58px); opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .sc-fly, .sc-fly svg, .sc-check, .sc-arm, .sc-catch { animation: none; } .sc-fly { display: none; } .sc-desk-r .sc-check { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .sc-fly, .sc-fly svg, .sc-check, .sc-arm, .sc-rope, .sc-paper { animation: none; } .sc-fly { display: none; } .sc-desk-r .sc-check { opacity: 1; } }
