@@ -98,6 +98,7 @@
   --gray-500: #686F81;
   --gray-600: #4B5568;
   --gray-900: #13213A;
+  --gray-950: #03032F; /* düz metin (TransferGo tonu) */
 
   /* Koyu yüzeyler (fotoğraflı kampanya bandı) */
   --dark-800: #2A3140;
@@ -116,8 +117,8 @@
   --danger:       var(--red-500);
   --danger-soft:  var(--red-50);
 
-  --ink:   var(--gray-900);   /* ana metin */
-  --ink-2: var(--gray-600);   /* ikincil metin */
+  --ink:   var(--gray-950);   /* ana metin */
+  --ink-2: var(--gray-950);   /* düz metin: paragraf, açıklama */
   --muted: var(--gray-500);   /* açıklama, etiket */
   --line:  var(--gray-200);   /* kenarlık */
   --bg:    var(--gray-50);    /* sayfa zemini */
