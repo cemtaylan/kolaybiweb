@@ -138,7 +138,7 @@
 
   function setChannel(ch) {
     win.dataset.ch = ch;
-    chans.forEach(b => b.classList.toggle('is-active', b.dataset.ch === ch));
+    chans.forEach(b => { const on = b.dataset.ch === ch; b.classList.toggle('is-active', on); b.setAttribute('aria-pressed', on); });
     win.querySelector('.ai-top b').textContent = CH[ch].title;
     win.querySelector('.ai-top small').textContent = CH[ch].sub;
   }
@@ -146,7 +146,9 @@
   tabs.forEach(t => t.addEventListener('click', () => play(t.dataset.scn)));
   chans.forEach(b => b.addEventListener('click', () => setChannel(b.dataset.ch)));
   // Sayfadaki örnek komutlar ve kanal kartları demoyu çalıştırır
-  document.querySelectorAll('[data-run]').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('[data-run]').forEach(b => b.addEventListener('click', e => {
+    e.preventDefault(); // bağlantı (#demo) JS yokken de demoya götürür
+
     if (b.dataset.ch) setChannel(b.dataset.ch);
     play(b.dataset.run || order[0]);
     document.getElementById('demo').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });

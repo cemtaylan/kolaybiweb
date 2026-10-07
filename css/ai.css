@@ -132,10 +132,14 @@
 .ask h3 { margin: 16px 0 6px; font-size: 19px; font-weight: 800; color: var(--navy); }
 .ask > p { font-size: 14.5px; color: var(--ink-2); }
 .prompts { display: grid; gap: 8px; margin-top: 18px; }
-.prompts button { display: flex; align-items: center; gap: 10px; text-align: left; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font: 500 13.5px var(--font-body); cursor: pointer; transition: .2s; }
-.prompts button::before { content: "“"; font: 800 20px/1 var(--font-head); color: var(--c); }
-.prompts button:hover { background: var(--bg-a); border-color: color-mix(in srgb, var(--c) 35%, transparent); }
-.prompts button.run::after { content: "Dene →"; margin-left: auto; font-weight: 700; font-size: 12px; color: var(--c); white-space: nowrap; }
+.prompts button, .prompts a.run { display: flex; align-items: center; gap: 10px; text-align: left; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font: 500 13.5px var(--font-body); cursor: pointer; transition: .2s; }
+.prompts a.run { text-decoration: none; cursor: pointer; }
+#demo { scroll-margin-top: 110px; }
+.prompts .prompt { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; border: 1px dashed var(--line); color: var(--ink-2); font: 500 13.5px var(--font-body); }
+.prompts .prompt::before { content: "“"; font: 800 20px/1 var(--font-head); color: color-mix(in srgb, var(--c) 60%, transparent); }
+.prompts button::before, .prompts a.run::before { content: "“"; font: 800 20px/1 var(--font-head); color: var(--c); }
+.prompts button:hover, .prompts a.run:hover { background: var(--bg-a); border-color: color-mix(in srgb, var(--c) 35%, transparent); }
+.prompts .run::after { content: "Dene →"; margin-left: auto; font-weight: 700; font-size: 12px; color: var(--c); white-space: nowrap; }
 
 /* ---------- Nasıl çalışır ---------- */
 .steps3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: s; }
@@ -219,6 +223,7 @@
 .ch li { display: flex; gap: 10px; font-size: 14.5px; color: var(--ink); }
 .ch li svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--green); margin-top: 2px; }
 .ch .ch-try { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); font: 700 14px var(--font-body); color: var(--ink); cursor: pointer; transition: .2s; }
+.ch a.ch-try { text-decoration: none; color: inherit; }
 .ch .ch-try svg { width: 16px; height: 16px; }
 .ch.web .ch-try:hover { border-color: var(--primary); color: var(--primary); }
 .ch.wa .ch-try:hover { border-color: var(--wa-green); color: var(--wa-dark); }
