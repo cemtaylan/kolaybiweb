@@ -1,0 +1,13 @@
+# Önbellek başlıkları (Netlify / Cloudflare Pages bu dosyayı okur; başka bir sunucuda aynı kurallar sunucu ayarına taşınmalı)
+
+# CSS dosyaları her sayfada ?v= sürümüyle çağrılıyor; içerik değişince sürüm de değişir
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Görseller ve SVG animasyonları: 30 gün (dosya yenilenirse bağlantıya ?v= eklenir)
+/img/*
+  Cache-Control: public, max-age=2592000
+
+# Betikler her sayfada ?v= sürümüyle çağrılıyor; içerik değişince sürüm de değişir
+/js/*
+  Cache-Control: public, max-age=31536000, immutable

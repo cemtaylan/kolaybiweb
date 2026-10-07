@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KolayBi Renk Sistemi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/renkler.css?v=6">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Inter", system-ui, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, b { font-family: "Plus Jakarta Sans", system-ui, sans-serif; }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 56px 32px 96px; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 56px; }
+  .logo { display: flex; align-items: center; gap: 12px; font-family: "Plus Jakarta Sans", sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -.02em; color: var(--logo-ink); }
+  .logo svg { width: 41px; height: 38px; }
+  header p { color: var(--ink-2); max-width: 560px; }
+  section { margin-top: 56px; }
+  h2 { font-size: 24px; font-weight: 800; letter-spacing: -.01em; }
+  .lead { color: var(--ink-2); margin: 6px 0 24px; max-width: 720px; }
+  code { font: 500 12.5px ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+  /* Logo renkleri */
+  .logo-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .big-sw { border-radius: 20px; overflow: hidden; background: var(--card); border: 1px solid var(--line); }
+  .big-sw i { display: block; height: 120px; }
+  .big-sw div { padding: 14px 16px; }
+  .big-sw b { display: block; font-size: 15px; }
+  .big-sw code { color: var(--muted); }
+  .gradient-bar { margin-top: 16px; height: 56px; border-radius: 16px; background: var(--brand-gradient); display: flex; align-items: center; padding: 0 20px; color: #fff; font-weight: 600; }
+
+  /* Palet skalaları */
+  .scale { margin-bottom: 20px; }
+  .scale h3 { font-size: 15px; margin-bottom: 8px; }
+  .scale h3 span { font: 400 13px "Inter", sans-serif; color: var(--muted); margin-left: 8px; }
+  .chips { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 8px; }
+  .sw { border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--card); cursor: pointer; text-align: left; font: inherit; color: inherit; padding: 0; transition: transform .15s; }
+  .sw:hover { transform: translateY(-2px); }
+  .sw i { display: block; height: 64px; }
+  .sw div { padding: 8px 10px; }
+  .sw code { display: block; }
+  .sw code + code { color: var(--muted); }
+
+  /* Anlamsal roller */
+  .roles { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px; }
+  .role { display: flex; align-items: center; gap: 12px; padding: 10px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); }
+  .role i { width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0; border: 1px solid var(--line); }
+  .role small { display: block; color: var(--muted); font-size: 12.5px; }
+
+  /* Ürün temaları */
+  .themes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .theme-card { border-radius: 24px; padding: 24px; background: linear-gradient(160deg, var(--bg-a), var(--bg-b)); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 14px; }
+  .pmark { font-family: "Plus Jakarta Sans", sans-serif; line-height: 1; color: var(--logo); }
+  .pmark small { display: block; font-size: 12px; font-weight: 700; color: var(--logo-ink); }
+  .pmark small sup { font-size: 8px; color: var(--logo-cyan); }
+  .pmark b { font-size: 40px; font-weight: 800; letter-spacing: -.035em; }
+  .theme-card h3 { font-size: 19px; line-height: 1.3; }
+  .theme-card h3 em { font-style: normal; color: var(--c-accent); }
+  .theme-card .eyebrow { font: 800 12px "Plus Jakarta Sans", sans-serif; color: var(--c); text-transform: uppercase; letter-spacing: .02em; }
+  .demo-btn { align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; padding: 6px 6px 6px 18px; border-radius: 999px; background: var(--c); color: #fff; font-weight: 700; font-size: 14px; }
+  .demo-btn span { width: 28px; height: 28px; border-radius: 50%; background: #fff; color: var(--c); display: grid; place-items: center; font-size: 14px; }
+  .demo-link { color: var(--c); font-weight: 600; font-size: 14px; }
+  .tokens { display: grid; gap: 4px; margin-top: auto; padding-top: 12px; border-top: 1px solid color-mix(in srgb, var(--c) 15%, transparent); }
+  .tokens div { display: flex; align-items: center; gap: 8px; font-size: 12.5px; }
+  .tokens i { width: 14px; height: 14px; border-radius: 4px; border: 1px solid color-mix(in srgb, #000 10%, transparent); }
+
+  /* Kurallar */
+  .rules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .rule { padding: 22px; border-radius: 20px; background: var(--card); border: 1px solid var(--line); }
+  .rule b { display: block; margin-bottom: 6px; }
+  .rule p { color: var(--ink-2); font-size: 14.5px; }
+
+  .toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px); opacity: 0; background: var(--navy); color: #fff; padding: 10px 18px; border-radius: 999px; font-size: 14px; transition: .2s; pointer-events: none; }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+  @media (max-width: 960px) {
+    .logo-row, .themes { grid-template-columns: 1fr 1fr; }
+    .rules { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 32px 16px 64px; }
+    .logo-row, .themes { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo-k" viewBox="0 0 248 226">
+    <path d="M70 0h112c38 0 64 26 64 58 0 22-11 40-29 50 22 10 31 29 31 52 0 38-30 66-70 66H70z" fill="var(--logo-cyan)"/>
+    <path d="M70 0h104c9 0 14 9 10 16l-62 90c-3 4-3 10 0 14l62 90c4 7-1 16-10 16H70z" fill="var(--logo-mid)"/>
+    <path d="M14 0h56v226H14C6 226 0 220 0 212V14C0 6 6 0 14 0z" fill="var(--logo-blue)"/>
+  </symbol>
+</svg>
+
+<div class="wrap">
+  <header>
+    <div class="logo"><svg><use href="#logo-k"/></svg>KolayBi</div>
+    <p>KolayBi web sitesinin renk sistemi. Tüm renkler <code>css/renkler.css</code> dosyasından gelir; bu sayfa o dosyayı canlı okur. Bir renge tıklayınca değişken adı kopyalanır.</p>
+  </header>
+
+  <section>
+    <h2>Logo renkleri</h2>
+    <p class="lead">Her şey bu üç renkten türetilir. K işaretinin katmanları soldan sağa mavi, orta mavi ve camgöbeğidir; yazı siyahtır.</p>
+    <div class="logo-row" id="logoRow"></div>
+    <div class="gradient-bar">--brand-gradient</div>
+  </section>
+
+  <section>
+    <h2>Palet</h2>
+    <p class="lead">Ham renk skalaları. Sayfa kodunda doğrudan kullanmak yerine aşağıdaki anlamsal rolleri veya ürün temalarını tercih edin.</p>
+    <div id="scales"></div>
+  </section>
+
+  <section>
+    <h2>Anlamsal roller</h2>
+    <p class="lead">Rengin ne için kullanıldığını söyleyen isimler. Sayfa CSS'i çoğunlukla bunları kullanır.</p>
+    <div class="roles" id="roles"></div>
+  </section>
+
+  <section>
+    <h2>Ürün temaları</h2>
+    <p class="lead">Bir elemana <code>.theme-ofis</code>, <code>.theme-jet</code>, <code>.theme-banka</code> veya <code>.theme-link</code> sınıfı verildiğinde içindeki her şey o ürünün renklerini alır. Hero panelleri, menü kartları ve segment ikonları bu sınıfları kullanır.</p>
+    <div class="themes">
+      <div class="theme-card theme-ofis">
+        <div class="pmark"><small>KolayBi</small><b>Ofis</b></div>
+        <span class="eyebrow">KOBİ / Büyüyen İşletme</span>
+        <h3>Tüm ön muhasebesini <em>tek yerden</em> yönetmek isteyenlere</h3>
+        <a class="demo-btn">Ücretsiz Kayıt Ol<span>↗</span></a><a class="demo-link">Ofis'i İnceleyin →</a>
+        <div class="tokens"></div>
+      </div>
+      <div class="theme-card theme-jet">
+        <div class="pmark"><small>KolayBi</small><b>Jet</b></div>
+        <span class="eyebrow">Esnaf / Mikro İşletme</span>
+        <h3>Sadece <em><span class="nw">e-Fatura</span> kesmek</em> isteyenlere</h3>
+        <a class="demo-btn">Ücretsiz Kayıt Ol<span>↗</span></a><a class="demo-link">Jet'i İnceleyin →</a>
+        <div class="tokens"></div>
+      </div>
+      <div class="theme-card theme-banka">
+        <div class="pmark"><small>KolayBi</small><b>Banka</b></div>
+        <span class="eyebrow">Banka Hesaplarını Yönetenler</span>
+        <h3>Banka ve nakit takibini <em>otomatikleştirenlere</em></h3>
+        <a class="demo-btn">Ücretsiz Kayıt Ol<span>↗</span></a><a class="demo-link">Banka Entegrasyonunu İnceleyin →</a>
+        <div class="tokens"></div>
+      </div>
+      <div class="theme-card theme-link">
+        <div class="pmark"><small>KolayBi</small><b>Link</b></div>
+        <span class="eyebrow">Mali Müşavirler</span>
+        <h3>Süreçlerini <em>hızlandıran</em> mali müşavirlere</h3>
+        <a class="demo-btn">Ücretsiz Kayıt Ol<span>↗</span></a><a class="demo-link">Link'i İnceleyin →</a>
+        <div class="tokens"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Kullanım kuralları</h2>
+    <div class="rules" style="margin-top:20px">
+      <div class="rule"><b>Sabit renk yazmayın</b><p>Yeni bir bileşende <code>#3A69EC</code> gibi değerler yerine <code>var(--primary)</code> kullanın. Saydamlık için <code>color-mix(in srgb, var(--blue-500) 30%, transparent)</code>.</p></div>
+      <div class="rule"><b>Yeni renk önce palete</b><p>Gerçekten yeni bir renk gerekiyorsa <code>renkler.css</code> içindeki palete ekleyin, sonra bir rol ya da tema üzerinden kullanın.</p></div>
+      <div class="rule"><b>Vurgu = sarı, ücretsiz = yeşil</b><p>Kampanya ve hediye vurguları <code>--accent</code> (sarı), "Ücretsiz" etiketleri <code>--green</code>. Bu iki rengi başka anlamlar için kullanmayın.</p></div>
+    </div>
+  </section>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+  const css = getComputedStyle(document.documentElement);
+  const val = n => css.getPropertyValue(n).trim();
+  const toast = document.getElementById('toast');
+  function copy(name) {
+    const text = `var(${name})`;
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).catch(() => {});
+    toast.textContent = text + ' kopyalandı';
+    toast.classList.add('show');
+    clearTimeout(copy.t); copy.t = setTimeout(() => toast.classList.remove('show'), 1400);
+  }
+
+  // Logo renkleri
+  [['--logo-blue', 'Mavi', 'Sol katman · ana marka rengi'], ['--logo-mid', 'Orta mavi', 'Kesişim katmanı'], ['--logo-cyan', 'Camgöbeği', 'Sağ katman'], ['--logo-ink', 'Logo yazısı', '"KolayBi" kelimesi']]
+    .forEach(([n, t, d]) => {
+      const el = document.createElement('div');
+      el.className = 'big-sw';
+      el.innerHTML = `<i style="background:var(${n})"></i><div><b>${t}</b><code>${n} · ${val(n)}</code><br><small style="color:var(--muted)">${d}</small></div>`;
+      el.onclick = () => copy(n);
+      document.getElementById('logoRow').append(el);
+    });
+
+  // Palet skalaları: renkler.css'teki değişkenleri ada göre gruplar
+  const scales = [
+    ['blue', 'Mavi', 'ana marka · Ofis'], ['cyan', 'Camgöbeği', 'logo sağ katman · Jet'], ['navy', 'Lacivert', 'başlıklar, koyu yüzeyler · Banka'],
+    ['indigo', 'Çivit', 'Link'], ['yellow', 'Sarı', 'vurgu, kampanya'], ['green', 'Yeşil', 'başarı, ücretsiz'], ['gray', 'Nötr', 'metin, kenarlık, zemin'], ['dark', 'Koyu', 'fotoğraflı bantlar']
+  ];
+  const names = [...new Set([...document.styleSheets].flatMap(sh => { try { return [...sh.cssRules]; } catch { return []; } })
+    .filter(r => r.selectorText === ':root').flatMap(r => [...r.style]).filter(p => p.startsWith('--')))];
+  scales.forEach(([key, title, note]) => {
+    const tokens = names.filter(n => new RegExp(`^--${key}-\\d{2,}$`).test(n));
+    if (!tokens.length) return;
+    const box = document.createElement('div');
+    box.className = 'scale';
+    box.innerHTML = `<h3>${title}<span>${note}</span></h3><div class="chips"></div>`;
+    tokens.forEach(n => {
+      const b = document.createElement('button');
+      b.className = 'sw';
+      b.innerHTML = `<i style="background:var(${n})"></i><div><code>${n}</code><code>${val(n)}</code></div>`;
+      b.onclick = () => copy(n);
+      box.querySelector('.chips').append(b);
+    });
+    document.getElementById('scales').append(box);
+  });
+
+  // Anlamsal roller
+  [['--primary', 'Ana eylem: butonlar, bağlantılar'], ['--primary-dark', 'Ana eylem üzerine gelince'], ['--primary-soft', 'Açık mavi zemin, seçili menü'],
+   ['--navy', 'Koyu başlık ve yüzeyler'], ['--accent', 'Vurgu: kampanya, hediye'], ['--green', '"Ücretsiz", başarı'], ['--success-soft', 'Başarı etiketi zemini'],
+   ['--ink', 'Ana metin'], ['--ink-2', 'İkincil metin'], ['--muted', 'Açıklama, etiket'], ['--line', 'Kenarlık'], ['--bg', 'Sayfa zemini'], ['--card', 'Kart zemini']]
+    .forEach(([n, d]) => {
+      const el = document.createElement('div');
+      el.className = 'role';
+      el.innerHTML = `<i style="background:var(${n})"></i><div><code>${n}</code><small>${d}</small></div>`;
+      el.onclick = () => copy(n);
+      document.getElementById('roles').append(el);
+    });
+
+  // Ürün temalarının değişkenleri
+  document.querySelectorAll('.theme-card').forEach(card => {
+    const cs = getComputedStyle(card);
+    card.querySelector('.tokens').innerHTML = ['--c', '--c-accent', '--logo', '--bg-a', '--bg-b']
+      .map(n => `<div><i style="background:var(${n})"></i><code>${n}</code><code style="color:var(--muted);margin-left:auto">${cs.getPropertyValue(n).trim()}</code></div>`).join('');
+  });
+</script>
+</body>
+</html>

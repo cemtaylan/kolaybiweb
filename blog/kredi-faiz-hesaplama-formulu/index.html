@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kredi Faizi Nasıl Hesaplanır? Faiz Hesaplama Formülü | KolayBi</title>
+<meta name="description" content="Kredi faiz hesaplama formülü ve örnekleriyle kredi maliyetlerini kolayca öğrenin. Ev kredisi, ihtiyaç kredisi ve mevduat faiz hesaplamayı keşfedin!">
+<link rel="canonical" href="https://www.kolaybi.com/blog/kredi-faiz-hesaplama-formulu">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/renkler.css?v=6">
+<link rel="stylesheet" href="/css/site.css?v=72">
+<link rel="stylesheet" href="/css/blog.css?v=2"><link rel="stylesheet" href="/css/post.css?v=2">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="KolayBi">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:url" content="https://www.kolaybi.com/blog/kredi-faiz-hesaplama-formulu">
+<meta property="og:title" content="Kredi Faizi Nasıl Hesaplanır? Faiz Hesaplama Formülü | KolayBi">
+<meta property="og:description" content="Kredi faiz hesaplama formülü ve örnekleriyle kredi maliyetlerini kolayca öğrenin. Ev kredisi, ihtiyaç kredisi ve mevduat faiz hesaplamayı keşfedin!">
+<meta property="og:image" content="https://www.kolaybi.com/img/blog/kapak/kredi-faiz-hesaplama-formulu.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@kolaybicom">
+<meta name="twitter:title" content="Kredi Faizi Nasıl Hesaplanır? Faiz Hesaplama Formülü | KolayBi">
+<meta name="twitter:description" content="Kredi faiz hesaplama formülü ve örnekleriyle kredi maliyetlerini kolayca öğrenin. Ev kredisi, ihtiyaç kredisi ve mevduat faiz hesaplamayı keşfedin!">
+<meta name="twitter:image" content="https://www.kolaybi.com/img/blog/kapak/kredi-faiz-hesaplama-formulu.webp">
+</head>
+<body>
+
+<!-- SVG ikon tanımları -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- KolayBi K işareti (logo görselinden yaklaşık çizim; resmi SVG gelince değiştirin) -->
+  <symbol id="logo-k" viewBox="0 0 248 226">
+    <path d="M70 0h112c38 0 64 26 64 58 0 22-11 40-29 50 22 10 31 29 31 52 0 38-30 66-70 66H70z" fill="var(--logo-cyan)"/>
+    <path d="M70 0h104c9 0 14 9 10 16l-62 90c-3 4-3 10 0 14l62 90c4 7-1 16-10 16H70z" fill="var(--logo-mid)"/>
+    <path d="M14 0h56v226H14C6 226 0 220 0 212V14C0 6 6 0 14 0z" fill="var(--logo-blue)"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="m8 12.5 2.6 2.5L16 9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-invoice" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z M14 3v5h5 M9 12h7 M9 16h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 10 12 4l9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-sign" viewBox="0 0 24 24"><path d="M4 18c3-6 5-9 7-9s0 7 2 7 3-3 4-4M4 21h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9h16l-1-5H5zM5 9v11h14V9M10 20v-6h4v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 4h2l2.5 11h11L21 7H6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="19.5" r="1.5" fill="currentColor"/><circle cx="17" cy="19.5" r="1.5" fill="currentColor"/></symbol>
+  <symbol id="i-calc" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 7h8M8 12h2M14 12h2M8 16h2M14 16h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8 6.6 19.7l1.1-6.1L3.2 9.4l6.1-.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 4 5v14c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5zM12 6.5V20.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-help" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.4c-.6.3-1 .8-1 1.5v.6M12 17h.01"/></g></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10.5 9.5v5l4-2.5z"/></g></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0zM12 17v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-ofis" viewBox="0 0 24 24"><path d="M5 4h9v16H5zM14 8h5v12h-5M8 8h3M8 12h3M8 16h3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-jet" viewBox="0 0 24 24"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM8 13h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 20c.8-3.5 3.2-5.5 6-5.5s5.2 2 6 5.5M16 4.5a3.5 3.5 0 0 1 0 7M18 14.8c1.6.8 2.6 2.6 3 5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-flow" viewBox="0 0 24 24"><path d="M4 8h13l-3-3M20 16H7l3 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 16v-4M12 16V8M16 16v-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3 20 7.5v9L12 21l-8-4.5v-9zM4 7.5l8 4.5 8-4.5M12 12v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-order" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="17" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 9h16M9 14h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 3v4M16 3v4M3.5 10h17M9 15h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-archive" viewBox="0 0 24 24"><path d="M3.5 4.5h17v4h-17zM5 8.5V20h14V8.5M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9h4l3 3.5V16h-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="7" cy="18" r="2" fill="#fff" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="18" r="2" fill="#fff" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.7 3.6 5.7 3.6 9s-1.1 6.3-3.6 9c-2.5-2.7-3.6-5.7-3.6-9S9.5 5.7 12 3z" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><path d="M4 11h16v9H4zM3 7h18v4H3zM12 7v13M12 7c-1-3-5-4-5-1.5S12 7 12 7zm0 0c1-3 5-4 5-1.5S12 7 12 7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-bridge" viewBox="0 0 24 24"><path d="M3 16c3-6 15-6 18 0M3 16h18M7 12.5V16M12 11v5M17 12.5V16M3 20h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M4 7a2 2 0 0 1 2-2h11v4M4 7v11a2 2 0 0 0 2 2h14V9H6a2 2 0 0 1-2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="16" cy="14.5" r="1.3" fill="currentColor"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="7.5" cy="8.5" r="1.4" fill="currentColor"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 20c.8-3.5 3-5.5 6-5.5 1.4 0 2.6.4 3.6 1.2M18 13v7M14.5 16.5h7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 10h18M7 15h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check-solid" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="s-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="s-facebook" viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v7h4v-7h3l.5-4h-3.5V8.8c0-.5.3-.8.5-.8z" fill="currentColor"/></symbol>
+  <symbol id="s-linkedin" viewBox="0 0 24 24"><path d="M4 9h3.5v11H4zM5.7 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM9.5 9H13v1.6c.6-1 1.9-1.9 3.8-1.9 3.4 0 4.2 2.2 4.2 5.2V20h-3.5v-5.4c0-1.4-.2-2.8-1.9-2.8s-2.1 1.3-2.1 2.7V20H9.5z" fill="currentColor"/></symbol>
+  <symbol id="s-youtube" viewBox="0 0 24 24"><path d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2 27 27 0 0 0 2 12a27 27 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.8zM10 15V9l5.2 3z" fill="currentColor"/></symbol>
+  <symbol id="s-x" viewBox="0 0 24 24"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z" fill="currentColor"/></symbol>
+  <symbol id="s-tiktok" viewBox="0 0 24 24"><path d="M16.5 3c.4 2.3 1.9 3.8 4.2 4v3.2c-1.6 0-3-.5-4.2-1.3v6.4A6.2 6.2 0 1 1 10.3 9v3.3a3 3 0 1 0 3 3V3z" fill="currentColor"/></symbol>
+  <symbol id="s-whatsapp" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M9 8.3c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c.6 1.1 1.5 2 2.6 2.6l.6-.6c.2-.2.4-.2.6-.1l1.6.8c.3.1.4.3.3.6-.2.9-1 1.6-1.9 1.6-3.2-.2-6-3-6.2-6.2 0-.6.2-1.1.6-1.5z" fill="currentColor"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="9" cy="10" r="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m4 18 5-5 4 4 3-3 4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+</svg>
+
+<!-- ============ HEADER ============ -->
+<header class="header">
+  <div class="container">
+    <a href="/" class="logo" aria-label="KolayBi ana sayfa"><svg class="logo-mark" aria-hidden="true"><use href="#logo-k"/></svg>KolayBi</a>
+    <nav class="nav" id="nav">
+
+      <!-- Ürünler -->
+      <div class="nav-item has-mega">
+        <details class="nav-dd"><summary class="nav-link">Ürünler<svg class="chev"><use href="#i-chev"/></svg></summary>
+        <div class="mega" id="mega-1">
+          <div class="mega-inner mega-products">
+            <div class="mega-grid">
+              <a href="/kolay-on-muhasebe-programi" class="mi mi-lg theme-ofis"><span class="mi-mark" aria-hidden="true"><small>KolayBi</small><b>Ofis</b></span><div><span class="sr-only">KolayBi Ofis</span><span>En kolay ön muhasebe yönetimi</span></div><svg class="go"><use href="#i-right"/></svg></a>
+              <a href="/kolaybi-jet" class="mi mi-lg theme-jet"><span class="mi-mark" aria-hidden="true"><small>KolayBi</small><b>Jet</b></span><div><span class="sr-only">KolayBi Jet</span><span>Sadece e-Fatura kesmek isteyenler için</span></div><svg class="go"><use href="#i-right"/></svg></a>
+              <a href="/online-banka-entegrasyonu" class="mi mi-lg theme-banka"><span class="mi-mark" aria-hidden="true"><small>KolayBi</small><b>Banka</b></span><div><span class="sr-only">KolayBi Banka</span><span>Tüm banka hesaplarınız tek ekranda</span></div><svg class="go"><use href="#i-right"/></svg></a>
+              <a href="/bilink" class="mi mi-lg theme-link"><span class="mi-mark" aria-hidden="true"><small>KolayBi</small><b>Link</b></span><div><span class="sr-only">KolayBi Link</span><span>Mali müşavirler için mükellef yönetim portalı</span></div><svg class="go"><use href="#i-right"/></svg></a>
+            </div>
+            <div class="mega-promo">
+              <span class="eyebrow">Kampanya</span>
+              <p class="mega-promo-title">Sınırsız ve ücretsiz <em><span class="nw">e-Fatura</span> kontörü</em> avantajı!</p>
+              <div class="promo-stat"><strong>∞</strong><span>kontör, ek ücret yok</span></div>
+              <a href="/#kampanya" class="btn btn-light">Kampanyayı İnceleyin<span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
+            </div>
+          </div>
+        </div></details>
+      </div>
+
+      <!-- Özellikler -->
+      <div class="nav-item has-mega">
+        <details class="nav-dd"><summary class="nav-link">Özellikler<svg class="chev"><use href="#i-chev"/></svg></summary>
+        <div class="mega" id="mega-2">
+          <div class="mega-inner mega-features">
+            <div class="mega-col">
+              <span class="mega-title">Ön Muhasebe Yönetimi</span>
+              <div class="mega-list">
+                <a href="/cari-hesap-programi" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-users"/></svg></span><div><b>Cari Hesap Takibi</b><span>Cari bakiyeleri takip edin</span></div></a>
+                <a href="/fatura-kesme-programi" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-invoice"/></svg></span><div><b>Fatura Takibi</b><span>Gelen ve giden faturaları izleyin</span></div></a>
+                <a href="/gelir-gider-takip-programi" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-flow"/></svg></span><div><b>Gelir ve Gider Takibi</b><span>Nakit akışı ve harcamanızı izleyin</span></div></a>
+                <a href="/on-muhasebe-raporlama-programi" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-chart"/></svg></span><div><b>Raporlama</b><span>Finansal durumunuzu takip edin</span></div></a>
+                <a href="/stok-takip-programi" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-box"/></svg></span><div><b>Depo ve Stok Yönetimi</b><span>Stok seviyelerini takip edin</span></div></a>
+                <a href="/siparis-takip-programi" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-order"/></svg></span><div><b>Sipariş Yönetimi</b><span>Siparişleri tekliften teslimata yönetin</span></div></a>
+                <a href="/proje-gelir-gider-takibi" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-calendar"/></svg></span><div><b>Proje Takibi</b><span>Proje kârlılığını ve maliyetini ölçün</span></div></a>
+              </div>
+            </div>
+            <div class="mega-col">
+              <span class="mega-title">e-Belge</span>
+              <div class="mega-list">
+                <a href="/e-fatura" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-invoice"/></svg></span><div><b>e-Fatura</b><span>Müşterilerinize e-Fatura kesin</span></div></a>
+                <a href="/e-arsiv" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-archive"/></svg></span><div><b>e-Arşiv</b><span>e-Arşiv faturası oluşturun</span></div></a>
+                <a href="/e-irsaliye" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-truck"/></svg></span><div><b>e-İrsaliye</b><span>Sevkiyat süreçlerinizi kolaylaştırın</span></div></a>
+                <a href="/e-ihracat-programi" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-globe"/></svg></span><div><b>e-İhracat</b><span>İhracat faturanızı düzenleyin</span></div></a>
+                <a href="/e-smm-programi" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-receipt"/></svg></span><div><b>e-SMM</b><span>Hizmet ödemelerini belgeleyin</span></div></a>
+                <a href="/e-imza-programi" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-sign"/></svg></span><div><b>e-İmza</b><span>Resmi e-İmzanızı edinin</span></div></a>
+              </div>
+            </div>
+            <div class="mega-col">
+              <span class="mega-title">Ayrıcalıklar</span>
+              <div class="mega-list">
+                <a href="/kolaybi-e-faturam" class="mi-hero"><span class="mh-inf" aria-hidden="true">∞</span><span class="mh-tag">En büyük avantaj</span><b>Sınırsız <span class="nw">e-Fatura</span> kontörü</b><span class="mh-sub">KolayBi’ye geçen işletmelere 3 büyük avantaj</span><span class="mh-chips"><i>∞ Kontör</i><i>1 yıl <span class="nw">e-İmza</span></i><i>Banka</i></span><span class="mh-go">Avantajları inceleyin<svg><use href="#i-arrow"/></svg></span></a>
+                <a href="/kolaybiye-gecis" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-flow"/></svg></span><div><b>KolayBi’ye Geçiş</b><span>Verilerinizi destekle aktarın</span></div></a>
+                <a href="/kampanyalar/qnb-dijital-kopru" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-bridge"/></svg></span><div><b>Dijital Köprü</b><span>QNB Dijital Köprü ayrıcalıkları</span></div></a>
+                <a href="/kampanyalar/davet-et-kazan" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-share"/></svg></span><div><b>Davet Et Kazan</b><span>Arkadaşlarınızı davet edin, kazanın</span></div></a>
+              </div>
+            </div>
+          </div>
+        </div></details>
+      </div>
+
+      <!-- Entegrasyonlar -->
+      <div class="nav-item has-mega">
+        <details class="nav-dd"><summary class="nav-link">Entegrasyonlar<svg class="chev"><use href="#i-chev"/></svg></summary>
+        <div class="mega" id="mega-3">
+          <div class="mega-inner mega-integrations">
+            <div class="mega-grid">
+              <a href="/pazaryeri-entegrasyonu" class="mi mi-lg theme-ofis"><span class="mi-ic"><svg><use href="#i-cart"/></svg></span><div><b>e-Ticaret/Pazaryeri Entegrasyonu</b><span>Trendyol, Hepsiburada ve web sitenizdeki siparişleri anında faturalaştırın</span></div><svg class="go"><use href="#i-right"/></svg></a>
+              <a href="/online-banka-entegrasyonu" class="mi mi-lg theme-banka"><span class="mi-ic"><svg><use href="#i-bank"/></svg></span><div><b>Banka Entegrasyonu</b><span>Hesap hareketlerinizi KolayBi'ye aktarın</span></div><svg class="go"><use href="#i-right"/></svg></a>
+              <a href="/sanal-pos-entegrasyonu" class="mi mi-lg theme-link"><span class="mi-ic"><svg><use href="#i-card"/></svg></span><div><b>Sanal POS</b><span>Uzaktan tahsilat yapın</span></div><svg class="go"><use href="#i-right"/></svg></a>
+              <a href="https://developer.kolaybi.com/#operations-top" class="mi mi-lg theme-jet"><span class="mi-ic"><svg><use href="#i-plug"/></svg></span><div><b>Ücretsiz API</b><span>Kendi yazılımınızı KolayBi'ye bağlayın</span></div><svg class="go"><use href="#i-right"/></svg></a>
+            </div>
+            <div class="mega-promo">
+              <span class="eyebrow">KolayBi Plus</span>
+              <p class="mega-promo-title">İşinizi büyütecek <em>3 avantaj</em></p>
+              <ul class="promo-gifts">
+                <li class="top"><svg><use href="#i-invoice"/></svg><span>Sınırsız <span class="nw">e-Fatura</span> Kontörü<span class="free">Ücretsiz</span></span></li>
+                <li><svg><use href="#i-bank"/></svg>Banka Entegrasyonu<span class="free">Ücretsiz</span></li>
+                <li><svg><use href="#i-sign"/></svg><span>1 Yıllık <span class="nw">e-İmza</span><span class="free">Ücretsiz</span></span></li>
+              </ul>
+              <a href="/#kampanya" class="btn btn-light">Avantajlardan Yararlanın<span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
+            </div>
+          </div>
+        </div></details>
+      </div>
+
+      <div class="nav-item"><a href="/ai-muhasebe" class="nav-link">AI Muhasebe<span class="nav-new">Yeni</span></a></div>
+      <div class="nav-item"><a href="/kolaybi-e-faturam" class="nav-link">Ücretsiz e-Fatura</a></div>
+      <div class="nav-item"><a href="/fiyatlar" class="nav-link">Fiyatlar</a></div>
+      <!-- Destek -->
+      <div class="nav-item has-mega">
+        <details class="nav-dd"><summary class="nav-link active">Destek<svg class="chev"><use href="#i-chev"/></svg></summary>
+        <div class="mega" id="mega-4">
+          <div class="mega-inner mega-help-menu">
+            <div class="mega-grid">
+              <a href="/blog" class="mi mi-lg theme-ofis"><span class="mi-ic"><svg><use href="#i-book"/></svg></span><div><b>Blog</b><span>Ön muhasebe, vergi ve <span class="nw">e-Dönüşüm</span> rehberleri</span></div><svg class="go"><use href="#i-right"/></svg></a>
+              <a href="/kullanim-videolari" class="mi mi-lg theme-jet"><span class="mi-ic"><svg><use href="#i-play"/></svg></span><div><b>Kullanım Videoları</b><span>İşlemleri kısa videolarla adım adım öğrenin</span></div><svg class="go"><use href="#i-right"/></svg></a>
+              <a href="/sikca-sorulan-sorular" class="mi mi-lg theme-link"><span class="mi-ic"><svg><use href="#i-help"/></svg></span><div><b>Sıkça Sorulan Sorular</b><span>Merak edilen soruların yanıtları</span></div><svg class="go"><use href="#i-right"/></svg></a>
+              <a href="/referanslar" class="mi mi-lg theme-ofis"><span class="mi-ic"><svg><use href="#i-star"/></svg></span><div><b>Referanslar</b><span>KolayBi kullanan işletmelerin deneyimleri</span></div><svg class="go"><use href="#i-right"/></svg></a>
+              <a href="/iletisim" class="mi mi-lg theme-jet"><span class="mi-ic"><svg><use href="#i-chat"/></svg></span><div><b>İletişim</b><span>Telefon, e-posta ve ofis bilgilerimiz</span></div><svg class="go"><use href="#i-right"/></svg></a>
+            </div>
+            <div class="mega-promo mega-contact">
+              <span class="eyebrow">Destek</span>
+              <p class="mega-promo-title">Yardıma mı <em>ihtiyacınız var?</em></p>
+              <p>Destek ekibimiz hafta içi 09:00–18:00 arası yanınızda.</p>
+              <div class="mc-links">
+                <a href="tel:08503030667"><svg><use href="#i-phone"/></svg>0 (850) 303 06 67</a>
+                <a href="mailto:iletisim@kolaybi.com"><svg><use href="#i-mail"/></svg>iletisim@kolaybi.com</a>
+              </div>
+              <a href="/iletisim" class="btn btn-light">Bize Ulaşın<span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
+            </div>
+          </div>
+        </div></details>
+      </div>
+    </nav>
+    <div class="header-cta">
+      <a href="https://app.kolaybi.com/?activeForm=login" class="login">Giriş</a>
+      <a href="https://app.kolaybi.com/?activeForm=register" class="btn btn-primary"><span><span class="long">14 Gün </span>Ücretsiz Deneyin</span><span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
+      <button class="menu-btn" aria-label="Menüyü aç" onclick="document.getElementById('nav').classList.toggle('open')"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="read-progress" aria-hidden="true"></div>
+
+<article>
+<header class="ps-hero">
+  <div class="container">
+    <div class="ps-head theme-banka">
+      <nav class="crumbs" aria-label="Sayfa yolu"><a href="/">KolayBi</a><svg><use href="#i-right"/></svg><a href="/blog">Blog</a><svg><use href="#i-right"/></svg><span>Bankacılık</span></nav>
+      <span class="post-tag">Bankacılık</span>
+      <h1>Kredi Faizi Nasıl Hesaplanır? Faiz Hesaplama Formülü</h1>
+      <p class="lead">Kredi faiz hesaplama formülü ve örnekleriyle kredi maliyetlerini kolayca öğrenin. Ev kredisi, ihtiyaç kredisi ve mevduat faiz hesaplamayı keşfedin!</p>
+      <div class="ps-meta">
+        <div class="ps-author"><img src="/img/blog/yazar/04eb803621.webp" alt="Simge Gürel" width="500" height="500"><div><b>Simge Gürel</b><small>İçerik Yazarı</small></div></div>
+        <div class="ps-facts"><span><svg><use href="#i-calendar"/></svg><time datetime="2023-07-18">18 Temmuz 2023</time></span><span><svg><use href="#i-flow"/></svg>Güncellendi: <time datetime="2026-04-19">19 Nisan 2026</time></span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>8 dk okuma</span></div>
+      </div>
+    </div>
+    <div class="ps-cover"><img src="/img/blog/kapak/kredi-faiz-hesaplama-formulu.webp" alt="Kredi Faizi Nasıl Hesaplanır? Faiz Hesaplama Formülü" width="1080" height="720"></div>
+  </div>
+</header>
+
+<div class="container ps-body">
+  <aside class="ps-side">
+    <nav class="toc" aria-label="İçindekiler"><b>Bu içerikte neler var?</b><ol><li><a class="h2" href="#kredi-faiz-hesaplama-formulu-nedir">Kredi Faiz Hesaplama Formülü Nedir?</a></li><li><a class="h2" href="#kredi-hesaplama-araci">Kredi Hesaplama Aracı</a></li><li><a class="h2" href="#kredi-faizi-hesaplama-araci">Kredi Faizi Hesaplama Aracı</a></li><li><a class="h2" href="#kredi-faizi-nedir">Kredi Faizi Nedir?</a></li><li><a class="h2" href="#faiz-orani-ile-kredi-hesaplama-nasil-yapilir">Faiz Oranı ile Kredi Hesaplama Nasıl Yapılır?</a></li><li><a class="h2" href="#ev-kredisi-ve-i-htiyac-kredisi-hesaplama-yontemleri">Ev Kredisi ve İhtiyaç Kredisi Hesaplama Yöntemleri</a></li><li><a class="h2" href="#mevduat-faiz-hesaplama-formulu">Mevduat Faiz Hesaplama Formülü</a></li><li><a class="h2" href="#kredi-faizi-hesaplama-ornegi">Kredi Faizi Hesaplama Örneği</a></li><li><a class="h2" href="#kredi-hesaplama-sikca-sorulan-sorular-faq">Kredi Hesaplama Sıkça Sorulan Sorular (FAQ)</a></li><li><a class="h3" href="#kredi-faiz-oranlari-neden-degisir">Kredi Faiz Oranları Neden Değişir?</a></li><li><a class="h3" href="#faiz-orani-ile-mevduat-faizi-nasil-hesaplanir">Faiz Oranı ile Mevduat Faizi Nasıl Hesaplanır?</a></li><li><a class="h3" href="#kredi-faiz-hesaplama-formulu-nedir-2">Kredi Faiz Hesaplama Formülü Nedir?</a></li><li><a class="h3" href="#ev-kredisi-faiz-orani-nasil-hesaplanir">Ev Kredisi Faiz Oranı Nasıl Hesaplanır?</a></li><li><a class="h3" href="#mevduat-faiz-hesaplama-yontemi-nedir">Mevduat Faiz Hesaplama Yöntemi Nedir?</a></li></ol></nav>
+    <div class="side-cta"><b>Ön muhasebe <em>tek ekranda</em></b><p>Fatura, cari, stok ve banka takibini KolayBi ile yönetin.</p><a href="https://app.kolaybi.com/?activeForm=register" class="btn btn-light">Ücretsiz Deneyin<span class="arr"><svg><use href="#i-arrow"/></svg></span></a></div>
+    <div class="share"><span>Paylaş</span>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.kolaybi.com%2Fblog%2Fkredi-faiz-hesaplama-formulu" target="_blank" rel="noopener" aria-label="LinkedIn'de paylaş"><svg><use href="#s-linkedin"/></svg></a>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.kolaybi.com%2Fblog%2Fkredi-faiz-hesaplama-formulu&amp;text=Kredi%20Faizi%20Nas%C4%B1l%20Hesaplan%C4%B1r%3F%20Faiz%20Hesaplama%20Form%C3%BCl%C3%BC" target="_blank" rel="noopener" aria-label="X'te paylaş"><svg><use href="#s-x"/></svg></a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.kolaybi.com%2Fblog%2Fkredi-faiz-hesaplama-formulu" target="_blank" rel="noopener" aria-label="Facebook'ta paylaş"><svg><use href="#s-facebook"/></svg></a>
+          <a href="https://wa.me/?text=Kredi%20Faizi%20Nas%C4%B1l%20Hesaplan%C4%B1r%3F%20Faiz%20Hesaplama%20Form%C3%BCl%C3%BC%20https%3A%2F%2Fwww.kolaybi.com%2Fblog%2Fkredi-faiz-hesaplama-formulu" target="_blank" rel="noopener" aria-label="WhatsApp ile paylaş"><svg><use href="#s-whatsapp"/></svg></a>
+          <button type="button" data-copy aria-label="Bağlantıyı kopyala"><svg><use href="#i-check-solid"/></svg></button>
+        </div>
+  </aside>
+  <div>
+    <div class="prose">
+<p>Finansal kararlar alırken <strong>kredi faiz hesaplama</strong> süreci, bütçenizi etkileyen en kritik adımlardan biridir. Ev satın alırken, ihtiyaçlarınızı karşılamak için nakit ihtiyacınız olduğunda ya da yatırım yapmak istediğinizde <strong>kredi hesaplama</strong> araçları ile doğru planlama yapmak, borçlanma maliyetinizi minimize eder. Bu rehberde, kredi faizi hesaplama sürecinin detaylarını, farklı kredi faiz oranları hesaplama yöntemlerini ve örnekleri detaylıca ele alacağız.</p><h2 id="kredi-faiz-hesaplama-formulu-nedir">Kredi Faiz Hesaplama Formülü Nedir?</h2><p>Kredi faiz hesaplama işlemi, kredi türüne, ödeme planına ve faiz türüne göre farklılık gösterebilir. Ancak en temel düzeyde kullanılan <strong>kredi hesaplama formülü</strong> sabit faizli kredilerde aşağıdaki şekilde uygulanır:</p><p><em>Aylık Ödeme Tutarı = Anapara x (Faiz Oranı / 100) x Vade + Anapara</em></p><p>Bu basit formül, yalnızca ana para ve faiz üzerinden yapılan bir hesaplamadır ve genellikle kısa vadeli, sabit faizli kredi senaryolarında geçerlidir. Ancak gerçek dünyada bankalar çoğunlukla bileşik faiz yöntemiyle çalışır. Bu yöntemde her ay ödenen faiz tutarı, kalan anapara üzerinden hesaplanır ve ödeme planı her ay aynı kalacak şekilde düzenlenir. Böylece her taksitin içinde faiz ve anapara oranı değişerek ilerler.</p><p>Dahası, <strong>faiz oranı girerek kredi hesaplama</strong> yapılırken toplam geri ödeme miktarına BSMV (Banka Sigorta Muamele Vergisi) ve KKDF (Kaynak Kullanımı Destekleme Fonu) gibi yasal kesintiler de eklenir. Bu da ödenecek toplam tutarın, formülde görünen teorik rakamdan daha yüksek olmasına neden olabilir. Bu yüzden hesaplamalarda vergiler dahil brüt ödeme planı dikkate alınmalıdır.</p><h2 id="kredi-hesaplama-araci">Kredi Hesaplama Aracı</h2><p>Kredi çekmeden önce <strong>kredi oranı hesaplama</strong> yaparak vade, faiz ve anapara dengesini net olarak görebilirsiniz. Aşağıdaki kredi hesaplama aracı ile ister bireysel ihtiyaç kredisi, ister Kobi kredisi gibi ticari krediler için hesaplama yapabilirsiniz.</p><p>Bu araç sayesinde dilediğiniz kredi tutarını, vadesini ve faiz oranını girerek aylık ödemelerinizi, toplam geri ödeme tutarınızı ve toplam faiz maliyetinizi kolayca öğrenebilirsiniz. Ayrıca vergi oranlarını dahil ederek daha gerçekçi bir finansal planlama da yapmanız mümkün olur.</p>
+    
+        
+            <div class="inline-cta"><div><b>Ön muhasebenizi KolayBi ile kolaylaştırın</b><span>14 gün ücretsiz deneyin, kredi kartı gerekmez.</span></div><a href="https://app.kolaybi.com/?activeForm=register" class="btn btn-primary">Ücretsiz Deneyin<span class="arr"><svg><use href="#i-arrow"/></svg></span></a></div><h2 id="kredi-faizi-hesaplama-araci">Kredi Faizi Hesaplama Aracı</h2>
+            
+                
+                    Kredi Türü
+                    
+                        İhtiyaç Kredisi
+                        Konut Kredisi
+                        Taşıt Kredisi
+                        KOBİ Kredisi
+                    
+
+                    Kredi Tutarı
+                    
+
+                    Kredi Vadesi (ay)
+                    
+                        3 Ay
+                        6 Ay
+                        9 Ay
+                        12 Ay
+                        18 Ay
+                        24 Ay
+                        30 Ay
+                        36 Ay
+                    
+
+                    Faiz Oranı (%)
+                    
+
+                    Hesapla
+
+                    
+                
+
+                
+            
+
+
+
+        
+        
+            
+        
+    
+
+
+
+
+
+
+
+<h2 id="kredi-faizi-nedir">Kredi Faizi Nedir?</h2><p>Kredi faizi, bankaların ödünç verdiği para miktarına uyguladığı ek ücrettir. Genellikle yıllık bazda ifade edilir ve kredi alıcısının geri ödemesinden önceki dönemdeki borcunun belli bir yüzdesini temsil eder. Kredi faiz oranı, bir kredi anlaşması yapılırken belirlenir ve genellikle borç verenin risk seviyesine, ekonomik koşullara ve piyasa faiz oranlarına bağlı olarak değişebilir.</p><p>Kredi faizleri, bankalar, finans kuruluşları veya diğer kredi sağlayıcılar tarafından belirlenir. Faiz oranları, krediyi alan kişinin veya kurumun kredi geçmişi, gelir düzeyi, teminat durumu gibi faktörlere göre belirlenebilir. </p><p>İyi bir kredi geçmişi olan ve güvenilir bir mali durumu olan bireyler, genellikle daha düşük faiz oranlarından yararlanabilirken daha riskli bir profili olan veya düşük kredi skoruna sahip olan kişiler; daha yüksek faiz oranlarıyla karşılaşabilir. Dolayısıyla faiz oranına göre kredi hesaplama noktasında da kişinin kredi notu kendisine banka tarafından sunulacak faiz oranlarını etkilemektedir.</p><p>Faizler konusunda unutulmaması gereken nokta, önemli bir mali yük oluşturabileceğidir. Yüksek faiz oranları, kredi geri ödeme süresince toplam geri ödeme miktarını artırabilir ve kredi ödemelerini zorlaştırabilir. Bu nedenle, kredi almadan önce faiz oranlarını karşılaştırmak ve en uygun faiz oranına sahip bir kredi bulmak önemlidir.</p><p>Ekonomik koşullar, merkez bankası politikaları ve piyasa talepleri gibi faktörler, genel kredi faiz oranlarını etkileyebilir. Düşük faiz oranları, ekonomik büyümeyi desteklemek ve tüketici harcamalarını teşvik etmek için kullanılabilirken yüksek faiz oranları enflasyonu kontrol altında tutmak veya aşırı borçlanmayı sınırlamak amacıyla uygulanabilir. </p><p>Kredi faizleri, bireyler ve işletmeler için finansal planlama ve borç yönetimi açısından önemlidir. İyi bir kredi skoru ve mali durum, daha düşük faiz oranlarına erişmek için önemli bir faktördür. Ayrıca kredi geri ödemesi için uygun bir takvim oluşturmak, faiz ödemelerini ve toplam geri ödeme miktarını minimize etmek için gereklidir.</p><figure><img src="/img/blog/icerik/0a0aec6a1769.jpg" alt="cari hesap programı" loading="lazy" width="1000" height="562"></figure><h2 id="faiz-orani-ile-kredi-hesaplama-nasil-yapilir">Faiz Oranı ile Kredi Hesaplama Nasıl Yapılır?</h2><p><strong>Kredi faiz oranı hesaplama</strong> sürecinde genellikle kullanılan matematiksel yöntem aşağıdaki formüle dayanır:</p><p><em>Aylık Taksit = [Anapara x Aylık Faiz Oranı] / [1 - (1 + Aylık Faiz Oranı)<sup>-Vade]</sup></em></p><p>Bu formül, eşit taksitli kredi ödeme planlarının temelini oluşturur. Krediye ait faiz oranı aylık olarak ifade edilmeli, vade de ay cinsinden belirtilmelidir. Örnek üzerinden açıklayalım:</p><p>10.000 TL kredi, %1,5 aylık faiz oranı ve 12 ay vade ile alındığında:</p><ul><li>Aylık Taksit: Yaklaşık 934 TL</li><li>Toplam Ödeme: 11.208 TL</li><li>Toplam Faiz: 1.208 TL</li></ul><p>Bu hesaplama ile aylık taksitler sabit kalır. Ancak her taksitte anapara ve faiz oranı farklı olur. İlk taksitlerde faiz oranı daha yüksek olurken, sonraki taksitlerde faiz azalır, anapara oranı artar.</p><h2 id="ev-kredisi-ve-i-htiyac-kredisi-hesaplama-yontemleri">Ev Kredisi ve İhtiyaç Kredisi Hesaplama Yöntemleri</h2><p>Ev kredisi hesaplama işlemlerinde kullanılan yöntem, genellikle sabit faizlidir. Konut kredileri yüksek tutarlı ve uzun vadeli olduğu için küçük faiz oranı değişiklikleri bile toplam ödeme üzerinde büyük farklar yaratabilir. Örneğin 1.000.000 TL'lik bir kredi için %1 faiz oranındaki fark, toplamda yüz binlerce TL'lik ek ödeme anlamına gelebilir.</p><p>Bankalar, <strong>kredi faiz oranları hesaplama</strong> yaparken sabit ve değişken faizli planlar sunabilir. Sabit faizli kredilerde tüm vade boyunca faiz oranı sabit kalır. Değişken faizli kredilerde ise piyasa koşullarına göre faiz oranı artabilir veya azalabilir. Her iki modelde de taksitler eşit olacak şekilde düzenlenir.</p><p><strong>İhtiyaç kredisi hesaplama</strong> ise daha kısa vadeli ve daha yüksek faiz oranlıdır. Bu kredilerde banka teminat almadığı için faiz yükü daha fazladır. Örneğin 12 ay vadeli 20.000 TL'lik bir kredi %2 faiz oranı ile alınırsa, aylık ödemeler yaklaşık 1.940 TL olur. Bu tutarın içinde anapara ve faiz dışında vergi kalemleri de yer alır.</p><h2 id="mevduat-faiz-hesaplama-formulu">Mevduat Faiz Hesaplama Formülü</h2><p>Yatırımcılar için de <strong>mevduat faiz hesaplama</strong> oldukça önemlidir. Çünkü yatırılan paranın hangi faiz oranı ile hangi sürede ne kadar kazandıracağı, karar sürecini doğrudan etkiler.</p><ul><li><em>Brüt Faiz Getirisi = Anapara x (Faiz Oranı / 100) x (Vade / 365)</em> <br><ul><li>Örnek: 100.000 TL tutarındaki bir meblağ, %30 faizle 32 gün vadeli olarak yatırıldığında:</li></ul></li></ul><ul><li><em>Brüt Getiri = 100.000 x (30 / 100) x (32 / 365) ≈ 2.630,13 TL</em> <br><ul><li>Net Getiri = Brüt Getiri x (1 - Stopaj Oranı) = 2.630,13 x 0,95 = 2.498,62 TL</li></ul></li></ul><p>Burada dikkat edilmesi gereken husus, vade gününün yıl bazında 365 gün üzerinden hesaplanmasıdır. Ayrıca stopaj oranı vade süresine göre %5, %10 ya da %15 olabilir.</p><h2 id="kredi-faizi-hesaplama-ornegi">Kredi Faizi Hesaplama Örneği</h2><p>Kredi hesaplamasını daha iyi anlamak için aşağıdaki örneği inceleyelim:</p><p><em>Kredi Tutarı: 50.000 TL<br>Vade: 24 Ay<br>Aylık Faiz Oranı: %2,1</em></p><ul><li>Aylık Taksit: Yaklaşık 2.672 TL</li><li>Toplam Geri Ödeme: 64.128 TL</li><li>Toplam Faiz: 14.128 TL</li></ul><p>Bu örnekten anlaşılacağı üzere <strong>kredi faizi hesaplama</strong> yapılırken yalnızca faiz değil, dosya masrafı, sigorta primi ve diğer ücretler de toplam maliyeti etkiler. Bu nedenle alınan tekliflerde yalnızca aylık faiz oranına değil, efektif yıllık faiz oranı gibi bileşik verilere de dikkat edilmelidir.</p><h2 id="kredi-hesaplama-sikca-sorulan-sorular-faq">Kredi Hesaplama Sıkça Sorulan Sorular (FAQ)</h2><h3 id="kredi-faiz-oranlari-neden-degisir">Kredi Faiz Oranları Neden Değişir?</h3><p>Kredi faiz oranları hesaplama sürecinde kullanılan oranlar; ekonomik göstergelere, merkez bankası kararlarına, global piyasalardaki dalgalanmalara ve bankaların iç maliyet yapısına göre değişiklik gösterebilir. Enflasyon oranı yüksekse merkez bankası faiz artırabilir ve bu da bankaların kredi maliyetlerini yükseltir. Aynı şekilde döviz kuru ve jeopolitik riskler gibi faktörler de bankaların risk algısını etkileyerek kredi faiz oranlarının artmasına neden olabilir. Ayrıca bireyin kredi notu da faiz oranını etkileyen önemli bir kriterdir. Düşük kredi notuna sahip bireyler daha yüksek faiz oranıyla karşılaşabilirken, yüksek notlu müşteriler daha uygun faizlerle kredi kullanabilir.</p><h3 id="faiz-orani-ile-mevduat-faizi-nasil-hesaplanir">Faiz Oranı ile Mevduat Faizi Nasıl Hesaplanır?</h3><p>Mevduat faiz hesaplama yöntemi kullanılırken öncelikle yatırılan anapara, faiz oranı ve vade süresi belirlenir. Bu üç değişken, brüt faiz getirisini ortaya çıkarır. Ancak yatırımcıların dikkate alması gereken bir diğer önemli unsur, stopaj oranıdır. Genellikle kısa vadeli mevduatlar için %5 stopaj uygulanır ve bu kesinti net getiriyi doğrudan etkiler. Örneğin, 100.000 TL'lik bir mevduat 1 ay süreyle %30 faiz oranıyla yatırıldığında brüt getirisi 2.500 TL civarında olurken, net kazanç stopaj kesildikten sonra yaklaşık 2.375 TL'ye düşer. Bu nedenle yatırım kararı verirken faiz oranı kadar vergi oranları da göz önünde bulundurulmalıdır.</p><h3 id="kredi-faiz-hesaplama-formulu-nedir-2">Kredi Faiz Hesaplama Formülü Nedir?</h3><p>Kredi faiz hesaplama formülü, sabit taksitli kredilerde aylık ödeme tutarının belirlenmesinde kullanılır ve tüketicilere geri ödeme planı oluşturma açısından büyük kolaylık sağlar. En sık kullanılan formül, anaparanın aylık faiz oranı ile çarpılması ve ortaya çıkan değerin vade süresince geri ödenmesi esasına dayanır. Bu formül şu şekildedir:</p><p><em>Taksit = Anapara x [Aylık Faiz / (1 - (1 + Aylık Faiz)<sup>-Vade</sup>)].</em></p><p>Bu yöntem sayesinde taksitlerin eşit olması sağlanır. İlk aylarda taksitlerin büyük kısmı faize giderken, sonraki aylarda faiz azalır ve anapara ödemesi artar. Böylece toplam geri ödeme süreci daha dengeli ve yönetilebilir hale gelir.</p><h3 id="ev-kredisi-faiz-orani-nasil-hesaplanir">Ev Kredisi Faiz Oranı Nasıl Hesaplanır?</h3><p><strong>Ev kredisi hesaplama</strong> işlemleri, sabit veya değişken faiz oranlarına göre yapılır. Sabit faizli kredilerde, kredi çekildiği tarihteki faiz oranı tüm vade boyunca sabit kalır ve aylık ödeme tutarları değişmez. Ancak değişken faizli kredilerde merkez bankası kararları ve piyasa koşulları doğrultusunda faiz oranı zamanla artabilir ya da azalabilir. Hesaplama yapılırken sadece faiz oranı değil, dosya masrafları, sigorta poliçeleri ve ekspertiz ücretleri de dahil edilmelidir. Genellikle ev kredilerinde sabit faizli yöntem tercih edilir çünkü bu yöntem, uzun vadede ödeme planının öngörülebilirliğini sağlar. Fakat değişken faizli kredilerde aylık ödeme tutarları dalgalanabilir.</p><h3 id="mevduat-faiz-hesaplama-yontemi-nedir">Mevduat Faiz Hesaplama Yöntemi Nedir?</h3><p>Mevduat faiz hesaplama işlemi, birikimlerinizi en verimli şekilde değerlendirebilmeniz açısından kritik öneme sahiptir. Hesaplama yapılırken yatırılan tutar (anapara), belirlenen faiz oranı ve vade süresi dikkate alınır. Faiz getirisi genellikle yıllık bazda belirlenir, fakat vadeye göre gün sayısı üzerinden hesaplama yapılır. Elde edilen brüt getiri üzerinden stopaj (vergi) düşülerek net kazanç bulunur. Örneğin 100.000 TL'lik bir yatırımda 32 günlük vadede %30 faiz oranı ile yaklaşık 2.630 TL brüt kazanç elde edilir. Bu tutar %5 vergi düşüldüğünde yaklaşık 2.499 TL net getiri sağlar. Bu hesaplama yöntemiyle yatırım kararlarınızı daha bilinçli şekilde yönlendirebilirsiniz.</p><blockquote>Bu içeriklerimiz de ilginizi çekebilir</blockquote><p><a href="/blog/ticari-kredi-nedir-nasil-alinir">Ticari Kredi Nedir? Türleri Nedir? Nasıl Alınır?</a></p><p><a href="/blog/findeks-risk-raporu-nedir">Findeks Raporu Nedir? Kredi Notu Nasıl Öğrenilir?</a></p><p><a href="/blog/e-tahsilat-nedir-nasil-yapilir"><span class="nw">e-Tahsilat</span> Nedir? Tahsilat Yönetimi Nasıl Yapılır?</a></p><p><a href="/blog/iskonto-nedir">İskonto Nedir? İskonto Nasıl Hesaplanır?</a>‍</p>
+    </div>
+    
+    <div class="ps-end">
+      <p class="ps-ask">Yanıt almak istediğiniz diğer sorularınız için bizimle <a href="/iletisim">iletişime geçebilirsiniz</a>.</p>
+      <div class="author-box"><img src="/img/blog/yazar/04eb803621.webp" alt="Simge Gürel" width="500" height="500"><div><small>Yazar</small><b>Simge Gürel</b><p>Simge Gürel, KolayBi Blog için i̇çerik yazarı olarak işletmelere yönelik rehberler yazıyor.</p></div></div>
+      <nav class="pn"><a class="prev" href="/blog/risk-yonetimi-nedir"><small><svg><use href="#i-right"/></svg>Önceki yazı</small><b>Risk yönetimi nedir? Risk yönetimi teknikleri nelerdir?</b></a><a class="next" href="/blog/kobi-nedir"><small>Sonraki yazı<svg><use href="#i-right"/></svg></small><b>KOBİ Nedir? 2026 Güncel KOBİ Tanımı, Kriterleri ve Avantajları</b></a></nav>
+    </div>
+  </div>
+</div>
+</article>
+
+<section class="section" style="padding-top:24px">
+  <div class="container">
+    <div class="blog-head"><div><h2>İlgili yazılar</h2><p>Bankacılık kategorisinden diğer rehberler.</p></div><a href="/blog" class="btn btn-outline">Tüm Yazılar<span class="arr"><svg><use href="#i-arrow"/></svg></span></a></div>
+    <div class="posts">
+      <article class="post theme-banka" data-cat="bankacilik">
+        <div class="post-img"><img src="/img/blog/liste/ticari-kredi-nedir-nasil-alinir.webp" alt="" loading="lazy" width="500" height="221"></div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-tag">Bankacılık</span><time datetime="2025-09-29">29 Eylül 2025</time></div>
+          <h3><a href="/blog/ticari-kredi-nedir-nasil-alinir">Ticari Kredi Nedir? Türleri Nedir? Nasıl Alınır?</a></h3>
+          <p>Ticari krediler birkaç şekilde sınıflandırılır. bunlardan bir tanesi, kredinin geri ödenme sıklığına baz alınarak sınıflandırılır.</p>
+          <span class="more">Devamını Okuyun<svg><use href="#i-right"/></svg></span>
+        </div>
+      </article>
+      <article class="post theme-banka" data-cat="bankacilik">
+        <div class="post-img"><img src="/img/blog/liste/pos-cihazi-nasil-alinir-nasil-kullanilir.avif" alt="" loading="lazy" width="1920" height="1080"></div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-tag">Bankacılık</span><time datetime="2025-02-18">18 Şubat 2025</time></div>
+          <h3><a href="/blog/pos-cihazi-nasil-alinir-nasil-kullanilir">POS Cihazı Nasıl Alınır ve Nasıl Kullanılır?</a></h3>
+          <p>POS cihazı nedir, nasıl alınır ve nasıl kullanılır? POS makinesi almak isteyen işletmeler için süreçler, avantajlar ve en iyi seçenekler KolayBi rehberinde!</p>
+          <span class="more">Devamını Okuyun<svg><use href="#i-right"/></svg></span>
+        </div>
+      </article>
+      <article class="post theme-banka" data-cat="bankacilik">
+        <div class="post-img"><img src="/img/blog/liste/okc-odeme-kaydedici-cihaz-nedir.avif" alt="" loading="lazy" width="1920" height="1080"></div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-tag">Bankacılık</span><time datetime="2024-12-26">26 Aralık 2024</time></div>
+          <h3><a href="/blog/okc-odeme-kaydedici-cihaz-nedir">Yazar Kasa POS (ÖKC) Zorunluluğu: Kimler Muaf, Kimler Kullanmak Zorunda?</a></h3>
+          <p>2025’te Yazar Kasa POS (ÖKC) zorunluluğu kimleri kapsıyor, kimler muaf? Yeni nesil POS geçişi ve mevzuata uygun çözüm önerilerini öğrenin.</p>
+          <span class="more">Devamını Okuyun<svg><use href="#i-right"/></svg></span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11. SON CTA ============ -->
+<section class="section" style="padding-bottom:0">
+  <div class="container">
+    <div class="final-cta">
+      <!-- KolayBi kurdelesi: üç logo rengi, belli belirsiz -->
+      <svg class="cta-ribbon" viewBox="0 0 1376 420" preserveAspectRatio="none" aria-hidden="true">
+        <g class="k-ribbon">
+          <path class="k1" d="M-80 330 C 160 250, 340 420, 600 320 S 980 120, 1220 190 S 1480 120, 1600 40"/>
+          <path class="k2" d="M-80 330 C 160 250, 340 420, 600 320 S 980 120, 1220 190 S 1480 120, 1600 40" transform="translate(0 25)"/>
+          <path class="k3" d="M-80 330 C 160 250, 340 420, 600 320 S 980 120, 1220 190 S 1480 120, 1600 40" transform="translate(0 50)"/>
+        </g>
+      </svg>
+      <h2>İşinizi <em>KolayBi’yle</em> kolaylaştırın</h2>
+      <p>40.000'den fazla KOBİ'nin yaptığı gibi ön muhasebenizi ve <span class="nw">e-Faturanızı</span> tek ekrandan yönetin. 14 gün boyunca tüm özellikleri ücretsiz deneyin.</p>
+      <a href="https://app.kolaybi.com/?activeForm=register" class="btn btn-light">14 Gün Ücretsiz Deneyin<span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
+      <div class="note"><svg><use href="#i-card"/></svg>Kredi kartı istenmez, deneme sonunda otomatik ödeme alınmaz.</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <svg class="f-ribbon" viewBox="0 0 1440 600" preserveAspectRatio="none" aria-hidden="true"><g><path class="k1" d="M-60 300 C 200 180, 420 420, 720 300 S 1180 120, 1500 220"/><path class="k2" d="M-60 300 C 200 180, 420 420, 720 300 S 1180 120, 1500 220" transform="translate(0 40)"/><path class="k3" d="M-60 300 C 200 180, 420 420, 720 300 S 1180 120, 1500 220" transform="translate(0 80)"/></g></svg>
+  <div class="f-word" aria-hidden="true">KolayBi</div>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/" class="logo" aria-label="KolayBi ana sayfa"><svg class="logo-mark" aria-hidden="true"><use href="#logo-k"/></svg>KolayBi</a>
+        <p class="f-support">Destek ekibimize hafta içi 09:00–18:00 arası ulaşabilirsiniz.</p>
+        <div class="f-contact">
+          <a href="tel:08503030667"><svg><use href="#i-phone"/></svg>0 (850) 303 06 67</a>
+          <a href="mailto:iletisim@kolaybi.com"><svg><use href="#i-mail"/></svg>iletisim@kolaybi.com</a>
+        </div>
+        <div class="socials">
+          <a href="https://www.instagram.com/kolaybicom/" aria-label="Instagram" target="_blank" rel="noopener"><svg><use href="#s-instagram"/></svg></a>
+          <a href="https://www.facebook.com/kolaybicom/" aria-label="Facebook" target="_blank" rel="noopener"><svg><use href="#s-facebook"/></svg></a>
+          <a href="https://www.linkedin.com/company/kolaybi/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg><use href="#s-linkedin"/></svg></a>
+          <a href="https://www.youtube.com/channel/UCVMiB9rmdgz8oEX-nNZqKYw" aria-label="YouTube" target="_blank" rel="noopener"><svg><use href="#s-youtube"/></svg></a>
+          <a href="https://twitter.com/kolaybicom" aria-label="X" target="_blank" rel="noopener"><svg><use href="#s-x"/></svg></a>
+          <a href="https://vt.tiktok.com/ZSC1CpCbQ/" aria-label="TikTok" target="_blank" rel="noopener"><svg><use href="#s-tiktok"/></svg></a>
+          <a href="https://whatsapp.com/channel/0029VaVMqRF3WHTXyUs1g81F" aria-label="WhatsApp kanalı" target="_blank" rel="noopener"><svg><use href="#s-whatsapp"/></svg></a>
+        </div>
+        <div class="f-apps">
+          <span>Şimdi App Store ve Google Play'de</span>
+          <div class="stores">
+            <a href="https://play.google.com/store/apps/details?id=com.kolaybi.mobil" class="store" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3c-.3.3-.4.7-.4 1.2v17c0 .5.1.9.4 1.2L13 12.3zM14 13.3l2.8 2.8-11.4 6.5zm0-2L5.4 1.4l11.4 6.5zm3.8-2.9 3.2 1.8c.9.5.9 1.4 0 1.9l-3.2 1.8-3-3z"/></svg>Google Play</a>
+            <a href="https://apps.apple.com/us/app/kolaybi/id1613344055" class="store" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.1 2.5-1.8 3.1-.5 7.6 1.3 10.1.8 1.2 1.8 2.6 3.1 2.5 1.2 0 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.4-1-2.4-4.2zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg>App Store</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="ft-h">Ürünler</p>
+        <ul>
+          <li><a href="/kolay-on-muhasebe-programi">KolayBi Ofis</a></li>
+          <li><a href="/kolaybi-jet">KolayBi Jet</a></li>
+          <li><a href="/bilink">KolayBi Link</a></li>
+          <li><a href="/online-banka-entegrasyonu">KolayBi Banka</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-h">Çözümler</p>
+        <ul>
+          <li><a href="/kolaybi-e-faturam">Sınırsız <span class="nw">e-Fatura</span> Kampanyası</a><span class="tag">Avantaj</span></li>
+          <li><a href="/pazaryeri-entegrasyonu"><span class="nw">e-Ticaret</span>/Pazaryeri Entegrasyonu</a></li>
+          <li><a href="/online-banka-entegrasyonu">Banka Entegrasyonu</a></li>
+          <li><a href="/sanal-pos-entegrasyonu">Sanal POS</a></li>
+          <li><a href="/kolaybiye-gecis">KolayBi’ye Geçiş</a></li>
+          <li><a href="/bayi">KolayBi Bayi</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-h"><span class="nw">e-Belge</span></p>
+        <ul>
+          <li><a href="/e-fatura"><span class="nw">e-Fatura</span></a></li>
+          <li><a href="/e-arsiv"><span class="nw">e-Arşiv</span></a></li>
+          <li><a href="/e-irsaliye"><span class="nw">e-İrsaliye</span></a></li>
+          <li><a href="/e-ihracat-programi"><span class="nw">e-İhracat</span></a></li>
+          <li><a href="/e-smm-programi"><span class="nw">e-SMM</span></a></li>
+          <li><a href="/e-imza-programi"><span class="nw">e-İmza</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-h">KolayBi Yolu Var</p>
+        <ul>
+          <li><a href="/fiyatlar">Fiyatlar</a></li>
+          <li><a href="/kullanim-videolari">Kullanım Videoları</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/hakkimizda">Hakkımızda</a></li>
+          <li><a href="/iletisim">İletişim</a></li>
+          <li><a href="/destek">Destek</a></li>
+          <li><a href="https://developer.kolaybi.com/#operations-top">Ücretsiz API</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <nav>
+        <a href="/cayma-hakki-metni">Cayma Hakkı Metni</a>
+        <a href="/gizlilik-politikasi">Gizlilik Politikası</a>
+        <a href="/cerez-politikasi">Çerez Politikası</a>
+        <a href="/kisisel-verilerin-korunmasi">Kişisel Verileriniz</a>
+      </nav>
+      <div class="badges">
+        <img src="/img/rozetler/tim.webp" alt="Türkiye İhracatçılar Meclisi" loading="lazy" width="2500" height="754">
+        <img src="/img/rozetler/hib.webp" alt="Hizmet İhracatçıları Birliği" loading="lazy" width="340" height="190">
+        <img class="round" src="/img/rozetler/qnb-dijital-kopru.webp" alt="QNB Dijital Köprü Çözüm Ortağı" loading="lazy" width="1000" height="1000">
+      </div>
+      <span>© 2026 ENKO Teknoloji A.Ş.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/menu.js?v=3"></script>
+<script src="/js/faq.js?v=5"></script>
+<script src="/js/post.js?v=1"></script>
+</body>
+</html>

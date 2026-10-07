@@ -1,0 +1,39 @@
+/* KolayBi Ofis (/kolay-on-muhasebe-programi). Hero, kurulum, paket ve mobil bölümleri css/efatura.css bileşenlerini kullanır. */
+.of-hero h1 { font-size: clamp(40px, 4.6vw, 66px); }
+/* Uzun H1 için biraz daha küçük boyut (ör. Cari Hesap) */
+.of-hero h1.h1-sm { font-size: clamp(34px, 3.9vw, 56px); }
+.of-visual { position: relative; height: 540px; }
+.of-screen { position: absolute; left: -20px; right: -40px; top: 20px; }
+.of-screen img { display: block; width: 100%; height: auto; }
+.of-chip { position: absolute; z-index: 2; display: flex; align-items: center; gap: 12px; padding: 12px 16px 12px 12px; border-radius: 18px; background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow); font-size: 13px; animation: bob 5s ease-in-out infinite; }
+.of-chip i { width: 36px; height: 36px; border-radius: 12px; display: grid; place-items: center; background: var(--success-soft); color: var(--green); font-style: normal; }
+.of-chip i svg { width: 18px; height: 18px; }
+.of-chip b { display: block; font: 800 15px var(--font-head); color: var(--navy); }
+.of-chip small { color: var(--muted); }
+.of-chip.c1 { left: -30px; top: 0; }
+.of-chip.c2 { right: -10px; top: 8px; animation-delay: -1.5s; }
+.of-chip.c3 { left: -40px; bottom: 30px; animation-delay: -3s; }
+.of-chip.c4 { right: 10px; bottom: 0; animation-delay: -4s; }
+.of-chip.c4 i { background: var(--yellow-50); color: var(--yellow-600); font: 800 15px var(--font-head); }
+
+/* Paket + avantaj listesi */
+.of-price { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: center; }
+.of-price .pack { max-width: 440px; }
+.of-price .pack .pack-total { margin-top: 10px; font-size: 14px; color: color-mix(in srgb, #fff 70%, transparent); }
+.of-price .pack .pack-total b { color: #fff; }
+.of-price .section-head { text-align: left; margin: 0 0 28px; }
+.of-price .section-head p b { color: var(--navy); }
+
+/* Mobil bölümü: dört madde, 2×2 kart ızgarası */
+.device-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0 28px; }
+.device-list > div { display: flex; flex-direction: column; gap: 12px; padding: 18px; border-radius: 20px; background: color-mix(in srgb, #fff 82%, transparent); border: 1px solid var(--line); backdrop-filter: blur(6px); transition: border-color .25s, transform .25s, box-shadow .25s; }
+.device-list > div:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--primary) 30%, transparent); box-shadow: var(--shadow); }
+.device-list i { width: 40px; height: 40px; flex-shrink: 0; border-radius: 12px; display: grid; place-items: center; background: var(--primary-soft); color: var(--primary); }
+.device-list i svg { width: 19px; height: 19px; }
+.device-list b { display: block; margin-bottom: 4px; font: 800 15.5px var(--font-head); color: var(--navy); }
+.device-list span { display: block; font-size: 13.5px; line-height: 1.5; color: var(--ink-2); }
+
+@media (max-width: 1100px) { .of-price { grid-template-columns: 1fr; } .of-chip.c1, .of-chip.c3 { left: 0; } .of-screen { right: 0; } }
+@media (max-width: 760px) { .of-visual { height: 380px; } .device-list { grid-template-columns: 1fr; } .of-chip.c2, .of-chip.c4 { display: none; } }
+/* Hero kartlarındaki küçük satırlar en az 12 px */
+.of-chip small, .of-chip div small { font-size: 12px; }

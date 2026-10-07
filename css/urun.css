@@ -1,0 +1,191 @@
+/* Ürün sayfaları (/kolaybi-jet, /bilink, /online-banka-entegrasyonu): ofis.css ve efatura.css bileşenlerine ekler */
+.pd-photo .pd-img { position: absolute; inset: 40px 10px 40px 20px; border-radius: 32px; overflow: hidden; background: var(--bg); }
+.pd-photo .pd-img img { width: 100%; height: 100%; object-fit: cover; }
+.pd-photo .of-chip i { background: var(--primary-soft); color: var(--primary); }
+.pd-photo .of-chip.c2 i { background: var(--success-soft); color: var(--green); }
+.pd-photo .of-chip.c4 i { background: var(--wa-bubble); color: var(--wa-dark); }
+
+/* Müşteri yorumları (fotoğrafsız) */
+.quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.quote { display: flex; flex-direction: column; padding: 28px; border-radius: var(--radius-lg); background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--c); }
+.quote h3 { font: 800 19px var(--font-head); color: var(--navy); }
+.quote p { margin: 10px 0 0; font-size: 15px; line-height: 1.65; color: var(--ink-2); }
+
+/* Banka listesi */
+.pd-banks { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; padding: 40px; border-radius: var(--radius-xl); background: linear-gradient(135deg, var(--cyan-50), var(--blue-50)); }
+.pd-banks h2 { font: 800 clamp(26px, 2.6vw, 36px)/1.15 var(--font-head); letter-spacing: -.02em; color: var(--navy); }
+.pd-banks p { margin-top: 12px; color: var(--ink-2); }
+.pd-logos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.pd-logos > * { height: 72px; display: grid; place-items: center; padding: 0 16px; border-radius: 18px; background: var(--card); border: 1px solid var(--line); }
+.pd-logos .bank-logo { margin: auto; }
+.pd-logos span { font: 800 16px var(--font-head); color: var(--primary); }
+.pd-bankui { align-self: center; }
+.pd-bankui .ic-ui { box-shadow: var(--shadow); border: 1px solid var(--line); }
+
+@media (max-width: 960px) { .quotes, .pd-banks { grid-template-columns: 1fr; } .apply[style] { grid-template-columns: 1fr 1fr !important; } }
+@media (max-width: 600px) { .apply[style] { grid-template-columns: 1fr !important; } .pd-banks { padding: 24px; } }
+
+/* KolayBi'ye geçiş (/kolaybiye-gecis) */
+.mg-tel { align-self: stretch; display: inline-flex; align-items: center; gap: 8px; padding: 0 20px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--navy); font-weight: 700; transition: border-color .2s, color .2s; }
+.mg-tel:hover { border-color: var(--primary); color: var(--primary); }
+.mg-tel svg { width: 16px; height: 16px; color: var(--primary); }
+.mg-visual { position: relative; display: grid; grid-template-columns: 150px 70px 1fr; align-items: center; min-height: 460px; }
+.mg-src { padding: 20px; border-radius: 22px; background: var(--gray-50); border: 1px dashed var(--gray-200); opacity: .85; }
+.mg-src small { font-size: 12px; color: var(--muted); }
+.mg-src b { display: block; margin: 4px 0 12px; font: 800 15px var(--font-head); color: var(--gray-600); }
+.mg-src span { display: block; height: 10px; margin-top: 8px; border-radius: 6px; background: var(--gray-200); }
+.mg-src span:nth-child(4) { width: 70%; } .mg-src span:nth-child(5) { width: 45%; }
+.mg-flow { position: relative; height: 4px; margin: 0 6px; border-radius: 4px; background: color-mix(in srgb, var(--primary) 18%, transparent); overflow: hidden; }
+.mg-flow i { position: absolute; top: 0; left: -20%; width: 20%; height: 100%; border-radius: 4px; background: var(--brand-gradient); animation: mgFlow 1.8s linear infinite; }
+.mg-flow i:nth-child(2) { animation-delay: .6s; } .mg-flow i:nth-child(3) { animation-delay: 1.2s; }
+@keyframes mgFlow { to { left: 100%; } }
+.mg-dst { padding: 22px; border-radius: 28px; background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.mg-dst-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.mg-dst-head .logo-mark { width: 26px; height: 24px; }
+.mg-dst-head b { font: 800 16px var(--font-head); color: var(--navy); }
+.mg-row { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 16px; background: var(--bg); opacity: 0; animation: mgIn 6s ease-in-out infinite; }
+.mg-row + .mg-row { margin-top: 8px; }
+.mg-row.r2 { animation-delay: .5s; } .mg-row.r3 { animation-delay: 1s; }
+@keyframes mgIn { 0% { opacity: 0; transform: translateX(-16px); } 10%, 88% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+.mg-row > i { width: 38px; height: 38px; flex-shrink: 0; border-radius: 12px; display: grid; place-items: center; background: var(--primary-soft); color: var(--primary); }
+.mg-row > i svg { width: 18px; height: 18px; }
+.mg-row div { flex: 1; }
+.mg-row b { display: block; font: 800 14.5px var(--font-head); color: var(--navy); }
+.mg-row small { font-size: 12.5px; color: var(--muted); }
+.mg-row em { color: var(--green-700); } .mg-row em svg { width: 22px; height: 22px; }
+.mg-help { display: flex; align-items: center; gap: 10px; margin-top: 14px; padding: 12px 14px; border-radius: 14px; background: var(--yellow-50); font-size: 13.5px; color: var(--ink-2); }
+.mg-help svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--yellow-600); }
+.mg-help b { color: var(--navy); }
+
+.mg-support { display: grid; grid-template-columns: auto 1fr auto; gap: 28px; align-items: center; padding: 34px 38px; border-radius: var(--radius-xl); background: var(--navy); color: #fff; }
+.mg-support-ic { width: 64px; height: 64px; border-radius: 20px; display: grid; place-items: center; background: var(--accent); color: var(--navy); }
+.mg-support-ic svg { width: 30px; height: 30px; }
+.mg-support .kicker { background: color-mix(in srgb, #fff 10%, transparent); border-color: color-mix(in srgb, #fff 18%, transparent); color: var(--logo-cyan); }
+.mg-support h2 { margin-top: 12px; font: 800 clamp(22px, 2.2vw, 30px)/1.2 var(--font-head); letter-spacing: -.02em; }
+.mg-support h2 em { font-style: normal; color: var(--accent); }
+.mg-support p { margin-top: 8px; color: color-mix(in srgb, #fff 72%, transparent); }
+.mg-support-links { display: grid; gap: 10px; }
+.mg-support-links a { display: flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 14px; background: color-mix(in srgb, #fff 8%, transparent); border: 1px solid color-mix(in srgb, #fff 14%, transparent); font-weight: 700; white-space: nowrap; transition: background .2s; }
+.mg-support-links a:hover { background: color-mix(in srgb, #fff 16%, transparent); }
+.mg-support-links svg { width: 17px; height: 17px; color: var(--logo-cyan); }
+
+.mg-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.mg-card { display: flex; flex-direction: column; padding: 28px; border-radius: var(--radius-lg); background: var(--card); border: 1px solid var(--line); }
+.mg-card > i { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: var(--primary-soft); color: var(--primary); }
+.mg-card > i svg { width: 22px; height: 22px; }
+.mg-card h3 { margin: 18px 0 8px; font: 800 19px var(--font-head); color: var(--navy); }
+.mg-card p { font-size: 14.5px; color: var(--ink-2); }
+.mg-tag { display: inline-flex; align-self: flex-start; align-items: center; gap: 6px; margin-top: 18px; padding: 6px 12px; border-radius: 999px; background: var(--yellow-50); color: var(--yellow-600); font: 700 12.5px var(--font-body); }
+.mg-tag svg { width: 14px; height: 14px; }
+
+@media (max-width: 960px) { .mg-support { grid-template-columns: 1fr; } .mg-cards { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .mg-visual { grid-template-columns: 1fr; min-height: 0; } .mg-src, .mg-flow { display: none; } }
+@media (prefers-reduced-motion: reduce) { .mg-row { animation: none; opacity: 1; } .mg-flow i { animation: none; } }
+
+/* Dar ekran: banka logoları ve hareket tablosu taşmasın */
+.pd-banks > *, .pd-bankui { min-width: 0; }
+@media (max-width: 960px) { .pd-banks { grid-template-columns: minmax(0, 1fr); } }
+.pd-logos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pd-logos > * { min-width: 0; padding: 0 8px; }
+.pd-logos .bank-logo { max-width: 100%; }
+.pd-bankui .ic-ui { overflow-x: auto; }
+
+/* KolayBi Link: yönlendirme kazancı bandı */
+.lk-earn { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center; padding: 40px 44px; border-radius: var(--radius-xl); background: var(--navy); color: #fff; position: relative; overflow: hidden; isolation: isolate; }
+.lk-earn::before { content: ""; position: absolute; right: -120px; top: -140px; width: 420px; height: 420px; border-radius: 50%; z-index: -1; background: radial-gradient(circle, color-mix(in srgb, var(--logo-cyan) 35%, transparent), transparent 70%); }
+.lk-earn-num { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; width: 240px; aspect-ratio: 1; border-radius: 50%; background: color-mix(in srgb, #fff 6%, transparent); border: 1px solid color-mix(in srgb, #fff 14%, transparent); }
+.lk-earn-num small { display: block; font: 700 13px var(--font-body); letter-spacing: .06em; text-transform: uppercase; color: var(--logo-cyan); }
+.lk-earn-num b { display: block; margin-top: 6px; font: 800 42px/1 var(--font-head); letter-spacing: -.03em; color: var(--accent); white-space: nowrap; }
+.lk-earn .kicker { background: color-mix(in srgb, #fff 10%, transparent); border-color: color-mix(in srgb, #fff 18%, transparent); color: var(--logo-cyan); }
+.lk-earn h2 { margin-top: 14px; font: 800 clamp(26px, 2.6vw, 36px)/1.15 var(--font-head); letter-spacing: -.02em; }
+.lk-earn h2 em { font-style: normal; color: var(--accent); }
+.lk-earn p { margin-top: 12px; max-width: 620px; color: color-mix(in srgb, #fff 75%, transparent); }
+.lk-earn-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 24px; }
+.lk-earn-cta > span { font-size: 13.5px; color: color-mix(in srgb, #fff 60%, transparent); }
+@media (max-width: 860px) { .lk-earn { grid-template-columns: minmax(0, 1fr); padding: 28px 22px; gap: 24px; } .lk-earn-num { width: 180px; } .lk-earn-num b { font-size: 38px; } }
+
+/* Başvuru formu (/kolaybi-bilink-formu) */
+.lf { padding: 40px 0 96px; background: radial-gradient(60% 80% at 100% 0%, var(--blue-50), transparent 70%); }
+.lf-wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: start; }
+.lf-info h1 { margin-top: 16px; font: 800 clamp(34px, 3.6vw, 52px)/1.08 var(--font-head); letter-spacing: -.03em; color: var(--navy); }
+.lf-info h1 em { font-style: normal; color: var(--primary); }
+.lf-info .lead { margin-top: 16px; max-width: 520px; font-size: 18px; color: var(--ink-2); }
+.lf-steps { list-style: none; counter-reset: lf; display: grid; gap: 14px; margin-top: 32px; max-width: 520px; }
+.lf-steps li { counter-increment: lf; position: relative; padding: 4px 0 0 56px; min-height: 40px; }
+.lf-steps li::before { content: counter(lf); position: absolute; left: 0; top: 0; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--primary-soft); color: var(--primary); font: 800 15px var(--font-head); }
+.lf-steps b { display: block; font: 800 16px var(--font-head); color: var(--navy); }
+.lf-steps span { font-size: 14.5px; color: var(--ink-2); }
+.lf-back { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 24px; font-weight: 600; color: var(--primary); }
+.lf-back svg { width: 15px; height: 15px; }
+.lf-card { padding: 32px; border-radius: var(--radius-xl); background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.lf-form h2, .lf-done h2 { font: 800 22px var(--font-head); color: var(--navy); }
+.lf-field { display: grid; gap: 6px; margin-top: 18px; }
+.lf-field span { font-size: 14px; font-weight: 600; color: var(--ink); }
+.lf-field input { min-height: 48px; padding: 0 16px; border-radius: 14px; border: 1px solid var(--line); background: var(--bg); font: 500 16px var(--font-body); color: var(--ink); transition: border-color .2s, box-shadow .2s, background .2s; }
+.lf-field input:focus { outline: none; background: var(--card); border-color: var(--primary); box-shadow: 0 0 0 4px var(--primary-soft); }
+.lf-field input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 4px var(--red-50); }
+.lf-error { margin-top: 14px; padding: 12px 14px; border-radius: 12px; background: var(--red-50); color: var(--red-500); font-size: 14px; }
+.lf-error a { font-weight: 700; color: inherit; text-decoration: underline; }
+.lf-form .btn { width: 100%; justify-content: space-between; margin-top: 22px; }
+.lf-form .btn:disabled { opacity: .7; cursor: progress; }
+.lf-kvkk { margin-top: 14px; font-size: 12.5px; color: var(--muted); }
+.lf-kvkk a { color: var(--primary); font-weight: 600; }
+.lf-done { text-align: center; padding: 24px 8px; outline: none; }
+.lf-done i { width: 56px; height: 56px; margin: 0 auto 16px; border-radius: 50%; display: grid; place-items: center; background: var(--success-soft); color: var(--green); }
+.lf-done i svg { width: 26px; height: 26px; }
+.lf-done p { margin-top: 8px; color: var(--ink-2); }
+@media (max-width: 960px) { .lf-wrap { grid-template-columns: minmax(0, 1fr); gap: 32px; } .lf-card { padding: 24px 20px; } }
+
+/* Jet telefon maketi: fatura listesi + yeni fatura butonu */
+.ph-inv { display: grid; gap: 8px; }
+.ph-inv > div { display: flex; align-items: center; gap: 10px; }
+.ph-inv i { width: 30px; height: 30px; flex-shrink: 0; border-radius: 9px; display: grid; place-items: center; background: var(--primary-soft); color: var(--primary); }
+.ph-inv i.in { background: var(--cyan-50); color: var(--cyan-600); }
+.ph-inv i svg { width: 15px; height: 15px; }
+.ph-inv > div > span { flex: 1; min-width: 0; }
+.ph-inv b { display: block; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ph-inv small { display: block; font-size: 12px; color: var(--muted); }
+.ph-inv em { font-style: normal; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.ph-inv em.ok { background: var(--success-soft); color: var(--green-700); }
+.ph-inv em.in { background: var(--cyan-50); color: var(--cyan-700); }
+.ph-new { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; border-radius: 999px; background: var(--primary); color: #fff; font-size: 14px; font-weight: 700; }
+.ph-new svg { width: 16px; height: 16px; }
+
+/* Jet: faturanın yolculuğu — adımlar sırayla canlanır (6 sn döngü) */
+.jf { position: relative; display: grid; gap: 12px; margin: 8px 0 28px; max-width: 520px; }
+.jf::before { content: ""; position: absolute; left: 41px; top: 36px; bottom: 36px; width: 2px; border-radius: 2px; background: var(--line); }
+.jf::after { content: ""; position: absolute; left: 41px; top: 36px; width: 2px; height: calc(100% - 72px); border-radius: 2px; background: var(--brand-gradient); transform-origin: top; animation: jfLine 6s ease-in-out infinite; }
+.jf-step { position: relative; z-index: 1; display: flex; align-items: center; gap: 14px; padding: 14px 16px 14px 20px; border-radius: 20px; background: color-mix(in srgb, #fff 88%, transparent); border: 1px solid var(--line); backdrop-filter: blur(6px); animation: jfCard 6s ease-in-out infinite; }
+.jf-step > i { width: 44px; height: 44px; flex-shrink: 0; border-radius: 14px; display: grid; place-items: center; background: var(--primary-soft); color: var(--primary); animation: jfIcon 6s ease-in-out infinite; }
+.jf-step > i svg { width: 20px; height: 20px; }
+.jf-step > div { flex: 1; min-width: 0; }
+.jf-step small { display: block; font-size: 12px; color: var(--muted); }
+.jf-step b { display: block; font: 800 15.5px var(--font-head); color: var(--navy); }
+.jf-step span { display: block; font-size: 13.5px; color: var(--ink-2); }
+.jf-step small span { display: inline; font-size: inherit; color: inherit; }
+.jf-step em { font-style: normal; padding: 4px 10px; border-radius: 999px; background: var(--success-soft); color: var(--green-700); font: 700 12px var(--font-body); white-space: nowrap; animation: jfPill 6s ease-in-out infinite; }
+.jf-step:nth-child(2), .jf-step:nth-child(2) > i, .jf-step:nth-child(2) em { animation-delay: 1.4s; }
+.jf-step:nth-child(3), .jf-step:nth-child(3) > i, .jf-step:nth-child(3) em { animation-delay: 2.8s; }
+@keyframes jfCard { 0%, 100% { opacity: .55; transform: none; box-shadow: none; } 8%, 70% { opacity: 1; transform: translateX(4px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--primary) 25%, transparent); } }
+@keyframes jfIcon { 0%, 100% { background: var(--primary-soft); color: var(--primary); } 8%, 70% { background: var(--primary); color: #fff; } }
+@keyframes jfPill { 0%, 4%, 100% { opacity: 0; transform: scale(.8); } 12%, 70% { opacity: 1; transform: none; } }
+@keyframes jfLine { 0% { transform: scaleY(0); } 55%, 75% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .jf-step, .jf-step > i, .jf-step em, .jf::after { animation: none; } .jf-step em { opacity: 1; } }
+@media (max-width: 600px) { .jf-step { padding: 12px; gap: 10px; } .jf::before, .jf::after { left: 33px; } .jf-step em { display: none; } }
+.ph-inv em.ok, .jf-step em { color: var(--green-700); }
+.mg-tag { color: var(--yellow-700); }
+
+/* Entegre banka logoları: iki satır, ters yönlere kayan şerit; üstüne gelince durur */
+.bk-marquee { display: grid; gap: 12px; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+.bk-row { display: flex; gap: 12px; width: max-content; animation: bkScroll 45s linear infinite; }
+.bk-row.rev { animation-direction: reverse; }
+.bk-marquee:hover .bk-row { animation-play-state: paused; }
+.bk-row span { flex: 0 0 auto; width: 150px; height: 72px; display: grid; place-items: center; padding: 0 18px; border-radius: 18px; background: var(--card); border: 1px solid var(--line); }
+.bk-row img { width: auto; height: auto; max-width: 100%; max-height: 26px; }
+@keyframes bkScroll { to { transform: translateX(calc(-50% - 6px)); } }
+@media (max-width: 600px) { .bk-row span { width: 124px; height: 60px; padding: 0 14px; } .bk-row img { max-height: 22px; } }
+@media (prefers-reduced-motion: reduce) { .bk-row { animation: none; } .bk-marquee { overflow-x: auto; } }
+/* Banka bölümü: kısa giriş + ikonlu maddeler */
+.pd-list { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 12px; }
+.pd-list li { display: grid; grid-template-columns: 32px 1fr; gap: 12px; align-items: center; font-size: 15px; color: var(--ink-2); }
+.pd-list svg { width: 32px; height: 32px; padding: 7px; border-radius: 10px; background: var(--card); color: var(--primary); }

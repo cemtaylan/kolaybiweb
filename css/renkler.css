@@ -1,0 +1,138 @@
+/* =====================================================================
+   KolayBi Renk Sistemi
+   ---------------------------------------------------------------------
+   Sayfadaki tüm renkler buradan gelir. Üç katman vardır:
+   1. Palet      — ham renk skalaları (--blue-500 gibi). Doğrudan kullanmak
+                   yerine mümkünse 2. ve 3. katmanı kullanın.
+   2. Anlamsal   — rolüne göre isimlendirilmiş renkler (--primary, --ink…).
+   3. Ürün tema  — .theme-ofis / -jet / -banka / -link sınıfları; içindeki
+                   her şey --c, --c-accent, --logo, --bg-a, --bg-b kullanır.
+   Yeni renk gerekiyorsa önce palete ekleyin, sonra rol/tema üzerinden verin.
+   Önizleme: renkler.html
+   ===================================================================== */
+
+:root {
+  /* ---------- 1. Palet ---------- */
+
+  /* Logo renkleri — K işaretinin üç katmanı (soldan sağa) */
+  --logo-blue: #4262F0;
+  --logo-mid:  #2689DB;
+  --logo-cyan: #24D6E3;
+  --logo-ink:  #000000;   /* "KolayBi" yazısı */
+
+  /* Mavi — ana marka rengi (logonun sol katmanı) */
+  --blue-50:  #F0F4FF;
+  --blue-100: #DDE5FD;
+  --blue-200: #BFCDFA;
+  --blue-300: #93A9F6;
+  --blue-400: #6681F3;
+  --blue-500: #4262F0;
+  --blue-600: #3150D8;
+  --blue-700: #2742B5;
+  --blue-800: #20368C;
+  --blue-900: #172966;
+
+  /* Camgöbeği — logonun sağ katmanı; orta ton (#2689DB) ikisinin kesişimi */
+  --cyan-50:  #ECFBFD;
+  --cyan-100: #CFF4F8;
+  --cyan-300: #7FE6EF;
+  --cyan-400: #24D6E3;
+  --cyan-500: #14B4C8;
+  --cyan-600: #0B93AA;
+  --cyan-700: #08788C;
+
+  /* Lacivert — başlıklar ve koyu yüzeyler */
+  --navy-50:  #F1F4F8;
+  --navy-100: #DCE4EE;
+  --navy-500: #1C4F86;
+  --navy-600: #103D6C;
+  --navy-700: #0E2A4A;
+  --navy-900: #0B1220;
+
+  /* Çivit — mavinin mora yakın komşusu */
+  --indigo-50:  #F2F2FF;
+  --indigo-100: #E0E0FB;
+  --indigo-300: #B4B5F7;
+  --indigo-500: #5D5FE8;
+  --indigo-700: #3F3BB8;
+
+  /* Sarı — vurgu, hediye ve kampanya */
+  --yellow-50:  #FEF5E7;
+  --yellow-400: #FFD166;
+  --yellow-600: #D98A00;
+  --yellow-700: #996100; /* açık sarı zeminde 4,5:1 üstü metin */
+
+  /* Yeşil — başarı, "Ücretsiz" etiketleri */
+  --green-50:  #E7F6EC;
+  --green-300: #6EE7A1;
+  --green-500: #22A55B;
+  --green-700: #1A7F46; /* açık zeminde 4,5:1 üstü yeşil metin */
+
+  /* Kırmızı — gecikme, gider, negatif tutar */
+  --red-50:  #FDECEC;
+  --red-500: #E5484D;
+  --red-700: #D91F25;   /* açık zeminde 4,5:1 üstü kırmızı metin */
+
+  /* Pazaryeri etiketleri: marka turuncusunun beyaz zeminde 4,5:1 üstü koyu tonu */
+  --mp-trendyol: #BA590B;
+  --mp-hepsiburada: #C94C00;
+  /* Google logosu (yalnızca Google puanı rozetlerinde) */
+  --g-blue: #4285F4;
+  --g-red: #EA4335;
+  --g-yellow: #FBBC05;
+  --g-green: #34A853;
+  /* Üçüncü taraf kanal renkleri — yalnızca WhatsApp / Telegram görünümlerinde */
+  --wa-green: #25D366;
+  --wa-dark:  #075E54;
+  --wa-bubble: #D9FDD3;
+  --wa-bg:    #EFEAE2;
+  --tg-blue:  #2AABEE;
+  --tg-dark:  #229ED9;
+  --tg-bubble: #EFFDDE;
+  --tg-bg:    #DCE8D2;
+
+  /* Nötrler */
+  --white:    #FFFFFF;
+  --gray-50:  #F7F8FB;
+  --gray-200: #E5E8EF;
+  --gray-500: #686F81;
+  --gray-600: #4B5568;
+  --gray-900: #13213A;
+
+  /* Koyu yüzeyler (fotoğraflı kampanya bandı) */
+  --dark-800: #2A3140;
+  --dark-900: #12161F;
+  --dark-950: #0A0D14;
+
+  /* ---------- 2. Anlamsal roller ---------- */
+  --primary:      var(--blue-500);
+  --primary-dark: var(--blue-700);
+  --primary-soft: var(--blue-50);
+  --navy:         var(--navy-700);
+  --navy-2:       var(--navy-600);
+  --accent:       var(--yellow-400);
+  --green:        var(--green-500);
+  --success-soft: var(--green-50);
+  --danger:       var(--red-500);
+  --danger-soft:  var(--red-50);
+
+  --ink:   var(--gray-900);   /* ana metin */
+  --ink-2: var(--gray-600);   /* ikincil metin */
+  --muted: var(--gray-500);   /* açıklama, etiket */
+  --line:  var(--gray-200);   /* kenarlık */
+  --bg:    var(--gray-50);    /* sayfa zemini */
+  --card:  var(--white);      /* kart zemini */
+
+  --brand-gradient: linear-gradient(135deg, var(--logo-blue) 0%, var(--logo-mid) 50%, var(--logo-cyan) 100%);
+  --shadow: 0 10px 30px -12px color-mix(in srgb, var(--navy-600) 18%, transparent);
+}
+
+/* ---------- 3. Ürün temaları ----------
+   --c        : güçlü renk (buton, etiket, ikon)
+   --c-accent : başlık vurgusu
+   --logo     : ürün logosunun rengi
+   --bg-a/b   : açık zemin gradyanı */
+.theme-ofis  { --c: var(--blue-700);   --c-accent: var(--blue-500);   --logo: var(--blue-500);   --bg-a: var(--blue-50);   --bg-b: var(--blue-100); }
+.theme-jet   { --c: var(--cyan-700);   --c-accent: var(--cyan-600);   --logo: var(--cyan-500);   --bg-a: var(--cyan-50);   --bg-b: var(--cyan-100); }
+.theme-banka { --c: var(--navy-700);   --c-accent: var(--navy-500);   --logo: var(--navy-500);   --bg-a: var(--navy-50);   --bg-b: var(--navy-100); }
+.theme-link  { --c: var(--indigo-700); --c-accent: var(--indigo-500); --logo: var(--indigo-500); --bg-a: var(--indigo-50); --bg-b: var(--indigo-100); }

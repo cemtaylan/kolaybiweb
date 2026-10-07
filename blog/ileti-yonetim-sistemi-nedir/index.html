@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>İleti Yönetim Sistemi Nedir? İYS Nasıl Çalışır? | KolayBi</title>
+<meta name="description" content="İleti Yönetim Sistemi (İYS) nedir, kayıt ve kullanım süreçleri nelerdir? İYS hakkındaki tüm bilgilere KolayBi üzerinden ulaşın. Detaylar için hemen tıklayın!">
+<link rel="canonical" href="https://www.kolaybi.com/blog/ileti-yonetim-sistemi-nedir">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/renkler.css?v=6">
+<link rel="stylesheet" href="/css/site.css?v=72">
+<link rel="stylesheet" href="/css/blog.css?v=2"><link rel="stylesheet" href="/css/post.css?v=2">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="KolayBi">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:url" content="https://www.kolaybi.com/blog/ileti-yonetim-sistemi-nedir">
+<meta property="og:title" content="İleti Yönetim Sistemi Nedir? İYS Nasıl Çalışır? | KolayBi">
+<meta property="og:description" content="İleti Yönetim Sistemi (İYS) nedir, kayıt ve kullanım süreçleri nelerdir? İYS hakkındaki tüm bilgilere KolayBi üzerinden ulaşın. Detaylar için hemen tıklayın!">
+<meta property="og:image" content="https://www.kolaybi.com/img/blog/kapak/ileti-yonetim-sistemi-nedir.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@kolaybicom">
+<meta name="twitter:title" content="İleti Yönetim Sistemi Nedir? İYS Nasıl Çalışır? | KolayBi">
+<meta name="twitter:description" content="İleti Yönetim Sistemi (İYS) nedir, kayıt ve kullanım süreçleri nelerdir? İYS hakkındaki tüm bilgilere KolayBi üzerinden ulaşın. Detaylar için hemen tıklayın!">
+<meta name="twitter:image" content="https://www.kolaybi.com/img/blog/kapak/ileti-yonetim-sistemi-nedir.webp">
+</head>
+<body>
+
+<!-- SVG ikon tanımları -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- KolayBi K işareti (logo görselinden yaklaşık çizim; resmi SVG gelince değiştirin) -->
+  <symbol id="logo-k" viewBox="0 0 248 226">
+    <path d="M70 0h112c38 0 64 26 64 58 0 22-11 40-29 50 22 10 31 29 31 52 0 38-30 66-70 66H70z" fill="var(--logo-cyan)"/>
+    <path d="M70 0h104c9 0 14 9 10 16l-62 90c-3 4-3 10 0 14l62 90c4 7-1 16-10 16H70z" fill="var(--logo-mid)"/>
+    <path d="M14 0h56v226H14C6 226 0 220 0 212V14C0 6 6 0 14 0z" fill="var(--logo-blue)"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="m8 12.5 2.6 2.5L16 9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-invoice" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z M14 3v5h5 M9 12h7 M9 16h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 10 12 4l9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-sign" viewBox="0 0 24 24"><path d="M4 18c3-6 5-9 7-9s0 7 2 7 3-3 4-4M4 21h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9h16l-1-5H5zM5 9v11h14V9M10 20v-6h4v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 4h2l2.5 11h11L21 7H6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="19.5" r="1.5" fill="currentColor"/><circle cx="17" cy="19.5" r="1.5" fill="currentColor"/></symbol>
+  <symbol id="i-calc" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 7h8M8 12h2M14 12h2M8 16h2M14 16h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8 6.6 19.7l1.1-6.1L3.2 9.4l6.1-.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 4 5v14c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5zM12 6.5V20.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-help" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.4c-.6.3-1 .8-1 1.5v.6M12 17h.01"/></g></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10.5 9.5v5l4-2.5z"/></g></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0zM12 17v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-ofis" viewBox="0 0 24 24"><path d="M5 4h9v16H5zM14 8h5v12h-5M8 8h3M8 12h3M8 16h3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-jet" viewBox="0 0 24 24"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM8 13h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 20c.8-3.5 3.2-5.5 6-5.5s5.2 2 6 5.5M16 4.5a3.5 3.5 0 0 1 0 7M18 14.8c1.6.8 2.6 2.6 3 5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-flow" viewBox="0 0 24 24"><path d="M4 8h13l-3-3M20 16H7l3 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 16v-4M12 16V8M16 16v-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3 20 7.5v9L12 21l-8-4.5v-9zM4 7.5l8 4.5 8-4.5M12 12v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-order" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="17" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 9h16M9 14h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 3v4M16 3v4M3.5 10h17M9 15h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-archive" viewBox="0 0 24 24"><path d="M3.5 4.5h17v4h-17zM5 8.5V20h14V8.5M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9h4l3 3.5V16h-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="7" cy="18" r="2" fill="#fff" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="18" r="2" fill="#fff" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.7 3.6 5.7 3.6 9s-1.1 6.3-3.6 9c-2.5-2.7-3.6-5.7-3.6-9S9.5 5.7 12 3z" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><path d="M4 11h16v9H4zM3 7h18v4H3zM12 7v13M12 7c-1-3-5-4-5-1.5S12 7 12 7zm0 0c1-3 5-4 5-1.5S12 7 12 7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-bridge" viewBox="0 0 24 24"><path d="M3 16c3-6 15-6 18 0M3 16h18M7 12.5V16M12 11v5M17 12.5V16M3 20h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M4 7a2 2 0 0 1 2-2h11v4M4 7v11a2 2 0 0 0 2 2h14V9H6a2 2 0 0 1-2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="16" cy="14.5" r="1.3" fill="currentColor"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="7.5" cy="8.5" r="1.4" fill="currentColor"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 20c.8-3.5 3-5.5 6-5.5 1.4 0 2.6.4 3.6 1.2M18 13v7M14.5 16.5h7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 10h18M7 15h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check-solid" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="s-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="s-facebook" viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v7h4v-7h3l.5-4h-3.5V8.8c0-.5.3-.8.5-.8z" fill="currentColor"/></symbol>
+  <symbol id="s-linkedin" viewBox="0 0 24 24"><path d="M4 9h3.5v11H4zM5.7 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM9.5 9H13v1.6c.6-1 1.9-1.9 3.8-1.9 3.4 0 4.2 2.2 4.2 5.2V20h-3.5v-5.4c0-1.4-.2-2.8-1.9-2.8s-2.1 1.3-2.1 2.7V20H9.5z" fill="currentColor"/></symbol>
+  <symbol id="s-youtube" viewBox="0 0 24 24"><path d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2 27 27 0 0 0 2 12a27 27 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.8zM10 15V9l5.2 3z" fill="currentColor"/></symbol>
+  <symbol id="s-x" viewBox="0 0 24 24"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z" fill="currentColor"/></symbol>
+  <symbol id="s-tiktok" viewBox="0 0 24 24"><path d="M16.5 3c.4 2.3 1.9 3.8 4.2 4v3.2c-1.6 0-3-.5-4.2-1.3v6.4A6.2 6.2 0 1 1 10.3 9v3.3a3 3 0 1 0 3 3V3z" fill="currentColor"/></symbol>
+  <symbol id="s-whatsapp" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M9 8.3c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c.6 1.1 1.5 2 2.6 2.6l.6-.6c.2-.2.4-.2.6-.1l1.6.8c.3.1.4.3.3.6-.2.9-1 1.6-1.9 1.6-3.2-.2-6-3-6.2-6.2 0-.6.2-1.1.6-1.5z" fill="currentColor"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="9" cy="10" r="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m4 18 5-5 4 4 3-3 4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+</svg>
+
+<!-- ============ HEADER ============ -->
+<header class="header">
+  <div class="container">
+    <a href="/" class="logo" aria-label="KolayBi ana sayfa"><svg class="logo-mark" aria-hidden="true"><use href="#logo-k"/></svg>KolayBi</a>
+    <nav class="nav" id="nav">
+
+      <!-- Ürünler -->
+      <div class="nav-item has-mega">
+        <details class="nav-dd"><summary class="nav-link">Ürünler<svg class="chev"><use href="#i-chev"/></svg></summary>
+        <div class="mega" id="mega-1">
+          <div class="mega-inner mega-products">
+            <div class="mega-grid">
+              <a href="/kolay-on-muhasebe-programi" class="mi mi-lg theme-ofis"><span class="mi-mark" aria-hidden="true"><small>KolayBi</small><b>Ofis</b></span><div><span class="sr-only">KolayBi Ofis</span><span>En kolay ön muhasebe yönetimi</span></div><svg class="go"><use href="#i-right"/></svg></a>
+              <a href="/kolaybi-jet" class="mi mi-lg theme-jet"><span class="mi-mark" aria-hidden="true"><small>KolayBi</small><b>Jet</b></span><div><span class="sr-only">KolayBi Jet</span><span>Sadece e-Fatura kesmek isteyenler için</span></div><svg class="go"><use href="#i-right"/></svg></a>
+              <a href="/online-banka-entegrasyonu" class="mi mi-lg theme-banka"><span class="mi-mark" aria-hidden="true"><small>KolayBi</small><b>Banka</b></span><div><span class="sr-only">KolayBi Banka</span><span>Tüm banka hesaplarınız tek ekranda</span></div><svg class="go"><use href="#i-right"/></svg></a>
+              <a href="/bilink" class="mi mi-lg theme-link"><span class="mi-mark" aria-hidden="true"><small>KolayBi</small><b>Link</b></span><div><span class="sr-only">KolayBi Link</span><span>Mali müşavirler için mükellef yönetim portalı</span></div><svg class="go"><use href="#i-right"/></svg></a>
+            </div>
+            <div class="mega-promo">
+              <span class="eyebrow">Kampanya</span>
+              <p class="mega-promo-title">Sınırsız ve ücretsiz <em><span class="nw">e-Fatura</span> kontörü</em> avantajı!</p>
+              <div class="promo-stat"><strong>∞</strong><span>kontör, ek ücret yok</span></div>
+              <a href="/#kampanya" class="btn btn-light">Kampanyayı İnceleyin<span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
+            </div>
+          </div>
+        </div></details>
+      </div>
+
+      <!-- Özellikler -->
+      <div class="nav-item has-mega">
+        <details class="nav-dd"><summary class="nav-link">Özellikler<svg class="chev"><use href="#i-chev"/></svg></summary>
+        <div class="mega" id="mega-2">
+          <div class="mega-inner mega-features">
+            <div class="mega-col">
+              <span class="mega-title">Ön Muhasebe Yönetimi</span>
+              <div class="mega-list">
+                <a href="/cari-hesap-programi" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-users"/></svg></span><div><b>Cari Hesap Takibi</b><span>Cari bakiyeleri takip edin</span></div></a>
+                <a href="/fatura-kesme-programi" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-invoice"/></svg></span><div><b>Fatura Takibi</b><span>Gelen ve giden faturaları izleyin</span></div></a>
+                <a href="/gelir-gider-takip-programi" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-flow"/></svg></span><div><b>Gelir ve Gider Takibi</b><span>Nakit akışı ve harcamanızı izleyin</span></div></a>
+                <a href="/on-muhasebe-raporlama-programi" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-chart"/></svg></span><div><b>Raporlama</b><span>Finansal durumunuzu takip edin</span></div></a>
+                <a href="/stok-takip-programi" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-box"/></svg></span><div><b>Depo ve Stok Yönetimi</b><span>Stok seviyelerini takip edin</span></div></a>
+                <a href="/siparis-takip-programi" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-order"/></svg></span><div><b>Sipariş Yönetimi</b><span>Siparişleri tekliften teslimata yönetin</span></div></a>
+                <a href="/proje-gelir-gider-takibi" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-calendar"/></svg></span><div><b>Proje Takibi</b><span>Proje kârlılığını ve maliyetini ölçün</span></div></a>
+              </div>
+            </div>
+            <div class="mega-col">
+              <span class="mega-title">e-Belge</span>
+              <div class="mega-list">
+                <a href="/e-fatura" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-invoice"/></svg></span><div><b>e-Fatura</b><span>Müşterilerinize e-Fatura kesin</span></div></a>
+                <a href="/e-arsiv" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-archive"/></svg></span><div><b>e-Arşiv</b><span>e-Arşiv faturası oluşturun</span></div></a>
+                <a href="/e-irsaliye" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-truck"/></svg></span><div><b>e-İrsaliye</b><span>Sevkiyat süreçlerinizi kolaylaştırın</span></div></a>
+                <a href="/e-ihracat-programi" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-globe"/></svg></span><div><b>e-İhracat</b><span>İhracat faturanızı düzenleyin</span></div></a>
+                <a href="/e-smm-programi" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-receipt"/></svg></span><div><b>e-SMM</b><span>Hizmet ödemelerini belgeleyin</span></div></a>
+                <a href="/e-imza-programi" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-sign"/></svg></span><div><b>e-İmza</b><span>Resmi e-İmzanızı edinin</span></div></a>
+              </div>
+            </div>
+            <div class="mega-col">
+              <span class="mega-title">Ayrıcalıklar</span>
+              <div class="mega-list">
+                <a href="/kolaybi-e-faturam" class="mi-hero"><span class="mh-inf" aria-hidden="true">∞</span><span class="mh-tag">En büyük avantaj</span><b>Sınırsız <span class="nw">e-Fatura</span> kontörü</b><span class="mh-sub">KolayBi’ye geçen işletmelere 3 büyük avantaj</span><span class="mh-chips"><i>∞ Kontör</i><i>1 yıl <span class="nw">e-İmza</span></i><i>Banka</i></span><span class="mh-go">Avantajları inceleyin<svg><use href="#i-arrow"/></svg></span></a>
+                <a href="/kolaybiye-gecis" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-flow"/></svg></span><div><b>KolayBi’ye Geçiş</b><span>Verilerinizi destekle aktarın</span></div></a>
+                <a href="/kampanyalar/qnb-dijital-kopru" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-bridge"/></svg></span><div><b>Dijital Köprü</b><span>QNB Dijital Köprü ayrıcalıkları</span></div></a>
+                <a href="/kampanyalar/davet-et-kazan" class="mi mi-sm"><span class="mi-ic"><svg><use href="#i-share"/></svg></span><div><b>Davet Et Kazan</b><span>Arkadaşlarınızı davet edin, kazanın</span></div></a>
+              </div>
+            </div>
+          </div>
+        </div></details>
+      </div>
+
+      <!-- Entegrasyonlar -->
+      <div class="nav-item has-mega">
+        <details class="nav-dd"><summary class="nav-link">Entegrasyonlar<svg class="chev"><use href="#i-chev"/></svg></summary>
+        <div class="mega" id="mega-3">
+          <div class="mega-inner mega-integrations">
+            <div class="mega-grid">
+              <a href="/pazaryeri-entegrasyonu" class="mi mi-lg theme-ofis"><span class="mi-ic"><svg><use href="#i-cart"/></svg></span><div><b>e-Ticaret/Pazaryeri Entegrasyonu</b><span>Trendyol, Hepsiburada ve web sitenizdeki siparişleri anında faturalaştırın</span></div><svg class="go"><use href="#i-right"/></svg></a>
+              <a href="/online-banka-entegrasyonu" class="mi mi-lg theme-banka"><span class="mi-ic"><svg><use href="#i-bank"/></svg></span><div><b>Banka Entegrasyonu</b><span>Hesap hareketlerinizi KolayBi'ye aktarın</span></div><svg class="go"><use href="#i-right"/></svg></a>
+              <a href="/sanal-pos-entegrasyonu" class="mi mi-lg theme-link"><span class="mi-ic"><svg><use href="#i-card"/></svg></span><div><b>Sanal POS</b><span>Uzaktan tahsilat yapın</span></div><svg class="go"><use href="#i-right"/></svg></a>
+              <a href="https://developer.kolaybi.com/#operations-top" class="mi mi-lg theme-jet"><span class="mi-ic"><svg><use href="#i-plug"/></svg></span><div><b>Ücretsiz API</b><span>Kendi yazılımınızı KolayBi'ye bağlayın</span></div><svg class="go"><use href="#i-right"/></svg></a>
+            </div>
+            <div class="mega-promo">
+              <span class="eyebrow">KolayBi Plus</span>
+              <p class="mega-promo-title">İşinizi büyütecek <em>3 avantaj</em></p>
+              <ul class="promo-gifts">
+                <li class="top"><svg><use href="#i-invoice"/></svg><span>Sınırsız <span class="nw">e-Fatura</span> Kontörü<span class="free">Ücretsiz</span></span></li>
+                <li><svg><use href="#i-bank"/></svg>Banka Entegrasyonu<span class="free">Ücretsiz</span></li>
+                <li><svg><use href="#i-sign"/></svg><span>1 Yıllık <span class="nw">e-İmza</span><span class="free">Ücretsiz</span></span></li>
+              </ul>
+              <a href="/#kampanya" class="btn btn-light">Avantajlardan Yararlanın<span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
+            </div>
+          </div>
+        </div></details>
+      </div>
+
+      <div class="nav-item"><a href="/ai-muhasebe" class="nav-link">AI Muhasebe<span class="nav-new">Yeni</span></a></div>
+      <div class="nav-item"><a href="/kolaybi-e-faturam" class="nav-link">Ücretsiz e-Fatura</a></div>
+      <div class="nav-item"><a href="/fiyatlar" class="nav-link">Fiyatlar</a></div>
+      <!-- Destek -->
+      <div class="nav-item has-mega">
+        <details class="nav-dd"><summary class="nav-link active">Destek<svg class="chev"><use href="#i-chev"/></svg></summary>
+        <div class="mega" id="mega-4">
+          <div class="mega-inner mega-help-menu">
+            <div class="mega-grid">
+              <a href="/blog" class="mi mi-lg theme-ofis"><span class="mi-ic"><svg><use href="#i-book"/></svg></span><div><b>Blog</b><span>Ön muhasebe, vergi ve <span class="nw">e-Dönüşüm</span> rehberleri</span></div><svg class="go"><use href="#i-right"/></svg></a>
+              <a href="/kullanim-videolari" class="mi mi-lg theme-jet"><span class="mi-ic"><svg><use href="#i-play"/></svg></span><div><b>Kullanım Videoları</b><span>İşlemleri kısa videolarla adım adım öğrenin</span></div><svg class="go"><use href="#i-right"/></svg></a>
+              <a href="/sikca-sorulan-sorular" class="mi mi-lg theme-link"><span class="mi-ic"><svg><use href="#i-help"/></svg></span><div><b>Sıkça Sorulan Sorular</b><span>Merak edilen soruların yanıtları</span></div><svg class="go"><use href="#i-right"/></svg></a>
+              <a href="/referanslar" class="mi mi-lg theme-ofis"><span class="mi-ic"><svg><use href="#i-star"/></svg></span><div><b>Referanslar</b><span>KolayBi kullanan işletmelerin deneyimleri</span></div><svg class="go"><use href="#i-right"/></svg></a>
+              <a href="/iletisim" class="mi mi-lg theme-jet"><span class="mi-ic"><svg><use href="#i-chat"/></svg></span><div><b>İletişim</b><span>Telefon, e-posta ve ofis bilgilerimiz</span></div><svg class="go"><use href="#i-right"/></svg></a>
+            </div>
+            <div class="mega-promo mega-contact">
+              <span class="eyebrow">Destek</span>
+              <p class="mega-promo-title">Yardıma mı <em>ihtiyacınız var?</em></p>
+              <p>Destek ekibimiz hafta içi 09:00–18:00 arası yanınızda.</p>
+              <div class="mc-links">
+                <a href="tel:08503030667"><svg><use href="#i-phone"/></svg>0 (850) 303 06 67</a>
+                <a href="mailto:iletisim@kolaybi.com"><svg><use href="#i-mail"/></svg>iletisim@kolaybi.com</a>
+              </div>
+              <a href="/iletisim" class="btn btn-light">Bize Ulaşın<span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
+            </div>
+          </div>
+        </div></details>
+      </div>
+    </nav>
+    <div class="header-cta">
+      <a href="https://app.kolaybi.com/?activeForm=login" class="login">Giriş</a>
+      <a href="https://app.kolaybi.com/?activeForm=register" class="btn btn-primary"><span><span class="long">14 Gün </span>Ücretsiz Deneyin</span><span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
+      <button class="menu-btn" aria-label="Menüyü aç" onclick="document.getElementById('nav').classList.toggle('open')"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="read-progress" aria-hidden="true"></div>
+
+<article>
+<header class="ps-hero">
+  <div class="container">
+    <div class="ps-head theme-jet">
+      <nav class="crumbs" aria-label="Sayfa yolu"><a href="/">KolayBi</a><svg><use href="#i-right"/></svg><a href="/blog">Blog</a><svg><use href="#i-right"/></svg><span>Teknoloji</span></nav>
+      <span class="post-tag">Teknoloji</span>
+      <h1>İleti Yönetim Sistemi (İYS) Nedir?</h1>
+      <p class="lead">İleti Yönetim Sistemi (İYS) nedir, kayıt ve kullanım süreçleri nelerdir? İYS hakkındaki tüm bilgilere KolayBi üzerinden ulaşın. Detaylar için hemen tıklayın!</p>
+      <div class="ps-meta">
+        <div class="ps-author"><span class="ava"><svg><use href="#logo-k"/></svg></span><div><b>KolayBi Editör</b><small>İçerik Ekibi</small></div></div>
+        <div class="ps-facts"><span><svg><use href="#i-calendar"/></svg><time datetime="2024-07-04">4 Temmuz 2024</time></span><span><svg><use href="#i-flow"/></svg>Güncellendi: <time datetime="2026-04-19">19 Nisan 2026</time></span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>7 dk okuma</span></div>
+      </div>
+    </div>
+    <div class="ps-cover"><img src="/img/blog/kapak/ileti-yonetim-sistemi-nedir.webp" alt="İleti Yönetim Sistemi (İYS) Nedir?" width="1080" height="608"></div>
+  </div>
+</header>
+
+<div class="container ps-body">
+  <aside class="ps-side">
+    <nav class="toc" aria-label="İçindekiler"><b>Bu içerikte neler var?</b><ol><li><a class="h2" href="#i-leti-yonetim-sistemi-i-ys-nasil-calisir">İleti Yönetim Sistemi (İYS) Nasıl Çalışır?</a></li><li><a class="h2" href="#i-leti-yonetim-sistemi-i-ys-basvurusu-nasil-yapilir">İleti Yönetim Sistemi (İYS) Başvurusu Nasıl Yapılır?</a></li><li><a class="h2" href="#i-leti-yonetim-sistemi-basvurusu-icin-gerekli-belgeler-neler">İleti Yönetim Sistemi Başvurusu için Gerekli Belgeler Nelerdir?</a></li><li><a class="h2" href="#ticari-elektronik-i-leti-nedir">Ticari Elektronik İleti Nedir?</a></li><li><a class="h2" href="#i-leti-yonetim-sistemi-ne-nasil-belge-yuklenir">İleti Yönetim Sistemi’ne Nasıl Belge Yüklenir?</a></li><li><a class="h2" href="#i-leti-yonetim-sistemi-ne-eklenecek-belgeler-nelerdir">İleti Yönetim Sistemi’ne Eklenecek Belgeler Nelerdir?</a></li><li><a class="h2" href="#i-leti-yonetim-sistemi-onemi-nedir">İleti Yönetim Sistemi Önemi Nedir?</a></li><li><a class="h3" href="#tuketiciler-icin-i-ys-nin-onemi">Tüketiciler için İYS'nin Önemi</a></li><li><a class="h3" href="#i-sletmeler-icin-i-ys-nin-onemi">İşletmeler için İYS'nin Önemi</a></li><li><a class="h3" href="#genel-olarak-i-ys-nin-onemi">Genel Olarak İYS'nin Önemi</a></li><li><a class="h2" href="#i-leti-yonetim-sistemi-hakkinda-sikca-sorulan-sorular">İleti Yönetim Sistemi Hakkında Sıkça Sorulan Sorular</a></li><li><a class="h3" href="#i-ys-ye-kayit-olmak-zorunlu-mudur">İYS'ye Kayıt Olmak Zorunlu mudur?</a></li><li><a class="h3" href="#i-ys-sms-engelleme-i-slemi-nasil-yapilir">İYS SMS Engelleme İşlemi Nasıl Yapılır?</a></li><li><a class="h3" href="#i-ys-onayi-nedir">İYS Onayı Nedir?</a></li><li><a class="h3" href="#i-ys-uzerinden-toplu-mail-engellenebilir-mi">İYS Üzerinden Toplu Mail Engellenebilir mi?</a></li></ol></nav>
+    <div class="side-cta"><b>Ön muhasebe <em>tek ekranda</em></b><p>Fatura, cari, stok ve banka takibini KolayBi ile yönetin.</p><a href="https://app.kolaybi.com/?activeForm=register" class="btn btn-light">Ücretsiz Deneyin<span class="arr"><svg><use href="#i-arrow"/></svg></span></a></div>
+    <div class="share"><span>Paylaş</span>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.kolaybi.com%2Fblog%2Fileti-yonetim-sistemi-nedir" target="_blank" rel="noopener" aria-label="LinkedIn'de paylaş"><svg><use href="#s-linkedin"/></svg></a>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.kolaybi.com%2Fblog%2Fileti-yonetim-sistemi-nedir&amp;text=%C4%B0leti%20Y%C3%B6netim%20Sistemi%20%28%C4%B0YS%29%20Nedir%3F" target="_blank" rel="noopener" aria-label="X'te paylaş"><svg><use href="#s-x"/></svg></a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.kolaybi.com%2Fblog%2Fileti-yonetim-sistemi-nedir" target="_blank" rel="noopener" aria-label="Facebook'ta paylaş"><svg><use href="#s-facebook"/></svg></a>
+          <a href="https://wa.me/?text=%C4%B0leti%20Y%C3%B6netim%20Sistemi%20%28%C4%B0YS%29%20Nedir%3F%20https%3A%2F%2Fwww.kolaybi.com%2Fblog%2Fileti-yonetim-sistemi-nedir" target="_blank" rel="noopener" aria-label="WhatsApp ile paylaş"><svg><use href="#s-whatsapp"/></svg></a>
+          <button type="button" data-copy aria-label="Bağlantıyı kopyala"><svg><use href="#i-check-solid"/></svg></button>
+        </div>
+  </aside>
+  <div>
+    <div class="prose">
+<p><strong>İYS nedir</strong>? İYS, Ticari elektronik iletilerin onaylarını kaydetmek ve yönetmek amacıyla hizmet sağlayıcıların kullanması gereken bir platformdur.</p><p>Bu sistem, Ticari İletişim ve Ticari Elektronik İletiler ile ilgili yönetmelik çerçevesinde değerlendirilir ve alıcının onayı olmadan ticari iletilerin gönderilmesini yasaklar. Promosyon, indirim, pazarlama ve kampanya gibi içerikler için alınan izinler, İleti Yönetim Sistemi’ne kaydedilmek zorundadır.</p><h2 id="i-leti-yonetim-sistemi-i-ys-nasil-calisir">İleti Yönetim Sistemi (İYS) Nasıl Çalışır?</h2><p><strong>İleti Yönetim Sistemi</strong> (İYS), işletmelerin müşterilerinden aldıkları iletişim izinlerini dijital ortamda kaydetmelerini ve yönetmelerini sağlayan bir platformdur. <strong>İleti Yönetim Sistemi nedir</strong> sorusuna cevap verdikten sonra, sistemin çalışma prensiplerine de değinmek gerekir. İşletmeler, müşterilerinin ticari elektronik iletileri (<span class="nw">e-posta</span>, SMS, telefon aramaları gibi) almayı kabul ettiklerini belirten onayları İYS'ye kaydeder. Bu süreçte aşağıdaki adımlar izlenir:</p><ul><li><strong>İzinlerin Toplanması ve Kaydedilmesi</strong><ul><li>İşletmeler, müşterilerinden çeşitli kanallar aracılığıyla (web sitesi, mobil uygulama, fiziksel formlar vb.) ticari elektronik ileti göndermek için izin alırlar.</li><li>Alınan bu izinler, dijital olarak İYS'ye kaydedilir. Her bir izin kaydı, müşterinin kimlik bilgileri, iletişim kanalı ve onay tarihi gibi ayrıntıları içerir.</li></ul></li><li><strong>İzinlerin Doğrulanması ve Takibi</strong><ul><li>İYS, kaydedilen izinlerin güncelliğini ve geçerliliğini devamlı olarak kontrol eder.</li><li>İşletmeler, İYS'ye kaydedilen izinlerin doğruluğunu ve güncelliğini sağlamak için düzenli olarak izin kayıtlarını gözden geçirmelidir.</li></ul></li><li><strong>İzinlerin Yönetimi</strong><ul><li>Tüketiciler, <strong>İYS</strong> üzerinden kendilerine ait iletişim izinlerini görüntüleyebilir ve yönetebilirler.</li><li>Tüketiciler, İYS aracılığıyla daha önce verdikleri izinleri iptal edebilir veya yeni izinler ekleyebilirler. Bu işlemler, kullanıcı dostu bir arayüz üzerinden kolayca yapılabilir.</li></ul></li><li><strong>İletilerin Gönderilmesi</strong><ul><li>İYS, işletmelerin sadece izinli alıcılara ticari elektronik ileti göndermesini sağlar.</li><li>İşletmeler, ticari elektronik ileti göndermeden önce, alıcının İYS üzerindeki izin durumunu kontrol eder ve sadece onaylı alıcılara ileti gönderir.</li></ul></li><li><strong>Raporlama ve Denetim</strong><ul><li>İYS, işletmelere gönderilen iletiler ve izinlerin durumu hakkında kapsamlı raporlama ve analiz araçları sunar.</li><li>İşletmeler, izin yönetimi süreçlerini ve ileti gönderimlerini düzenli olarak denetleyerek yasal uyumluluğu sağlarlar.</li></ul></li></ul><p>Bu sayede İYS, hem işletmeler hem de tüketiciler için şeffaf ve güvenilir bir iletişim izin yönetim süreci sunar. İşletmeler, İYS sayesinde yasalara uygun şekilde hareket ederek müşteri memnuniyetini artırırken tüketiciler de kendilerine yönelik istenmeyen ticari iletilerden korunmuş olurlar.</p><figure><img src="/img/blog/icerik/7b02ffe4d113.webp" alt="" loading="lazy" width="1920" height="1080"></figure><h2 id="i-leti-yonetim-sistemi-i-ys-basvurusu-nasil-yapilir">İleti Yönetim Sistemi (İYS) Başvurusu Nasıl Yapılır?</h2><p>İleti Yönetim Sistemi’ne başvuru ve kayıt işlemleri oldukça basittir ve birkaç adımdan oluşur. Başvurular <a href="https://iys.org.tr/" target="_blank" rel="noopener">https://iys.org.tr/</a> üzerinden online olarak yapılabilir ve aşağıdaki süreçler izlenir:</p><ul><li><strong>Ön Hazırlık</strong><ul><li>Başvuru yapmadan önce işletmenizin İYS’ye kayıt için gerekli olan belgeleri ve bilgileri hazırlamanız gerekir. Bu belgeler içerisinde vergi levhası, şirketin ticaret sicil gazetesi ve imza sirküleri bulunur.</li></ul></li><li><strong><span class="nw">E-imza</span> ile Başvuru</strong><ul><li>Şirketin imza yetkilisinin <span class="nw">e-imzası</span> ile başvuru yapılması gereklidir. Eğer <span class="nw">e-imzanız</span> yoksa öncelikle <span class="nw">e-imza</span> temin etmelisiniz.</li><li><span class="nw">E-imza</span> ile başvuru yapacak şirketler, İYS’nin resmi web sitesine girerek başvuru formunu doldururlar. Formda şirket bilgileri, iletişim bilgileri ve diğer gerekli detaylar istenir.</li></ul></li><li><strong>Fiziksel Başvuru</strong><ul><li><span class="nw">E-imza</span> kullanamayan şirketler, başvurularını fiziksel olarak yapabilirler. Bu durumda, gerekli belgelerle birlikte İYS ofisine başvurulmalıdır.</li><li>Fiziksel başvuru için gerekli belgeler arasında başvuru formu, şirketin imza sirküleri, ticaret sicil gazetesi ve vergi levhası gibi belgeler bulunur.</li></ul></li><li><strong>MERSİS Kaydı ile Başvuru</strong><ul><li><strong>İYS <span class="nw">e-devlet</span> kapısı</strong> üzerinden giriş yaparak başvuru gerçekleştirebilir. MERSİS kaydı bulunan şirketler için geçerli olan bu yöntem, başvuru sürecini hızlandırır ve kolaylaştırır.</li></ul></li><li><strong>Yabancı Şirketler için Başvuru</strong><ul><li>Yabancı şirketler sadece fiziksel başvuru yapabilirler. Yabancı şirketlerin başvurusu için gerekli belgeler arasında şirketin uluslararası geçerliliği olan ticaret belgeleri ve temsil yetkisine sahip kişinin kimlik belgeleri bulunur.</li></ul></li><li><strong>Başvuru Sürecinin Tamamlanması</strong><ul><li>Başvuru tamamlandıktan sonra İYS yetkilileri başvuruyu inceleyerek gerekli kontrolleri yapar.</li><li>Başvuru onaylandığında işletme İYS’ye kaydedilir ve ileti yönetim süreçlerini dijital ortamda yönetmeye başlayabilir.</li></ul></li></ul><p>İşletmeler, başvuru süreci tamamlandıktan sonra İYS portalı üzerinden izin kayıtlarını yönetebilir, raporlar oluşturabilir ve tüketicilerle iletişim süreçlerini düzenleyebilirler. İYS’ye kayıt olmak, işletmelerin yasal düzenlemelere uyum sağlamasını ve müşteri iletişimlerini daha etkin bir şekilde yönetmesini sağlar.</p><div class="inline-cta"><div><b>Ön muhasebenizi KolayBi ile kolaylaştırın</b><span>14 gün ücretsiz deneyin, kredi kartı gerekmez.</span></div><a href="https://app.kolaybi.com/?activeForm=register" class="btn btn-primary">Ücretsiz Deneyin<span class="arr"><svg><use href="#i-arrow"/></svg></span></a></div><h2 id="i-leti-yonetim-sistemi-basvurusu-icin-gerekli-belgeler-neler">İleti Yönetim Sistemi Başvurusu için Gerekli Belgeler Nelerdir?</h2><p>İleti Yönetim Sistemi kaydı için gerekli belgeler şunlardır:</p><ul><li>Şirketin imza yetkilisinin Türkiye Cumhuriyeti kimlik numarası, telefon numarası ve kurumsal <span class="nw">e-mail</span> adresi</li><li>Hizmet sahibinin MERSİS numarası ve ticari elektronik ileti gönderim talebinde bulunduğu markaların tescil belgeleri</li><li>Elektronik imzalı İleti Yönetim Sistemi Temel Hizmetler Kullanım Taahhütnamesi</li></ul><p>Bu belgeler, başvuru formu doldurulduktan sonra sisteme yüklenmelidir.</p><h2 id="ticari-elektronik-i-leti-nedir">Ticari Elektronik İleti Nedir?</h2><p>Ticari elektronik ileti, işletmelerin mal veya hizmet tanıtımı, pazarlama, promosyon, reklam veya anket amacıyla tüketicilere gönderdiği iletilerdir. Bu iletiler; SMS, <span class="nw">e-posta</span> veya sesli mesaj yoluyla gönderilebilir. Ticari elektronik iletiler, tüketicinin onayı olmadan gönderilemez ve her iletinin sonunda alıcıya ret hakkı sunulmalıdır.</p><h2 id="i-leti-yonetim-sistemi-ne-nasil-belge-yuklenir">İleti Yönetim Sistemi’ne Nasıl Belge Yüklenir?</h2><p>İleti Yönetim Sistemi’ne belge yüklemek için sisteme giriş yapıldıktan sonra başvuru işlemleri menüsünden belge yükleme sekmesi seçilir. Belgeler, PDF veya JPEG formatında yüklenir. Belgelerin okunabilir ve doğru bilgiler içermesi önemlidir.</p><h2 id="i-leti-yonetim-sistemi-ne-eklenecek-belgeler-nelerdir">İleti Yönetim Sistemi’ne Eklenecek Belgeler Nelerdir?</h2><p>İleti Yönetim Sistemi’ne eklenecek belgeler şunlardır:</p><ul><li>İletişim ağı (arama, mesaj veya <span class="nw">e-mail</span>)</li><li>İzin belgesi (ıslak imzalı onay formu gibi)</li><li>İzin tarihi</li><li>İletişim adresi (<span class="nw">e-mail</span> adresi ya da telefon numarası)</li></ul><figure><img src="/img/blog/icerik/4c785ccefc37.webp" alt="" loading="lazy" width="1920" height="1080"></figure><h2 id="i-leti-yonetim-sistemi-onemi-nedir">İleti Yönetim Sistemi Önemi Nedir?</h2><p>İleti Yönetim Sistemi (İYS), günümüz dijital iletişim dünyasında hem tüketiciler hem de işletmeler için kritik bir öneme sahiptir. İYS, ticari elektronik iletilerin yönetimi konusunda düzenleyici bir çerçeve sunarak iletişim süreçlerinin daha şeffaf, güvenilir ve etkili olmasını sağlar.</p><h3 id="tuketiciler-icin-i-ys-nin-onemi">Tüketiciler için İYS'nin Önemi</h3><ul><li><strong>İzinsiz ve İstenmeyen İletilerden Korunma</strong><ul><li>Tüketiciler, sık sık izinsiz ve istenmeyen ticari iletilerle karşı karşıya kalır. İYS, tüketicilere bu tür iletilerden korunma imkânı sağlar.</li><li>Tüketiciler, İYS üzerinden ileti izinlerini yöneterek hangi işletmelerden ticari ileti almak istediklerine kendileri karar verebilirler. Bu sayede yalnızca onay verdikleri işletmelerden ileti alırlar.</li></ul></li><li><strong>İzinlerin Kolay Yönetimi</strong><ul><li>Tüketiciler, İYS aracılığıyla verdikleri izinleri kolayca görüntüleyebilir, onay verebilir veya iptal edebilirler.</li><li>Kullanıcı dostu arayüz sayesinde ileti izinlerini yönetmek oldukça basit ve hızlıdır. Bu durum, tüketicilerin istenmeyen iletilerden kurtulmalarını ve iletişim tercihlerini kontrol etmelerini sağlar.</li></ul></li><li><strong>Gizlilik ve Güvenlik</strong><ul><li>İYS, tüketicilerin kişisel bilgilerinin güvenli bir şekilde muhafaza edilmesini ve kullanılmasını mümkün kılar.</li><li>Tüketici verileri, yasal düzenlemelere uygun olarak korunur ve üçüncü taraflarla paylaşılmadan önce tüketicinin onayı alınır. <strong>Vatandaş İYS</strong> ile gizlilik haklarının korunmasını sağlar.</li></ul></li></ul><h3 id="i-sletmeler-icin-i-ys-nin-onemi">İşletmeler için İYS'nin Önemi</h3><ul><li><strong>Yasal Uyum ve Cezai Yaptırımlardan Kaçınma:</strong><ul><li>İYS, işletmelerin ticari ileti gönderirken yasal düzenlemelere uygun hareket etmelerini sağlar.</li><li>Kanuna uygun hareket eden işletmeler, yasal cezai yaptırımlardan kaçınır ve bu sayede hukuki risklerini minimize ederler. İYS'ye kayıtlı işletmeler, ticari ileti izinlerini düzenli olarak güncelleyerek yasal uyumu sağlarlar.</li></ul></li><li><strong>Tüketici Memnuniyetinin Artırılması:</strong><ul><li>İYS, işletmelerin yalnızca izinli alıcılara ticari ileti göndermesini sağladığı için tüketici memnuniyetini artırır.</li><li>İzinli iletişim, tüketicilerin işletmeye olan güvenini pekiştirir ve müşteri sadakatini artırır. Müşteriler, izinsiz iletilerle rahatsız edilmedikleri için işletmeye karşı daha olumlu bir tutum sergilerler.</li></ul></li><li><strong>Etkili ve Hedefli Pazarlama:</strong><ul><li>İYS, işletmelere hedefli pazarlama yapma imkânı tanır. İzinli alıcılara gönderilen iletiler, daha yüksek etkileşim ve dönüşüm oranları sağlar.</li><li>Hedef kitleye yönelik iletişim stratejileri, pazarlama kampanyalarının başarısını artırır ve daha etkin sonuçlar elde edilmesini sağlar. Bu da işletmelerin pazarlama bütçelerinin daha verimli kullanılmasına yardımcı olur.</li></ul></li><li><strong>Güvenilirlik ve Marka İmajının Güçlendirilmesi:</strong><ul><li>İYS'ye kayıtlı işletmeler, tüketiciler gözünde daha güvenilir ve profesyonel bir imaj çizerler.</li><li>Yasal düzenlemelere uyum sağlamak ve şeffaf iletişim süreçleri yürütmek, işletmelerin marka imajını olumlu yönde etkiler. Bu da uzun vadede marka bağlılığını ve müşteri sadakatini pekiştirir.</li></ul></li></ul><h3 id="genel-olarak-i-ys-nin-onemi">Genel Olarak İYS'nin Önemi</h3><ul><li><strong>Dijital İletişim Düzeninin Sağlanması:</strong><ul><li>İYS, dijital iletişimde düzen ve disiplin sağlar.</li><li>İşletmeler ve tüketiciler arasındaki iletişim süreçlerinin daha şeffaf ve kontrollü olmasını sağlayarak her iki taraf için de daha verimli bir iletişim ortamı yaratır.</li></ul></li><li><strong>Veri Güvenliği ve Mahremiyetin Korunması:</strong><ul><li>İYS, veri güvenliği ve mahremiyetin korunmasına yönelik önemli bir adım olarak değerlendirilebilir.</li><li>Tüketici verilerinin güvenli bir şekilde saklanması ve işlenmesi, hem yasal uyumu sağlar hem de tüketici haklarını korur.</li></ul></li></ul><p>Sonuç olarak İleti Yönetim Sistemi, işletmeler ve tüketiciler için oldukça önemlidir. Tüketiciler, izinsiz ve istenmeyen iletilerden korunurken işletmeler de yasal düzenlemelere uygun hareket ederek cezai yaptırımlardan kaçınır. Ayrıca İYS sayesinde işletmeler, tüketici memnuniyetini artırarak güvenilirliklerini pekiştirir ve daha etkin pazarlama stratejileri ile hedef kitlelerine ulaşır.</p><h2 id="i-leti-yonetim-sistemi-hakkinda-sikca-sorulan-sorular">İleti Yönetim Sistemi Hakkında Sıkça Sorulan Sorular</h2><p>İleti Yönetim Sistemi (İYS) hakkında ayrıntılı bilgi için aşağıdaki sıkça sorulan sorular bölümüne göz atabilirsiniz. Bu bölümde, İYS’ye kayıt olma zorunluluğundan SMS ve toplu mail engelleme işlemlerine kadar birçok konuda detaylı bilgiler bulabilirsiniz.</p>
+  <h3 id="i-ys-ye-kayit-olmak-zorunlu-mudur">İYS'ye Kayıt Olmak Zorunlu mudur?</h3>
+  
+    
+      <p>
+        Evet, ticari elektronik ileti gönderen tüm işletmelerin İYS’ye kayıt
+        olmaları zorunludur. Bu kayıt, tüketici onaylarının yasal çerçevede
+        yönetilmesini sağlar.
+      </p>
+    
+  
+
+
+  <h3 id="i-ys-sms-engelleme-i-slemi-nasil-yapilir">İYS SMS Engelleme İşlemi Nasıl Yapılır?</h3>
+  
+    
+      <p>
+        Tüketici, İYS üzerinden SMS engelleme için, İYS web sitesine giriş
+        yaparak kendi profilinden gelen SMS'leri engelleyebilir. Bu işlem,
+        ilgili işletmenin artık bu tüketiciye SMS göndermesini engeller.
+      </p>
+    
+  
+
+
+  <h3 id="i-ys-onayi-nedir">İYS Onayı Nedir?</h3>
+  
+    
+      <p>
+        İYS onayı, tüketicinin işletmeye Ticari Elektronik İleti Yönetim Sistemi
+        ile veri göndermesi için verdiği izindir. Bu onay, İYS üzerinden kayıt
+        altına alınır ve tüketici tarafından istenildiğinde iptal edilebilir.
+      </p>
+    
+  
+
+
+  <h3 id="i-ys-uzerinden-toplu-mail-engellenebilir-mi">İYS Üzerinden Toplu Mail Engellenebilir mi?</h3>
+  
+    
+      <p>
+        Evet, İYS üzerinden toplu mail engellemek mümkündür. Tüketici, İYS
+        profilinden toplu mail gönderimlerini engelleyerek istenmeyen <span class="nw">e-posta</span>
+        iletilerini durdurabilir.
+      </p>
+    </div>
+    
+    <div class="ps-end">
+      <p class="ps-ask">Yanıt almak istediğiniz diğer sorularınız için bizimle <a href="/iletisim">iletişime geçebilirsiniz</a>.</p>
+      <div class="author-box"><span class="ava"><svg><use href="#logo-k"/></svg></span><div><small>Yazar</small><b>KolayBi Editör</b><p>KolayBi içerik ekibi; ön muhasebe, vergi ve <span class="nw">e-dönüşüm</span> konularında işletmeler için güncel ve anlaşılır rehberler hazırlar.</p></div></div>
+      <nav class="pn"><a class="prev" href="/blog/ticaret-sicil-gazetesi-nedir-nasil-sorgulanir"><small><svg><use href="#i-right"/></svg>Önceki yazı</small><b>Ticaret Sicil Gazetesi (TTSG) Nedir? Nasıl Sorgulanır?</b></a><a class="next" href="/blog/e-imza-nedir-nerelerde-kullanilir"><small>Sonraki yazı<svg><use href="#i-right"/></svg></small><b>E-İmza Nedir, Nerelerde Kullanılır?</b></a></nav>
+    </div>
+  </div>
+</div>
+</article>
+
+<section class="section" style="padding-top:24px">
+  <div class="container">
+    <div class="blog-head"><div><h2>İlgili yazılar</h2><p>Teknoloji kategorisinden diğer rehberler.</p></div><a href="/blog" class="btn btn-outline">Tüm Yazılar<span class="arr"><svg><use href="#i-arrow"/></svg></span></a></div>
+    <div class="posts">
+      <article class="post theme-jet" data-cat="teknoloji">
+        <div class="post-img"><img src="/img/blog/liste/nfc-nedir-nasil-acilir.webp" alt="" loading="lazy" width="500" height="281"></div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-tag">Teknoloji</span><time datetime="2025-09-01">1 Eylül 2025</time></div>
+          <h3><a href="/blog/nfc-nedir-nasil-acilir">NFC Nedir, Nasıl Açılır? Akıllı Cihazlarda NFC ile Hayatınızı Kolaylaştırın</a></h3>
+          <p>NFC nedir, ne işe yarar ve telefonlarda nasıl açılır? Mobil ödemeden hızlı bağlantıya kadar hayat kolaylaştıran bu teknolojiye dair tüm detaylar burada!</p>
+          <span class="more">Devamını Okuyun<svg><use href="#i-right"/></svg></span>
+        </div>
+      </article>
+      <article class="post theme-jet" data-cat="teknoloji">
+        <div class="post-img"><img src="/img/blog/liste/islerinizi-kolaylastiracak-yapay-zeka-uygulamalari.webp" alt="" loading="lazy" width="500" height="333"></div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-tag">Teknoloji</span><time datetime="2025-08-04">4 Ağustos 2025</time></div>
+          <h3><a href="/blog/islerinizi-kolaylastiracak-yapay-zeka-uygulamalari">İş Yönetiminize Yardımcı Olacak Yapay Zeka Uygulamaları</a></h3>
+          <p>İşletmenizi geliştirecek yapay zeka uygulamalarını keşfetmek ister misiniz? Ayrıntıları okuyucularımız için derledik. Detaylar için tıkla!</p>
+          <span class="more">Devamını Okuyun<svg><use href="#i-right"/></svg></span>
+        </div>
+      </article>
+      <article class="post theme-jet" data-cat="teknoloji">
+        <div class="post-img"><img src="/img/blog/liste/kolaybi-1-milyon-150-bin-dolarlik-yatirim-aldi.webp" alt="" loading="lazy" width="484" height="414"></div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-tag">Teknoloji</span><time datetime="2022-08-17">17 Ağustos 2022</time></div>
+          <h3><a href="/blog/kolaybi-1-milyon-150-bin-dolarlik-yatirim-aldi">KolayBi 1 Milyon 150 bin Dolarlık Yatırım Aldı</a></h3>
+          <p>TechOne VC önderliğinde 1 milyon 150 bin dolarlık yatırım alan KolayBi güçlü büyüme hikayesine yeni bir sayfa daha ekledi.</p>
+          <span class="more">Devamını Okuyun<svg><use href="#i-right"/></svg></span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11. SON CTA ============ -->
+<section class="section" style="padding-bottom:0">
+  <div class="container">
+    <div class="final-cta">
+      <!-- KolayBi kurdelesi: üç logo rengi, belli belirsiz -->
+      <svg class="cta-ribbon" viewBox="0 0 1376 420" preserveAspectRatio="none" aria-hidden="true">
+        <g class="k-ribbon">
+          <path class="k1" d="M-80 330 C 160 250, 340 420, 600 320 S 980 120, 1220 190 S 1480 120, 1600 40"/>
+          <path class="k2" d="M-80 330 C 160 250, 340 420, 600 320 S 980 120, 1220 190 S 1480 120, 1600 40" transform="translate(0 25)"/>
+          <path class="k3" d="M-80 330 C 160 250, 340 420, 600 320 S 980 120, 1220 190 S 1480 120, 1600 40" transform="translate(0 50)"/>
+        </g>
+      </svg>
+      <h2>İşinizi <em>KolayBi’yle</em> kolaylaştırın</h2>
+      <p>40.000'den fazla KOBİ'nin yaptığı gibi ön muhasebenizi ve <span class="nw">e-Faturanızı</span> tek ekrandan yönetin. 14 gün boyunca tüm özellikleri ücretsiz deneyin.</p>
+      <a href="https://app.kolaybi.com/?activeForm=register" class="btn btn-light">14 Gün Ücretsiz Deneyin<span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
+      <div class="note"><svg><use href="#i-card"/></svg>Kredi kartı istenmez, deneme sonunda otomatik ödeme alınmaz.</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <svg class="f-ribbon" viewBox="0 0 1440 600" preserveAspectRatio="none" aria-hidden="true"><g><path class="k1" d="M-60 300 C 200 180, 420 420, 720 300 S 1180 120, 1500 220"/><path class="k2" d="M-60 300 C 200 180, 420 420, 720 300 S 1180 120, 1500 220" transform="translate(0 40)"/><path class="k3" d="M-60 300 C 200 180, 420 420, 720 300 S 1180 120, 1500 220" transform="translate(0 80)"/></g></svg>
+  <div class="f-word" aria-hidden="true">KolayBi</div>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/" class="logo" aria-label="KolayBi ana sayfa"><svg class="logo-mark" aria-hidden="true"><use href="#logo-k"/></svg>KolayBi</a>
+        <p class="f-support">Destek ekibimize hafta içi 09:00–18:00 arası ulaşabilirsiniz.</p>
+        <div class="f-contact">
+          <a href="tel:08503030667"><svg><use href="#i-phone"/></svg>0 (850) 303 06 67</a>
+          <a href="mailto:iletisim@kolaybi.com"><svg><use href="#i-mail"/></svg>iletisim@kolaybi.com</a>
+        </div>
+        <div class="socials">
+          <a href="https://www.instagram.com/kolaybicom/" aria-label="Instagram" target="_blank" rel="noopener"><svg><use href="#s-instagram"/></svg></a>
+          <a href="https://www.facebook.com/kolaybicom/" aria-label="Facebook" target="_blank" rel="noopener"><svg><use href="#s-facebook"/></svg></a>
+          <a href="https://www.linkedin.com/company/kolaybi/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg><use href="#s-linkedin"/></svg></a>
+          <a href="https://www.youtube.com/channel/UCVMiB9rmdgz8oEX-nNZqKYw" aria-label="YouTube" target="_blank" rel="noopener"><svg><use href="#s-youtube"/></svg></a>
+          <a href="https://twitter.com/kolaybicom" aria-label="X" target="_blank" rel="noopener"><svg><use href="#s-x"/></svg></a>
+          <a href="https://vt.tiktok.com/ZSC1CpCbQ/" aria-label="TikTok" target="_blank" rel="noopener"><svg><use href="#s-tiktok"/></svg></a>
+          <a href="https://whatsapp.com/channel/0029VaVMqRF3WHTXyUs1g81F" aria-label="WhatsApp kanalı" target="_blank" rel="noopener"><svg><use href="#s-whatsapp"/></svg></a>
+        </div>
+        <div class="f-apps">
+          <span>Şimdi App Store ve Google Play'de</span>
+          <div class="stores">
+            <a href="https://play.google.com/store/apps/details?id=com.kolaybi.mobil" class="store" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3c-.3.3-.4.7-.4 1.2v17c0 .5.1.9.4 1.2L13 12.3zM14 13.3l2.8 2.8-11.4 6.5zm0-2L5.4 1.4l11.4 6.5zm3.8-2.9 3.2 1.8c.9.5.9 1.4 0 1.9l-3.2 1.8-3-3z"/></svg>Google Play</a>
+            <a href="https://apps.apple.com/us/app/kolaybi/id1613344055" class="store" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.1 2.5-1.8 3.1-.5 7.6 1.3 10.1.8 1.2 1.8 2.6 3.1 2.5 1.2 0 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.4-1-2.4-4.2zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg>App Store</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="ft-h">Ürünler</p>
+        <ul>
+          <li><a href="/kolay-on-muhasebe-programi">KolayBi Ofis</a></li>
+          <li><a href="/kolaybi-jet">KolayBi Jet</a></li>
+          <li><a href="/bilink">KolayBi Link</a></li>
+          <li><a href="/online-banka-entegrasyonu">KolayBi Banka</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-h">Çözümler</p>
+        <ul>
+          <li><a href="/kolaybi-e-faturam">Sınırsız <span class="nw">e-Fatura</span> Kampanyası</a><span class="tag">Avantaj</span></li>
+          <li><a href="/pazaryeri-entegrasyonu"><span class="nw">e-Ticaret</span>/Pazaryeri Entegrasyonu</a></li>
+          <li><a href="/online-banka-entegrasyonu">Banka Entegrasyonu</a></li>
+          <li><a href="/sanal-pos-entegrasyonu">Sanal POS</a></li>
+          <li><a href="/kolaybiye-gecis">KolayBi’ye Geçiş</a></li>
+          <li><a href="/bayi">KolayBi Bayi</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-h"><span class="nw">e-Belge</span></p>
+        <ul>
+          <li><a href="/e-fatura"><span class="nw">e-Fatura</span></a></li>
+          <li><a href="/e-arsiv"><span class="nw">e-Arşiv</span></a></li>
+          <li><a href="/e-irsaliye"><span class="nw">e-İrsaliye</span></a></li>
+          <li><a href="/e-ihracat-programi"><span class="nw">e-İhracat</span></a></li>
+          <li><a href="/e-smm-programi"><span class="nw">e-SMM</span></a></li>
+          <li><a href="/e-imza-programi"><span class="nw">e-İmza</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-h">KolayBi Yolu Var</p>
+        <ul>
+          <li><a href="/fiyatlar">Fiyatlar</a></li>
+          <li><a href="/kullanim-videolari">Kullanım Videoları</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/hakkimizda">Hakkımızda</a></li>
+          <li><a href="/iletisim">İletişim</a></li>
+          <li><a href="/destek">Destek</a></li>
+          <li><a href="https://developer.kolaybi.com/#operations-top">Ücretsiz API</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <nav>
+        <a href="/cayma-hakki-metni">Cayma Hakkı Metni</a>
+        <a href="/gizlilik-politikasi">Gizlilik Politikası</a>
+        <a href="/cerez-politikasi">Çerez Politikası</a>
+        <a href="/kisisel-verilerin-korunmasi">Kişisel Verileriniz</a>
+      </nav>
+      <div class="badges">
+        <img src="/img/rozetler/tim.webp" alt="Türkiye İhracatçılar Meclisi" loading="lazy" width="2500" height="754">
+        <img src="/img/rozetler/hib.webp" alt="Hizmet İhracatçıları Birliği" loading="lazy" width="340" height="190">
+        <img class="round" src="/img/rozetler/qnb-dijital-kopru.webp" alt="QNB Dijital Köprü Çözüm Ortağı" loading="lazy" width="1000" height="1000">
+      </div>
+      <span>© 2026 ENKO Teknoloji A.Ş.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/menu.js?v=3"></script>
+<script src="/js/faq.js?v=5"></script>
+<script src="/js/post.js?v=1"></script>
+</body>
+</html>
