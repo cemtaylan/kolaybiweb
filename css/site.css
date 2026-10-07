@@ -885,6 +885,12 @@ summary.nav-link::marker { content: ""; }
 .aud-grid.c4 .aud h3 { font-size: 20px; margin-top: 22px; }
 .aud-grid.c4 .aud p { font-size: 15px; }
 .aud-grid.c4 .aud-vis { min-height: 140px; padding: 16px; }
+/* 4 sütunda kart dar: etiket kompakt, kutudan asla taşmaz */
+.aud-grid.c4 .av-pill { gap: 6px; padding: 6px; max-width: 100%; }
+.aud-grid.c4 .av-ic { width: 38px; height: 38px; }
+.aud-grid.c4 .av-ic svg { width: 18px; height: 18px; }
+.aud-grid.c4 .av-lbl { font-size: 13px; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.aud-grid.c4 .av-pill .av-lbl:last-child { margin-right: 10px; }
 @media (max-width: 1279px) { .aud-grid.c4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 1100px) { .aud-grid.c4 { max-width: none; } }
 @media (max-width: 700px) { .aud-grid.c4 { grid-template-columns: 1fr; } }
