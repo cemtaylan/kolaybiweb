@@ -119,3 +119,29 @@
 @media (max-width: 360px) { .plan { padding: 20px; } .plan-price b { font-size: 40px; } }
 .seg2 .save, .plan li .free { color: var(--green-700); }
 .seg2 button.on .save { background: var(--green-700); color: #fff; }
+
+/* Fiyatlar hero: ince lacivert bant, akan marka ışıkları, ücretsiz gelenler */
+.pr-hero { position: relative; overflow: hidden; isolation: isolate; padding: 36px 0 30px; background: var(--navy-900); color: #fff; }
+.pr-aurora { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.pr-aurora i { position: absolute; width: 520px; height: 520px; border-radius: 50%; filter: blur(70px); opacity: .55; animation: prDrift 16s ease-in-out infinite alternate; }
+.pr-aurora i:nth-child(1) { left: -120px; top: -260px; background: var(--logo-blue); }
+.pr-aurora i:nth-child(2) { right: -140px; top: -200px; background: var(--logo-cyan); opacity: .35; animation-delay: -5s; }
+.pr-aurora i:nth-child(3) { left: 40%; bottom: -380px; background: var(--indigo-500); opacity: .35; animation-delay: -10s; }
+@keyframes prDrift { to { transform: translate(80px, 40px) scale(1.1); } }
+.pr-hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(color-mix(in srgb, #fff 5%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, #fff 5%, transparent) 1px, transparent 1px); background-size: 48px 48px; -webkit-mask-image: radial-gradient(70% 90% at 50% 0%, #000, transparent); mask-image: radial-gradient(70% 90% at 50% 0%, #000, transparent); }
+.pr-hero .crumbs, .pr-hero .crumbs a { color: color-mix(in srgb, #fff 65%, transparent); }
+.pr-hero h1 { color: #fff; }
+.pr-hero h1 em { background: linear-gradient(90deg, var(--logo-cyan), var(--accent), var(--logo-cyan)); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: prShine 6s linear infinite; }
+@keyframes prShine { to { background-position: 200% 0; } }
+.pr-hero .lead { color: color-mix(in srgb, #fff 78%, transparent); }
+.pr-perks { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 22px auto 0; max-width: 960px; }
+.pr-perks li { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: color-mix(in srgb, #fff 8%, transparent); border: 1px solid color-mix(in srgb, #fff 14%, transparent); font: 600 14px var(--font-body); color: #fff; animation: prPop .6s cubic-bezier(.2, .8, .2, 1) both; }
+.pr-perks li:nth-child(2) { animation-delay: .1s; } .pr-perks li:nth-child(3) { animation-delay: .2s; } .pr-perks li:nth-child(4) { animation-delay: .3s; }
+@keyframes prPop { from { opacity: 0; transform: translateY(10px); } }
+.pr-perks b { font: 800 18px/1 var(--font-head); color: var(--accent); }
+.pr-perks svg { width: 16px; height: 16px; color: var(--logo-cyan); }
+.pr-perks small { padding: 2px 8px; border-radius: 999px; background: color-mix(in srgb, var(--logo-cyan) 18%, transparent); color: var(--cyan-300); font-size: 11.5px; font-weight: 700; }
+.pr-hero .pr-controls { margin: 24px 0 0; }
+.pr-hero .seg2 { border-color: transparent; box-shadow: 0 16px 34px -18px #000; }
+@media (max-width: 600px) { .pr-hero { padding: 28px 0 24px; } .pr-perks li { font-size: 13px; padding: 7px 12px; } .pr-perks small { display: none; } }
+@media (prefers-reduced-motion: reduce) { .pr-aurora i, .pr-hero h1 em, .pr-perks li { animation: none; } }
