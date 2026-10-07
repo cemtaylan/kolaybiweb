@@ -124,8 +124,6 @@ export interface UserAuthOperations {
   };
 }
 /**
- * Yeni yazı için sağ üstteki "Yeni oluştur" düğmesini kullanın. Taslak olarak kaydedilen yazı sitede görünmez.
- *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts".
  */
