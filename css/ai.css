@@ -183,7 +183,7 @@
 
 /* ---------- Kanal seçici + kanal görünümleri (Web / WhatsApp / Telegram) ---------- */
 .ai-channels { display: inline-flex; gap: 4px; padding: 4px; margin-bottom: 12px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); }
-.ai-channels button { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 10px; border: 0; background: none; color: var(--ink-2); font: 700 13.5px var(--font-body); cursor: pointer; transition: .2s; }
+.ai-channels button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 16px; border-radius: 10px; border: 0; background: none; color: var(--ink-2); font: 700 13.5px var(--font-body); cursor: pointer; transition: .2s; }
 .ai-channels button svg { width: 17px; height: 17px; }
 .ai-channels button[data-ch="web"].is-active { background: var(--primary); color: #fff; }
 .ai-channels button[data-ch="wa"].is-active { background: var(--wa-green); color: #fff; }
@@ -344,3 +344,7 @@
 /* Kart şeridi başlığı: gri zeminde lacivert, marka adı logo geçişiyle */
 .story-title { color: var(--navy); }
 .story-title em { font-style: normal; background: var(--brand-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+/* Dokunma hedefleri: adım bağlantıları en az 44px yükseklikte */
+.ss-more { min-height: 44px; }
+.ch .ch-try, .prompts .run { min-height: 44px; }
+.ai-hero .ai-ctas a:not(.btn), .ai-hero a.btn-ghost, .ai-hero .link-arrow { min-height: 44px; display: inline-flex; align-items: center; }
