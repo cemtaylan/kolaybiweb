@@ -135,7 +135,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; letter-spacin
 .promo-gifts li { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 12px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); font-size: 14px; font-weight: 600; }
 .promo-gifts svg { width: 18px; height: 18px; color: var(--accent); flex-shrink: 0; }
 .promo-gifts li.top { background: color-mix(in srgb, var(--yellow-400) 16%, transparent); border-color: color-mix(in srgb, var(--yellow-400) 60%, transparent); }
-.promo-gifts .free { margin-left: auto; padding: 2px 8px; border-radius: 999px; background: var(--green); font-size: 12px; font-weight: 700; letter-spacing: .05em; }
+.promo-gifts .free { flex-shrink: 0; margin-left: auto; padding: 2px 8px; border-radius: 999px; background: var(--green); font-size: 12px; font-weight: 700; letter-spacing: .05em; }
 .promo-stat { margin: 20px 0 24px; display: flex; align-items: baseline; gap: 10px; }
 .promo-stat strong { font-family: var(--font-head); font-size: 56px; font-weight: 800; line-height: 1; color: var(--accent); letter-spacing: -.03em; }
 .promo-stat span { font-size: 14px; color: rgba(255,255,255,.8); }
