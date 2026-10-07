@@ -10,3 +10,7 @@ payload.db*
 /media/
 .cache/
 .env*
+# Marketplace entegrasyonlarının eklediği asistan yardım dosyaları (site koduna ait değil)
+.agents/
+.claude/
+skills-lock.json
