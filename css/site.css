@@ -70,7 +70,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; letter-spacin
 /* ---------- Mega menü ---------- */
 .nav { align-self: stretch; align-items: center; }
 .nav-item { height: 100%; display: flex; align-items: center; }
-.nav-link { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; padding: 8px 12px; border: 0; background: none; border-radius: 8px; font: 600 15px var(--font-body); letter-spacing: -.01em; color: var(--ink-2); cursor: pointer; transition: background .2s, color .2s; }
+.nav-link { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; padding: 8px 12px; border: 0; background: none; border-radius: 8px; font: 600 15px var(--font-body); letter-spacing: -.01em; color: var(--ink); cursor: pointer; transition: background .2s, color .2s; }
 .nav-link .chev { width: 14px; height: 14px; transition: transform .25s; }
 .nav-item:hover .nav-link, .nav-item.open .nav-link { background: var(--primary-soft); color: var(--primary); }
 .nav-item:hover .chev, .nav-item.open .chev { transform: rotate(180deg); }
