@@ -396,5 +396,3 @@
 .ai-quote figcaption { margin-top: 22px; display: flex; flex-direction: column; gap: 4px; align-items: center; }
 .ai-quote figcaption b { font-family: var(--font-head); font-size: 16px; color: var(--ink); }
 .ai-quote figcaption span { font-size: 14px; color: var(--ink-2); }
-/* Yer tutucu işareti: gerçek metin gelince kaldırılacak */
-mark.ph { background: var(--yellow-400); color: inherit; padding: 0 .15em; border-radius: 4px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
