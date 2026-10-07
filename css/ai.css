@@ -86,7 +86,7 @@
 .rc-meta small { display: block; font-size: 12px; color: var(--muted); }
 .rc-meta b { font-size: 13px; }
 .rc-actions { display: flex; gap: 8px; flex-wrap: wrap; padding: 12px 14px; border-top: 1px solid var(--line); }
-.rc-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); font: 600 13px var(--font-body); color: var(--ink); cursor: pointer; }
+.rc-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); font: 600 13px var(--font-body); color: var(--ink); cursor: default; }
 .rc-btn.primary { background: var(--primary); border-color: var(--primary); color: #fff; }
 .rc-btn svg { width: 14px; height: 14px; }
 .rc-btn.pressed { animation: press .5s; }

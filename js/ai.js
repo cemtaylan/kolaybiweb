@@ -29,7 +29,7 @@
             <tr><td>KDV %20</td><td></td><td class="r">₺2.500,00</td></tr>
             <tr class="tot"><td>Genel toplam</td><td></td><td class="r">₺15.000,00</td></tr></table>
         </div>
-        <div class="rc-actions"><button class="rc-btn primary" data-press>${icon('i-check-solid')}Onayla ve GİB'e gönder</button><button class="rc-btn">Düzenle</button></div>
+        <div class="rc-actions"><span class="rc-btn primary" data-press>${icon('i-check-solid')}Onayla ve GİB'e gönder</span><span class="rc-btn">Düzenle</span></div>
       </div>`,
       after: `<span class="tag-ok">${icon('i-check-solid')}Gönderildi</span><p style="margin-top:8px">e-Fatura <b>KB2026000004218</b> GİB'e iletildi ve Emirhan Yılmaz'a e-posta ile gönderildi.</p>`
     },
@@ -43,7 +43,7 @@
           <tr><td>Toner TN-2420</td><td class="r">3 ad</td><td class="r">10</td><td class="r"><span class="bar"><i style="width:30%"></i></span></td></tr>
           <tr><td>Etiket rulosu</td><td class="r">18 ad</td><td class="r">40</td><td class="r"><span class="bar"><i style="width:45%"></i></span></td></tr>
           <tr><td>Kargo kutusu (M)</td><td class="r">64 ad</td><td class="r">100</td><td class="r"><span class="bar ok"><i style="width:64%"></i></span></td></tr></table></div>
-        <div class="rc-actions"><button class="rc-btn primary" data-press>${icon('i-order')}Sipariş taslağı oluştur</button><button class="rc-btn">Tedarikçiye gönder</button></div>
+        <div class="rc-actions"><span class="rc-btn primary" data-press>${icon('i-order')}Sipariş taslağı oluştur</span><span class="rc-btn">Tedarikçiye gönder</span></div>
       </div>`,
       after: `<span class="tag-ok">${icon('i-check-solid')}Taslak hazır</span><p style="margin-top:8px">4 kalemlik satın alma siparişi taslağı <b>Öztürk Kırtasiye</b> için oluşturuldu.</p>`
     },
@@ -59,7 +59,7 @@
           <tr><td>02.09</td><td>POS tahsilat</td><td class="r"></td><td class="r">₺15.000</td></tr>
           <tr><td>04.10</td><td>Satış faturası</td><td class="r">₺15.000</td><td class="r"></td></tr>
           <tr class="tot"><td colspan="2">Bakiye</td><td class="r pos" colspan="2">₺18.750 alacak</td></tr></table></div>
-        <div class="rc-actions"><button class="rc-btn primary" data-press>${icon('i-mail')}E-posta ile gönder</button><button class="rc-btn">PDF indir</button></div>
+        <div class="rc-actions"><span class="rc-btn primary" data-press>${icon('i-mail')}E-posta ile gönder</span><span class="rc-btn">PDF indir</span></div>
       </div>`,
       after: `<span class="tag-ok">${icon('i-check-solid')}Gönderildi</span><p style="margin-top:8px">Ekstre PDF olarak Emirhan Yılmaz'a e-posta ile iletildi.</p>`
     },
@@ -72,7 +72,7 @@
           <tr><td>Deniz Ltd.</td><td class="r">₺22.800</td><td class="r"><span class="tag-warn">34 gün</span></td></tr>
           <tr><td>Yıldız A.Ş.</td><td class="r">₺11.500</td><td class="r"><span class="tag-warn">18 gün</span></td></tr>
           <tr><td>Mavi Yapı</td><td class="r">₺7.000</td><td class="r"><span class="tag-warn">6 gün</span></td></tr></table></div>
-        <div class="rc-actions"><button class="rc-btn primary" data-press>${icon('i-chat')}Hatırlatma gönder</button><button class="rc-btn">Tek tek seç</button></div>
+        <div class="rc-actions"><span class="rc-btn primary" data-press>${icon('i-chat')}Hatırlatma gönder</span><span class="rc-btn">Tek tek seç</span></div>
       </div>`,
       after: `<span class="tag-ok">${icon('i-check-solid')}3 hatırlatma gönderildi</span><p style="margin-top:8px">Ödeme bağlantılı hatırlatmalar e-posta ve SMS ile iletildi.</p>`
     },
@@ -85,7 +85,7 @@
           <div class="kpis"><div><small>Giriş</small><b class="pos">₺186.400</b></div><div><small>Çıkış</small><b class="neg">₺121.900</b></div><div><small>Net</small><b>₺64.500</b></div></div>
           <div class="spark"><i style="height:40%"></i><i style="height:55%"></i><i style="height:35%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:70%"></i><i style="height:58%"></i><i class="hi" style="height:88%"></i></div>
         </div>
-        <div class="rc-actions"><button class="rc-btn primary" data-press>${icon('i-chart')}Detaylı rapor</button><button class="rc-btn">Muhasebeciye gönder</button></div>
+        <div class="rc-actions"><span class="rc-btn primary" data-press>${icon('i-chart')}Detaylı rapor</span><span class="rc-btn">Muhasebeciye gönder</span></div>
       </div>`,
       after: `<span class="tag-ok">${icon('i-check-solid')}Rapor hazır</span><p style="margin-top:8px">Ekim nakit akış raporu muhasebecinize e-posta ile gönderildi.</p>`
     }
