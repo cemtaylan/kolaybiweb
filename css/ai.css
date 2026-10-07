@@ -282,8 +282,8 @@
 
 /* ---------- Nasıl çalışır: solda adımlar, sağda yapışkan görsel (TransferGo tarzı) ---------- */
 .ss { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
-.ss-text { position: relative; padding: 13.5vh 0 16.5vh 56px; }
-.ss-dot { position: absolute; left: 0; top: calc(13.5vh + 14px); width: 26px; height: 26px; border-radius: 50%; background: var(--brand-gradient); transition: top .5s cubic-bezier(.6,.05,.3,1); }
+.ss-text { position: relative; padding: 4vh 0 16.5vh 56px; }
+.ss-dot { position: absolute; left: 0; top: calc(4vh + 14px); width: 26px; height: 26px; border-radius: 50%; background: var(--brand-gradient); transition: top .5s cubic-bezier(.6,.05,.3,1); }
 .ss-item { padding: 0 0 16.5vh; transition: opacity .4s; }
 .ss-item:last-child { padding-bottom: 0; }
 .ss-item h3 { font: 800 clamp(30px, 3.4vw, 52px)/1.05 var(--font-head); letter-spacing: -.02em; text-transform: uppercase; color: var(--muted); opacity: .45; transition: color .4s, opacity .4s; }
