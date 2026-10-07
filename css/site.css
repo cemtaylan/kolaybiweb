@@ -401,7 +401,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; letter-spacin
 .faq-item { background: var(--card); border: 1px solid var(--line); border-radius: 20px; transition: border-color .25s, box-shadow .25s; }
 .faq-item[hidden] { display: none; }
 .faq-item.is-open { border-color: color-mix(in srgb, var(--primary) 35%, transparent); box-shadow: var(--shadow); }
-.faq-q { width: 100%; display: flex; align-items: center; gap: 18px; padding: 20px 22px; border: 0; background: none; text-align: left; cursor: pointer; font: 600 16.5px/1.4 var(--font-head); color: var(--ink); }
+.faq-q { width: 100%; display: flex; align-items: center; gap: 18px; padding: 20px 22px; border: 0; background: none; text-align: left; cursor: pointer; font: 700 18px/1.4 var(--font-head); letter-spacing: -.01em; color: var(--ink); }
 .faq-q .no { font: 700 13px var(--font-body); color: var(--muted); width: 24px; flex-shrink: 0; transition: color .25s; }
 .faq-q .pm { margin-left: auto; width: 32px; height: 32px; flex-shrink: 0; border-radius: 50%; display: grid; place-items: center; background: var(--primary-soft); color: var(--primary); transition: transform .3s, background .3s, color .3s; }
 .faq-q .pm svg { width: 14px; height: 14px; }
@@ -675,7 +675,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; letter-spacin
   .b-ic { width: 48px; height: 48px; border-radius: 14px; }
     .final-cta { padding: 56px 20px; }
   .footer-grid > div { padding: 0 0 0 16px; }
-  .faq-q { padding: 16px; gap: 12px; font-size: 15.5px; }
+  .faq-q { padding: 16px; gap: 12px; font-size: 16.5px; }
   .faq-a p { padding: 0 16px 18px 52px; }
   .footer-grid > div:nth-child(2), .footer-grid > div:nth-child(4) { padding-left: 0; }
   .badges { gap: 18px; }
