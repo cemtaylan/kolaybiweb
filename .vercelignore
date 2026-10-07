@@ -1,0 +1,9 @@
+media/
+payload.db*
+.cache/
+.next/
+node_modules/
+.env*.local
+.playwright-mcp/
+scripts/
+yazar-atama.csv

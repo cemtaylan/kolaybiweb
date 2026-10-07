@@ -1,4 +1,6 @@
-import { EXPERIMENTAL_TableFeature, type FeaturesInput, UploadFeature } from '@payloadcms/richtext-lexical'
+import { EXPERIMENTAL_TableFeature, type LexicalEditorProps, UploadFeature } from '@payloadcms/richtext-lexical'
+
+type FeaturesInput = NonNullable<LexicalEditorProps['features']>
 
 // Yazı gövdesinin editör özellikleri: CMS alanı ve içe aktarma betiği aynı ayarı kullanır.
 export const editorFeatures: FeaturesInput = ({ defaultFeatures }) => [

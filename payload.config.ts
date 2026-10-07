@@ -5,6 +5,7 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { tr } from '@payloadcms/translations/languages/tr'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import sharp from 'sharp'
 
 import { Users } from './cms/collections/Users'
@@ -15,7 +16,8 @@ import { Posts } from './cms/collections/Posts'
 import { editorFeatures } from './cms/editor'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
-const DB = process.env.DATABASE_URI || 'file:./payload.db'
+// Vercel'de Neon bağlantısı DATABASE_URL olarak gelir; yerelde SQLite dosyası
+const DB = process.env.DATABASE_URI || process.env.DATABASE_URL || 'file:./payload.db'
 
 export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || '',
@@ -38,5 +40,13 @@ export default buildConfig({
     ? postgresAdapter({ pool: { connectionString: DB } })
     : sqliteAdapter({ client: { url: DB } }),
   sharp,
+  // Görseller: bulutta (Postgres + Blob anahtarı) Vercel Blob'a, yerelde (SQLite) media/ klasörüne
+  plugins: [
+    vercelBlobStorage({
+      enabled: Boolean(process.env.BLOB_READ_WRITE_TOKEN) && DB.startsWith('postgres'),
+      collections: { media: true },
+      token: process.env.BLOB_READ_WRITE_TOKEN || '',
+    }),
+  ],
   typescript: { outputFile: path.resolve(dirname, 'cms/payload-types.ts') },
 })
