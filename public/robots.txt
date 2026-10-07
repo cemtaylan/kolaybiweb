@@ -1,0 +1,5 @@
+# Test/önizleme sitesi: arama motorlarına kapalı.
+# kolaybi.com yayına alınınca bu dosya canlı sitenin robots.txt içeriğiyle değiştirilmeli
+# ve Vercel'de SITE_INDEXABLE=1 eklenmeli (X-Robots-Tag başlığı da kalkar).
+User-agent: *
+Disallow: /

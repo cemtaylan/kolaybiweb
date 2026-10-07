@@ -9,8 +9,9 @@
     "payload": "payload",
     "generate:types": "payload generate:types",
     "generate:importmap": "payload generate:importmap",
-    "import:blog": "esbuild scripts/import-blog.ts --bundle --platform=node --format=esm --packages=external --alias:next/cache=next/cache.js --log-level=warning --outfile=.cache/import-blog.mjs && node .cache/import-blog.mjs",
-    "media:cleanup": "esbuild scripts/media-cleanup.ts --bundle --platform=node --format=esm --packages=external --alias:next/cache=next/cache.js --log-level=warning --outfile=.cache/media-cleanup.mjs && node .cache/media-cleanup.mjs"
+    "import:blog": "esbuild scripts/import-blog.ts --bundle --platform=node --format=esm --packages=external --alias:next/cache=next/cache.js --log-level=warning --outfile=.cache/import-blog.mjs && node --import ./scripts/preload.mjs .cache/import-blog.mjs",
+    "media:cleanup": "esbuild scripts/media-cleanup.ts --bundle --platform=node --format=esm --packages=external --alias:next/cache=next/cache.js --log-level=warning --outfile=.cache/media-cleanup.mjs && node --import ./scripts/preload.mjs .cache/media-cleanup.mjs",
+    "users:copy": "esbuild scripts/copy-users.ts --bundle --platform=node --format=esm --packages=external --alias:next/cache=next/cache.js --log-level=warning --outfile=.cache/copy-users.mjs && node --import ./scripts/preload.mjs .cache/copy-users.mjs"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.90.2",
