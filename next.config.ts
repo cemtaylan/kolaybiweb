@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next'
+import { withPayload } from '@payloadcms/next/withPayload'
 
 // Önbellek kuralları eski _headers dosyasından taşındı.
 const nextConfig: NextConfig = {
@@ -15,4 +16,4 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default nextConfig
+export default withPayload(nextConfig)

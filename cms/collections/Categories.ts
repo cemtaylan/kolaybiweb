@@ -1,0 +1,26 @@
+import type { CollectionConfig } from 'payload'
+
+export const Categories: CollectionConfig = {
+  slug: 'categories',
+  labels: { singular: 'Kategori', plural: 'Kategoriler' },
+  access: { read: () => true },
+  admin: { useAsTitle: 'title', group: 'Blog', defaultColumns: ['title', 'slug', 'theme', 'order'] },
+  defaultSort: 'order',
+  fields: [
+    { name: 'title', type: 'text', label: 'Ad', required: true, admin: { description: 'Sitede görünen ad, örn. e-Fatura' } },
+    { name: 'slug', type: 'text', label: 'Adres', required: true, unique: true, index: true, admin: { description: 'Filtre adresi, örn. e-fatura' } },
+    {
+      name: 'theme',
+      type: 'select',
+      label: 'Renk teması',
+      defaultValue: 'theme-ofis',
+      options: [
+        { label: 'Ofis (mavi)', value: 'theme-ofis' },
+        { label: 'Jet (turkuaz)', value: 'theme-jet' },
+        { label: 'Banka (lacivert)', value: 'theme-banka' },
+        { label: 'Link (çivit mavisi)', value: 'theme-link' },
+      ],
+    },
+    { name: 'order', type: 'number', label: 'Sıra', admin: { description: 'Blog filtrelerindeki sırası' } },
+  ],
+}

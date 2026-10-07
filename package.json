@@ -1,20 +1,37 @@
 {
   "name": "kolaybiweb",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",
-    "start": "next start -p 3000"
+    "start": "next start -p 3000",
+    "payload": "payload",
+    "generate:types": "payload generate:types",
+    "generate:importmap": "payload generate:importmap",
+    "import:blog": "esbuild scripts/import-blog.ts --bundle --platform=node --format=esm --packages=external --alias:next/cache=next/cache.js --log-level=warning --outfile=.cache/import-blog.mjs && node .cache/import-blog.mjs",
+    "media:cleanup": "esbuild scripts/media-cleanup.ts --bundle --platform=node --format=esm --packages=external --alias:next/cache=next/cache.js --log-level=warning --outfile=.cache/media-cleanup.mjs && node .cache/media-cleanup.mjs"
   },
   "dependencies": {
+    "@payloadcms/db-postgres": "^3.90.2",
+    "@payloadcms/db-sqlite": "^3.90.2",
+    "@payloadcms/next": "^3.90.2",
+    "@payloadcms/richtext-lexical": "^3.90.2",
+    "@payloadcms/translations": "^3.90.2",
+    "graphql": "^16.14.2",
     "next": "^16.4.0",
     "node-html-parser": "^9.0.4",
+    "payload": "^3.90.2",
     "react": "^19.3.0",
-    "react-dom": "^19.3.0"
+    "react-dom": "^19.3.0",
+    "sharp": "^0.35.5"
   },
   "devDependencies": {
+    "@types/jsdom": "^30.0.0",
     "@types/node": "^22.20.5",
     "@types/react": "^19.3.0",
+    "jsdom": "^29.1.1",
+    "tsx": "^4.23.15",
     "typescript": "^5.9.3"
   }
 }
