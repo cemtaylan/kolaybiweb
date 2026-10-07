@@ -5,7 +5,7 @@
 .pr-hero h1 em { font-style: normal; color: var(--primary); }
 .pr-hero .lead { margin: 12px auto 0; max-width: 620px; font-size: 17px; color: var(--ink-2); }
 
-.pr-controls { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 18px; margin: 28px 0 22px; }
+.pr-controls { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 18px; margin: 0 0 24px; }
 .seg2 { display: inline-flex; padding: 4px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); }
 .seg2 button { display: inline-flex; flex-direction: column; align-items: flex-start; padding: 9px 18px; border: 0; border-radius: 10px; background: none; cursor: pointer; text-align: left; transition: background .2s, color .2s; }
 .seg2 button b { font: 800 14.5px var(--font-head); color: var(--navy); }
@@ -141,7 +141,5 @@
 .pr-perks b { font: 800 18px/1 var(--font-head); color: var(--accent); }
 .pr-perks svg { width: 16px; height: 16px; color: var(--logo-cyan); }
 .pr-perks small { padding: 2px 8px; border-radius: 999px; background: color-mix(in srgb, var(--logo-cyan) 18%, transparent); color: var(--cyan-300); font-size: 11.5px; font-weight: 700; }
-.pr-hero .pr-controls { margin: 24px 0 0; }
-.pr-hero .seg2 { border-color: transparent; box-shadow: 0 16px 34px -18px #000; }
 @media (max-width: 600px) { .pr-hero { padding: 28px 0 24px; } .pr-perks li { font-size: 13px; padding: 7px 12px; } .pr-perks small { display: none; } }
 @media (prefers-reduced-motion: reduce) { .pr-aurora i, .pr-hero h1 em, .pr-perks li { animation: none; } }
