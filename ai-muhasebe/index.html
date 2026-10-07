@@ -199,8 +199,8 @@
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <link rel="preload" href="/css/renkler.css?v=6" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <link rel="preload" href="/css/site.css?v=72" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="/css/ai.css?v=15" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"><link rel="stylesheet" href="/css/renkler.css?v=6"><link rel="stylesheet" href="/css/site.css?v=72"><link rel="stylesheet" href="/css/ai.css?v=15"></noscript>
+<link rel="preload" href="/css/ai.css?v=16" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"><link rel="stylesheet" href="/css/renkler.css?v=6"><link rel="stylesheet" href="/css/site.css?v=72"><link rel="stylesheet" href="/css/ai.css?v=16"></noscript>
 </head>
 <body>
 
@@ -439,13 +439,13 @@
 
     <div class="ai-demo" id="demo">
       <div class="ai-controls">
-        <div class="ai-channels" role="group" aria-label="Kanal seçin">
-          <button type="button" data-ch="web" aria-controls="aiWindow" aria-pressed="true" class="is-active"><svg><use href="#i-globe"/></svg>Web</button>
-          <button type="button" data-ch="wa" aria-controls="aiWindow" aria-pressed="false"><svg><use href="#s-whatsapp"/></svg>WhatsApp</button>
-          <button type="button" data-ch="tg" aria-controls="aiWindow" aria-pressed="false"><svg><use href="#s-telegram"/></svg>Telegram</button>
+        <div class="ai-channels" role="tablist" aria-label="Kanal seçin">
+          <button type="button" role="tab" id="tab-web" data-ch="web" aria-controls="aiWindow" aria-selected="true" tabindex="0" class="is-active"><svg><use href="#i-globe"/></svg>Web</button>
+          <button type="button" role="tab" id="tab-wa" data-ch="wa" aria-controls="aiWindow" aria-selected="false" tabindex="-1"><svg><use href="#s-whatsapp"/></svg>WhatsApp</button>
+          <button type="button" role="tab" id="tab-tg" data-ch="tg" aria-controls="aiWindow" aria-selected="false" tabindex="-1"><svg><use href="#s-telegram"/></svg>Telegram</button>
         </div>
       </div>
-      <div class="ai-window" id="aiWindow" data-ch="web" aria-label="KolayBi AI asistan demosu">
+      <div class="ai-window" id="aiWindow" data-ch="web" role="tabpanel" aria-labelledby="tab-web" aria-label="KolayBi AI asistan demosu">
         <div class="ai-top">
           <span class="ai-avatar"><svg><use href="#i-spark"/></svg></span>
           <div><b>KolayBi AI</b><small>Web arayüzü · çevrimiçi</small></div>
@@ -495,7 +495,7 @@
 <!-- ============ 1b. KULLANIM ALANLARI (kaydırınca küçülen kart şeridi) ============ -->
 <section class="story" id="story">
   <div class="story-sticky">
-    <p class="story-mtitle" aria-hidden="true">Fatura, stok ve cari işleri için <em>ekran başına dönmenize gerek yok</em></p>
+    <p class="story-mtitle" aria-hidden="true"></p>
     <div class="story-title"><em>KolayBi AI</em> her an yanınızda.</div>
     <div class="story-track">
       <article class="sc lead-card">
@@ -791,8 +791,8 @@
 </footer>
 
 <script src="/js/menu.js?v=3"></script>
-<script src="/js/ai.js?v=3"></script>
-<script src="/js/story.js?v=1"></script>
+<script src="/js/ai.js?v=4"></script>
+<script src="/js/story.js?v=2"></script>
 <script src="/js/steps.js?v=1"></script>
 </body>
 </html>

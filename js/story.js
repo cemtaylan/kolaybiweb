@@ -5,6 +5,9 @@
   const sticky = story.querySelector('.story-sticky');
   const track = story.querySelector('.story-track');
   const title = story.querySelector('.story-title');
+  // Mobil başlık: metin HTML'de tekrar etmesin diye kart girişindeki H2'den kopyalanır
+  const mt = story.querySelector('.story-mtitle'), h2 = story.querySelector('.sc-intro h2');
+  if (mt && h2 && !mt.innerHTML.trim()) mt.innerHTML = h2.innerHTML;
   const cards = [...track.children];
   const lead = cards[0];
   const CARD_W = 400, CARD_H = 560, GAP = 18;

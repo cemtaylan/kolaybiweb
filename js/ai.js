@@ -138,13 +138,21 @@
 
   function setChannel(ch) {
     win.dataset.ch = ch;
-    chans.forEach(b => { const on = b.dataset.ch === ch; b.classList.toggle('is-active', on); b.setAttribute('aria-pressed', on); });
+    chans.forEach(b => { const on = b.dataset.ch === ch; b.classList.toggle('is-active', on); b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; if (on) win.setAttribute('aria-labelledby', b.id); });
     win.querySelector('.ai-top b').textContent = CH[ch].title;
     win.querySelector('.ai-top small').textContent = CH[ch].sub;
   }
 
   tabs.forEach(t => t.addEventListener('click', () => play(t.dataset.scn)));
   chans.forEach(b => b.addEventListener('click', () => setChannel(b.dataset.ch)));
+  // Sekme listesi: sol/sağ ok, Home/End ile kanallar arasında gezinme
+  chans.forEach((b, i) => b.addEventListener('keydown', e => {
+    const k = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: chans.length - 1 }[e.key];
+    if (k === undefined) return;
+    e.preventDefault();
+    const t = chans[(k + chans.length) % chans.length];
+    setChannel(t.dataset.ch); t.focus();
+  }));
   // Sayfadaki örnek komutlar ve kanal kartları demoyu çalıştırır
   document.querySelectorAll('[data-run]').forEach(b => b.addEventListener('click', e => {
     e.preventDefault(); // bağlantı (#demo) JS yokken de demoya götürür
