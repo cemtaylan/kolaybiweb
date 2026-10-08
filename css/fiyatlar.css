@@ -146,3 +146,5 @@
 /* Uzun bağlantı metni ("KolayBi Link’i inceleyin") kırılmasın: dar ekranda bağlantı fiyatın altına iner */
 .addon-foot { flex-wrap: wrap; }
 .addon-foot a { white-space: nowrap; }
+/* Hero deneme düğmesi: mobilde ilk ekranda */
+.pr-hero-cta { margin-top: 20px; }
