@@ -16,7 +16,7 @@
     ofis: {
       std: { name: 'Standart', for: 'Ön muhasebe ve e-Fatura',
         price: { yillik: 10800, aylik: 1550 },
-        gifts: { yillik: ['300 e-Fatura kontörü'], aylik: ['100 e-Fatura kontörü'] },
+        gifts: { yillik: ['5.000 e-Fatura kontörü'], aylik: [] },
         perks: ['Pazaryeri ve e-Ticaret entegrasyonu', 'e-Fatura aktivasyon ve kurulum desteği', 'Geçmiş e-Belgeleri içe aktarma', 'Total Energies istasyonlarında %5 indirim'] },
       plus: { name: 'PLUS', for: 'Ön muhasebe ve e-Fatura', badge: 'En çok tercih edilen',
         price: { yillik: 12000 },
@@ -26,7 +26,7 @@
     jet: {
       std: { name: 'Standart', for: 'Sadece e-Fatura kesmek isteyenler',
         price: { yillik: 4000 },
-        gifts: { yillik: ['Sınırsız e-Fatura kontörü'] },
+        gifts: { yillik: ['300 e-Fatura kontörü'] },
         perks: ['e-Fatura aktivasyon ve kurulum desteği', 'Geçmiş e-Belgeleri içe aktarma', 'Total Energies istasyonlarında %5 indirim'] },
       plus: { name: 'PLUS', for: 'Sadece e-Fatura kesmek isteyenler', badge: 'En çok tercih edilen',
         price: { yillik: 5000 },
