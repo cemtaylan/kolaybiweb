@@ -11,8 +11,18 @@ const ok = () => new Response(null, { status: 204 })
 
 export async function POST(req: Request) {
   if (BOT.test(req.headers.get('user-agent') || '')) return ok()
-  let b: { t?: string; p?: string; d?: string; s?: string; u?: number; n?: number; id?: number; e?: string; l?: string; f?: number }
+  let b: { t?: string; p?: string; d?: string; s?: string; u?: number; n?: number; id?: number; e?: string; l?: string; f?: number; r?: string }
   try { b = JSON.parse(await req.text()) } catch { return ok() }
+  // Bulunamayan sayfa (404): adres olduğu gibi (çözülmüş, küçük harf) ve gelinen site; sayfa istatistiğine girmez
+  if (b.t === '404') {
+    let raw = String(b.p || '/')
+    try { raw = decodeURIComponent(raw) } catch { /* olduğu gibi */ }
+    raw = (raw.replace(/\/+$/, '') || '/').toLowerCase().slice(0, 200)
+    if (!/^\/[^\s<>"'`]*$/.test(raw)) return ok()
+    const ref = String(b.r || 'direct').toLowerCase().replace(/[^a-z0-9.\-]/g, '').slice(0, 80) || 'direct'
+    try { await bump(await getPayload({ config }), { kind: 'notfound', path: raw, event: 'view', device: b.d === 'mobile' ? 'mobile' : 'desktop', label: ref }) } catch (e) { console.error('collect', e) }
+    return ok()
+  }
   const path = String(b.p || '').toLowerCase().replace(/\/+$/, '') || '/'
   if (!PATH.test(path)) return ok()
   const device = b.d === 'mobile' ? 'mobile' : 'desktop'

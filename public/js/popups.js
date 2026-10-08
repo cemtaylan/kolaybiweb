@@ -1,7 +1,7 @@
 // Açılır pencereler: /popups.json'daki yayındaki pencerelerden bu sayfaya, cihaza ve tarihe uyan en yüksek öncelikli
 // olanı seçer; tetikleyici (süre / kaydırma / çıkış) gelince gösterir. Kapatma sıklık ayarına göre hatırlanır.
 import { MODAL, popupHTML } from './popup-markup.js?v=2'
-import { track } from './track.js?v=3'
+import { track } from './track.js?v=4'
 
 const path = location.pathname.replace(/\/+$/, '') || '/'
 const mobile = matchMedia('(max-width: 767px)').matches

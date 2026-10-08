@@ -5,6 +5,8 @@ import { withPayload } from '@payloadcms/next/withPayload'
 const nextConfig: NextConfig = {
   // Yayındaki adreslerle birebir: sonda "/" yok (/fiyatlar/ → /fiyatlar)
   trailingSlash: false,
+  // Eşleşmeyen tüm adresler için sitenin tasarımında 404 (app/global-not-found.tsx); birden çok kök yerleşim olduğu için gerekli
+  experimental: { globalNotFound: true },
   async headers() {
     return [
       // Arama motorlarına kapalı: SITE_INDEXABLE=1 olmadıkça hiçbir sayfa dizine alınmaz (vercel.app test adresi)

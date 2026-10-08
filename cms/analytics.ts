@@ -18,7 +18,7 @@ export async function rows<T = Record<string, unknown>>(payload: Payload, q: SQL
 export const today = (t = new Date()) => t.toLocaleDateString('en-CA', { timeZone: 'Europe/Istanbul' })
 export const daysAgo = (n: number) => today(new Date(Date.now() - n * 864e5))
 
-export type Hit = { kind: 'page' | 'popup' | 'cta'; path: string; popup?: number; event: string; device: string; source?: string; label?: string }
+export type Hit = { kind: 'page' | 'popup' | 'cta' | 'notfound'; path: string; popup?: number; event: string; device: string; source?: string; label?: string }
 
 export async function bump(payload: Payload, h: Hit) {
   const day = today()

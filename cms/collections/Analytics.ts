@@ -12,7 +12,7 @@ export const Analytics: CollectionConfig = {
   fields: [
     { name: 'bucket', type: 'text', required: true, unique: true },
     { name: 'day', type: 'text', required: true, index: true }, // YYYY-MM-DD (İstanbul saati)
-    { name: 'kind', type: 'text', required: true }, // page | popup | cta
+    { name: 'kind', type: 'text', required: true }, // page | popup | cta | notfound (404; label = gelinen site)
     { name: 'path', type: 'text', required: true },
     { name: 'popup', type: 'number' }, // ilan kimliği (kind = popup)
     { name: 'event', type: 'text', required: true }, // page: view | session | visitor | new · popup: view | click | close · cta: signup | signup_visitor | login | contact

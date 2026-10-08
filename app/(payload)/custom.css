@@ -306,3 +306,15 @@ h1, h2, h3, h4, .doc-header__title, .list-header h1 { font-family: 'Plus Jakarta
 #nav-kb-analitik { --ico: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%2020V11M10%2020V5M16%2020v-6M21%2020H3%22/%3E%3C/svg%3E"); }
 #nav-media { --ico: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223%22%20y%3D%224%22%20width%3D%2218%22%20height%3D%2216%22%20rx%3D%223%22/%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2210%22%20r%3D%222%22/%3E%3Cpath%20d%3D%22m21%2016-5-5-9%209%22/%3E%3C/svg%3E"); }
 #nav-users { --ico: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%229%22%20cy%3D%228%22%20r%3D%223.5%22/%3E%3Cpath%20d%3D%22M2.5%2020c1-3.5%203.5-5%206.5-5s5.5%201.5%206.5%205M16%204.5a3.5%203.5%200%200%201%200%207M18%2015c2%20.6%203.2%202.2%203.5%205%22/%3E%3C/svg%3E"); }
+#nav-kb-yonlendirme { --ico: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%207h11a4%204%200%200%201%200%208H8%22/%3E%3Cpath%20d%3D%22m11%2012-3%203%203%203%22/%3E%3C/svg%3E"); }
+#nav-kb-404 { --ico: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2211%22%20cy%3D%2211%22%20r%3D%227%22/%3E%3Cpath%20d%3D%22m20%2020-3.5-3.5M8.5%208.5l5%205M13.5%208.5l-5%205%22/%3E%3C/svg%3E"); }
+
+/* Bulunamayan sayfalar (/admin/404) */
+.kb-nf td { vertical-align: middle; }
+.kb-nf-path { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; word-break: break-all; }
+.kb-nf-refs { display: block; max-width: 240px; margin-left: auto; color: var(--kb-ink-2); }
+.kb-nf-form { display: flex; justify-content: flex-end; gap: 6px; }
+.kb-nf-form input { width: 170px; min-height: 36px; padding: 0 10px; border: 1px solid var(--kb-line); border-radius: 10px; background: var(--kb-bg); font: inherit; font-size: 13px; }
+.kb-nf-form input:focus { outline: 2px solid var(--kb-blue); outline-offset: 1px; }
+.kb-nf-form button { min-height: 36px; padding: 0 14px; border: 0; border-radius: 999px; background: var(--kb-blue); color: #fff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+.kb-nf-form button:disabled { opacity: .6; }

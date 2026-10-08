@@ -28,8 +28,17 @@ const OTURUM = 30 * 60 * 1000
 const bugun = () => new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/Istanbul' })
 const ls = { get: (k) => { try { return localStorage.getItem(k) } catch { return null } }, set: (k, v) => { try { localStorage.setItem(k, v) } catch {} } }
 
+const bot = /bot|crawl|spider|headless|lighthouse/i.test(navigator.userAgent) || document.visibilityState === 'prerender'
+// 404 sayfası: sayfa istatistiğine girmez, "bulunamayan sayfa" olarak ve hangi siteden gelindiğiyle kaydedilir
+const notFound = !!document.getElementById('kb-404')
+if (!bot && notFound) {
+  let r = 'direct'
+  try { if (document.referrer) r = new URL(document.referrer).hostname.replace(/^www\./, '') || 'direct' } catch {}
+  track({ t: '404', r })
+}
+
 // Botları ve önizleme isteklerini sayma
-if (!/bot|crawl|spider|headless|lighthouse/i.test(navigator.userAgent) && document.visibilityState !== 'prerender') {
+if (!bot && !notFound) {
   const now = Date.now()
   const gun = bugun()
   const veri = { t: 'page' }

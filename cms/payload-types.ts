@@ -72,6 +72,7 @@ export interface Config {
     authors: Author;
     popups: Popup;
     analytics: Analytics;
+    redirects: Redirect;
     media: Media;
     users: User;
     'payload-kv': PayloadKv;
@@ -86,6 +87,7 @@ export interface Config {
     authors: AuthorsSelect<false> | AuthorsSelect<true>;
     popups: PopupsSelect<false> | PopupsSelect<true>;
     analytics: AnalyticsSelect<false> | AnalyticsSelect<true>;
+    redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -197,6 +199,7 @@ export interface Media {
    * Görme engelli kullanıcılar ve Google için görselin kısa açıklaması
    */
   alt?: string | null;
+  _objectKey?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -366,6 +369,25 @@ export interface Analytics {
   createdAt: string;
 }
 /**
+ * Eski ya da kırık bir adrese gelen ziyaretçiyi ve arama motorunu yeni adrese gönderir. Kaydettikten sonra en geç 1 dakika içinde geçerli olur.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "redirects".
+ */
+export interface Redirect {
+  id: number;
+  /**
+   * Tam adres de yapıştırabilirsiniz; alan adı ve sondaki / otomatik temizlenir.
+   */
+  from: string;
+  to: string;
+  type: '301' | '302';
+  active?: boolean | null;
+  note?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
@@ -435,6 +457,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'analytics';
         value: number | Analytics;
+      } | null)
+    | ({
+        relationTo: 'redirects';
+        value: number | Redirect;
       } | null)
     | ({
         relationTo: 'media';
@@ -587,10 +613,24 @@ export interface AnalyticsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "redirects_select".
+ */
+export interface RedirectsSelect<T extends boolean = true> {
+  from?: T;
+  to?: T;
+  type?: T;
+  active?: T;
+  note?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  _objectKey?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;

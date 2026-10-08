@@ -1,5 +1,5 @@
 'use client'
-// Sol menü: en üstte Dashboard bağlantısı ve "Pazarlama" grubu (İlan oluştur, Aktif ve Pasif İlanlar, Analitik).
+// Sol menü: en üstte Dashboard, "Pazarlama" (İlan oluştur, Aktif ve Pasif İlanlar, Analitik) ve "SEO" (Yönlendirmeler, Bulunamayan sayfalar).
 // İlanlar koleksiyonu menüden gizli (group: false); grup CSS ile Blog grubunun altına yerleşir.
 import { useEffect } from 'react'
 import Link from 'next/link'
@@ -33,11 +33,33 @@ function useNavAcik() {
   }, [])
 }
 
+const SEO = [
+  { id: 'nav-kb-yonlendirme', href: '/admin/collections/redirects', l: 'Yönlendirmeler', on: (p: string) => p.startsWith('/admin/collections/redirects') },
+  { id: 'nav-kb-404', href: '/admin/404', l: 'Bulunamayan sayfalar', on: (p: string) => p.startsWith('/admin/404') },
+]
 const LINKS = [
   { id: 'nav-kb-ilan-olustur', href: '/admin/collections/popups/create', l: 'İlan oluştur', on: (p: string) => p.startsWith('/admin/collections/popups') },
   { id: 'nav-kb-ilanlar', href: '/admin/ilanlar', l: 'Aktif ve Pasif İlanlar', on: (p: string) => p.startsWith('/admin/ilanlar') },
   { id: 'nav-kb-analitik', href: '/admin/analitik', l: 'Analitik', on: (p: string) => p.startsWith('/admin/analitik') },
 ]
+
+type NavItem = { id: string; href: string; l: string; on: (p: string) => boolean }
+function Group({ label, items, path }: { label: string; items: NavItem[]; path: string }) {
+  return (
+    <div className="kb-navgroup">
+      <NavGroup label={label}>
+        {items.map((x) => {
+          const on = x.on(path)
+          return (
+            <Link key={x.href} id={x.id} href={x.href} className="nav__link" prefetch={false} aria-current={on ? 'page' : undefined}>
+              <span className="nav__link-label">{x.l}</span>
+            </Link>
+          )
+        })}
+      </NavGroup>
+    </div>
+  )
+}
 
 export function PopupNavLink() {
   const path = usePathname() || ''
@@ -45,22 +67,11 @@ export function PopupNavLink() {
   const ana = path === '/admin' || path === '/admin/'
   return (
     <>
-    <Link id="nav-kb-dashboard" href="/admin" className={`kb-navtop${ana ? ' is-on' : ''}`} prefetch={false} aria-current={ana ? 'page' : undefined}>
-      Dashboard
-    </Link>
-    <div className="kb-navgroup">
-      <NavGroup label="Pazarlama">
-        {LINKS.map((x) => {
-          const on = x.on(path)
-          return (
-            <Link key={x.href} id={x.id} href={x.href} className="nav__link" prefetch={false} aria-current={on ? 'page' : undefined}>
-              {on && <div className="nav__link-indicator" />}
-              <span className="nav__link-label">{x.l}</span>
-            </Link>
-          )
-        })}
-      </NavGroup>
-    </div>
+      <Link id="nav-kb-dashboard" href="/admin" className={`kb-navtop${ana ? ' is-on' : ''}`} prefetch={false} aria-current={ana ? 'page' : undefined}>
+        Dashboard
+      </Link>
+      <Group label="Pazarlama" items={LINKS} path={path} />
+      <Group label="SEO" items={SEO} path={path} />
     </>
   )
 }

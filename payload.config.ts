@@ -14,6 +14,7 @@ import { Authors } from './cms/collections/Authors'
 import { Categories } from './cms/collections/Categories'
 import { Posts } from './cms/collections/Posts'
 import { Analytics } from './cms/collections/Analytics'
+import { Redirects } from './cms/collections/Redirects'
 import { Popups } from './cms/collections/Popups'
 import { editorFeatures } from './cms/editor'
 
@@ -35,12 +36,13 @@ export default buildConfig({
       views: {
         popupBoard: { Component: '/cms/admin/PopupBoardView#PopupBoardView', path: '/ilanlar', meta: { title: 'Aktif ve Pasif İlanlar' } },
         analytics: { Component: '/cms/admin/AnalyticsView#AnalyticsView', path: '/analitik', meta: { title: 'Analitik' } },
+        notFound: { Component: '/cms/admin/NotFoundView#NotFoundView', path: '/404', meta: { title: 'Bulunamayan sayfalar' } },
       },
     },
     importMap: { baseDir: dirname },
   },
   i18n: { supportedLanguages: { tr }, fallbackLanguage: 'tr' },
-  collections: [Posts, Categories, Authors, Popups, Analytics, Media, Users],
+  collections: [Posts, Categories, Authors, Popups, Analytics, Redirects, Media, Users],
   editor: lexicalEditor({ features: editorFeatures }),
   // Yayında Postgres (Vercel Postgres / Neon), yerelde tek dosyalık SQLite
   db: DB.startsWith('postgres')
