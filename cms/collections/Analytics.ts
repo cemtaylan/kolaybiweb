@@ -15,7 +15,7 @@ export const Analytics: CollectionConfig = {
     { name: 'kind', type: 'text', required: true }, // page | popup
     { name: 'path', type: 'text', required: true },
     { name: 'popup', type: 'number' }, // ilan kimliği (kind = popup)
-    { name: 'event', type: 'text', required: true }, // page: view | session · popup: view | click | close
+    { name: 'event', type: 'text', required: true }, // page: view | session | visitor | new · popup: view | click | close
     { name: 'device', type: 'text', required: true }, // desktop | mobile
     { name: 'source', type: 'text' }, // session satırlarında: direct | search | social | other | ai
     { name: 'count', type: 'number', required: true, defaultValue: 0 },

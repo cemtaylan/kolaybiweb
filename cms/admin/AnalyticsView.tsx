@@ -49,17 +49,19 @@ export async function AnalyticsView({ initPageResult, params, searchParams }: Ad
 
   const t = (r: Record<string, unknown>[], kind: string, event: string) => n(r.find((x) => x.kind === kind && x.event === event)?.n)
   const kpi = [
-    { l: 'Ziyaret', k: ['page', 'session'], ipucu: 'Tarayıcı oturumu başına bir ziyaret' },
+    { l: 'Tekil ziyaretçi', k: ['page', 'visitor'], ipucu: 'Her tarayıcı günde bir kez sayılır; dönem toplamı günlük tekillerin toplamıdır' },
+    { l: 'Yeni ziyaretçi', k: ['page', 'new'], ipucu: 'Siteye ilk kez gelen tarayıcılar' },
+    { l: 'Ziyaret', k: ['page', 'session'], ipucu: '30 dakika hareketsizlikten sonra yeni ziyaret başlar' },
     { l: 'Sayfa görüntüleme', k: ['page', 'view'] },
     { l: 'İlan görüntüleme', k: ['popup', 'view'] },
     { l: 'İlan tıklama', k: ['popup', 'click'] },
   ].map((x) => ({ ...x, v: t(toplam, x.k[0], x.k[1]), o: t(onceki, x.k[0], x.k[1]) }))
-  const ilanGor = kpi[2].v, ilanTik = kpi[3].v
+  const ilanGor = kpi[4].v, ilanTik = kpi[5].v
 
   // Günlük grafik: eksik günler 0
   const gunler = Array.from({ length: gun }, (_, i) => daysAgo(gun - 1 - i))
   const gv = new Map<string, { v: number; s: number }>(gunler.map((d) => [d, { v: 0, s: 0 }]))
-  for (const r of gunluk) { const g = gv.get(String(r.day)); if (g) g[r.event === 'session' ? 's' : 'v'] = n(r.n) }
+  for (const r of gunluk) { const g = gv.get(String(r.day)); if (g && (r.event === 'view' || r.event === 'visitor')) g[r.event === 'visitor' ? 's' : 'v'] = n(r.n) }
   const max = Math.max(1, ...[...gv.values()].map((x) => x.v))
   const W = 1000, H = 220, bw = W / gun
 
@@ -81,7 +83,7 @@ export async function AnalyticsView({ initPageResult, params, searchParams }: Ad
     return { id, doc, v: s('view'), c: s('click'), x: s('close'), vm: s('view', 'mobile'), cm: s('click', 'mobile'), vd: s('view', 'desktop'), cd: s('click', 'desktop') }
   }).sort((a, b) => b.v - a.v)
 
-  const bos = !kpi[0].v && !kpi[1].v && !ilanGor
+  const bos = !kpi[0].v && !kpi[3].v && !ilanGor
 
   return (
     <DefaultTemplate i18n={req.i18n} locale={locale} params={params} payload={payload} permissions={permissions} searchParams={searchParams} user={req.user} visibleEntities={visibleEntities}>
@@ -90,7 +92,7 @@ export async function AnalyticsView({ initPageResult, params, searchParams }: Ad
           <header className="kb-pb-head">
             <div>
               <h1>Analitik</h1>
-              <p>Sitedeki ziyaretler ve ilan performansı. Çerez ve kişisel veri kullanılmaz; yalnızca günlük toplamlar tutulur. Botlar sayılmaz.</p>
+              <p>Sitedeki ziyaretler ve ilan performansı. Çerez ve kişisel veri kullanılmaz; yalnızca günlük toplamlar tutulur. Botlar sayılmaz. Tekil ziyaretçi: her tarayıcı günde bir kez sayılır. Ziyaret: 30 dakika hareketsizlikten sonra yeni ziyaret başlar.</p>
             </div>
             <nav className="kb-an-range" aria-label="Dönem">
               {DONEM.map((d) => <a key={d} href={`/admin/analitik?gun=${d}`} className={d === gun ? 'on' : ''} aria-current={d === gun ? 'page' : undefined}>Son {d} gün</a>)}
@@ -110,15 +112,15 @@ export async function AnalyticsView({ initPageResult, params, searchParams }: Ad
           </section>
 
           <section className="kb-an-card">
-            <div className="kb-an-card-head"><h2>Günlük ziyaret</h2><span className="kb-an-legend"><i className="v" />Sayfa görüntüleme <i className="s" />Ziyaret</span></div>
-            <svg className="kb-an-chart" viewBox={`0 0 ${W} ${H + 24}`} role="img" aria-label={`Son ${gun} günün günlük sayfa görüntüleme ve ziyaret grafiği`}>
+            <div className="kb-an-card-head"><h2>Günlük trafik</h2><span className="kb-an-legend"><i className="v" />Sayfa görüntüleme <i className="s" />Tekil ziyaretçi</span></div>
+            <svg className="kb-an-chart" viewBox={`0 0 ${W} ${H + 24}`} role="img" aria-label={`Son ${gun} günün günlük sayfa görüntüleme ve tekil ziyaretçi grafiği`}>
               {[0.25, 0.5, 0.75, 1].map((f) => <line key={f} x1="0" x2={W} y1={H - H * f} y2={H - H * f} className="grid" />)}
               {gunler.map((d, i) => {
                 const g = gv.get(d)!
                 const h = (g.v / max) * H
                 return (
                   <g key={d}>
-                    <rect x={i * bw + bw * 0.15} width={bw * 0.7} y={H - h} height={h} rx={Math.min(4, bw * 0.2)} className="bar"><title>{`${gunAdi(d)}: ${fmt(g.v)} görüntüleme, ${fmt(g.s)} ziyaret`}</title></rect>
+                    <rect x={i * bw + bw * 0.15} width={bw * 0.7} y={H - h} height={h} rx={Math.min(4, bw * 0.2)} className="bar"><title>{`${gunAdi(d)}: ${fmt(g.v)} görüntüleme, ${fmt(g.s)} tekil ziyaretçi`}</title></rect>
                     {(gun <= 7 || i % Math.ceil(gun / 10) === 0) && <text x={i * bw + bw / 2} y={H + 18} className="lbl">{gunAdi(d)}</text>}
                   </g>
                 )

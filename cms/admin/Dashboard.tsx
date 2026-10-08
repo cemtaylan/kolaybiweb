@@ -1,6 +1,10 @@
-// Panel ana sayfası: karşılama, hızlı işlemler, sayılar ve son düzenlenen yazılar
+// Panel ana sayfası: karşılama, hızlı işlemler, sayılar, son düzenlenen yazılar ve hızlı erişim kartları.
+// Payload'ın varsayılan koleksiyon kartları CSS ile gizlenir (custom.css), yerine aşağıdaki hızlı erişim gelir.
+import type React from 'react'
 import type { ServerProps } from 'payload'
 import type { Category, Media, Post } from '@/cms/payload-types'
+import { sql } from '@payloadcms/db-postgres'
+import { rows, daysAgo } from '../analytics'
 
 const AY = ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara']
 const kisa = (d?: string | null) => {
@@ -13,32 +17,66 @@ const saat = () => {
   return h < 6 ? 'İyi geceler' : h < 12 ? 'Günaydın' : h < 18 ? 'İyi günler' : 'İyi akşamlar'
 }
 
+// Hızlı erişim kartlarının simgeleri (24×24, çizgi)
+const ICO: Record<string, React.ReactNode> = {
+  yazi: <><path d="M5 4h10l4 4v12H5z" /><path d="M15 4v4h4M8 12h8M8 16h6" /></>,
+  kategori: <><rect x="4" y="4" width="7" height="7" rx="2" /><rect x="13" y="4" width="7" height="7" rx="2" /><rect x="4" y="13" width="7" height="7" rx="2" /><rect x="13" y="13" width="7" height="7" rx="2" /></>,
+  yazar: <><circle cx="12" cy="8" r="4" /><path d="M4 20c1.5-4 4.5-6 8-6s6.5 2 8 6" /></>,
+  ilan: <><rect x="3" y="4" width="18" height="16" rx="3" /><rect x="7" y="8" width="10" height="8" rx="1.5" /></>,
+  analitik: <><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" /></>,
+  gorsel: <><rect x="3" y="4" width="18" height="16" rx="3" /><circle cx="9" cy="10" r="2" /><path d="m21 16-5-5-9 9" /></>,
+  kullanici: <><circle cx="9" cy="8" r="3.5" /><path d="M2.5 20c1-3.5 3.5-5 6.5-5s5.5 1.5 6.5 5M16 4.5a3.5 3.5 0 0 1 0 7M18 15c2 .6 3.2 2.2 3.5 5" /></>,
+}
+
 export async function Dashboard({ payload, user }: ServerProps) {
-  const [yayinda, taslak, kategori, gorsel, son] = await Promise.all([
+  const [yayinda, taslak, kategori, gorsel, son, ilanAktif, ilanTum, yazar, kullanici, trafik] = await Promise.all([
     payload.count({ collection: 'posts', where: { _status: { equals: 'published' } } }),
     payload.count({ collection: 'posts', where: { _status: { equals: 'draft' } } }),
     payload.count({ collection: 'categories' }),
     payload.count({ collection: 'media' }),
     payload.find({ collection: 'posts', sort: '-updatedAt', limit: 6, depth: 1, draft: true, select: { title: true, slug: true, _status: true, updatedAt: true, category: true, cover: true } }),
+    payload.count({ collection: 'popups', where: { active: { equals: true } } }),
+    payload.count({ collection: 'popups' }),
+    payload.count({ collection: 'authors' }),
+    payload.count({ collection: 'users' }),
+    rows(payload, sql`SELECT event, SUM(count) AS n FROM analytics WHERE kind = 'page' AND day >= ${daysAgo(6)} GROUP BY event`).catch(() => []),
   ])
+  const tr = (e: string) => Number(trafik.find((r) => r.event === e)?.n) || 0
   const ad = (user as { name?: string } | undefined)?.name?.split(' ')[0] || ''
   const stats = [
     { n: yayinda.totalDocs, l: 'Yayındaki yazı', href: '/admin/collections/posts?where[_status][equals]=published' },
     { n: taslak.totalDocs, l: 'Taslak', href: '/admin/collections/posts?where[_status][equals]=draft' },
-    { n: kategori.totalDocs, l: 'Kategori', href: '/admin/collections/categories' },
-    { n: gorsel.totalDocs, l: 'Görsel', href: '/admin/collections/media' },
+    { n: ilanAktif.totalDocs, l: 'Aktif ilan', href: '/admin/ilanlar' },
+    { n: tr('visitor'), l: 'Tekil ziyaretçi · son 7 gün', href: '/admin/analitik?gun=7' },
+  ]
+  const fmt = (v: number) => v.toLocaleString('tr-TR')
+  const ERISIM = [
+    { grup: 'Blog', kartlar: [
+      { t: 'Yazılar', d: `${fmt(yayinda.totalDocs)} yayında, ${fmt(taslak.totalDocs)} taslak`, href: '/admin/collections/posts', yeni: '/admin/collections/posts/create', i: 'yazi' },
+      { t: 'Kategoriler', d: `${fmt(kategori.totalDocs)} kategori`, href: '/admin/collections/categories', yeni: '/admin/collections/categories/create', i: 'kategori' },
+      { t: 'Yazarlar', d: `${fmt(yazar.totalDocs)} yazar`, href: '/admin/collections/authors', yeni: '/admin/collections/authors/create', i: 'yazar' },
+    ] },
+    { grup: 'Pazarlama', kartlar: [
+      { t: 'Aktif ve Pasif İlanlar', d: `${fmt(ilanAktif.totalDocs)} aktif, ${fmt(ilanTum.totalDocs - ilanAktif.totalDocs)} pasif`, href: '/admin/ilanlar', yeni: '/admin/collections/popups/create', i: 'ilan' },
+      { t: 'Analitik', d: `${fmt(tr('visitor'))} tekil ziyaretçi · son 7 gün`, href: '/admin/analitik', i: 'analitik' },
+    ] },
+    { grup: 'İçerik ve ayarlar', kartlar: [
+      { t: 'Görseller', d: `${fmt(gorsel.totalDocs)} görsel`, href: '/admin/collections/media', yeni: '/admin/collections/media/create', i: 'gorsel' },
+      { t: 'Kullanıcılar', d: `${fmt(kullanici.totalDocs)} kullanıcı`, href: '/admin/collections/users', yeni: '/admin/collections/users/create', i: 'kullanici' },
+    ] },
   ]
   return (
     <div className="kb-dash">
       <section className="kb-hero">
         <div>
-          <span className="kb-eyebrow">KolayBi Blog</span>
+          <span className="kb-eyebrow">KolayBi CMS</span>
           <h1>{saat()}{ad ? `, ${ad}` : ''} 👋</h1>
-          <p>Yazılarınızı buradan yazın, düzenleyin ve yayınlayın. Yayınladığınız yazı birkaç saniye içinde sitede görünür.</p>
+          <p>Blog yazılarını, sitedeki ilanları ve ziyaret analitiğini buradan yönetin. Yayınladığınız yazı birkaç saniye içinde sitede görünür.</p>
         </div>
         <div className="kb-actions">
           <a className="kb-btn kb-btn-light" href="/admin/collections/posts/create">+ Yeni yazı</a>
-          <a className="kb-btn kb-btn-ghost" href="/blog" target="_blank" rel="noopener">Blogu görüntüle ↗</a>
+          <a className="kb-btn kb-btn-ghost" href="/admin/collections/popups/create">+ İlan oluştur</a>
+          <a className="kb-btn kb-btn-ghost" href="/" target="_blank" rel="noopener">Siteyi görüntüle ↗</a>
         </div>
       </section>
 
@@ -76,6 +114,25 @@ export async function Dashboard({ payload, user }: ServerProps) {
             )
           })}
         </div>
+      </section>
+
+      <section className="kb-quick" aria-label="Hızlı erişim">
+        {ERISIM.map((g) => (
+          <div key={g.grup} className="kb-quick-group">
+            <h2>{g.grup}</h2>
+            <div className="kb-quick-list">
+              {g.kartlar.map((k) => (
+                <div key={k.t} className="kb-quick-card">
+                  <a href={k.href} className="kb-quick-main">
+                    <span className="kb-quick-ico" aria-hidden="true"><svg viewBox="0 0 24 24">{ICO[k.i]}</svg></span>
+                    <span><b>{k.t}</b><small>{k.d}</small></span>
+                  </a>
+                  {k.yeni && <a href={k.yeni} className="kb-quick-add" aria-label={`${k.t}: yeni ekle`} title="Yeni ekle">+</a>}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
       </section>
     </div>
   )

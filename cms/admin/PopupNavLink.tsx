@@ -1,5 +1,5 @@
 'use client'
-// Sol menüde "Pazarlama" grubu: İlan oluştur, Aktif ve Pasif İlanlar, Analitik.
+// Sol menü: en üstte Dashboard bağlantısı ve "Pazarlama" grubu (İlan oluştur, Aktif ve Pasif İlanlar, Analitik).
 // İlanlar koleksiyonu menüden gizli (group: false); grup CSS ile Blog grubunun altına yerleşir.
 import { useEffect } from 'react'
 import Link from 'next/link'
@@ -42,7 +42,13 @@ const LINKS = [
 export function PopupNavLink() {
   const path = usePathname() || ''
   useNavAcik()
+  const ana = path === '/admin' || path === '/admin/'
   return (
+    <>
+    <Link href="/admin" className={`kb-navtop${ana ? ' is-on' : ''}`} prefetch={false} aria-current={ana ? 'page' : undefined}>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="9" rx="2" /><rect x="13" y="3" width="8" height="5" rx="2" /><rect x="13" y="10" width="8" height="11" rx="2" /><rect x="3" y="14" width="8" height="7" rx="2" /></svg>
+      Dashboard
+    </Link>
     <div className="kb-navgroup">
       <NavGroup label="Pazarlama">
         {LINKS.map((x) => {
@@ -56,5 +62,6 @@ export function PopupNavLink() {
         })}
       </NavGroup>
     </div>
+    </>
   )
 }

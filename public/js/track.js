@@ -1,4 +1,7 @@
-// Çerezsiz ölçüm: sayfa görüntüleme ve oturum başlangıcı (kaynak: doğrudan / arama / sosyal / yapay zekâ / diğer).
+// Çerezsiz ölçüm. Tarayıcıda yalnızca üç küçük işaret tutulur (localStorage), sunucuya kimlik gönderilmez:
+//   kb:d  son görülen gün      → günde ilk görüntülemede "tekil ziyaretçi" sayılır
+//   kb:t  son etkinlik zamanı  → 30 dk hareketsizlikten sonra yeni "ziyaret" (oturum) başlar, kaynağıyla birlikte
+//   kb:f  ilk ziyaret işareti  → hiç yoksa "yeni ziyaretçi" sayılır
 // İlan olayları için popups.js aynı track() işlevini kullanır. Veriler yalnızca günlük toplam olarak saklanır.
 export const path = location.pathname.replace(/\/+$/, '') || '/'
 export const device = matchMedia('(max-width: 767px)').matches ? 'mobile' : 'desktop'
@@ -19,9 +22,17 @@ function source() {
   return 'other'
 }
 
+const OTURUM = 30 * 60 * 1000
+const ls = { get: (k) => { try { return localStorage.getItem(k) } catch { return null } }, set: (k, v) => { try { localStorage.setItem(k, v) } catch {} } }
+
 // Botları ve önizleme isteklerini sayma
 if (!/bot|crawl|spider|headless|lighthouse/i.test(navigator.userAgent) && document.visibilityState !== 'prerender') {
-  let first = false
-  try { if (!sessionStorage.getItem('kb:s')) { sessionStorage.setItem('kb:s', '1'); first = true } } catch {}
-  track({ t: 'page', ...(first ? { s: source() } : {}) })
+  const now = Date.now()
+  const gun = new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/Istanbul' })
+  const veri = { t: 'page' }
+  if (ls.get('kb:d') !== gun) { veri.u = 1; ls.set('kb:d', gun) }
+  if (!ls.get('kb:f')) { veri.n = 1; ls.set('kb:f', '1') }
+  if (!(now - Number(ls.get('kb:t')) < OTURUM)) veri.s = source()
+  ls.set('kb:t', String(now))
+  track(veri)
 }

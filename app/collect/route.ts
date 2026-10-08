@@ -1,4 +1,4 @@
-// Sitedeki /js/track.js'in gönderdiği olaylar (sayfa görüntüleme, oturum, ilan görüntüleme/tıklama/kapatma).
+// Sitedeki /js/track.js'in gönderdiği olaylar (sayfa görüntüleme, ziyaret, tekil/yeni ziyaretçi, ilan görüntüleme/tıklama/kapatma).
 // Çerez ve kişisel veri yok; yalnızca günlük sayaçlar artırılır. Botlar ve geçersiz istekler sessizce yok sayılır.
 import { getPayload } from 'payload'
 import config from '@payload-config'
@@ -11,7 +11,7 @@ const ok = () => new Response(null, { status: 204 })
 
 export async function POST(req: Request) {
   if (BOT.test(req.headers.get('user-agent') || '')) return ok()
-  let b: { t?: string; p?: string; d?: string; s?: string; id?: number; e?: string }
+  let b: { t?: string; p?: string; d?: string; s?: string; u?: number; n?: number; id?: number; e?: string }
   try { b = JSON.parse(await req.text()) } catch { return ok() }
   const path = String(b.p || '').toLowerCase().replace(/\/+$/, '') || '/'
   if (!PATH.test(path)) return ok()
@@ -20,6 +20,8 @@ export async function POST(req: Request) {
   if (b.t === 'page') {
     hits.push({ kind: 'page', path, event: 'view', device })
     if (b.s) hits.push({ kind: 'page', path, event: 'session', device, source: SOURCES.includes(b.s) ? b.s : 'other' })
+    if (b.u) hits.push({ kind: 'page', path, event: 'visitor', device }) // günün ilk görüntülemesi: tekil ziyaretçi
+    if (b.n) hits.push({ kind: 'page', path, event: 'new', device }) // ilk kez gelen tarayıcı
   } else if (b.t === 'popup' && Number.isInteger(b.id) && ['view', 'click', 'close'].includes(b.e || '')) {
     hits.push({ kind: 'popup', path, popup: b.id, event: b.e!, device })
   }
