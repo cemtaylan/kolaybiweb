@@ -14,6 +14,8 @@ const nextConfig: NextConfig = {
       // CSS ve JS her sayfada ?v= sürümüyle çağrılıyor; içerik değişince sürüm de değişir
       { source: '/css/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
       { source: '/js/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
+      // Fontlar (Inter, Plus Jakarta Sans): ?v= sürümlü; kalıcı önbellek sayfa geçişlerinde fontun sonradan değişmesini önler
+      { source: '/fonts/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
       // Görseller ve SVG animasyonları: 30 gün (dosya yenilenirse bağlantıya ?v= eklenir)
       { source: '/img/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=2592000' }] },
     ]
