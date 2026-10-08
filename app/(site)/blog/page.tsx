@@ -48,7 +48,7 @@ export async function generateMetadata({ searchParams }: { searchParams: SP }): 
 
 const I = ({ id }: { id: string }) => <svg><use href={`#${id}`} /></svg>
 const Html = ({ html, as: Tag = 'span' }: { html: string; as?: 'span' | 'p' }) => <Tag dangerouslySetInnerHTML={{ __html: nowrap(html.replace(/&/g, '&amp;').replace(/</g, '&lt;')) }} />
-const tema = (p: Post) => `theme-${cat(p)?.theme || 'ofis'}`
+const tema = (p: Post) => { const t = cat(p)?.theme || 'ofis'; return t.startsWith('theme-') ? t : `theme-${t}` } // kategori teması 'theme-link' biçiminde saklanır
 const gorsel = (p: Post, boyut: 'card' | 'cover') => { const m = media(p.cover); return m?.sizes?.[boyut]?.url || m?.url || '' }
 
 function Kart({ p }: { p: Post }) {
