@@ -169,7 +169,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         </section>
       </main>
       <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: blogFooter() }} />
-      <script src="/js/menu.js?v=3" />
+      <script src="/js/menu.js?v=4" />
       <script src="/js/faq.js?v=5" />
       <script src="/js/post.js?v=1" />
       <script type="module" src="/js/track.js?v=4" />

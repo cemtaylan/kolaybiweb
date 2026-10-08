@@ -41,3 +41,15 @@
     if (cur) cur.querySelector('summary').focus();
   });
 })();
+
+// Animasyonlar yalnız ekrandaki bölümlerde çalışsın: görünmeyen bölüm .anim-off alır (site.css duraklatır).
+// Sayfa açılırken ilk ekranın altındaki sahne ve bant animasyonları ana iş parçacığını meşgul etmez.
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var sections = document.querySelectorAll('main > section, main > article, main > div > section');
+  if (!sections.length) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { e.target.classList.toggle('anim-off', !e.isIntersecting); });
+  }, { rootMargin: '150px 0px' });
+  sections.forEach(function (s) { io.observe(s); });
+})();

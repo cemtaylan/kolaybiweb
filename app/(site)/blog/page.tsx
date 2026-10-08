@@ -191,7 +191,7 @@ export default async function BlogIndex({ searchParams }: { searchParams: SP }) 
         <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: blogIndexBottom() }} />
       </main>
       <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: blogFooter() }} />
-      <script src="/js/menu.js?v=3" />
+      <script src="/js/menu.js?v=4" />
       <script type="module" src="/js/track.js?v=4" />
       <script type="module" src="/js/popups.js?v=5" />
     </>
