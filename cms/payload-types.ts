@@ -70,6 +70,7 @@ export interface Config {
     posts: Post;
     categories: Category;
     authors: Author;
+    popups: Popup;
     media: Media;
     users: User;
     'payload-kv': PayloadKv;
@@ -82,6 +83,7 @@ export interface Config {
     posts: PostsSelect<false> | PostsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     authors: AuthorsSelect<false> | AuthorsSelect<true>;
+    popups: PopupsSelect<false> | PopupsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -263,6 +265,87 @@ export interface Author {
   createdAt: string;
 }
 /**
+ * Sitede açılan duyuru ve kampanya pencereleri. Bir sayfada aynı anda en fazla bir pencere gösterilir; birden çok pencere uyarsa önceliği yüksek olan çıkar.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "popups".
+ */
+export interface Popup {
+  id: number;
+  name: string;
+  active?: boolean | null;
+  /**
+   * Yüksek olan önce
+   */
+  priority?: number | null;
+  design: 'klasik' | 'yan-gorsel' | 'kose' | 'serit' | 'tam-ekran' | 'yan-panel';
+  theme: 'ofis' | 'jet' | 'lacivert' | 'acik';
+  /**
+   * Alt şerit ve köşe kartında küçük, diğerlerinde büyük gösterilir
+   */
+  image?: (number | null) | Media;
+  eyebrow?: string | null;
+  title: string;
+  text?: string | null;
+  buttonText?: string | null;
+  buttonLink?: string | null;
+  show: 'all' | 'include' | 'exclude';
+  /**
+   * “Tüm blog yazıları” her /blog/… sayfasını kapsar
+   */
+  pages?:
+    | (
+        | '/'
+        | '/fiyatlar'
+        | '/kolay-on-muhasebe-programi'
+        | '/kolaybi-jet'
+        | '/online-banka-entegrasyonu'
+        | '/bilink'
+        | '/ai-muhasebe'
+        | '/kolaybi-e-faturam'
+        | '/iletisim'
+        | '/cari-hesap-programi'
+        | '/kampanyalar/davet-et-kazan'
+        | '/fatura-kesme-programi'
+        | '/gelir-gider-takip-programi'
+        | '/kullanim-videolari'
+        | '/kolaybi-bilink-formu'
+        | '/kolaybiye-gecis'
+        | '/referanslar'
+        | '/blog'
+        | '/proje-gelir-gider-takibi'
+        | '/kampanyalar/qnb-dijital-kopru'
+        | '/sanal-pos-entegrasyonu'
+        | '/siparis-takip-programi'
+        | '/stok-takip-programi'
+        | '/sikca-sorulan-sorular'
+        | '/e-arsiv'
+        | '/e-fatura'
+        | '/e-smm-programi'
+        | '/pazaryeri-entegrasyonu'
+        | '/e-ihracat-programi'
+        | '/e-imza-programi'
+        | '/e-irsaliye'
+        | '/on-muhasebe-raporlama-programi'
+        | '/blog/*'
+      )[]
+    | null;
+  /**
+   * Listede olmayan adresler; * ile başlayanları kapsar (örn. /kampanyalar/*)
+   */
+  customPaths?: string[] | null;
+  device?: ('all' | 'desktop' | 'mobile') | null;
+  trigger?: ('delay' | 'scroll' | 'exit') | null;
+  delay?: number | null;
+  scroll?: number | null;
+  frequency?: ('always' | 'session' | 'days') | null;
+  days?: number | null;
+  startsAt?: string | null;
+  endsAt?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
@@ -324,6 +407,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'authors';
         value: number | Author;
+      } | null)
+    | ({
+        relationTo: 'popups';
+        value: number | Popup;
       } | null)
     | ({
         relationTo: 'media';
@@ -423,6 +510,36 @@ export interface AuthorsSelect<T extends boolean = true> {
   role?: T;
   photo?: T;
   bio?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "popups_select".
+ */
+export interface PopupsSelect<T extends boolean = true> {
+  name?: T;
+  active?: T;
+  priority?: T;
+  design?: T;
+  theme?: T;
+  image?: T;
+  eyebrow?: T;
+  title?: T;
+  text?: T;
+  buttonText?: T;
+  buttonLink?: T;
+  show?: T;
+  pages?: T;
+  customPaths?: T;
+  device?: T;
+  trigger?: T;
+  delay?: T;
+  scroll?: T;
+  frequency?: T;
+  days?: T;
+  startsAt?: T;
+  endsAt?: T;
   updatedAt?: T;
   createdAt?: T;
 }

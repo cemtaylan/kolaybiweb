@@ -170,6 +170,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       <script src="/js/menu.js?v=3" />
       <script src="/js/faq.js?v=5" />
       <script src="/js/post.js?v=1" />
+      <script type="module" src="/js/popups.js?v=2" />
     </>
   )
 }

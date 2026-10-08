@@ -13,6 +13,7 @@ import { Media } from './cms/collections/Media'
 import { Authors } from './cms/collections/Authors'
 import { Categories } from './cms/collections/Categories'
 import { Posts } from './cms/collections/Posts'
+import { Popups } from './cms/collections/Popups'
 import { editorFeatures } from './cms/editor'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -33,7 +34,7 @@ export default buildConfig({
     importMap: { baseDir: dirname },
   },
   i18n: { supportedLanguages: { tr }, fallbackLanguage: 'tr' },
-  collections: [Posts, Categories, Authors, Media, Users],
+  collections: [Posts, Categories, Authors, Popups, Media, Users],
   editor: lexicalEditor({ features: editorFeatures }),
   // Yayında Postgres (Vercel Postgres / Neon), yerelde tek dosyalık SQLite
   db: DB.startsWith('postgres')

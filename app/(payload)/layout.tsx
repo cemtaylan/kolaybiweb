@@ -6,6 +6,7 @@ import { handleServerFunctions, RootLayout } from '@payloadcms/next/layouts'
 import type React from 'react'
 import { importMap } from './admin/importMap.js'
 import './custom.css'
+import '../../public/css/popups.css' // açılır pencere önizlemesi sitedeki stil dosyasını kullanır
 
 const serverFunction: ServerFunctionClient = async function (args) {
   'use server'

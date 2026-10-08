@@ -135,3 +135,21 @@ h1, h2, h3, h4, .doc-header__title, .list-header h1 { font-family: 'Plus Jakarta
 .kb-meter.is-iyi span { color: var(--kb-green); }
 .kb-meter.is-uzun span, .kb-meter.is-kisa span { color: var(--kb-amber); }
 @media (max-width: 800px) { .kb-seo-meters { grid-template-columns: 1fr; } }
+
+/* Açılır pencere canlı önizlemesi */
+.kb-pp { margin-bottom: 24px; padding: 16px; border-radius: 18px; background: #fff; border: 1px solid var(--kb-line); }
+.kb-pp-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--kb-ink-2); }
+.kb-pp-toggle { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--kb-bg); border: 1px solid var(--kb-line); }
+.kb-pp-toggle button { border: 0; background: none; padding: 6px 14px; border-radius: 999px; font: 600 12.5px var(--font-body); color: var(--kb-ink-2); cursor: pointer; text-transform: none; letter-spacing: 0; }
+.kb-pp-toggle button.on { background: var(--kb-blue); color: #fff; }
+.kb-pp-frame { margin: 0 auto; max-width: 100%; border-radius: 14px; overflow: hidden; border: 1px solid var(--kb-line); box-shadow: 0 20px 40px -30px rgb(14 42 74 / .5); transition: max-width .25s; }
+.kb-pp-frame.is-mobile { max-width: 390px; }
+.kb-pp-bar { display: flex; align-items: center; gap: 6px; padding: 9px 12px; background: var(--kb-bg); border-bottom: 1px solid var(--kb-line); }
+.kb-pp-bar i { width: 10px; height: 10px; border-radius: 50%; background: #E5E8EF; }
+.kb-pp-bar span { margin-left: 10px; padding: 3px 12px; border-radius: 999px; background: #fff; font-size: 11.5px; color: var(--kb-ink-2); }
+.kb-pp-page { position: relative; height: 520px; overflow: hidden; background: linear-gradient(180deg, #F7F8FB, #fff); container-type: inline-size; }
+.kb-pp-frame.is-mobile .kb-pp-page { height: 640px; }
+.kb-pp-skel { padding: 36px; display: grid; gap: 12px; max-width: 520px; }
+.kb-pp-skel b { height: 26px; width: 70%; border-radius: 8px; background: #E5E8EF; }
+.kb-pp-skel p { height: 12px; border-radius: 6px; background: #EEF0F5; margin: 0; }
+.kb-pp-skel p.s { width: 55%; }

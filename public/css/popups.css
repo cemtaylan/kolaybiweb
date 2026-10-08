@@ -1,0 +1,94 @@
+/* Açılır pencereler (CMS > Pazarlama > Açılır pencereler). 6 tasarım × 4 renk.
+   Sitede renkler.css tokenlarını kullanır; CMS önizlemesinde tokenlar yoksa yanındaki yedek değerler geçerlidir. */
+.kbp { --kbp-c: var(--primary, #4262F0); --kbp-c2: var(--blue-700, #2742B5); --kbp-soft: var(--primary-soft, #F0F4FF); --kbp-bg: #fff; --kbp-ink: var(--navy, #0E2A4A); --kbp-ink2: var(--ink-2, #03032F); --kbp-btn-ink: #fff;
+  position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 20px; font-family: var(--font-body, 'Inter', sans-serif); pointer-events: none; }
+.kbp--jet { --kbp-c: var(--cyan-600, #0E9FB0); --kbp-c2: var(--cyan-700, #0B7F8C); --kbp-soft: var(--cyan-50, #ECFBFD); }
+.kbp--lacivert { --kbp-c: var(--accent, #FFD166); --kbp-c2: #fff; --kbp-soft: rgb(255 255 255 / .1); --kbp-bg: var(--navy, #0E2A4A); --kbp-ink: #fff; --kbp-ink2: rgb(255 255 255 / .8); --kbp-btn-ink: var(--navy, #0E2A4A); }
+.kbp--acik { --kbp-c: var(--navy, #0E2A4A); --kbp-c2: var(--primary, #4262F0); --kbp-soft: var(--bg, #F7F8FB); --kbp-bg: var(--bg, #F7F8FB); }
+
+.kbp-backdrop { position: absolute; inset: 0; background: rgb(3 3 47 / .55); backdrop-filter: blur(2px); opacity: 0; transition: opacity .3s; pointer-events: auto; }
+.kbp-box { position: relative; width: min(100%, 520px); max-height: calc(100vh - 40px); overflow: auto; border-radius: 24px; background: var(--kbp-bg); color: var(--kbp-ink); box-shadow: 0 40px 80px -30px rgb(3 3 47 / .55); opacity: 0; transform: translateY(18px) scale(.98); transition: opacity .3s, transform .35s cubic-bezier(.2, .8, .2, 1); pointer-events: auto; }
+.kbp.is-open .kbp-backdrop { opacity: 1; }
+.kbp.is-open .kbp-box { opacity: 1; transform: none; }
+.kbp-x { position: absolute; top: 12px; right: 12px; z-index: 2; display: grid; place-items: center; width: 40px; height: 40px; border: 0; border-radius: 50%; background: rgb(255 255 255 / .9); color: #0E2A4A; cursor: pointer; box-shadow: 0 4px 12px -6px rgb(3 3 47 / .4); }
+.kbp-nw { white-space: nowrap; }
+.kbp-x svg { width: 16px; height: 16px; }
+.kbp-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.kbp-body { padding: 26px 28px 28px; }
+.kbp-eyebrow { display: inline-block; margin-bottom: 10px; padding: 4px 10px; border-radius: 999px; background: var(--kbp-soft); color: var(--kbp-c2); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.kbp--lacivert .kbp-eyebrow { color: var(--kbp-c); }
+.kbp-title { margin: 0; font: 800 26px/1.2 var(--font-head, 'Plus Jakarta Sans', sans-serif); letter-spacing: -.02em; color: var(--kbp-ink); }
+.kbp-text { margin: 10px 0 0; font-size: 15.5px; line-height: 1.55; color: var(--kbp-ink2); }
+.kbp-btn { display: inline-flex; align-items: center; gap: 12px; min-height: 48px; margin-top: 20px; padding: 6px 6px 6px 22px; border-radius: 999px; background: var(--kbp-c); color: var(--kbp-btn-ink); font-weight: 600; font-size: 15px; text-decoration: none; transition: transform .2s; }
+.kbp-btn:hover { transform: translateY(-1px); }
+.kbp-arr { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: rgb(255 255 255 / .22); }
+.kbp--lacivert .kbp-arr { background: rgb(14 42 74 / .12); }
+.kbp-arr svg { width: 16px; height: 16px; }
+
+/* 1. Klasik: ortada, görsel üstte */
+.kbp--klasik .kbp-img { aspect-ratio: 16 / 9; }
+/* 2. Yan görselli: geniş kart, görsel solda */
+.kbp--yan-gorsel .kbp-box { display: grid; grid-template-columns: 42% 1fr; width: min(100%, 780px); }
+.kbp--yan-gorsel .kbp-img { min-height: 320px; }
+.kbp--yan-gorsel .kbp-body { align-self: center; padding: 36px; }
+.kbp--yan-gorsel .kbp-title { font-size: 30px; }
+/* 3. Köşe kartı: sağ alt, sayfayı kapatmaz */
+.kbp--kose { place-items: end; }
+.kbp--kose .kbp-box { display: grid; grid-template-columns: 96px 1fr; width: min(100%, 400px); border-radius: 20px; box-shadow: 0 24px 50px -24px rgb(3 3 47 / .5); }
+.kbp--kose .kbp-img { height: 100%; }
+.kbp--kose .kbp-body { padding: 16px 44px 16px 16px; }
+.kbp--kose .kbp-title { font-size: 17px; }
+.kbp--kose .kbp-text { font-size: 13.5px; margin-top: 4px; }
+.kbp--kose .kbp-btn { min-height: 40px; margin-top: 10px; font-size: 13.5px; padding: 4px 4px 4px 14px; }
+.kbp--kose .kbp-arr { width: 30px; height: 30px; }
+.kbp--kose .kbp-eyebrow { margin-bottom: 6px; font-size: 10.5px; }
+.kbp--kose .kbp-x { top: 8px; right: 8px; width: 32px; height: 32px; }
+/* 4. Alt şerit: sayfanın altında ince bant */
+.kbp--serit { place-items: end stretch; padding: 0; }
+.kbp--serit .kbp-box { display: flex; align-items: center; gap: 18px; width: 100%; max-width: none; padding: 12px 64px 12px 24px; border-radius: 0; background: var(--kbp-c); color: var(--kbp-btn-ink); box-shadow: 0 -10px 30px -18px rgb(3 3 47 / .5); transform: translateY(100%); }
+.kbp--serit .kbp-img { flex-shrink: 0; width: 48px; height: 48px; border-radius: 12px; overflow: hidden; }
+.kbp--serit .kbp-body { display: flex; align-items: center; gap: 8px 18px; flex-wrap: wrap; flex: 1; padding: 0; }
+.kbp--serit .kbp-title { font-size: 17px; color: inherit; }
+.kbp--serit .kbp-text { margin: 0; font-size: 14px; color: inherit; opacity: .85; }
+.kbp--serit .kbp-eyebrow { display: none; }
+.kbp--serit .kbp-btn { margin: 0 0 0 auto; min-height: 42px; background: #fff; color: #0E2A4A; }
+.kbp--serit .kbp-arr { background: var(--kbp-soft); }
+.kbp--serit .kbp-x { top: 50%; transform: translateY(-50%); background: rgb(255 255 255 / .18); color: inherit; box-shadow: none; }
+.kbp--serit.kbp--lacivert .kbp-box { background: var(--kbp-bg); color: #fff; }
+.kbp--serit.kbp--acik .kbp-box { background: #fff; color: var(--kbp-ink); border-top: 1px solid #E5E8EF; }
+.kbp--serit.kbp--acik .kbp-btn { background: var(--kbp-c); color: #fff; }
+/* 5. Tam ekran kampanya */
+.kbp--tam-ekran { padding: 0; }
+.kbp--tam-ekran .kbp-backdrop { background: radial-gradient(70% 90% at 85% 10%, rgb(36 214 227 / .35), transparent 60%), linear-gradient(130deg, #0B1220, #0E2A4A 55%, #2742B5); backdrop-filter: none; }
+.kbp--tam-ekran .kbp-box { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 40px; width: min(100% - 40px, 1080px); max-height: none; padding: 40px; background: transparent; box-shadow: none; color: #fff; }
+.kbp--tam-ekran .kbp-body { padding: 0; }
+.kbp--tam-ekran .kbp-title { font-size: clamp(32px, 4.4vw, 56px); color: #fff; }
+.kbp--tam-ekran .kbp-text { font-size: 18px; color: rgb(255 255 255 / .82); }
+.kbp--tam-ekran .kbp-eyebrow { background: rgb(255 255 255 / .12); color: var(--accent, #FFD166); }
+.kbp--tam-ekran .kbp-btn { background: var(--accent, #FFD166); color: #0E2A4A; min-height: 56px; font-size: 16px; }
+.kbp--tam-ekran .kbp-arr { background: rgb(14 42 74 / .12); }
+.kbp--tam-ekran .kbp-img { order: 2; border-radius: 24px; overflow: hidden; aspect-ratio: 4 / 3; box-shadow: 0 40px 80px -30px rgb(0 0 0 / .6); }
+.kbp--tam-ekran .kbp-x { position: fixed; top: 20px; right: 20px; }
+/* 6. Yan panel: sağdan çekmece */
+.kbp--yan-panel { place-items: stretch end; padding: 0; }
+.kbp--yan-panel .kbp-box { width: min(100%, 440px); max-height: none; height: 100%; border-radius: 24px 0 0 24px; transform: translateX(100%); }
+.kbp--yan-panel .kbp-img { aspect-ratio: 4 / 3; }
+.kbp--yan-panel .kbp-body { padding: 30px; }
+
+@media (max-width: 700px) {
+  .kbp--yan-gorsel .kbp-box, .kbp--tam-ekran .kbp-box { grid-template-columns: 1fr; }
+  .kbp--yan-gorsel .kbp-img { min-height: 0; aspect-ratio: 16 / 9; }
+  .kbp--tam-ekran .kbp-box { gap: 20px; padding: 70px 20px 24px; }
+  .kbp--tam-ekran .kbp-img { order: 0; aspect-ratio: 16 / 10; }
+  .kbp--serit .kbp-box { padding: 12px 56px 12px 16px; }
+  .kbp--serit .kbp-btn { margin-left: 0; }
+  .kbp--serit .kbp-img { display: none; }
+  .kbp-title { font-size: 22px; }
+}
+@media (prefers-reduced-motion: reduce) { .kbp-box, .kbp-backdrop { transition: none; } }
+
+/* CMS önizlemesi: pencere sabit değil, önizleme çerçevesinin içinde konumlanır */
+.kbp--preview { position: absolute; z-index: 1; pointer-events: auto; }
+.kbp--preview .kbp-box { max-height: calc(100% - 40px); }
+.kbp--preview.kbp--tam-ekran .kbp-x { position: absolute; }
+.kbp--preview.kbp--tam-ekran .kbp-box, .kbp--preview.kbp--yan-panel .kbp-box { max-height: 100%; }
