@@ -45,6 +45,7 @@ const LINKS: NavItem[] = [
   { alan: 'ilanlar', id: 'nav-kb-ilan-olustur', href: '/admin/collections/popups/create', l: 'İlan oluştur', on: (p: string) => p.startsWith('/admin/collections/popups') },
   { alan: 'ilanlar', id: 'nav-kb-ilanlar', href: '/admin/ilanlar', l: 'Aktif ve Pasif İlanlar', on: (p: string) => p.startsWith('/admin/ilanlar') },
   { alan: 'analitik', id: 'nav-kb-analitik', href: '/admin/analitik', l: 'Analitik', on: (p: string) => p.startsWith('/admin/analitik') },
+  { alan: 'yazilar', id: 'nav-kb-blogcta', href: '/admin/globals/blog-cta', l: 'Blog CTA ayarları', on: (p: string) => p.startsWith('/admin/globals/blog-cta') },
   { alan: 'yazilar', id: 'nav-kb-cta', href: '/admin/cta-ornekleri', l: 'CTA örnekleri', on: (p: string) => p.startsWith('/admin/cta-ornekleri') },
 ]
 

@@ -1,4 +1,4 @@
-import type { Block } from 'payload'
+import type { Block, Field } from 'payload'
 
 // Blog yazısına eklenen hazır çağrı kutuları (CTA) ve tek buton. Metinler sitedeki mevcut sayfalardan alınmıştır.
 // Görünüm: lib/blog.ts (HTML) + public/css/post.css (.bcta, .bbtn).
@@ -25,21 +25,20 @@ const THEMES = [
   { label: 'Link moru', value: 'link' },
 ]
 
-export const CtaBlock: Block = {
-  slug: 'cta',
-  labels: { singular: 'Çağrı kutusu (CTA)', plural: 'Çağrı kutuları' },
-  interfaceName: 'CtaBlock',
-  fields: [
-    { name: 'onizleme', type: 'ui', admin: { components: { Field: { path: '/cms/admin/CtaPreview#CtaPreview', clientProps: { tur: 'cta' } } } } },
+/** Çağrı kutusu alanları: blok ve "Blog CTA ayarları"ndaki yazı ortası kutusu aynı alanları kullanır.
+ *  prefix: önizlemenin alanları hangi grupta okuyacağı; d: varsayılan değerler */
+export function ctaFields(prefix = '', d: Partial<Record<'preset' | 'style' | 'title' | 'text' | 'button' | 'link' | 'note', string>> = {}, acik = false): Field[] {
+  return [
+    { name: 'onizleme', type: 'ui', admin: { components: { Field: { path: '/cms/admin/CtaPreview#CtaPreview', clientProps: { tur: 'cta', prefix } } } } },
     {
       type: 'row',
       fields: [
         {
-          name: 'preset', type: 'select', label: 'Hazır CTA', required: true, defaultValue: 'deneme', admin: { width: '38%' },
+          name: 'preset', type: 'select', label: 'Hazır CTA', required: true, defaultValue: d.preset || 'deneme', admin: { width: '38%' },
           options: [...Object.entries(CTA_PRESETS).map(([value, p]) => ({ label: p.label, value })), { label: 'Özel (metni kendim yazacağım)', value: 'ozel' }],
         },
         {
-          name: 'style', type: 'select', label: 'Görünüm', required: true, defaultValue: 'acik', admin: { width: '37%' },
+          name: 'style', type: 'select', label: 'Görünüm', required: true, defaultValue: d.style || 'acik', admin: { width: '37%' },
           // Sitedeki mevcut CTA tasarımları: blog ara kutusu, sayfa sonu kapanış bandı, blog yan sütun kartı
           options: [
             { label: 'Açık kutu (blog ara kutusu)', value: 'acik' },
@@ -51,18 +50,31 @@ export const CtaBlock: Block = {
       ],
     },
     {
-      type: 'collapsible', label: 'Metni değiştir (boş alanlarda hazır metin kullanılır)', admin: { initCollapsed: true },
+      type: 'collapsible', label: 'Metni değiştir (boş alanlarda hazır metin kullanılır)', admin: { initCollapsed: !acik },
       fields: [
-        { name: 'title', type: 'text', label: 'Başlık', admin: { description: 'Vurgulamak istediğiniz kısmı *yıldız* arasına yazın' } },
-        { name: 'text', type: 'textarea', label: 'Açıklama' },
+        { name: 'title', type: 'text', label: 'Başlık', defaultValue: d.title, admin: { description: 'Vurgulamak istediğiniz kısmı *yıldız* arasına yazın' } },
+        { name: 'text', type: 'textarea', label: 'Açıklama', defaultValue: d.text },
         { type: 'row', fields: [
-          { name: 'button', type: 'text', label: 'Buton yazısı', admin: { width: '50%' } },
-          { name: 'link', type: 'text', label: 'Buton bağlantısı', admin: { width: '50%', placeholder: '/fiyatlar ya da https://…' } },
+          { name: 'button', type: 'text', label: 'Buton yazısı', defaultValue: d.button, admin: { width: '50%' } },
+          { name: 'link', type: 'text', label: 'Buton bağlantısı', defaultValue: d.link, admin: { width: '50%', placeholder: '/fiyatlar ya da https://…' } },
         ] },
-        { name: 'note', type: 'text', label: 'Buton altı notu', admin: { description: 'Örn. "Kredi kartı istenmez, deneme sonunda otomatik ödeme alınmaz." Notu tamamen gizlemek için - yazın.' } },
+        { name: 'note', type: 'text', label: 'Buton altı notu', defaultValue: d.note, admin: { description: 'Örn. "Kredi kartı istenmez, deneme sonunda otomatik ödeme alınmaz." Notu tamamen gizlemek için - yazın.' } },
       ],
     },
-  ],
+  ] as Field[]
+}
+
+export const CtaBlock: Block = {
+  slug: 'cta',
+  labels: { singular: 'Çağrı kutusu (CTA)', plural: 'Çağrı kutuları' },
+  interfaceName: 'CtaBlock',
+  fields: ctaFields(),
+}
+
+/** Yazılara kodla eklenen otomatik CTA'ların bugünkü (varsayılan) hâli; "Blog CTA ayarları" kaydedilene kadar bunlar kullanılır */
+export const BLOG_CTA_VARSAYILAN = {
+  orta: { aktif: true, konum: 'h2-3', preset: 'deneme', style: 'acik', theme: '', title: 'Ön muhasebenizi KolayBi ile kolaylaştırın', text: '14 gün ücretsiz deneyin, kredi kartı gerekmez.', button: 'Ücretsiz Deneyin', link: REG, note: '-' },
+  yan: { aktif: true, title: 'Ön muhasebe *tek ekranda*', text: 'Fatura, cari, stok ve banka takibini KolayBi ile yönetin.', button: 'Ücretsiz Deneyin', link: REG },
 }
 
 // Buton renkleri (renkler.css tokenları): zemin ve yazı rengi

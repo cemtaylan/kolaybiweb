@@ -99,8 +99,12 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: null;
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    'blog-cta': BlogCta;
+  };
+  globalsSelect: {
+    'blog-cta': BlogCtaSelect<false> | BlogCtaSelect<true>;
+  };
   locale: null;
   widgets: {
     collections: CollectionsWidget;
@@ -178,6 +182,10 @@ export interface Post {
   category: number | Category;
   author?: (number | null) | Author;
   /**
+   * Yazının ortasına otomatik eklenen çağrı kutusu. Yazıya kendiniz CTA eklerseniz otomatik kutu çıkmaz.
+   */
+  ortaCta?: ('genel' | 'gizle' | 'deneme' | 'efatura' | 'jet' | 'banka' | 'ai' | 'link' | 'iletisim') | null;
+  /**
    * Boş bırakılırsa yazı listenin sonunda, tarihsiz görünür
    */
   publishedAt?: string | null;
@@ -199,6 +207,7 @@ export interface Media {
    * Görme engelli kullanıcılar ve Google için görselin kısa açıklaması
    */
   alt?: string | null;
+  _objectKey?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -551,6 +560,7 @@ export interface PostsSelect<T extends boolean = true> {
   description?: T;
   category?: T;
   author?: T;
+  ortaCta?: T;
   publishedAt?: T;
   contentUpdatedAt?: T;
   updatedAt?: T;
@@ -648,6 +658,7 @@ export interface RedirectsSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  _objectKey?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -760,6 +771,86 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * Her blog yazısında otomatik görünen çağrı kutuları. Kaydettiğinizde tüm yazılarda birkaç saniye içinde güncellenir.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-cta".
+ */
+export interface BlogCta {
+  id: number;
+  /**
+   * Yazara kendi çağrı kutusunu eklediği yazılarda bu kutu çıkmaz. Tek bir yazıda gizlemek için yazının sağ panelindeki "Yazı ortası CTA" seçimini kullanın.
+   */
+  orta: {
+    aktif?: boolean | null;
+    konum: 'h2-2' | 'h2-3' | 'son';
+    preset: 'deneme' | 'efatura' | 'jet' | 'banka' | 'ai' | 'link' | 'iletisim' | 'ozel';
+    style: 'acik' | 'koyu' | 'kart';
+    /**
+     * Boşsa hazır CTA’nın rengi
+     */
+    theme?: ('ofis' | 'jet' | 'banka' | 'link') | null;
+    /**
+     * Vurgulamak istediğiniz kısmı *yıldız* arasına yazın
+     */
+    title?: string | null;
+    text?: string | null;
+    button?: string | null;
+    link?: string | null;
+    /**
+     * Örn. "Kredi kartı istenmez, deneme sonunda otomatik ödeme alınmaz." Notu tamamen gizlemek için - yazın.
+     */
+    note?: string | null;
+  };
+  /**
+   * Masaüstünde yazının solundaki içindekiler listesinin altında görünür.
+   */
+  yan?: {
+    aktif?: boolean | null;
+    /**
+     * Vurgulamak istediğiniz kısmı *yıldız* arasına yazın
+     */
+    title?: string | null;
+    text?: string | null;
+    button?: string | null;
+    link?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-cta_select".
+ */
+export interface BlogCtaSelect<T extends boolean = true> {
+  orta?:
+    | T
+    | {
+        aktif?: T;
+        konum?: T;
+        preset?: T;
+        style?: T;
+        theme?: T;
+        title?: T;
+        text?: T;
+        button?: T;
+        link?: T;
+        note?: T;
+      };
+  yan?:
+    | T
+    | {
+        aktif?: T;
+        title?: T;
+        text?: T;
+        button?: T;
+        link?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

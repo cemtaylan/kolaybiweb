@@ -7,6 +7,7 @@ import { convertLexicalToHTML, defaultHTMLConverters, type HTMLConverters } from
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 import type { Author, Category, Media, Post } from '@/cms/payload-types'
 import { buttonHTML, ctaHTML, type ButtonFields, type CtaFields } from '@/cms/cta-html'
+import { BLOG_CTA_VARSAYILAN } from '@/cms/blocks'
 
 export const SITE = 'https://www.kolaybi.com'
 export { REG } from '@/cms/blocks'
@@ -114,12 +115,24 @@ export function tidy(html: string) {
   return s
 }
 
-// Yazının ortasındaki deneme kutusu: 3. ara başlıktan (h2) önce, yoksa sona (eski şablonla aynı kural)
-export const INLINE_CTA = `<div class="inline-cta"><div><b>Ön muhasebenizi KolayBi ile kolaylaştırın</b><span>14 gün ücretsiz deneyin, kredi kartı gerekmez.</span></div><a href="${REG}" class="btn btn-primary">Ücretsiz Deneyin<span class="arr"><svg><use href="#i-arrow"/></svg></span></a></div>`
-export function withInlineCta(html: string) {
-  if (html.includes(' bcta ')) return html // yazar kendi çağrı kutusunu eklediyse otomatik kutu eklenmez
+// Yazılara otomatik eklenen çağrı kutuları: CMS > Blog CTA ayarları (kaydedilene kadar bugünkü varsayılanlar)
+export const blogCta = cache(async () => {
+  const g = (await (await cms()).findGlobal({ slug: 'blog-cta', depth: 0 }).catch(() => null)) as { updatedAt?: string; orta?: Record<string, unknown>; yan?: Record<string, unknown> } | null
+  return g?.updatedAt ? { orta: { ...BLOG_CTA_VARSAYILAN.orta, ...g.orta }, yan: { ...BLOG_CTA_VARSAYILAN.yan, ...g.yan } } : BLOG_CTA_VARSAYILAN
+})
+type Orta = (typeof BLOG_CTA_VARSAYILAN)['orta']
+
+// Yazının ortasındaki kutu: ayardaki ara başlıktan (h2) önce, yoksa sona. Yazar kendi kutusunu eklediyse ya da yazıda
+// gizlendiyse eklenmez; yazıda farklı bir hazır CTA seçildiyse o kullanılır (görünüm ve renk genel ayardan).
+export function withInlineCta(html: string, orta: Orta, secim?: string | null) {
+  if (html.includes(' bcta ')) return html
+  if (secim === 'gizle') return html
+  const ozelSecim = secim && secim !== 'genel'
+  if (!orta.aktif && !ozelSecim) return html
+  const kutu = ctaHTML(ozelSecim ? { preset: secim, style: orta.style, theme: orta.theme } : orta)
+  const n = orta.konum === 'h2-2' ? 1 : orta.konum === 'son' ? -1 : 2
   const h2 = [...html.matchAll(/<h2[\s>]/g)]
-  return h2.length >= 3 ? html.slice(0, h2[2].index) + INLINE_CTA + html.slice(h2[2].index) : html + INLINE_CTA
+  return n >= 0 && h2.length > n ? html.slice(0, h2[n].index) + kutu + html.slice(h2[n].index) : html + kutu
 }
 
 export const cat = (p: Post) => (typeof p.category === 'object' ? (p.category as Category) : null)

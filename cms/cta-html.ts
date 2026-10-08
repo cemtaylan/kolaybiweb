@@ -34,6 +34,13 @@ export function ctaHTML(f: CtaFields) {
   return `<aside class="inline-cta bcta bcta--acik theme-${esc(theme)}" ${attrs}><div>${title ? `<b>${em(title)}</b>` : ''}${text ? `<span>${nowrap(esc(text))}</span>` : ''}</div><div class="bcta-act">${btn}${not}</div></aside>`
 }
 
+export type YanFields = { title?: string | null; text?: string | null; button?: string | null; link?: string | null }
+/** Yazının yan sütunundaki koyu kart (sitedeki .side-cta) */
+export function yanHTML(f: YanFields) {
+  const em = (t: string) => nowrap(esc(t)).replace(/\*([^*]+)\*/g, '<em>$1</em>')
+  return `<div class="side-cta">${f.title ? `<b>${em(f.title)}</b>` : ''}${f.text ? `<p>${nowrap(esc(f.text))}</p>` : ''}${f.button && f.link ? `<a href="${esc(f.link)}" class="btn btn-light">${esc(f.button)}${ARROW}</a>` : ''}</div>`
+}
+
 export function buttonHTML(f: ButtonFields) {
   if (!f.text || !f.link) return ''
   // eski "Koyu" stil: dolu + lacivert

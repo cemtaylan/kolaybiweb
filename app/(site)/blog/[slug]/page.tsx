@@ -1,7 +1,8 @@
 // Blog yazısı: içerik Payload CMS'ten; yapı ve sınıf adları eski sayfayla birebir (blog.css / post.css aynen çalışır)
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { allPosts, author, cat, isoDate, media, nowrap, postBySlug, REG, renderBody, SITE, trDate, withInlineCta } from '@/lib/blog'
+import { allPosts, author, blogCta, cat, isoDate, media, nowrap, postBySlug, REG, renderBody, SITE, trDate, withInlineCta } from '@/lib/blog'
+import { yanHTML } from '@/cms/cta-html'
 import { blogFooter, blogHeader } from '@/lib/partials'
 import type { Post } from '@/cms/payload-types'
 
@@ -62,6 +63,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   const c = cat(p), a = author(p), cover = media(p.cover), photo = media(a?.photo)
   const related = posts.filter((x) => x.slug !== slug && cat(x)?.id === c?.id).slice(0, 3)
   const { html, toc } = renderBody(p.body as never)
+  const ayar = await blogCta()
   const url = `${SITE}/blog/${p.slug}`
   const enc = encodeURIComponent
   const faq = p.faq || []
@@ -104,7 +106,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               {toc.length > 0 && (
                 <nav className="toc" aria-label="İçindekiler"><b>Bu içerikte neler var?</b><ol>{toc.map((t) => <li key={t.id}><a className={t.tag} href={`#${t.id}`}>{t.text}</a></li>)}</ol></nav>
               )}
-              <div className="side-cta"><b>Ön muhasebe <em>tek ekranda</em></b><p>Fatura, cari, stok ve banka takibini KolayBi ile yönetin.</p><a href={REG} className="btn btn-light">Ücretsiz Deneyin<Arrow /></a></div>
+              {ayar.yan.aktif && <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: yanHTML(ayar.yan) }} />}
               <div className="share"><span>Paylaş</span>
                 <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}`} target="_blank" rel="noopener" aria-label="LinkedIn'de paylaş"><I id="s-linkedin" /></a>
                 <a href={`https://twitter.com/intent/tweet?url=${enc(url)}&text=${enc(p.title)}`} target="_blank" rel="noopener" aria-label="X'te paylaş"><I id="s-x" /></a>
@@ -114,7 +116,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               </div>
             </aside>
             <div>
-              <Html className="prose" html={withInlineCta(html)} />
+              <Html className="prose" html={withInlineCta(html, ayar.orta, p.ortaCta)} />
               {faq.length > 0 && (
                 <section className="ps-faq"><h2>Sıkça sorulan sorular</h2><div className="faq-list" id="faq-list-1">
                   {faq.map((f, k) => (

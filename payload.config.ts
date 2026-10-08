@@ -16,6 +16,7 @@ import { Categories } from './cms/collections/Categories'
 import { Posts } from './cms/collections/Posts'
 import { Analytics } from './cms/collections/Analytics'
 import { Redirects } from './cms/collections/Redirects'
+import { BlogCta } from './cms/globals/BlogCta'
 import { Popups } from './cms/collections/Popups'
 import { editorFeatures } from './cms/editor'
 
@@ -48,6 +49,7 @@ export default buildConfig({
   },
   i18n: { supportedLanguages: { tr }, fallbackLanguage: 'tr' },
   collections: [Posts, Categories, Authors, Popups, Analytics, Redirects, Media, Users],
+  globals: [BlogCta],
   editor: lexicalEditor({ features: editorFeatures }),
   // Panel e-postaları (şifremi unuttum, kullanıcı daveti): Yandex 360 SMTP. Ortam değişkenleri yoksa e-posta konsola yazılır.
   // SMTP_USER: gönderen @kolaybi.com kutusu, SMTP_PASS: o kutunun Yandex uygulama şifresi (Vercel'de "sensitive" eklenir)

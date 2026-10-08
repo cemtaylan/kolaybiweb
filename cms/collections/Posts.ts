@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
 import { revalidatePath } from 'next/cache'
 import { readingTime, slugFromTitle } from '../hooks'
+import { CTA_PRESETS } from '../blocks'
 import { gizle, yazabilir } from '../access'
 
 // Blog yazıları. Taslak → yayın akışı açık; yayınlanan yazı /blog/<slug> adresinde görünür.
@@ -77,6 +78,14 @@ export const Posts: CollectionConfig = {
     },
     { name: 'category', type: 'relationship', relationTo: 'categories', label: 'Kategori', required: true, admin: { position: 'sidebar' } },
     { name: 'author', type: 'relationship', relationTo: 'authors', label: 'Yazar', admin: { position: 'sidebar' } },
+    {
+      name: 'ortaCta', type: 'select', label: 'Yazı ortası CTA', defaultValue: 'genel', admin: { position: 'sidebar', description: 'Yazının ortasına otomatik eklenen çağrı kutusu. Yazıya kendiniz CTA eklerseniz otomatik kutu çıkmaz.' },
+      options: [
+        { label: 'Genel ayar (Blog CTA ayarları)', value: 'genel' },
+        { label: 'Bu yazıda gösterme', value: 'gizle' },
+        ...Object.entries(CTA_PRESETS).map(([value, p]) => ({ label: `Hazır: ${p.label}`, value })),
+      ],
+    },
     { name: 'publishedAt', type: 'date', label: 'Yayın tarihi', admin: { position: 'sidebar', description: 'Boş bırakılırsa yazı listenin sonunda, tarihsiz görünür', date: { pickerAppearance: 'dayOnly', displayFormat: 'd MMMM yyyy' } } },
     { name: 'contentUpdatedAt', type: 'date', label: 'Güncellenme tarihi', admin: { position: 'sidebar', description: 'İçerik güncellendiyse yazıda "Güncellendi" olarak görünür', date: { pickerAppearance: 'dayOnly', displayFormat: 'd MMMM yyyy' } } },
   ],
