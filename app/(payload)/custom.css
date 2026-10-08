@@ -1,6 +1,7 @@
 /* KolayBi CMS: panelin marka görünümü (sitedeki renkler, fontlar, yumuşak köşeler).
    Payload stilleri "payload-default" katmanında; buradaki katmansız kurallar onları geçersiz kılar. */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400 600; font-display: swap; src: url(/fonts/inter.woff2?v=1) format("woff2"); }
+@font-face { font-family: "Plus Jakarta Sans"; font-style: normal; font-weight: 600 800; font-display: swap; src: url(/fonts/jakarta.woff2?v=1) format("woff2"); }
 
 :root {
   --kb-blue: #4262F0;

@@ -13,7 +13,8 @@ export async function GET(_req: Request, ctx: { params: Promise<{ slug?: string[
   const { slug = [] } = await ctx.params
   const html = legacyHtml(slug.map(decodeURIComponent))
   if (html === null) return new Response('Sayfa bulunamadı', { status: 404 })
-  // CMS'teki açılır pencereler her sayfada (pencere yoksa yalnızca küçük bir JSON isteği yapar)
-  const page = html.replace('</body>', '<script type="module" src="/js/track.js?v=4"></script>\n<script type="module" src="/js/popups.js?v=5"></script>\n</body>')
+  // Analitik ve CMS'teki açılır pencereler her sayfada (pencere yoksa yalnızca küçük bir JSON isteği yapar).
+  // Sayfa yüklendikten sonra eklenir: ilk boyama ve LCP ile ağ/işlemci için yarışmaz
+  const page = html.replace('</body>', `<script>addEventListener('load',function(){setTimeout(function(){['/js/track.js?v=4','/js/popups.js?v=5'].forEach(function(u){var s=document.createElement('script');s.type='module';s.src=u;document.body.appendChild(s)})},0)})</script>\n</body>`)
   return new Response(page, { headers: { 'Content-Type': 'text/html; charset=utf-8' } })
 }

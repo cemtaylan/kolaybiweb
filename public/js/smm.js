@@ -25,10 +25,10 @@
     const out = { brut, stopaj: -st, net: brut - st, kdv: kd, tahsil: brut - st + kd };
     for (const [key, v] of Object.entries(out)) root.querySelector(`[data-out="${key}"]`).textContent = (v < 0 ? '−' : '') + fmt(Math.abs(v));
   }
-  root.querySelectorAll('.seg').forEach(seg => seg.addEventListener('click', e => {
-    const b = e.target.closest('button'); if (!b) return;
+  // Dinleyici her düğmenin kendisinde (denetim araçları üst öğedeki dinleyiciyi görmüyor, düğmeyi ölü bağlantı sayıyor)
+  root.querySelectorAll('.seg').forEach(seg => seg.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
     seg.querySelectorAll('button').forEach(x => { x.classList.toggle('on', x === b); x.setAttribute('aria-pressed', x === b); }); calc();
-  }));
+  })));
   amount.addEventListener('input', () => { formatInput(); calc(); });
   calc();
 })();
