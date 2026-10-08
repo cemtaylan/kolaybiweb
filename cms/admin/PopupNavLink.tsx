@@ -1,10 +1,11 @@
 'use client'
-// Sol menü: en üstte Dashboard, "Pazarlama" (İlan oluştur, Aktif ve Pasif İlanlar, Analitik) ve "SEO" (Yönlendirmeler, Bulunamayan sayfalar).
+// Sol menü: en üstte logo ve Dashboard, "Pazarlama" (İlan oluştur, Aktif ve Pasif İlanlar, Analitik) ve "SEO" (Yönlendirmeler, Bulunamayan sayfalar).
 // İlanlar koleksiyonu menüden gizli (group: false); grup CSS ile Blog grubunun altına yerleşir.
 import { useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { NavGroup, useNav, useWindowInfo } from '@payloadcms/ui'
+import { Mark } from './Brand'
 
 // Payload menüyü 1440 px ve altında kapalı açar. Masaüstünde (1024 px üstü) açık gelsin;
 // kullanıcı menü düğmesiyle kapatırsa bu tarayıcıda kapalı kalsın.
@@ -67,6 +68,10 @@ export function PopupNavLink() {
   const ana = path === '/admin' || path === '/admin/'
   return (
     <>
+      <Link href="/admin" className="kb-navbrand" prefetch={false} aria-label="KolayBi CMS ana sayfa">
+        <Mark size={30} />
+        <span><b>KolayBi</b><small>İçerik Yönetimi</small></span>
+      </Link>
       <Link id="nav-kb-dashboard" href="/admin" className={`kb-navtop${ana ? ' is-on' : ''}`} prefetch={false} aria-current={ana ? 'page' : undefined}>
         Dashboard
       </Link>
