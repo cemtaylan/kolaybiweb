@@ -30,6 +30,10 @@ export default buildConfig({
     components: {
       graphics: { Logo: '/cms/admin/Brand#Logo', Icon: '/cms/admin/Brand#Icon' },
       beforeDashboard: ['/cms/admin/Dashboard#Dashboard'],
+      beforeNavLinks: ['/cms/admin/PopupNavLink#PopupNavLink'],
+      views: {
+        popupBoard: { Component: '/cms/admin/PopupBoardView#PopupBoardView', path: '/pencereler', meta: { title: 'Açılır pencere yönetimi' } },
+      },
     },
     importMap: { baseDir: dirname },
   },

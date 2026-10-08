@@ -27,6 +27,8 @@ import { PopupPreview as PopupPreview_17ea8b07609fe93d9ff3263578571cc9 } from '.
 import { Icon as Icon_30ebd91e9e497d4885819d35d826364a } from '../../../cms/admin/Brand'
 import { Logo as Logo_30ebd91e9e497d4885819d35d826364a } from '../../../cms/admin/Brand'
 import { Dashboard as Dashboard_bcc9457ef7c3b677576160df84c91a20 } from '../../../cms/admin/Dashboard'
+import { PopupNavLink as PopupNavLink_8788a8f70fa9b0545e4a24711a03ddef } from '../../../cms/admin/PopupNavLink'
+import { PopupBoardView as PopupBoardView_0ac9c3f7094004db438c36eb30be1f8f } from '../../../cms/admin/PopupBoardView'
 import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 import { VercelBlobClientUploadHandler as VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e } from '@payloadcms/storage-vercel-blob/client'
 
@@ -61,6 +63,8 @@ export const importMap = {
   "/cms/admin/Brand#Icon": Icon_30ebd91e9e497d4885819d35d826364a,
   "/cms/admin/Brand#Logo": Logo_30ebd91e9e497d4885819d35d826364a,
   "/cms/admin/Dashboard#Dashboard": Dashboard_bcc9457ef7c3b677576160df84c91a20,
+  "/cms/admin/PopupNavLink#PopupNavLink": PopupNavLink_8788a8f70fa9b0545e4a24711a03ddef,
+  "/cms/admin/PopupBoardView#PopupBoardView": PopupBoardView_0ac9c3f7094004db438c36eb30be1f8f,
   "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1,
   "@payloadcms/storage-vercel-blob/client#VercelBlobClientUploadHandler": VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e
 }
