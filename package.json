@@ -13,7 +13,8 @@
     "media:cleanup": "esbuild scripts/media-cleanup.ts --bundle --platform=node --format=esm --packages=external --alias:next/cache=next/cache.js --log-level=warning --outfile=.cache/media-cleanup.mjs && node --import ./scripts/preload.mjs .cache/media-cleanup.mjs",
     "users:copy": "esbuild scripts/copy-users.ts --bundle --platform=node --format=esm --packages=external --alias:next/cache=next/cache.js --log-level=warning --outfile=.cache/copy-users.mjs && node --import ./scripts/preload.mjs .cache/copy-users.mjs",
     "import:pages": "esbuild scripts/import-pages.ts --bundle --platform=node --format=esm --packages=external --alias:next/cache=next/cache.js --log-level=warning --outfile=.cache/import-pages.mjs && node --import ./scripts/preload.mjs .cache/import-pages.mjs",
-    "seed:redirects": "esbuild scripts/seed-redirects.ts --bundle --platform=node --format=esm --packages=external --alias:next/cache=next/cache.js --log-level=warning --outfile=.cache/seed-redirects.mjs && node --import ./scripts/preload.mjs .cache/seed-redirects.mjs"
+    "seed:redirects": "esbuild scripts/seed-redirects.ts --bundle --platform=node --format=esm --packages=external --alias:next/cache=next/cache.js --log-level=warning --outfile=.cache/seed-redirects.mjs && node --import ./scripts/preload.mjs .cache/seed-redirects.mjs",
+    "fix:blog-texts": "esbuild scripts/fix-blog-texts.ts --bundle --platform=node --format=esm --packages=external --alias:next/cache=next/cache.js --log-level=warning --outfile=.cache/fix-blog-texts.mjs && node --import ./scripts/preload.mjs .cache/fix-blog-texts.mjs"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.90.2",
