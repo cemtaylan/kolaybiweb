@@ -189,3 +189,9 @@
 .pd-list { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 12px; }
 .pd-list li { display: grid; grid-template-columns: 32px 1fr; gap: 12px; align-items: center; font-size: 15px; color: var(--ink-2); }
 .pd-list svg { width: 32px; height: 32px; padding: 7px; border-radius: 10px; background: var(--card); color: var(--primary); }
+/* Başvuru formu: adımlar formun arkasında (mobilde form başlığın hemen altında), masaüstünde sol sütunda */
+.lf-wrap:has(.lf-more) { row-gap: 0; }
+.lf-more { grid-column: 1; margin-top: 32px; }
+.lf-more .lf-steps { margin-top: 0; }
+@media (min-width: 961px) { .lf-wrap:has(.lf-more) { grid-template-rows: auto 1fr; } .lf-wrap:has(.lf-more) .lf-card { grid-column: 2; grid-row: 1 / span 2; } }
+@media (max-width: 960px) { .lf-wrap:has(.lf-more) { row-gap: 32px; } .lf-more { margin-top: 0; } }
