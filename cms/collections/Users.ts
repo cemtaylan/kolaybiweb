@@ -7,15 +7,10 @@ const sadeceYonetici = { create: ({ req }: { req: { user: unknown } }) => tamYet
 
 // Sol menüdeki bölümlerle aynı sıra ve gruplar
 const gruplar = [...new Set(ALANLAR.map((a) => a.grup))]
-const yetkiAlanlari: Field[] = gruplar.map((g) => ({
-  type: 'row',
-  fields: ALANLAR.filter((a) => a.grup === g).map((a) => ({ name: a.key, type: 'checkbox', label: a.label, defaultValue: false, admin: { width: '33%' } }) as Field),
-  admin: { className: 'kb-yetki-row' },
-}))
-// Satırların üstünde grup adı (Blog, Pazarlama, SEO, İçerik)
+// Her bölümün adı ve altında kutucuklar alt alta
 const yetkiAlanlariBaslikli: Field[] = gruplar.flatMap((g, i) => [
   { name: `baslik_${i}`, type: 'ui', admin: { components: { Field: { path: '/cms/admin/YetkiBaslik#YetkiBaslik', clientProps: { label: g } } } } } as Field,
-  yetkiAlanlari[i],
+  ...ALANLAR.filter((a) => a.grup === g).map((a) => ({ name: a.key, type: 'checkbox', label: a.label, defaultValue: false, admin: { className: 'kb-yetki-cb' } }) as Field),
 ])
 
 export const Users: CollectionConfig = {

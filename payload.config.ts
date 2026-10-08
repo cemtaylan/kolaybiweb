@@ -40,6 +40,7 @@ export default buildConfig({
         analyticsPages: { Component: '/cms/admin/AnalyticsDetailViews#AnalyticsPagesView', path: '/analitik/sayfalar', exact: true, meta: { title: 'Tüm sayfalar · Analitik' } },
         analyticsPage: { Component: '/cms/admin/AnalyticsDetailViews#AnalyticsPageView', path: '/analitik/sayfa', exact: true, meta: { title: 'Sayfa ayrıntısı · Analitik' } },
         analyticsButtons: { Component: '/cms/admin/AnalyticsDetailViews#AnalyticsButtonsView', path: '/analitik/butonlar', exact: true, meta: { title: 'Tüm butonlar · Analitik' } },
+        ctaGallery: { Component: '/cms/admin/CtaGalleryView#CtaGalleryView', path: '/cta-ornekleri', exact: true, meta: { title: 'CTA örnekleri' } },
         notFound: { Component: '/cms/admin/NotFoundView#NotFoundView', path: '/404', meta: { title: 'Bulunamayan sayfalar' } },
       },
     },

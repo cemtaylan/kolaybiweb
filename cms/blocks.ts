@@ -30,6 +30,7 @@ export const CtaBlock: Block = {
   labels: { singular: 'Çağrı kutusu (CTA)', plural: 'Çağrı kutuları' },
   interfaceName: 'CtaBlock',
   fields: [
+    { name: 'onizleme', type: 'ui', admin: { components: { Field: { path: '/cms/admin/CtaPreview#CtaPreview', clientProps: { tur: 'cta' } } } } },
     {
       type: 'row',
       fields: [
@@ -69,6 +70,7 @@ export const ButtonBlock: Block = {
   labels: { singular: 'Buton', plural: 'Butonlar' },
   interfaceName: 'ButtonBlock',
   fields: [
+    { name: 'onizleme', type: 'ui', admin: { components: { Field: { path: '/cms/admin/CtaPreview#CtaPreview', clientProps: { tur: 'button' } } } } },
     { type: 'row', fields: [
       { name: 'text', type: 'text', label: 'Buton yazısı', required: true, defaultValue: 'Ücretsiz Deneyin', admin: { width: '40%' } },
       { name: 'link', type: 'text', label: 'Bağlantı', required: true, defaultValue: REG, admin: { width: '60%' } },

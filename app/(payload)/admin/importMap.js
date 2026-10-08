@@ -3,6 +3,7 @@ import { RscEntryLexicalField as RscEntryLexicalField_44fe37237e0ebf4470c9990d8c
 import { LexicalDiffComponent as LexicalDiffComponent_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
 import { FixedToolbarFeatureClient as FixedToolbarFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { BlocksFeatureClient as BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
+import { CtaPreview as CtaPreview_34dab1d57875d665f7fd697e9646b60c } from '../../../cms/admin/CtaPreview'
 import { TableFeatureClient as TableFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { UploadFeatureClient as UploadFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { InlineToolbarFeatureClient as InlineToolbarFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
@@ -36,6 +37,7 @@ import { AnalyticsView as AnalyticsView_626584d75aed4ac166bc1165bc615a1b } from 
 import { AnalyticsPagesView as AnalyticsPagesView_db8d23f371ba1ca55caecbd8c81b797c } from '../../../cms/admin/AnalyticsDetailViews'
 import { AnalyticsPageView as AnalyticsPageView_db8d23f371ba1ca55caecbd8c81b797c } from '../../../cms/admin/AnalyticsDetailViews'
 import { AnalyticsButtonsView as AnalyticsButtonsView_db8d23f371ba1ca55caecbd8c81b797c } from '../../../cms/admin/AnalyticsDetailViews'
+import { CtaGalleryView as CtaGalleryView_0ab15540f0480461b6d46bb22889f63c } from '../../../cms/admin/CtaGalleryView'
 import { NotFoundView as NotFoundView_6c60550fd65d39d007172407f33b382c } from '../../../cms/admin/NotFoundView'
 import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 import { VercelBlobClientUploadHandler as VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e } from '@payloadcms/storage-vercel-blob/client'
@@ -47,6 +49,7 @@ export const importMap = {
   "@payloadcms/richtext-lexical/rsc#LexicalDiffComponent": LexicalDiffComponent_44fe37237e0ebf4470c9990d8cb7b07e,
   "@payloadcms/richtext-lexical/client#FixedToolbarFeatureClient": FixedToolbarFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/richtext-lexical/client#BlocksFeatureClient": BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
+  "/cms/admin/CtaPreview#CtaPreview": CtaPreview_34dab1d57875d665f7fd697e9646b60c,
   "@payloadcms/richtext-lexical/client#TableFeatureClient": TableFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/richtext-lexical/client#UploadFeatureClient": UploadFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/richtext-lexical/client#InlineToolbarFeatureClient": InlineToolbarFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
@@ -80,6 +83,7 @@ export const importMap = {
   "/cms/admin/AnalyticsDetailViews#AnalyticsPagesView": AnalyticsPagesView_db8d23f371ba1ca55caecbd8c81b797c,
   "/cms/admin/AnalyticsDetailViews#AnalyticsPageView": AnalyticsPageView_db8d23f371ba1ca55caecbd8c81b797c,
   "/cms/admin/AnalyticsDetailViews#AnalyticsButtonsView": AnalyticsButtonsView_db8d23f371ba1ca55caecbd8c81b797c,
+  "/cms/admin/CtaGalleryView#CtaGalleryView": CtaGalleryView_0ab15540f0480461b6d46bb22889f63c,
   "/cms/admin/NotFoundView#NotFoundView": NotFoundView_6c60550fd65d39d007172407f33b382c,
   "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1,
   "@payloadcms/storage-vercel-blob/client#VercelBlobClientUploadHandler": VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e

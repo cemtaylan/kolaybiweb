@@ -356,3 +356,26 @@ h1, h2, h3, h4, .doc-header__title, .list-header h1 { font-family: 'Plus Jakarta
 /* Kullanıcı formu: menü yetkileri, sol menüdeki bölümlere göre gruplu */
 .kb-yetki-baslik { margin: 14px 0 6px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #8A93A6; }
 .kb-yetki-baslik:first-child { margin-top: 0; }
+.kb-yetki-cb { margin-bottom: 6px !important; }
+
+/* CTA canlı önizlemesi (editörde blok içinde ve CTA örnekleri ekranında) */
+.kb-cp { margin-bottom: 18px; padding: 14px; border: 1px solid var(--kb-line); border-radius: 16px; background: var(--kb-bg); }
+.kb-sf { margin: 10px auto 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--kb-line); background: #fff; transition: max-width .25s; max-width: 100%; }
+.kb-sf.is-mobile { max-width: 390px; }
+.kb-sf iframe { display: block; width: 100%; border: 0; }
+#nav-kb-cta { --ico: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223%22%20y%3D%226%22%20width%3D%2218%22%20height%3D%2212%22%20rx%3D%223%22/%3E%3Cpath%20d%3D%22M8%2012h5M15%2010l2%202-2%202%22/%3E%3C/svg%3E"); }
+
+/* CTA örnekleri ekranı */
+.kb-ctg-grid { display: grid; grid-template-columns: minmax(280px, 380px) 1fr; gap: 24px; align-items: start; }
+.kb-ctg-form { display: grid; gap: 12px; }
+.kb-ctg-form label { display: grid; gap: 5px; font-size: 13px; font-weight: 600; color: var(--kb-ink); }
+.kb-ctg-form label small { font-weight: 500; color: var(--kb-ink-2); }
+.kb-ctg-form input, .kb-ctg-form select, .kb-ctg-form textarea { width: 100%; min-height: 40px; padding: 8px 12px; border: 1px solid var(--kb-line); border-radius: 10px; background: var(--kb-bg); font: inherit; font-size: 14px; font-weight: 400; color: var(--kb-ink); resize: vertical; }
+.kb-ctg-form input:focus, .kb-ctg-form select:focus, .kb-ctg-form textarea:focus { outline: 2px solid var(--kb-blue); outline-offset: 1px; }
+.kb-ctg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.kb-ctg-reset, .kb-ctg-try { justify-self: start; min-height: 36px; padding: 0 14px; border: 1px solid var(--kb-line); border-radius: 999px; background: #fff; color: var(--kb-ink); font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+.kb-ctg-reset:hover, .kb-ctg-try:hover { border-color: var(--kb-blue); color: var(--kb-blue); }
+.kb-ctg-list { display: grid; gap: 16px; }
+.kb-an-range button { padding: 8px 16px; border: 0; border-radius: 999px; background: transparent; font: inherit; font-size: 13.5px; font-weight: 600; color: var(--kb-ink-2); cursor: pointer; }
+.kb-an-range button.on { background: var(--kb-blue); color: #fff; }
+@media (max-width: 1000px) { .kb-ctg-grid { grid-template-columns: 1fr; } }
