@@ -42,7 +42,7 @@ export function NotFoundBody() {
       <div id="kb-404" hidden />
       <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: blogFooter() }} />
       {/* Blog yazısı bulunamayınca bu içerik sayfaya akışla eklenir; düz <script> çalışmaz, Script bileşeni yükler */}
-      <Script src="/js/menu.js?v=4" strategy="afterInteractive" />
+      <Script src="/js/menu.js?v=5" strategy="afterInteractive" />
       <Script src="/js/track.js?v=4" type="module" strategy="afterInteractive" />
     </>
   )

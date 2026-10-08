@@ -43,7 +43,7 @@ export function SupportHub({ crumbs, h1, lead, children, ld }: { crumbs: { href?
         </div>
       </main>
       <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: blogFooter() }} />
-      <script src="/js/menu.js?v=4" />
+      <script src="/js/menu.js?v=5" />
       <script type="module" src="/js/track.js?v=4" />
       <script type="module" src="/js/popups.js?v=5" />
     </>

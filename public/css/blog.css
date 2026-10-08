@@ -102,3 +102,8 @@
 .bl-inline-cta a.btn { color: #fff; text-decoration: none; }
 .bl-empty.show { display: block; }
 .bl-empty a { color: var(--primary); }
+
+/* Sağ sütun: en çok okunanlar içeriği kadar, "Nereden başlamalı?" altında kalan yüksekliği doldurur */
+.bl-side { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.bl-side .bl-start { flex: 1; align-content: center; margin-top: 0; padding: 22px 24px; border-radius: var(--radius-xl); border: 1px solid var(--line); background: var(--card); }
+.bl-side .bl-start > span { flex-basis: 100%; font: 800 17px var(--font-head); color: var(--navy); }

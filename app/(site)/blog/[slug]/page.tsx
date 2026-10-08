@@ -74,7 +74,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   return (
     <>
-      <link rel="stylesheet" href="/css/blog.css?v=4" precedence="default" />
+      <link rel="stylesheet" href="/css/blog.css?v=5" precedence="default" />
       <link rel="stylesheet" href="/css/post.css?v=11" precedence="default" />
       {ld && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld).replace(/</g, '\\u003c') }} />}
       <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: blogHeader() }} />
@@ -169,7 +169,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         </section>
       </main>
       <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: blogFooter() }} />
-      <script src="/js/menu.js?v=4" />
+      <script src="/js/menu.js?v=5" />
       <script src="/js/faq.js?v=5" />
       <script src="/js/post.js?v=1" />
       <script type="module" src="/js/track.js?v=4" />

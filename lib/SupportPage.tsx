@@ -80,7 +80,7 @@ export async function SupportPage({ slug }: { slug: string }) {
       </main>
       <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: blogFooter() }} />
       {slug === 'kullanici-rehberi' && <script dangerouslySetInnerHTML={{ __html: ANCHOR_JS }} />}
-      <script src="/js/menu.js?v=4" />
+      <script src="/js/menu.js?v=5" />
       <script src="/js/post.js?v=1" />
       <script type="module" src="/js/track.js?v=4" />
       <script type="module" src="/js/popups.js?v=5" />

@@ -46,10 +46,17 @@
 // Sayfa açılırken ilk ekranın altındaki sahne ve bant animasyonları ana iş parçacığını meşgul etmez.
 (function () {
   if (!('IntersectionObserver' in window)) return;
-  var sections = document.querySelectorAll('main > section, main > article, main > div > section');
-  if (!sections.length) return;
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) { e.target.classList.toggle('anim-off', !e.isIntersecting); });
-  }, { rootMargin: '150px 0px' });
-  sections.forEach(function (s) { io.observe(s); });
+  function start() {
+    var sections = document.querySelectorAll('main > section, main > article, main > div > section');
+    if (!sections.length) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { e.target.classList.toggle('anim-off', !e.isIntersecting); });
+    }, { rootMargin: '150px 0px' });
+    sections.forEach(function (s) { io.observe(s); });
+  }
+  // Next ile çizilen sayfalarda (blog, destek, yasal) sınıf React sayfayı devraldıktan sonra eklenir; yoksa hidrasyon uyuşmazlığı olur
+  if (window.__next_f || document.querySelector('script[src*="/_next/"]')) {
+    var later = function () { (window.requestIdleCallback || setTimeout)(start); };
+    if (document.readyState === 'complete') later(); else addEventListener('load', later);
+  } else start();
 })();

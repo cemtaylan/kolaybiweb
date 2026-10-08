@@ -112,7 +112,7 @@ export default async function BlogIndex({ searchParams }: { searchParams: SP }) 
 
   return (
     <>
-      <link rel="stylesheet" href="/css/blog.css?v=4" precedence="default" />
+      <link rel="stylesheet" href="/css/blog.css?v=5" precedence="default" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld).replace(/</g, '\\u003c') }} />
       <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: blogHeader() }} />
       <main>
@@ -149,16 +149,16 @@ export default async function BlogIndex({ searchParams }: { searchParams: SP }) 
                   <div className="post-meta"><span className="post-tag">{cat(one_cikan)?.title}</span><span className="post-sep" aria-hidden="true">·</span><time dateTime={isoDate(one_cikan.publishedAt)}>{trDate(one_cikan.publishedAt)}</time></div>
                 </div>
               </article>
-              <aside className="bl-most">
-                <h2><I id="i-chart" />En çok okunanlar</h2>
-                <ol>{enCok.map((p) => <li key={p.slug}><a href={`/blog/${p.slug}`} dangerouslySetInnerHTML={{ __html: nowrap(p.title.replace(/</g, '&lt;')) }} /></li>)}</ol>
-              </aside>
-            </div>
-            <div className="container">
-              <nav className="bl-start" aria-label="Nereden başlamalı">
-                <span>Nereden başlamalı?</span>
-                {BASLANGIC.map((b) => <a key={b.kat} href={adres({ kat: b.kat })} dangerouslySetInnerHTML={{ __html: `<span>${nowrap(b.l)}</span><svg><use href="#i-right"/></svg>` }} />)}
-              </nav>
+              <div className="bl-side">
+                <aside className="bl-most">
+                  <h2><I id="i-chart" />En çok okunanlar</h2>
+                  <ol>{enCok.map((p) => <li key={p.slug}><a href={`/blog/${p.slug}`} dangerouslySetInnerHTML={{ __html: nowrap(p.title.replace(/</g, '&lt;')) }} /></li>)}</ol>
+                </aside>
+                <nav className="bl-start" aria-label="Nereden başlamalı">
+                  <span>Nereden başlamalı?</span>
+                  {BASLANGIC.map((b) => <a key={b.kat} href={adres({ kat: b.kat })} dangerouslySetInnerHTML={{ __html: `<span>${nowrap(b.l)}</span><svg><use href="#i-right"/></svg>` }} />)}
+                </nav>
+              </div>
             </div>
           </section>
         )}
@@ -191,7 +191,7 @@ export default async function BlogIndex({ searchParams }: { searchParams: SP }) 
         <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: blogIndexBottom() }} />
       </main>
       <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: blogFooter() }} />
-      <script src="/js/menu.js?v=4" />
+      <script src="/js/menu.js?v=5" />
       <script type="module" src="/js/track.js?v=4" />
       <script type="module" src="/js/popups.js?v=5" />
     </>
