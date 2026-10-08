@@ -107,3 +107,9 @@
 .bl-side { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
 .bl-side .bl-start { flex: 1; align-content: center; margin-top: 0; padding: 22px 24px; border-radius: var(--radius-xl); border: 1px solid var(--line); background: var(--card); }
 .bl-side .bl-start > span { flex-basis: 100%; font: 800 17px var(--font-head); color: var(--navy); }
+
+/* Hero deneme düğmesi (mobilde ilk ekranda) ve parmakla rahat basılan kategori düğmeleri (en az 44 px) */
+.bl-hero-cta { margin-top: 20px; padding: 6px 6px 6px 20px; }
+.bl-hero-cta .arr { width: 32px; height: 32px; }
+.bl-cats a, .bl-cats button { min-height: 44px; padding-top: 0; padding-bottom: 0; }
+.bl-hero-note { margin-top: 10px; font-size: 13px; color: color-mix(in srgb, #fff 60%, transparent); }

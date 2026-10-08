@@ -112,7 +112,7 @@ export default async function BlogIndex({ searchParams }: { searchParams: SP }) 
 
   return (
     <>
-      <link rel="stylesheet" href="/css/blog.css?v=5" precedence="default" />
+      <link rel="stylesheet" href="/css/blog.css?v=7" precedence="default" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld).replace(/</g, '\\u003c') }} />
       <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: blogHeader() }} />
       <main>
@@ -121,7 +121,9 @@ export default async function BlogIndex({ searchParams }: { searchParams: SP }) 
           <div className="container">
             <nav className="crumbs" aria-label="Sayfa yolu"><a href="/">KolayBi</a><I id="i-right" />{aktif ? <><a href="/blog">KolayBi Blog</a><I id="i-right" /><span>{aktif.title}</span></> : <span>KolayBi Blog</span>}</nav>
             <h1>{aktif ? <>{aktif.title} <em>rehberleri</em></> : <>Muhasebe ve <em>finans blogu</em></>}</h1>
-            <p className="lead">Ön muhasebe, vergi, <span className="nw">e-Dönüşüm</span> ve girişimcilik konularında güncel rehberler. Okuduğunuzu KolayBi’de uygulamak için <a href={REG}>14 gün ücretsiz deneyin</a>.</p>
+            <p className="lead">Ön muhasebe, vergi, <span className="nw">e-Dönüşüm</span> ve girişimcilik konularında güncel rehberler.</p>
+            <a href={REG} className="btn btn-light bl-hero-cta">14 Gün Ücretsiz Deneyin<span className="arr"><I id="i-arrow" /></span></a>
+            <p className="bl-hero-note">Kredi kartı istenmez, deneme sonunda otomatik ödeme alınmaz.</p>
             <div className="bl-tools">
               <form className="bl-search" action="/blog" method="get" role="search">
                 <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" strokeWidth="2" /><path d="m20 20-3.5-3.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
@@ -170,7 +172,7 @@ export default async function BlogIndex({ searchParams }: { searchParams: SP }) 
                 {sayfa.slice(0, 6).map((p) => <Kart key={p.slug} p={p} />)}
                 {page === 1 && sayfa.length > 6 && (
                   <aside className="inline-cta bl-inline-cta">
-                    <div><b><span className="nw">e-Fatura</span> kesmeyi KolayBi’de 14 gün ücretsiz deneyin</b><span>Kredi kartı istenmez, deneme sonunda otomatik ödeme alınmaz.</span></div>
+                    <div><b>Ön muhasebenizi ve <span className="nw">e-Faturanızı</span> KolayBi’de 14 gün ücretsiz deneyin</b><span>Kredi kartı istenmez, deneme sonunda otomatik ödeme alınmaz.</span></div>
                     <a href={REG} className="btn btn-primary">14 Gün Ücretsiz Deneyin<span className="arr"><I id="i-arrow" /></span></a>
                   </aside>
                 )}
