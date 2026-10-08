@@ -35,7 +35,10 @@ export default buildConfig({
       beforeNavLinks: ['/cms/admin/PopupNavLink#PopupNavLink'],
       views: {
         popupBoard: { Component: '/cms/admin/PopupBoardView#PopupBoardView', path: '/ilanlar', meta: { title: 'Aktif ve Pasif İlanlar' } },
-        analytics: { Component: '/cms/admin/AnalyticsView#AnalyticsView', path: '/analitik', meta: { title: 'Analitik' } },
+        analytics: { Component: '/cms/admin/AnalyticsView#AnalyticsView', path: '/analitik', exact: true, meta: { title: 'Analitik' } },
+        analyticsPages: { Component: '/cms/admin/AnalyticsDetailViews#AnalyticsPagesView', path: '/analitik/sayfalar', exact: true, meta: { title: 'Tüm sayfalar · Analitik' } },
+        analyticsPage: { Component: '/cms/admin/AnalyticsDetailViews#AnalyticsPageView', path: '/analitik/sayfa', exact: true, meta: { title: 'Sayfa ayrıntısı · Analitik' } },
+        analyticsButtons: { Component: '/cms/admin/AnalyticsDetailViews#AnalyticsButtonsView', path: '/analitik/butonlar', exact: true, meta: { title: 'Tüm butonlar · Analitik' } },
         notFound: { Component: '/cms/admin/NotFoundView#NotFoundView', path: '/404', meta: { title: 'Bulunamayan sayfalar' } },
       },
     },

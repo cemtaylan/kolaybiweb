@@ -324,3 +324,24 @@ h1, h2, h3, h4, .doc-header__title, .list-header h1 { font-family: 'Plus Jakarta
 .fixed-toolbar .toolbar-popup__dropdown-blocks::after { content: 'CTA / Buton ekle'; order: 1; font-size: 13px; font-weight: 600; white-space: nowrap; }
 .fixed-toolbar .toolbar-popup__dropdown-blocks .toolbar-popup__dropdown-caret { order: 2; }
 .fixed-toolbar .toolbar-popup__dropdown-blocks:hover { background: var(--kb-blue-100); }
+
+/* Analitik: bölüm düzeni, detay bağlantıları */
+.kb-an-toc { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; gap: 4px; margin: -4px 0 0; padding: 8px 0; background: var(--kb-bg); }
+.kb-an-toc a { padding: 6px 14px; border-radius: 999px; font-size: 13.5px; font-weight: 600; color: var(--kb-ink-2); text-decoration: none; }
+.kb-an-toc a:hover { background: #fff; color: var(--kb-blue); }
+.kb-an-sec { display: grid; gap: 16px; scroll-margin-top: 60px; }
+.kb-an-h { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin: 12px 0 0; padding-top: 16px; border-top: 1px solid var(--kb-line); font: 800 22px/1.2 'Plus Jakarta Sans', sans-serif; color: var(--kb-ink); }
+.kb-an-h small { font: 500 13.5px/1.4 var(--font-body, sans-serif); color: var(--kb-ink-2); }
+.kb-an-kgrp { display: grid; gap: 8px; }
+.kb-an-kgrp h3 { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #8A93A6; }
+.kb-an-ct { margin: 0; font-size: 16px; font-weight: 700; color: var(--kb-ink); }
+.kb-an-link { color: var(--kb-ink) !important; text-decoration: none; }
+.kb-an-link:hover { color: var(--kb-blue) !important; text-decoration: underline; }
+.kb-an-back { justify-self: start; font-size: 14px; font-weight: 600; color: var(--kb-blue); text-decoration: none; }
+.kb-an-mt { margin-top: 14px; }
+.kb-an-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.kb-an-search input { width: 280px; min-height: 40px; padding: 0 14px; border: 1px solid var(--kb-line); border-radius: 999px; background: #fff; font: inherit; font-size: 14px; }
+.kb-an-search input:focus { outline: 2px solid var(--kb-blue); outline-offset: 1px; }
+.kb-an-table td.kb-an-left { text-align: left; }
+.kb-an-chip { display: inline-flex; align-items: center; gap: 6px; margin: 2px 4px 2px 0; padding: 3px 10px; border-radius: 999px; background: var(--kb-blue-50); color: var(--kb-blue); font-size: 12.5px; font-weight: 600; text-decoration: none; }
+.kb-an-chip em { font-style: normal; color: var(--kb-ink-2); }
