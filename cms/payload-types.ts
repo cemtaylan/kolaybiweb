@@ -197,6 +197,7 @@ export interface Media {
    * Görme engelli kullanıcılar ve Google için görselin kısa açıklaması
    */
   alt?: string | null;
+  _objectKey?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -360,6 +361,7 @@ export interface Analytics {
   event: string;
   device: string;
   source?: string | null;
+  label?: string | null;
   count: number;
   updatedAt: string;
   createdAt: string;
@@ -579,6 +581,7 @@ export interface AnalyticsSelect<T extends boolean = true> {
   event?: T;
   device?: T;
   source?: T;
+  label?: T;
   count?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -589,6 +592,7 @@ export interface AnalyticsSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  _objectKey?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;

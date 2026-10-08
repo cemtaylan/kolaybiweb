@@ -18,14 +18,14 @@ export async function rows<T = Record<string, unknown>>(payload: Payload, q: SQL
 export const today = (t = new Date()) => t.toLocaleDateString('en-CA', { timeZone: 'Europe/Istanbul' })
 export const daysAgo = (n: number) => today(new Date(Date.now() - n * 864e5))
 
-export type Hit = { kind: 'page' | 'popup'; path: string; popup?: number; event: string; device: string; source?: string }
+export type Hit = { kind: 'page' | 'popup' | 'cta'; path: string; popup?: number; event: string; device: string; source?: string; label?: string }
 
 export async function bump(payload: Payload, h: Hit) {
   const day = today()
-  const bucket = [day, h.kind, h.path, h.popup ?? 0, h.event, h.device, h.source ?? '-'].join('|')
+  const bucket = [day, h.kind, h.path, h.popup ?? 0, h.event, h.device, h.source ?? '-', h.label ?? ''].join('|')
   const now = new Date().toISOString()
-  const q = sql`INSERT INTO analytics (bucket, day, kind, path, popup, event, device, source, count, updated_at, created_at)
-    VALUES (${bucket}, ${day}, ${h.kind}, ${h.path}, ${h.popup ?? null}, ${h.event}, ${h.device}, ${h.source ?? null}, 1, ${now}, ${now})
+  const q = sql`INSERT INTO analytics (bucket, day, kind, path, popup, event, device, source, label, count, updated_at, created_at)
+    VALUES (${bucket}, ${day}, ${h.kind}, ${h.path}, ${h.popup ?? null}, ${h.event}, ${h.device}, ${h.source ?? null}, ${h.label ?? null}, 1, ${now}, ${now})
     ON CONFLICT (bucket) DO UPDATE SET count = analytics.count + 1, updated_at = ${now}`
   const d = db(payload)
   if (d.execute) await d.execute(q)

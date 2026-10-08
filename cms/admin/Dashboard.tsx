@@ -39,15 +39,15 @@ export async function Dashboard({ payload, user }: ServerProps) {
     payload.count({ collection: 'popups' }),
     payload.count({ collection: 'authors' }),
     payload.count({ collection: 'users' }),
-    rows(payload, sql`SELECT event, SUM(count) AS n FROM analytics WHERE kind = 'page' AND day >= ${daysAgo(6)} GROUP BY event`).catch(() => []),
+    rows(payload, sql`SELECT kind, event, SUM(count) AS n FROM analytics WHERE kind IN ('page', 'cta') AND day >= ${daysAgo(6)} GROUP BY kind, event`).catch(() => []),
   ])
-  const tr = (e: string) => Number(trafik.find((r) => r.event === e)?.n) || 0
+  const tr = (e: string, k = 'page') => Number(trafik.find((r) => r.kind === k && r.event === e)?.n) || 0
   const ad = (user as { name?: string } | undefined)?.name?.split(' ')[0] || ''
   const stats = [
     { n: yayinda.totalDocs, l: 'Yayındaki yazı', href: '/admin/collections/posts?where[_status][equals]=published' },
-    { n: taslak.totalDocs, l: 'Taslak', href: '/admin/collections/posts?where[_status][equals]=draft' },
     { n: ilanAktif.totalDocs, l: 'Aktif ilan', href: '/admin/ilanlar' },
     { n: tr('visitor'), l: 'Tekil ziyaretçi · son 7 gün', href: '/admin/analitik?gun=7' },
+    { n: tr('signup', 'cta'), l: 'Kayıt tıklaması · son 7 gün', href: '/admin/analitik?gun=7' },
   ]
   const fmt = (v: number) => v.toLocaleString('tr-TR')
   const ERISIM = [

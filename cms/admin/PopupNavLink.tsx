@@ -34,9 +34,9 @@ function useNavAcik() {
 }
 
 const LINKS = [
-  { href: '/admin/collections/popups/create', l: 'İlan oluştur', on: (p: string) => p.startsWith('/admin/collections/popups') },
-  { href: '/admin/ilanlar', l: 'Aktif ve Pasif İlanlar', on: (p: string) => p.startsWith('/admin/ilanlar') },
-  { href: '/admin/analitik', l: 'Analitik', on: (p: string) => p.startsWith('/admin/analitik') },
+  { id: 'nav-kb-ilan-olustur', href: '/admin/collections/popups/create', l: 'İlan oluştur', on: (p: string) => p.startsWith('/admin/collections/popups') },
+  { id: 'nav-kb-ilanlar', href: '/admin/ilanlar', l: 'Aktif ve Pasif İlanlar', on: (p: string) => p.startsWith('/admin/ilanlar') },
+  { id: 'nav-kb-analitik', href: '/admin/analitik', l: 'Analitik', on: (p: string) => p.startsWith('/admin/analitik') },
 ]
 
 export function PopupNavLink() {
@@ -45,8 +45,7 @@ export function PopupNavLink() {
   const ana = path === '/admin' || path === '/admin/'
   return (
     <>
-    <Link href="/admin" className={`kb-navtop${ana ? ' is-on' : ''}`} prefetch={false} aria-current={ana ? 'page' : undefined}>
-      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="9" rx="2" /><rect x="13" y="3" width="8" height="5" rx="2" /><rect x="13" y="10" width="8" height="11" rx="2" /><rect x="3" y="14" width="8" height="7" rx="2" /></svg>
+    <Link id="nav-kb-dashboard" href="/admin" className={`kb-navtop${ana ? ' is-on' : ''}`} prefetch={false} aria-current={ana ? 'page' : undefined}>
       Dashboard
     </Link>
     <div className="kb-navgroup">
@@ -54,7 +53,7 @@ export function PopupNavLink() {
         {LINKS.map((x) => {
           const on = x.on(path)
           return (
-            <Link key={x.href} href={x.href} className="nav__link" prefetch={false} aria-current={on ? 'page' : undefined}>
+            <Link key={x.href} id={x.id} href={x.href} className="nav__link" prefetch={false} aria-current={on ? 'page' : undefined}>
               {on && <div className="nav__link-indicator" />}
               <span className="nav__link-label">{x.l}</span>
             </Link>
