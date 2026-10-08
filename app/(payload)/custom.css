@@ -318,3 +318,9 @@ h1, h2, h3, h4, .doc-header__title, .list-header h1 { font-family: 'Plus Jakarta
 .kb-nf-form input:focus { outline: 2px solid var(--kb-blue); outline-offset: 1px; }
 .kb-nf-form button { min-height: 36px; padding: 0 14px; border: 0; border-radius: 999px; background: var(--kb-blue); color: #fff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
 .kb-nf-form button:disabled { opacity: .6; }
+
+/* Yazı editörü araç çubuğu: blok menüsü (çağrı kutusu, buton) yazıyla belirgin */
+.fixed-toolbar .toolbar-popup__dropdown-blocks { gap: 6px; padding-inline: 10px; background: var(--kb-blue-50); color: var(--kb-blue); border-radius: 8px; }
+.fixed-toolbar .toolbar-popup__dropdown-blocks::after { content: 'CTA / Buton ekle'; order: 1; font-size: 13px; font-weight: 600; white-space: nowrap; }
+.fixed-toolbar .toolbar-popup__dropdown-blocks .toolbar-popup__dropdown-caret { order: 2; }
+.fixed-toolbar .toolbar-popup__dropdown-blocks:hover { background: var(--kb-blue-100); }

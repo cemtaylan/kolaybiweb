@@ -34,11 +34,11 @@ export const CtaBlock: Block = {
       type: 'row',
       fields: [
         {
-          name: 'preset', type: 'select', label: 'Hazır CTA', required: true, defaultValue: 'deneme', admin: { width: '50%' },
+          name: 'preset', type: 'select', label: 'Hazır CTA', required: true, defaultValue: 'deneme', admin: { width: '38%' },
           options: [...Object.entries(CTA_PRESETS).map(([value, p]) => ({ label: p.label, value })), { label: 'Özel (metni kendim yazacağım)', value: 'ozel' }],
         },
         {
-          name: 'style', type: 'select', label: 'Görünüm', required: true, defaultValue: 'acik', admin: { width: '25%' },
+          name: 'style', type: 'select', label: 'Görünüm', required: true, defaultValue: 'acik', admin: { width: '37%' },
           // Sitedeki mevcut CTA tasarımları: blog ara kutusu, sayfa sonu kapanış bandı, blog yan sütun kartı
           options: [
             { label: 'Açık kutu (blog ara kutusu)', value: 'acik' },
