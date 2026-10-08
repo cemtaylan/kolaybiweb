@@ -1,11 +1,13 @@
 /* KolayBi web sitesi ortak stilleri (index.html ve diğer sayfalar). Renkler: css/renkler.css */
 /* Renkler css/renkler.css dosyasından gelir (renk sistemi) */
+/* Web fontu yüklenene kadar ölçüleri eşitlenmiş Arial kullanılır: font gelince satırlar kaymaz (CLS) */
+@font-face{font-family:"KB Head";font-weight:600;src:local("Arial Bold"),local("Arial-BoldMT"),local("Arimo Bold"),local("Liberation Sans Bold");size-adjust:99.61%;ascent-override:104.41%;descent-override:22.09%;line-gap-override:0%}@font-face{font-family:"KB Head";font-weight:700;src:local("Arial Bold"),local("Arial-BoldMT"),local("Arimo Bold"),local("Liberation Sans Bold");size-adjust:99.21%;ascent-override:104.83%;descent-override:22.18%;line-gap-override:0%}@font-face{font-family:"KB Head";font-weight:800;src:local("Arial Bold"),local("Arial-BoldMT"),local("Arimo Bold"),local("Liberation Sans Bold");size-adjust:100.73%;ascent-override:103.25%;descent-override:21.84%;line-gap-override:0%}@font-face{font-family:"KB Body";font-weight:400;src:local("Arial"),local("ArialMT"),local("Arimo"),local("Liberation Sans");size-adjust:105.94%;ascent-override:91.56%;descent-override:22.65%;line-gap-override:0%}@font-face{font-family:"KB Body";font-weight:500;src:local("Arial"),local("ArialMT"),local("Arimo"),local("Liberation Sans");size-adjust:105.3%;ascent-override:92.12%;descent-override:22.79%;line-gap-override:0%}@font-face{font-family:"KB Body";font-weight:600;src:local("Arial Bold"),local("Arial-BoldMT"),local("Arimo Bold"),local("Liberation Sans Bold");size-adjust:100.66%;ascent-override:96.36%;descent-override:23.84%;line-gap-override:0%}
 :root {
   --radius-xl: 32px;
   --radius-lg: 24px;
   --radius-md: 16px;
-  --font-head: "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  --font-head: "Plus Jakarta Sans", "KB Head", system-ui, sans-serif;
+  --font-body: "Inter", "KB Body", system-ui, sans-serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -982,3 +984,6 @@ summary.nav-link::marker { content: ""; }
 
 /* Ekran dışındaki bölümlerin çizimini görünür olana kadar ertele (ilk yükte daha az layout/paint) */
 .cv-auto { content-visibility: auto; contain-intrinsic-size: auto 720px; }
+
+/* Ekranda olmayan bölümlerin animasyonları durur (menu.js .anim-off sınıfını yönetir): yükleme sırasında ana iş parçacığı boşalır */
+.anim-off, .anim-off *, .anim-off *::before, .anim-off *::after { animation-play-state: paused !important; }
