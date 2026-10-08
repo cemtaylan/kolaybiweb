@@ -68,8 +68,8 @@ export function CtaGallery() {
             </div>
           ))}
           <div className="kb-an-card">
-            <div className="kb-an-card-head"><h3 className="kb-an-ct">Tek buton</h3><span>Dolu · çerçeveli · koyu</span></div>
-            <SiteFrame html={['primary', 'outline', 'dark'].map((variant) => buttonHTML({ text: variant === 'primary' ? 'Ücretsiz Deneyin' : variant === 'outline' ? 'Fiyatları İnceleyin' : 'Bize Ulaşın', link: '#', variant, align: 'left' })).join('')} title="Buton örnekleri" />
+            <div className="kb-an-card-head"><h3 className="kb-an-ct">Tek buton</h3><span>Renk ve üzerine gelince rengi seçilebilir; önizlemede üzerine gelin</span></div>
+            <SiteFrame html={[{ variant: 'primary', color: 'mavi', text: 'Ücretsiz Deneyin' }, { variant: 'primary', color: 'turkuaz', text: 'Jet’i İnceleyin' }, { variant: 'outline', color: 'lacivert', text: 'Fiyatları İnceleyin' }, { variant: 'primary', color: 'sari', text: 'Kampanyayı İnceleyin' }].map((b) => buttonHTML({ ...b, link: '#', align: 'left' })).join('')} title="Buton örnekleri" />
           </div>
         </div>
       </section>

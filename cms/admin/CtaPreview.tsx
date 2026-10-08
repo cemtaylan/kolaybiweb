@@ -14,7 +14,7 @@ export function CtaPreview({ tur = 'cta' }: { tur?: 'cta' | 'button' }) {
     return (e?.[1]?.value as string | null | undefined) ?? null
   }
   const html = tur === 'button'
-    ? buttonHTML({ text: v('text'), link: v('link') || '#', variant: v('variant'), align: v('align') })
+    ? buttonHTML({ text: v('text'), link: v('link') || '#', variant: v('variant'), align: v('align'), color: v('color'), hoverColor: v('hoverColor') })
     : ctaHTML({ preset: v('preset'), style: v('style'), theme: v('theme'), title: v('title'), text: v('text'), button: v('button'), link: v('link'), note: v('note') })
   return (
     <div className="kb-cp">

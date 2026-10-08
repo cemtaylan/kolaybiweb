@@ -108,9 +108,13 @@
 .prose .bbtn { margin: 1.6em 0; }
 .prose .bbtn--center { text-align: center; }
 .prose .bbtn a.btn { text-decoration: none; }
-.prose .bbtn a.bbtn-primary { background: var(--primary); color: #fff; box-shadow: 0 10px 24px -8px color-mix(in srgb, var(--blue-500) 55%, transparent); }
-.prose .bbtn a.bbtn-outline { border: 1.5px solid var(--navy); color: var(--navy); }
-.prose .bbtn a.bbtn-dark { background: var(--navy); color: #fff; }
+/* Renkler CMS'te seçilir: --bb/--bbt zemin/yazı, --bbh/--bbht üzerine gelince */
+.prose .bbtn a.btn { transition: transform .2s, box-shadow .2s, background .2s, color .2s, border-color .2s; }
+.prose .bbtn a.bbtn-primary { background: var(--bb, var(--primary)); color: var(--bbt, #fff); box-shadow: 0 10px 24px -10px color-mix(in srgb, var(--bb, var(--primary)) 60%, transparent); }
+.prose .bbtn a.bbtn-primary:hover { background: var(--bbh, var(--blue-700)); color: var(--bbht, #fff); }
+.prose .bbtn a.bbtn-outline { border: 1.5px solid var(--bb, var(--navy)); color: var(--bb, var(--navy)); background: transparent; }
+.prose .bbtn a.bbtn-outline:hover { background: var(--bbh, var(--navy)); border-color: var(--bbh, var(--navy)); color: var(--bbht, #fff); }
+.prose .bbtn a.bbtn-outline .arr { background: color-mix(in srgb, currentColor 12%, transparent); }
 @media (max-width: 640px) {
   .final-cta.bcta { padding: 36px 20px 30px; }
   .inline-cta.bcta .bcta-act, .side-cta.bcta .bcta-act { width: 100%; }

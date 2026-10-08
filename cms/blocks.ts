@@ -65,6 +65,23 @@ export const CtaBlock: Block = {
   ],
 }
 
+// Buton renkleri (renkler.css tokenları): zemin ve yazı rengi
+export const BUTON_RENK: Record<string, { label: string; bg: string; fg: string }> = {
+  mavi: { label: 'Ofis mavisi', bg: 'var(--blue-500)', fg: '#fff' },
+  'koyu-mavi': { label: 'Koyu mavi', bg: 'var(--blue-700)', fg: '#fff' },
+  turkuaz: { label: 'Jet turkuazı', bg: 'var(--cyan-600)', fg: '#fff' },
+  'koyu-turkuaz': { label: 'Koyu turkuaz', bg: 'var(--cyan-700)', fg: '#fff' },
+  lacivert: { label: 'Lacivert', bg: 'var(--navy-700)', fg: '#fff' },
+  'koyu-lacivert': { label: 'Koyu lacivert', bg: 'var(--navy-900)', fg: '#fff' },
+  mor: { label: 'Link moru', bg: 'var(--indigo-500)', fg: '#fff' },
+  yesil: { label: 'Yeşil', bg: 'var(--green-500)', fg: '#fff' },
+  sari: { label: 'Sarı (vurgu)', bg: 'var(--accent)', fg: 'var(--navy-700)' },
+  beyaz: { label: 'Beyaz', bg: '#fff', fg: 'var(--navy-700)' },
+}
+/** "Otomatik" üzerine gelince rengi: aynı ailenin bir ton koyusu */
+export const OTOMATIK_HOVER: Record<string, string> = { mavi: 'koyu-mavi', 'koyu-mavi': 'lacivert', turkuaz: 'koyu-turkuaz', 'koyu-turkuaz': 'lacivert', lacivert: 'koyu-lacivert', 'koyu-lacivert': 'lacivert', mor: 'lacivert', yesil: 'lacivert', sari: 'lacivert', beyaz: 'mavi' }
+const renkSecenek = Object.entries(BUTON_RENK).map(([value, r]) => ({ label: r.label, value }))
+
 export const ButtonBlock: Block = {
   slug: 'button',
   labels: { singular: 'Buton', plural: 'Butonlar' },
@@ -77,9 +94,14 @@ export const ButtonBlock: Block = {
     ] },
     { type: 'row', fields: [
       { name: 'variant', type: 'select', label: 'Stil', required: true, defaultValue: 'primary', admin: { width: '50%' },
-        options: [{ label: 'Dolu (ana buton)', value: 'primary' }, { label: 'Çerçeveli', value: 'outline' }, { label: 'Koyu', value: 'dark' }] },
+        options: [{ label: 'Dolu', value: 'primary' }, { label: 'Çerçeveli (üzerine gelince dolar)', value: 'outline' }] },
       { name: 'align', type: 'select', label: 'Hizalama', required: true, defaultValue: 'left', admin: { width: '50%' },
         options: [{ label: 'Sola', value: 'left' }, { label: 'Ortaya', value: 'center' }] },
+    ] },
+    { type: 'row', fields: [
+      { name: 'color', type: 'select', label: 'Renk', required: true, defaultValue: 'mavi', options: renkSecenek, admin: { width: '50%' } },
+      { name: 'hoverColor', type: 'select', label: 'Üzerine gelince renk', defaultValue: 'otomatik', admin: { width: '50%', description: 'Önizlemede butonun üzerine gelerek deneyin' },
+        options: [{ label: 'Otomatik (bir ton koyu)', value: 'otomatik' }, ...renkSecenek] },
     ] },
   ],
 }

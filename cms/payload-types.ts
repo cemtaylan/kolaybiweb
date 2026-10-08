@@ -804,8 +804,37 @@ export interface CtaBlock {
 export interface ButtonBlock {
   text: string;
   link: string;
-  variant: 'primary' | 'outline' | 'dark';
+  variant: 'primary' | 'outline';
   align: 'left' | 'center';
+  color:
+    | 'mavi'
+    | 'koyu-mavi'
+    | 'turkuaz'
+    | 'koyu-turkuaz'
+    | 'lacivert'
+    | 'koyu-lacivert'
+    | 'mor'
+    | 'yesil'
+    | 'sari'
+    | 'beyaz';
+  /**
+   * Önizlemede butonun üzerine gelerek deneyin
+   */
+  hoverColor?:
+    | (
+        | 'otomatik'
+        | 'mavi'
+        | 'koyu-mavi'
+        | 'turkuaz'
+        | 'koyu-turkuaz'
+        | 'lacivert'
+        | 'koyu-lacivert'
+        | 'mor'
+        | 'yesil'
+        | 'sari'
+        | 'beyaz'
+      )
+    | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'button';
