@@ -74,6 +74,7 @@ export interface Config {
     analytics: Analytics;
     redirects: Redirect;
     pages: Page;
+    support: Support;
     media: Media;
     users: User;
     'payload-kv': PayloadKv;
@@ -90,6 +91,7 @@ export interface Config {
     analytics: AnalyticsSelect<false> | AnalyticsSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
+    support: SupportSelect<false> | SupportSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -209,6 +211,7 @@ export interface Media {
    * Görme engelli kullanıcılar ve Google için görselin kısa açıklaması
    */
   alt?: string | null;
+  _objectKey?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -340,6 +343,10 @@ export interface Popup {
         | '/e-imza-programi'
         | '/e-irsaliye'
         | '/on-muhasebe-raporlama-programi'
+        | '/destek'
+        | '/kullanici-kilavuzu'
+        | '/kullanici-rehberi'
+        | '/destek/*'
         | '/gizlilik-politikasi'
         | '/cerez-politikasi'
         | '/cayma-hakki-metni'
@@ -439,6 +446,48 @@ export interface Page {
   createdAt: string;
 }
 /**
+ * Destek merkezindeki kullanım anlatımları. Kullanım kılavuzu sayfası bu makaleleri gruplarına ve sıralarına göre listeler.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "support".
+ */
+export interface Support {
+  id: number;
+  title: string;
+  /**
+   * /destek/ sonrası, örn. cari-hesaplar
+   */
+  slug: string;
+  group: 'baslangic' | 'kullanim' | 'ek' | 'link' | 'diger';
+  /**
+   * Gruptaki sırası
+   */
+  order?: number | null;
+  /**
+   * Kullanım kılavuzundaki kartta başlığın altında görünür
+   */
+  summary?: string | null;
+  body?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  metaTitle?: string | null;
+  metaDescription?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * Panele giriş yapabilen kişiler. "Seçili menüler" rolündeki kişi yalnızca işaretlediğiniz bölümleri görür ve düzenler.
  *
  * This interface was referenced by `Config`'s JSON-Schema
@@ -464,6 +513,7 @@ export interface User {
     bulunamayan?: boolean | null;
     gorseller?: boolean | null;
     sayfalar?: boolean | null;
+    destek?: boolean | null;
   };
   updatedAt: string;
   createdAt: string;
@@ -536,6 +586,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'pages';
         value: number | Page;
+      } | null)
+    | ({
+        relationTo: 'support';
+        value: number | Support;
       } | null)
     | ({
         relationTo: 'media';
@@ -716,10 +770,27 @@ export interface PagesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "support_select".
+ */
+export interface SupportSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  group?: T;
+  order?: T;
+  summary?: T;
+  body?: T;
+  metaTitle?: T;
+  metaDescription?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  _objectKey?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -775,6 +846,7 @@ export interface UsersSelect<T extends boolean = true> {
         bulunamayan?: T;
         gorseller?: T;
         sayfalar?: T;
+        destek?: T;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -991,6 +1063,21 @@ export interface ButtonBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'button';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "VideoBlock".
+ */
+export interface VideoBlock {
+  /**
+   * Video dosyası yükleyecekseniz boş bırakın
+   */
+  url?: string | null;
+  file?: (number | null) | Media;
+  caption?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'video';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

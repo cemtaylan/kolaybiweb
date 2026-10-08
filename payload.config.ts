@@ -18,6 +18,7 @@ import { Analytics } from './cms/collections/Analytics'
 import { Redirects } from './cms/collections/Redirects'
 import { BlogCta } from './cms/globals/BlogCta'
 import { Pages } from './cms/collections/Pages'
+import { Support } from './cms/collections/Support'
 import { Popups } from './cms/collections/Popups'
 import { editorFeatures } from './cms/editor'
 
@@ -49,7 +50,7 @@ export default buildConfig({
     importMap: { baseDir: dirname },
   },
   i18n: { supportedLanguages: { tr }, fallbackLanguage: 'tr' },
-  collections: [Posts, Categories, Authors, Popups, Analytics, Redirects, Pages, Media, Users],
+  collections: [Posts, Categories, Authors, Popups, Analytics, Redirects, Pages, Support, Media, Users],
   globals: [BlogCta],
   editor: lexicalEditor({ features: editorFeatures }),
   // Panel e-postaları (şifremi unuttum, kullanıcı daveti): Yandex 360 SMTP. Ortam değişkenleri yoksa e-posta konsola yazılır.

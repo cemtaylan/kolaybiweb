@@ -6,7 +6,7 @@ import config from '@payload-config'
 import { convertLexicalToHTML, defaultHTMLConverters, type HTMLConverters } from '@payloadcms/richtext-lexical/html'
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 import type { Author, Category, Media, Post } from '@/cms/payload-types'
-import { buttonHTML, ctaHTML, type ButtonFields, type CtaFields } from '@/cms/cta-html'
+import { buttonHTML, ctaHTML, videoHTML, type ButtonFields, type CtaFields, type VideoFields } from '@/cms/cta-html'
 import { BLOG_CTA_VARSAYILAN } from '@/cms/blocks'
 
 export const SITE = 'https://www.kolaybi.com'
@@ -81,6 +81,7 @@ export function renderBody(data: SerializedEditorState | null | undefined) {
       // Hazır çağrı kutusu ve buton: HTML'i CMS önizlemesiyle ortak modülden (cms/cta-html.ts)
       cta: ({ node }) => ctaHTML(node.fields as CtaFields),
       button: ({ node }) => buttonHTML(node.fields as ButtonFields),
+      video: ({ node }) => videoHTML(node.fields as VideoFields),
     },
     upload: ({ node }) => {
       const m = node.value as Media

@@ -2,10 +2,10 @@
 // Editörde çağrı kutusu / buton bloğunun içinde canlı önizleme: alanlar değiştikçe sitedeki görünümü anında gösterir.
 import { useState } from 'react'
 import { useAllFormFields } from '@payloadcms/ui'
-import { buttonHTML, ctaHTML, yanHTML } from '../cta-html'
+import { buttonHTML, ctaHTML, videoHTML, yanHTML } from '../cta-html'
 import { SiteFrame } from './SiteFrame'
 
-export function CtaPreview({ tur = 'cta', prefix = '' }: { tur?: 'cta' | 'button' | 'yan'; prefix?: string }) {
+export function CtaPreview({ tur = 'cta', prefix = '' }: { tur?: 'cta' | 'button' | 'yan' | 'video'; prefix?: string }) {
   const [fields] = useAllFormFields()
   const [mobil, setMobil] = useState(false)
   // Blok alanlarının yolu editörde farklı öneklerle gelebilir; adın son parçasına göre okunur
@@ -14,7 +14,9 @@ export function CtaPreview({ tur = 'cta', prefix = '' }: { tur?: 'cta' | 'button
     const e = prefix ? Object.entries(fields).find(([k]) => k === `${prefix}.${name}`) : Object.entries(fields).find(([k]) => k === name || k.endsWith('.' + name))
     return (e?.[1]?.value as string | null | undefined) ?? null
   }
-  const html = tur === 'yan'
+  const html = tur === 'video'
+    ? videoHTML({ url: v('url'), caption: v('caption') }) || '<p style="color:#8A93A6">YouTube ya da Vimeo bağlantısını yapıştırın; video burada görünür.</p>'
+    : tur === 'yan'
     // sitede dar ekranda gizlenen yan kart önizlemede her genişlikte görünsün
     ? `<style>.side-cta{display:block!important}</style><div style="max-width:290px">${yanHTML({ title: v('title'), text: v('text'), button: v('button'), link: v('link') || '#' })}</div>`
     : tur === 'button'

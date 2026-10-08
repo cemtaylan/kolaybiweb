@@ -12,7 +12,7 @@ export const Media: CollectionConfig = {
     hidden: gizle('gorseller'), group: 'İçerik' },
   upload: {
     staticDir: path.resolve(process.cwd(), 'media'),
-    mimeTypes: ['image/*'],
+    mimeTypes: ['image/*', 'video/mp4', 'video/webm'], // video: yazı içi Video bloğu için
     imageSizes: [
       { name: 'card', width: 640 }, // liste kartları
       { name: 'cover', width: 1280 }, // yazı kapağı

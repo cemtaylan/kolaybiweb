@@ -4,7 +4,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { SPRITE } from '../cta-html'
 
-const CSS = ['/css/renkler.css?v=7', '/css/site.css?v=79', '/css/post.css?v=5']
+const CSS = ['/css/renkler.css?v=7', '/css/site.css?v=79', '/css/post.css?v=11']
 
 export function SiteFrame({ html, mobil = false, title = 'Önizleme', prose = true }: { html: string; mobil?: boolean; title?: string; prose?: boolean }) {
   const ref = useRef<HTMLIFrameElement>(null)

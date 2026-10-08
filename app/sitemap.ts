@@ -19,5 +19,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const payload = await getPayload({ config })
   const r = await payload.find({ collection: 'posts', where: { _status: { equals: 'published' } }, pagination: false, limit: 5000, depth: 0, select: { slug: true, updatedAt: true }, sort: '-publishedAt' })
   const yazilar: MetadataRoute.Sitemap = r.docs.map((d) => ({ url: `${SITE}/blog/${d.slug}`, lastModified: d.updatedAt ? new Date(d.updatedAt) : undefined, changeFrequency: 'monthly', priority: 0.6 }))
-  return [...sayfalar, ...yazilar]
+  const destek = await payload.find({ collection: 'support', limit: 500, pagination: false, depth: 0, select: { slug: true, updatedAt: true } })
+  const rehberler: MetadataRoute.Sitemap = destek.docs.filter((d) => d.slug !== 'kullanici-rehberi').map((d) => ({ url: `${SITE}/destek/${d.slug}`, lastModified: d.updatedAt ? new Date(d.updatedAt) : undefined, changeFrequency: 'monthly', priority: 0.5 }))
+  return [...sayfalar, ...yazilar, ...rehberler]
 }

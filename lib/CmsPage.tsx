@@ -37,7 +37,7 @@ export async function CmsPage({ slug }: { slug: string }) {
   const { html } = renderBody(p.body as never)
   return (
     <>
-      <link rel="stylesheet" href="/css/post.css?v=5" precedence="default" />
+      <link rel="stylesheet" href="/css/post.css?v=11" precedence="default" />
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
       <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: blogHeader() }} />
       <main>

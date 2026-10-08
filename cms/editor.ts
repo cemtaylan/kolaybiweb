@@ -1,5 +1,5 @@
 import { BlocksFeature, EXPERIMENTAL_TableFeature, FixedToolbarFeature, type LexicalEditorProps, UploadFeature } from '@payloadcms/richtext-lexical'
-import { ButtonBlock, CtaBlock } from './blocks'
+import { ButtonBlock, CtaBlock, VideoBlock } from './blocks'
 
 type FeaturesInput = NonNullable<LexicalEditorProps['features']>
 
@@ -19,7 +19,7 @@ export const editorFeatures: FeaturesInput = ({ defaultFeatures }) => [
   }),
   EXPERIMENTAL_TableFeature(),
   // Yazı içine hazır çağrı kutusu (CTA) ve buton: editörde "+" menüsünden ya da / komutuyla eklenir
-  BlocksFeature({ blocks: [CtaBlock, ButtonBlock] }),
+  BlocksFeature({ blocks: [CtaBlock, ButtonBlock, VideoBlock] }),
   // Editörün üstünde sabit araç çubuğu: biçimlendirme ve "Ekle" menüsü (çağrı kutusu, buton, tablo, görsel)
   FixedToolbarFeature(),
 ]

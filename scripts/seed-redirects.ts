@@ -15,6 +15,9 @@ const KATEGORI: Record<string, string> = {
   'insan-kaynaklari': 'i-nsan-kaynaklari', 'is-gelistirme': 'i-s-gelistirme', muhasebe: 'muhasebe', teknoloji: 'teknoloji', vergi: 'vergi',
 }
 const LISTE: { from: string; to: string; note: string }[] = [
+  // canlı kullanım kılavuzundaki hatalı bağlantılar → doğru makaleler
+  { from: '/destek/beyanname-ve-bilgirde-takibi-kolaybilink', to: '/destek/beyanname-ve-bildirge-takibi-kolaybilink', note: 'Canlı site taşıma: kılavuzdaki hatalı adres' },
+  { from: '/destek/sorgulama-ve-e-fatura-aktarimi-kolaybilink', to: '/destek/destek-sorgulama-ve-e-fatura-aktarimi-kolaybilink', note: 'Canlı site taşıma: kılavuzdaki hatalı adres' },
   { from: '/kategori', to: '/blog', note: 'Canlı site taşıma: blog kategorileri' },
   ...Object.entries(KATEGORI).map(([eski, yeni]) => ({ from: `/kategori/${eski}`, to: `/blog?kategori=${yeni}`, note: 'Canlı site taşıma: blog kategorileri' })),
 ]

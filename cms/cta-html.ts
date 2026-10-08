@@ -51,3 +51,22 @@ export function buttonHTML(f: ButtonFields) {
   const style = `--bb:${c.bg};--bbt:${c.fg};--bbh:${h.bg};--bbht:${h.fg}`
   return `<p class="bbtn bbtn--${f.align === 'center' ? 'center' : 'left'}"><a href="${esc(f.link)}" class="btn bbtn-${variant}" style="${style}">${esc(f.text)}${ARROW}</a></p>`
 }
+
+export type VideoFields = { url?: string | null; file?: { url?: string | null; mimeType?: string | null } | number | string | null; caption?: string | null }
+/** YouTube / Vimeo bağlantısından gömülü oynatıcı adresi (çerezsiz YouTube) */
+export function videoEmbed(url: string) {
+  const u = url.trim()
+  const yt = u.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|live\/)|youtu\.be\/)([\w-]{11})/)
+  if (yt) return `https://www.youtube-nocookie.com/embed/${yt[1]}`
+  const vm = u.match(/vimeo\.com\/(?:video\/)?(\d+)/)
+  if (vm) return `https://player.vimeo.com/video/${vm[1]}`
+  return null
+}
+export function videoHTML(f: VideoFields) {
+  const cap = f.caption ? `<figcaption>${esc(f.caption)}</figcaption>` : ''
+  const file = typeof f.file === 'object' && f.file?.url ? f.file : null
+  if (file) return `<figure class="bvideo"><div class="bvideo-box"><video src="${esc(file.url!)}" controls preload="metadata" playsinline></video></div>${cap}</figure>`
+  const src = f.url ? videoEmbed(f.url) : null
+  if (!src) return ''
+  return `<figure class="bvideo"><div class="bvideo-box"><iframe src="${esc(src)}" title="${esc(f.caption || 'Video')}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>${cap}</figure>`
+}

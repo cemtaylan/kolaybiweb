@@ -164,3 +164,34 @@
 .ps-faq .faq-a ul, .ps-faq .faq-a ol { padding-left: 1.2em; }
 .ps-faq .faq-a a { color: var(--primary); font-weight: 600; }
 @media (max-width: 760px) { .ps-faq .faq-a > div { padding: 0 16px 4px 52px; } }
+
+/* Yazı içi video (CMS > Video bloğu): 16:9, yuvarlatılmış */
+.prose .bvideo { margin: 2em 0; }
+.bvideo-box { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius-lg); overflow: hidden; background: var(--navy); box-shadow: 0 20px 40px -24px rgb(14 42 74 / .45); }
+.bvideo-box iframe, .bvideo-box video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.prose .bvideo figcaption { margin-top: 10px; text-align: center; font-size: 14px; color: var(--muted); }
+
+/* Destek makalesi: aynı gruptaki diğer rehberler */
+.sp-more { margin: 48px 0 8px; max-width: 760px; }
+.sp-more h2 { margin-bottom: 14px; font: 800 24px var(--font-head); color: var(--navy); }
+.sp-more ul { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.sp-more a { display: block; height: 100%; padding: 16px 18px; border-radius: var(--radius-lg); background: var(--card); border: 1px solid var(--line); text-decoration: none; transition: border-color .2s, box-shadow .2s; }
+.sp-more a:hover { border-color: var(--primary); box-shadow: 0 12px 28px -20px rgb(14 42 74 / .4); }
+.sp-more b { display: block; font: 700 16px var(--font-head); color: var(--navy); }
+.sp-more a > span { display: block; margin-top: 4px; font-size: 14px; color: var(--ink-2); }
+@media (max-width: 640px) { .sp-more ul { grid-template-columns: 1fr; } }
+
+/* Destek merkezi (/destek, /kullanici-kilavuzu) */
+.container.sh-body { margin-top: 48px; margin-bottom: 32px; } /* .container (site.css) sonra yüklendiği için çift sınıf */
+.sh-sec { margin-bottom: 44px; }
+.sh-sec h2 { font: 800 clamp(24px, 2.6vw, 30px)/1.2 var(--font-head); color: var(--navy); }
+.sh-sec > p { max-width: 720px; margin-top: 8px; color: var(--ink-2); }
+.sh-cards { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin-top: 18px; margin-bottom: 8px; }
+.sh-cards a, .sh-cards .is-soon { position: relative; display: block; height: 100%; padding: 20px 44px 20px 20px; border-radius: var(--radius-lg); background: var(--card); border: 1px solid var(--line); text-decoration: none; transition: border-color .2s, box-shadow .2s, transform .2s; }
+.sh-cards a:hover { border-color: var(--primary); box-shadow: 0 14px 30px -22px rgb(14 42 74 / .45); transform: translateY(-2px); }
+.sh-cards b { display: block; font: 700 17px/1.3 var(--font-head); color: var(--navy); }
+.sh-cards a > span, .sh-cards .is-soon > span { display: block; margin-top: 6px; font-size: 14.5px; line-height: 1.45; color: var(--ink-2); }
+.sh-cards em { display: inline-block; margin-top: 10px; padding: 3px 10px; border-radius: 999px; background: var(--yellow-50); color: var(--yellow-700); font-size: 12.5px; font-style: normal; font-weight: 700; }
+.sh-cards svg { position: absolute; top: 22px; right: 18px; width: 16px; height: 16px; color: var(--primary); }
+.sh-cards .is-soon { background: var(--bg); border-style: dashed; }
+.ps-head .lead a { color: var(--primary); }

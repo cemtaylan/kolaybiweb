@@ -117,3 +117,16 @@ export const ButtonBlock: Block = {
     ] },
   ],
 }
+
+// Video: YouTube / Vimeo bağlantısı ya da yüklenen video dosyası (Görseller koleksiyonuna mp4/webm). Sitede 16:9, gerekirse altyazılı.
+export const VideoBlock: Block = {
+  slug: 'video',
+  labels: { singular: 'Video', plural: 'Videolar' },
+  interfaceName: 'VideoBlock',
+  fields: [
+    { name: 'onizleme', type: 'ui', admin: { components: { Field: { path: '/cms/admin/CtaPreview#CtaPreview', clientProps: { tur: 'video' } } } } },
+    { name: 'url', type: 'text', label: 'YouTube ya da Vimeo bağlantısı', admin: { placeholder: 'https://www.youtube.com/watch?v=… ya da https://vimeo.com/…', description: 'Video dosyası yükleyecekseniz boş bırakın' } },
+    { name: 'file', type: 'upload', relationTo: 'media', label: 'ya da video dosyası (mp4, webm)', filterOptions: { mimeType: { contains: 'video' } } },
+    { name: 'caption', type: 'text', label: 'Altyazı (isteğe bağlı)' },
+  ],
+}

@@ -13,6 +13,7 @@ export const ALANLAR = [
   { key: 'bulunamayan', label: 'Bulunamayan sayfalar', grup: 'SEO' },
   { key: 'gorseller', label: 'Görseller', grup: 'İçerik' },
   { key: 'sayfalar', label: 'Sayfalar (yasal ve kurumsal metinler)', grup: 'İçerik' },
+  { key: 'destek', label: 'Destek makaleleri', grup: 'İçerik' },
 ] as const
 export type Alan = (typeof ALANLAR)[number]['key']
 
