@@ -786,3 +786,5 @@ body.vd-lock { overflow: hidden; }
 .gib-vs-src { display: grid; gap: 12px; align-content: center; }
 .gib-vs-lbl { font: 700 13px var(--font-body); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .gib-vs-src .posts { grid-template-columns: 1fr; max-width: 440px; }
+/* Video kartı: başlığın altında tek satırlık sonuç cümlesi */
+.vd-sum { font-size: 14px; line-height: 1.45; color: var(--ink-2); }
