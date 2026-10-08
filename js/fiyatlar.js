@@ -1,4 +1,5 @@
 // Fiyatlar: ürün (Ofis / Jet) ve dönem (yıllık / aylık) seçimi. Tek veri kaynağı: PLANS.
+// İlk hâl (Ofis, Yıllık) sayfaya gömülüdür (CLS); PLANS değişirse scripts/plans-ssr.mjs ile #plans HTML'ini yenileyin.
 (function () {
   const root = document.getElementById('plans');
   if (!root) return;
