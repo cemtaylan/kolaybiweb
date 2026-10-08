@@ -9,6 +9,8 @@ import { redirect } from 'next/navigation'
 import { sql } from '@payloadcms/db-postgres'
 import type React from 'react'
 import { rows, daysAgo } from '../analytics'
+import { yetkili } from '../access'
+import { YetkiYok } from './YetkiYok'
 import { DonemNav, GunlukGrafik, KAYNAK, TASARIM, detayHref, donem, fmt, n, once, q1, sayfaAdlari, sayfaIstatistik, yuzde, zaman } from './analytics-shared'
 
 function Cerceve({ p, yol, children }: { p: AdminViewServerProps; yol: string; children: React.ReactNode }) {
@@ -29,6 +31,7 @@ const SIRA = [
 ]
 
 export async function AnalyticsPagesView(p: AdminViewServerProps) {
+  if (p.initPageResult.req.user && !yetkili(p.initPageResult.req.user as never, 'analitik')) return <YetkiYok p={p} />
   const payload = p.initPageResult.req.payload
   const gun = donem(p.searchParams)
   const sira = SIRA.some((s) => s.k === q1(p.searchParams, 'sira')) ? q1(p.searchParams, 'sira')! : 'cok'
@@ -73,6 +76,7 @@ export async function AnalyticsPagesView(p: AdminViewServerProps) {
 }
 
 export async function AnalyticsPageView(p: AdminViewServerProps) {
+  if (p.initPageResult.req.user && !yetkili(p.initPageResult.req.user as never, 'analitik')) return <YetkiYok p={p} />
   const payload = p.initPageResult.req.payload
   const gun = donem(p.searchParams)
   const bas = daysAgo(gun - 1)
@@ -156,6 +160,7 @@ export async function AnalyticsPageView(p: AdminViewServerProps) {
 }
 
 export async function AnalyticsButtonsView(p: AdminViewServerProps) {
+  if (p.initPageResult.req.user && !yetkili(p.initPageResult.req.user as never, 'analitik')) return <YetkiYok p={p} />
   const payload = p.initPageResult.req.payload
   const gun = donem(p.searchParams)
   const r = await rows(payload, sql`SELECT label, path, event, SUM(count) AS n FROM analytics WHERE kind = 'cta' AND event IN ('signup', 'login', 'contact') AND day >= ${daysAgo(gun - 1)} GROUP BY label, path, event`)

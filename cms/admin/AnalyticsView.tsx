@@ -7,13 +7,17 @@ import { Gutter } from '@payloadcms/ui'
 import { redirect } from 'next/navigation'
 import { sql } from '@payloadcms/db-postgres'
 import { rows, daysAgo } from '../analytics'
+import { yetkili } from '../access'
+import { YetkiYok } from './YetkiYok'
 import { Degisim, DonemNav, GunlukGrafik, KAYNAK, TASARIM, detayHref, donem, fmt, n, once, sayfaAdlari, sayfaIstatistik, yuzde, zaman } from './analytics-shared'
 
 const ILK = 10
 
-export async function AnalyticsView({ initPageResult, params, searchParams }: AdminViewServerProps) {
+export async function AnalyticsView(props: AdminViewServerProps) {
+  const { initPageResult, params, searchParams } = props
   const { req, locale, permissions, visibleEntities } = initPageResult
   if (!req.user) redirect('/admin/login?redirect=/admin/analitik')
+  if (!yetkili(req.user as never, 'analitik')) return <YetkiYok p={props} />
   const payload = req.payload
   const gun = donem(searchParams)
   const bas = daysAgo(gun - 1)

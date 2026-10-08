@@ -199,6 +199,7 @@ export interface Media {
    * Görme engelli kullanıcılar ve Google için görselin kısa açıklaması
    */
   alt?: string | null;
+  _objectKey?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -387,12 +388,31 @@ export interface Redirect {
   createdAt: string;
 }
 /**
+ * Panele giriş yapabilen kişiler. "Seçili menüler" rolündeki kişi yalnızca işaretlediğiniz bölümleri görür ve düzenler.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
   id: number;
   name?: string | null;
+  /**
+   * Tam yetkili kişi kullanıcı ekleyip yetki verebilir.
+   */
+  role: 'admin' | 'editor';
+  /**
+   * İşaretlenen bölümler bu kişinin sol menüsünde görünür; işaretlenmeyenlere erişemez.
+   */
+  yetki?: {
+    yazilar?: boolean | null;
+    kategoriler?: boolean | null;
+    yazarlar?: boolean | null;
+    ilanlar?: boolean | null;
+    analitik?: boolean | null;
+    yonlendirmeler?: boolean | null;
+    bulunamayan?: boolean | null;
+    gorseller?: boolean | null;
+  };
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -629,6 +649,7 @@ export interface RedirectsSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  _objectKey?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -671,6 +692,19 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface UsersSelect<T extends boolean = true> {
   name?: T;
+  role?: T;
+  yetki?:
+    | T
+    | {
+        yazilar?: T;
+        kategoriler?: T;
+        yazarlar?: T;
+        ilanlar?: T;
+        analitik?: T;
+        yonlendirmeler?: T;
+        bulunamayan?: T;
+        gorseller?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   email?: T;

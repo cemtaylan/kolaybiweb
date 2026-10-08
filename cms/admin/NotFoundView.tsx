@@ -5,13 +5,17 @@ import { Gutter } from '@payloadcms/ui'
 import { redirect } from 'next/navigation'
 import { sql } from '@payloadcms/db-postgres'
 import { rows, daysAgo } from '../analytics'
+import { yetkili } from '../access'
+import { YetkiYok } from './YetkiYok'
 import { NotFoundList, type NotFoundRow } from './NotFoundList'
 
 const DONEM = [7, 30, 90]
 
-export async function NotFoundView({ initPageResult, params, searchParams }: AdminViewServerProps) {
+export async function NotFoundView(props: AdminViewServerProps) {
+  const { initPageResult, params, searchParams } = props
   const { req, locale, permissions, visibleEntities } = initPageResult
   if (!req.user) redirect('/admin/login?redirect=/admin/404')
+  if (!yetkili(req.user as never, 'bulunamayan')) return <YetkiYok p={props} />
   const payload = req.payload
   const gun = DONEM.includes(Number(searchParams?.gun)) ? Number(searchParams?.gun) : 30
   const r = await rows<{ path: string; label: string; n: number | string; last: string }>(payload, sql`

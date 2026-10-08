@@ -5,6 +5,7 @@ import type { ServerProps } from 'payload'
 import type { Category, Media, Post } from '@/cms/payload-types'
 import { sql } from '@payloadcms/db-postgres'
 import { rows, daysAgo } from '../analytics'
+import { type Alan, tamYetkili, yetkili } from '../access'
 
 const AY = ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara']
 const kisa = (d?: string | null) => {
@@ -43,28 +44,31 @@ export async function Dashboard({ payload, user }: ServerProps) {
   ])
   const tr = (e: string, k = 'page') => Number(trafik.find((r) => r.kind === k && r.event === e)?.n) || 0
   const ad = (user as { name?: string } | undefined)?.name?.split(' ')[0] || ''
+  // Kişinin yetkisi olmayan bölümler pano üzerinde de gösterilmez
+  const y = (a: Alan) => yetkili(user as never, a)
   const stats = [
-    { n: yayinda.totalDocs, l: 'Yayındaki yazı', href: '/admin/collections/posts?where[_status][equals]=published' },
-    { n: ilanAktif.totalDocs, l: 'Aktif ilan', href: '/admin/ilanlar' },
-    { n: tr('visitor'), l: 'Tekil ziyaretçi · son 7 gün', href: '/admin/analitik?gun=7' },
-    { n: tr('signup', 'cta'), l: 'Kayıt tıklaması · son 7 gün', href: '/admin/analitik?gun=7' },
+    { n: yayinda.totalDocs, l: 'Yayındaki yazı', href: '/admin/collections/posts?where[_status][equals]=published', a: 'yazilar' as Alan },
+    { n: ilanAktif.totalDocs, l: 'Aktif ilan', href: '/admin/ilanlar', a: 'ilanlar' as Alan },
+    { n: tr('visitor'), l: 'Tekil ziyaretçi · son 7 gün', href: '/admin/analitik?gun=7', a: 'analitik' as Alan },
+    { n: tr('signup', 'cta'), l: 'Kayıt tıklaması · son 7 gün', href: '/admin/analitik?gun=7', a: 'analitik' as Alan },
   ]
   const fmt = (v: number) => v.toLocaleString('tr-TR')
-  const ERISIM = [
+  const ERISIM_TUM = [
     { grup: 'Blog', kartlar: [
-      { t: 'Yazılar', d: `${fmt(yayinda.totalDocs)} yayında, ${fmt(taslak.totalDocs)} taslak`, href: '/admin/collections/posts', yeni: '/admin/collections/posts/create', i: 'yazi' },
-      { t: 'Kategoriler', d: `${fmt(kategori.totalDocs)} kategori`, href: '/admin/collections/categories', yeni: '/admin/collections/categories/create', i: 'kategori' },
-      { t: 'Yazarlar', d: `${fmt(yazar.totalDocs)} yazar`, href: '/admin/collections/authors', yeni: '/admin/collections/authors/create', i: 'yazar' },
+      { t: 'Yazılar', d: `${fmt(yayinda.totalDocs)} yayında, ${fmt(taslak.totalDocs)} taslak`, href: '/admin/collections/posts', yeni: '/admin/collections/posts/create', i: 'yazi', a: 'yazilar' },
+      { t: 'Kategoriler', d: `${fmt(kategori.totalDocs)} kategori`, href: '/admin/collections/categories', yeni: '/admin/collections/categories/create', i: 'kategori', a: 'kategoriler' },
+      { t: 'Yazarlar', d: `${fmt(yazar.totalDocs)} yazar`, href: '/admin/collections/authors', yeni: '/admin/collections/authors/create', i: 'yazar', a: 'yazarlar' },
     ] },
     { grup: 'Pazarlama', kartlar: [
-      { t: 'Aktif ve Pasif İlanlar', d: `${fmt(ilanAktif.totalDocs)} aktif, ${fmt(ilanTum.totalDocs - ilanAktif.totalDocs)} pasif`, href: '/admin/ilanlar', yeni: '/admin/collections/popups/create', i: 'ilan' },
-      { t: 'Analitik', d: `${fmt(tr('visitor'))} tekil ziyaretçi · son 7 gün`, href: '/admin/analitik', i: 'analitik' },
+      { t: 'Aktif ve Pasif İlanlar', d: `${fmt(ilanAktif.totalDocs)} aktif, ${fmt(ilanTum.totalDocs - ilanAktif.totalDocs)} pasif`, href: '/admin/ilanlar', yeni: '/admin/collections/popups/create', i: 'ilan', a: 'ilanlar' },
+      { t: 'Analitik', d: `${fmt(tr('visitor'))} tekil ziyaretçi · son 7 gün`, href: '/admin/analitik', i: 'analitik', a: 'analitik' },
     ] },
     { grup: 'İçerik ve ayarlar', kartlar: [
-      { t: 'Görseller', d: `${fmt(gorsel.totalDocs)} görsel`, href: '/admin/collections/media', yeni: '/admin/collections/media/create', i: 'gorsel' },
-      { t: 'Kullanıcılar', d: `${fmt(kullanici.totalDocs)} kullanıcı`, href: '/admin/collections/users', yeni: '/admin/collections/users/create', i: 'kullanici' },
+      { t: 'Görseller', d: `${fmt(gorsel.totalDocs)} görsel`, href: '/admin/collections/media', yeni: '/admin/collections/media/create', i: 'gorsel', a: 'gorseller' },
+      { t: 'Kullanıcılar', d: `${fmt(kullanici.totalDocs)} kullanıcı`, href: '/admin/collections/users', yeni: '/admin/collections/users/create', i: 'kullanici', a: 'yonetici' },
     ] },
   ]
+  const erisim = ERISIM_TUM.map((g) => ({ ...g, kartlar: g.kartlar.filter((k) => (k.a === 'yonetici' ? tamYetkili(user as never) : y(k.a as Alan))) })).filter((g) => g.kartlar.length)
   return (
     <div className="kb-dash">
       <section className="kb-hero">
@@ -74,14 +78,14 @@ export async function Dashboard({ payload, user }: ServerProps) {
           <p>Blog yazılarını, sitedeki ilanları ve ziyaret analitiğini buradan yönetin. Yayınladığınız yazı birkaç saniye içinde sitede görünür.</p>
         </div>
         <div className="kb-actions">
-          <a className="kb-btn kb-btn-light" href="/admin/collections/posts/create">+ Yeni yazı</a>
-          <a className="kb-btn kb-btn-ghost" href="/admin/collections/popups/create">+ İlan oluştur</a>
+          {y('yazilar') && <a className="kb-btn kb-btn-light" href="/admin/collections/posts/create">+ Yeni yazı</a>}
+          {y('ilanlar') && <a className="kb-btn kb-btn-ghost" href="/admin/collections/popups/create">+ İlan oluştur</a>}
           <a className="kb-btn kb-btn-ghost" href="/" target="_blank" rel="noopener">Siteyi görüntüle ↗</a>
         </div>
       </section>
 
       <section className="kb-stats">
-        {stats.map((s) => (
+        {stats.filter((s) => y(s.a)).map((s) => (
           <a key={s.l} className="kb-stat" href={s.href}>
             <b>{s.n.toLocaleString('tr-TR')}</b>
             <span>{s.l}</span>
@@ -89,7 +93,7 @@ export async function Dashboard({ payload, user }: ServerProps) {
         ))}
       </section>
 
-      <section className="kb-recent">
+      {y('yazilar') && <section className="kb-recent">
         <div className="kb-recent-head">
           <h2>Son düzenlenen yazılar</h2>
           <a href="/admin/collections/posts">Tümünü gör →</a>
@@ -114,10 +118,10 @@ export async function Dashboard({ payload, user }: ServerProps) {
             )
           })}
         </div>
-      </section>
+      </section>}
 
       <section className="kb-quick" aria-label="Hızlı erişim">
-        {ERISIM.map((g) => (
+        {erisim.map((g) => (
           <div key={g.grup} className="kb-quick-group">
             <h2>{g.grup}</h2>
             <div className="kb-quick-list">

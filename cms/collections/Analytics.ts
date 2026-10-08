@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { yazabilir, yonetici } from '../access'
 
 // Çerezsiz site analitiği: günlük toplamlar. Her satır bir "kova"dır (gün + tür + sayfa + ilan + olay + cihaz + kaynak)
 // ve /collect isteği geldiğinde sayacı 1 artırılır (cms/analytics.ts). Ziyaretçiye ait hiçbir kişisel veri tutulmaz.
@@ -6,7 +7,7 @@ import type { CollectionConfig } from 'payload'
 export const Analytics: CollectionConfig = {
   slug: 'analytics',
   labels: { singular: 'Analitik kaydı', plural: 'Analitik kayıtları' },
-  access: { read: ({ req }) => !!req.user, create: () => false, update: () => false, delete: ({ req }) => !!req.user },
+  access: { read: yazabilir('analitik', 'bulunamayan', 'ilanlar'), create: () => false, update: () => false, delete: yonetici },
   admin: { group: false, useAsTitle: 'bucket' },
   timestamps: true,
   fields: [

@@ -19,7 +19,7 @@ const payload = await getPayload({ config })
 for (const u of rows) {
   const found = await payload.find({ collection: 'users', where: { email: { equals: u.email } }, limit: 1, depth: 0 })
   // Geçici rastgele şifreyle oluşturulur, hemen ardından yerel hash/salt yazılır (eski şifre geçerli olur)
-  const id = found.docs[0]?.id ?? (await payload.create({ collection: 'users', data: { email: u.email, name: u.name ?? undefined, password: randomBytes(24).toString('hex') } })).id
+  const id = found.docs[0]?.id ?? (await payload.create({ collection: 'users', data: { email: u.email, name: u.name ?? undefined, role: 'admin', password: randomBytes(24).toString('hex') } })).id
   await payload.db.updateOne({ collection: 'users', where: { id: { equals: id } }, data: { hash: u.hash, salt: u.salt } })
   console.log('✓', u.email)
 }

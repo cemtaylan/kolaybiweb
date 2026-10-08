@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
 import { revalidatePath } from 'next/cache'
 import { SITE_PAGES } from '../pages'
+import { yazabilir } from '../access'
 
 // Açılır pencereler: 6 tasarım, sayfa/cihaz/zamanlama hedefleme. Sitede /js/popups.js gösterir,
 // verisini /popups.json'dan alır. Bir sayfa görüntülemesinde en fazla bir pencere çıkar (önceliği yüksek olan).
@@ -16,7 +17,7 @@ export const DESIGNS = [
 export const Popups: CollectionConfig = {
   slug: 'popups',
   labels: { singular: 'İlan', plural: 'İlanlar' },
-  access: { read: ({ req }) => (req.user ? true : { active: { equals: true } }) },
+  access: { read: ({ req }) => (req.user ? true : { active: { equals: true } }), create: yazabilir('ilanlar'), update: yazabilir('ilanlar'), delete: yazabilir('ilanlar') },
   admin: {
     useAsTitle: 'name',
     group: false, // menüde Pazarlama > İlan oluştur / Aktif ve Pasif İlanlar (cms/admin/PopupNavLink)

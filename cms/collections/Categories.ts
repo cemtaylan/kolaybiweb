@@ -1,10 +1,12 @@
 import type { CollectionConfig } from 'payload'
+import { gizle, yazabilir } from '../access'
 
 export const Categories: CollectionConfig = {
   slug: 'categories',
   labels: { singular: 'Kategori', plural: 'Kategoriler' },
-  access: { read: () => true },
-  admin: { useAsTitle: 'title', group: 'Blog', defaultColumns: ['title', 'slug', 'theme', 'order'] },
+  access: { read: () => true, create: yazabilir('kategoriler'), update: yazabilir('kategoriler'), delete: yazabilir('kategoriler') },
+  admin: {
+    hidden: gizle('kategoriler'), useAsTitle: 'title', group: 'Blog', defaultColumns: ['title', 'slug', 'theme', 'order'] },
   defaultSort: 'order',
   fields: [
     { name: 'title', type: 'text', label: 'Ad', required: true, admin: { description: 'Sitede görünen ad, örn. e-Fatura' } },

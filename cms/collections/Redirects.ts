@@ -1,5 +1,6 @@
 import type { CollectionConfig, FieldHook } from 'payload'
 import { revalidatePath } from 'next/cache'
+import { yazabilir } from '../access'
 
 // Adres yönlendirmeleri: eski ya da kırık bir adrese gelen ziyaretçiyi yeni adrese gönderir (proxy.ts uygular).
 // Liste /redirects.json'dan okunur ve sunucuda 60 sn önbelleklenir; kaydedince en geç 1 dk içinde geçerli olur.
@@ -23,7 +24,7 @@ const refresh = () => { try { revalidatePath('/redirects.json') } catch { /* bet
 export const Redirects: CollectionConfig = {
   slug: 'redirects',
   labels: { singular: 'Yönlendirme', plural: 'Yönlendirmeler' },
-  access: { read: ({ req }) => (req.user ? true : { active: { equals: true } }) },
+  access: { read: ({ req }) => (req.user ? true : { active: { equals: true } }), create: yazabilir('yonlendirmeler', 'bulunamayan'), update: yazabilir('yonlendirmeler'), delete: yazabilir('yonlendirmeler') },
   admin: {
     group: false, // menüde SEO > Yönlendirmeler (cms/admin/PopupNavLink)
     useAsTitle: 'from',

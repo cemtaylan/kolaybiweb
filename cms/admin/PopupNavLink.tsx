@@ -4,8 +4,11 @@
 import { useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { NavGroup, useNav, useWindowInfo } from '@payloadcms/ui'
+import { NavGroup, useAuth, useNav, useWindowInfo } from '@payloadcms/ui'
+import { type Alan, yetkili } from '../access'
 import { Mark } from './Brand'
+
+type NavItem = { alan: Alan; id: string; href: string; l: string; on: (p: string) => boolean }
 
 // Payload menüyü 1440 px ve altında kapalı açar. Masaüstünde (1024 px üstü) açık gelsin;
 // kullanıcı menü düğmesiyle kapatırsa bu tarayıcıda kapalı kalsın.
@@ -34,22 +37,25 @@ function useNavAcik() {
   }, [])
 }
 
-const SEO = [
-  { id: 'nav-kb-yonlendirme', href: '/admin/collections/redirects', l: 'Yönlendirmeler', on: (p: string) => p.startsWith('/admin/collections/redirects') },
-  { id: 'nav-kb-404', href: '/admin/404', l: 'Bulunamayan sayfalar', on: (p: string) => p.startsWith('/admin/404') },
+const SEO: NavItem[] = [
+  { alan: 'yonlendirmeler', id: 'nav-kb-yonlendirme', href: '/admin/collections/redirects', l: 'Yönlendirmeler', on: (p: string) => p.startsWith('/admin/collections/redirects') },
+  { alan: 'bulunamayan', id: 'nav-kb-404', href: '/admin/404', l: 'Bulunamayan sayfalar', on: (p: string) => p.startsWith('/admin/404') },
 ]
-const LINKS = [
-  { id: 'nav-kb-ilan-olustur', href: '/admin/collections/popups/create', l: 'İlan oluştur', on: (p: string) => p.startsWith('/admin/collections/popups') },
-  { id: 'nav-kb-ilanlar', href: '/admin/ilanlar', l: 'Aktif ve Pasif İlanlar', on: (p: string) => p.startsWith('/admin/ilanlar') },
-  { id: 'nav-kb-analitik', href: '/admin/analitik', l: 'Analitik', on: (p: string) => p.startsWith('/admin/analitik') },
+const LINKS: NavItem[] = [
+  { alan: 'ilanlar', id: 'nav-kb-ilan-olustur', href: '/admin/collections/popups/create', l: 'İlan oluştur', on: (p: string) => p.startsWith('/admin/collections/popups') },
+  { alan: 'ilanlar', id: 'nav-kb-ilanlar', href: '/admin/ilanlar', l: 'Aktif ve Pasif İlanlar', on: (p: string) => p.startsWith('/admin/ilanlar') },
+  { alan: 'analitik', id: 'nav-kb-analitik', href: '/admin/analitik', l: 'Analitik', on: (p: string) => p.startsWith('/admin/analitik') },
 ]
 
-type NavItem = { id: string; href: string; l: string; on: (p: string) => boolean }
 function Group({ label, items, path }: { label: string; items: NavItem[]; path: string }) {
+  // yalnızca yetkili olunan bağlantılar; hiçbiri yoksa bölüm gösterilmez
+  const { user } = useAuth()
+  const izinli = items.filter((x) => yetkili(user as never, x.alan))
+  if (!izinli.length) return null
   return (
     <div className="kb-navgroup">
       <NavGroup label={label}>
-        {items.map((x) => {
+        {izinli.map((x) => {
           const on = x.on(path)
           return (
             <Link key={x.href} id={x.id} href={x.href} className="nav__link" prefetch={false} aria-current={on ? 'page' : undefined}>

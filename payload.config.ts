@@ -6,6 +6,7 @@ import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { tr } from '@payloadcms/translations/languages/tr'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import sharp from 'sharp'
 
 import { Users } from './cms/collections/Users'
@@ -47,6 +48,22 @@ export default buildConfig({
   i18n: { supportedLanguages: { tr }, fallbackLanguage: 'tr' },
   collections: [Posts, Categories, Authors, Popups, Analytics, Redirects, Media, Users],
   editor: lexicalEditor({ features: editorFeatures }),
+  // Panel e-postaları (şifremi unuttum, kullanıcı daveti): Yandex 360 SMTP. Ortam değişkenleri yoksa e-posta konsola yazılır.
+  // SMTP_USER: gönderen @kolaybi.com kutusu, SMTP_PASS: o kutunun Yandex uygulama şifresi (Vercel'de "sensitive" eklenir)
+  ...(process.env.SMTP_USER && process.env.SMTP_PASS
+    ? {
+        email: nodemailerAdapter({
+          defaultFromAddress: process.env.SMTP_FROM || process.env.SMTP_USER,
+          defaultFromName: 'KolayBi CMS',
+          transportOptions: {
+            host: process.env.SMTP_HOST || 'smtp.yandex.com',
+            port: Number(process.env.SMTP_PORT || 465),
+            secure: (process.env.SMTP_PORT || '465') === '465',
+            auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+          },
+        }),
+      }
+    : {}),
   // Yayında Postgres (Vercel Postgres / Neon), yerelde tek dosyalık SQLite
   db: DB.startsWith('postgres')
     ? postgresAdapter({ pool: { connectionString: DB } })

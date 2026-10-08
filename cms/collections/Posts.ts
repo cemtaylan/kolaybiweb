@@ -1,14 +1,16 @@
 import type { CollectionConfig } from 'payload'
 import { revalidatePath } from 'next/cache'
 import { readingTime, slugFromTitle } from '../hooks'
+import { gizle, yazabilir } from '../access'
 
 // Blog yazıları. Taslak → yayın akışı açık; yayınlanan yazı /blog/<slug> adresinde görünür.
 // Gövdenin ortasındaki deneme kutusu (inline CTA) şablon tarafından eklenir, burada saklanmaz.
 export const Posts: CollectionConfig = {
   slug: 'posts',
   labels: { singular: 'Yazı', plural: 'Yazılar' },
-  access: { read: ({ req }) => (req.user ? true : { _status: { equals: 'published' } }) },
+  access: { read: ({ req }) => (req.user ? true : { _status: { equals: 'published' } }), create: yazabilir('yazilar'), update: yazabilir('yazilar'), delete: yazabilir('yazilar') },
   admin: {
+    hidden: gizle('yazilar'),
     useAsTitle: 'title',
     group: 'Blog',
     defaultColumns: ['cover', 'title', 'category', 'publishedAt', '_status'],
