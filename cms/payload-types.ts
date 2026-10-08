@@ -264,7 +264,7 @@ export interface Author {
   createdAt: string;
 }
 /**
- * Sitede açılan duyuru ve kampanya pencereleri. Bir sayfada aynı anda en fazla bir pencere gösterilir; birden çok pencere uyarsa önceliği yüksek olan çıkar.
+ * Sitede açılan duyuru ve kampanya ilanları. Aynı tasarımdan istediğiniz kadar ilan oluşturabilirsiniz. Bir sayfada aynı anda en fazla bir ilan gösterilir; birden çok ilan uyarsa önceliği yüksek olan çıkar.
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "popups".

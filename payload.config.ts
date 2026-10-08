@@ -32,7 +32,7 @@ export default buildConfig({
       beforeDashboard: ['/cms/admin/Dashboard#Dashboard'],
       beforeNavLinks: ['/cms/admin/PopupNavLink#PopupNavLink'],
       views: {
-        popupBoard: { Component: '/cms/admin/PopupBoardView#PopupBoardView', path: '/pencereler', meta: { title: 'Açılır pencere yönetimi' } },
+        popupBoard: { Component: '/cms/admin/PopupBoardView#PopupBoardView', path: '/ilanlar', meta: { title: 'Aktif ve Pasif İlanlar' } },
       },
     },
     importMap: { baseDir: dirname },

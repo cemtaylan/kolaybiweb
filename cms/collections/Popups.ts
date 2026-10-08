@@ -15,13 +15,13 @@ export const DESIGNS = [
 
 export const Popups: CollectionConfig = {
   slug: 'popups',
-  labels: { singular: 'Açılır pencere', plural: 'Açılır pencereler' },
+  labels: { singular: 'İlan', plural: 'İlanlar' },
   access: { read: ({ req }) => (req.user ? true : { active: { equals: true } }) },
   admin: {
     useAsTitle: 'name',
-    group: 'Pazarlama',
+    group: false, // menüde Pazarlama > İlan oluştur / Aktif ve Pasif İlanlar (cms/admin/PopupNavLink)
     defaultColumns: ['name', 'design', 'show', 'active', 'priority'],
-    description: 'Sitede açılan duyuru ve kampanya pencereleri. Bir sayfada aynı anda en fazla bir pencere gösterilir; birden çok pencere uyarsa önceliği yüksek olan çıkar.',
+    description: 'Sitede açılan duyuru ve kampanya ilanları. Aynı tasarımdan istediğiniz kadar ilan oluşturabilirsiniz. Bir sayfada aynı anda en fazla bir ilan gösterilir; birden çok ilan uyarsa önceliği yüksek olan çıkar.',
   },
   hooks: {
     afterChange: [() => { try { revalidatePath('/popups.json') } catch { /* betik bağlamı */ } }],

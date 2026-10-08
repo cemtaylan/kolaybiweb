@@ -38,7 +38,7 @@ export function PopupBoard() {
 
   const yukle = useCallback(async () => {
     const r = await fetch('/api/popups?limit=200&depth=0&sort=-priority', { credentials: 'include' })
-    if (!r.ok) return setHata('Pencereler yüklenemedi.')
+    if (!r.ok) return setHata('İlanlar yüklenemedi.')
     setDocs((await r.json()).docs)
   }, [])
   useEffect(() => { yukle() }, [yukle])
@@ -109,14 +109,14 @@ export function PopupBoard() {
     <div className="kb-pb">
       <header className="kb-pb-head">
         <div>
-          <h1>Açılır pencere yönetimi</h1>
-          <p>Anahtarla pencereyi açıp kapatın. Aynı tasarımdan istediğiniz kadar ilan oluşturabilirsiniz; Çoğalt ile var olan bir pencereyi kopyalayıp düzenleyin. Tarihleri boş bırakırsanız pencere süresiz yayında kalır. Değişiklikler sitede en geç 5 dakika içinde görünür.</p>
+          <h1>Aktif ve Pasif İlanlar</h1>
+          <p>Anahtarla ilanı açıp kapatın. Aynı tasarımdan istediğiniz kadar ilan oluşturabilirsiniz; Çoğalt ile var olan bir ilanı kopyalayıp düzenleyin. Tarihleri boş bırakırsanız ilan süresiz yayında kalır. Değişiklikler sitede en geç 5 dakika içinde görünür.</p>
         </div>
-        <a className="kb-btn kb-btn-primary" href="/admin/collections/popups/create">+ Yeni pencere</a>
+        <a className="kb-btn kb-btn-primary" href="/admin/collections/popups/create">+ İlan oluştur</a>
       </header>
       {hata && <p className="kb-pb-err" role="alert">{hata}</p>}
-      <Bolum baslik="Aktif" list={aktif} bos="Şu an aktif pencere yok." />
-      <Bolum baslik="Pasif" list={pasif} bos="Pasif pencere yok." />
+      <Bolum baslik="Aktif" list={aktif} bos="Şu an aktif ilan yok." />
+      <Bolum baslik="Pasif" list={pasif} bos="Pasif ilan yok." />
     </div>
   )
 }

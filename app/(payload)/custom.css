@@ -154,11 +154,10 @@ h1, h2, h3, h4, .doc-header__title, .list-header h1 { font-family: 'Plus Jakarta
 .kb-pp-skel p { height: 12px; border-radius: 6px; background: #EEF0F5; margin: 0; }
 .kb-pp-skel p.s { width: 55%; }
 
-/* Sol menü: açılır pencere yönetimi bağlantısı */
-.kb-navlink { display: flex; align-items: center; gap: 10px; margin: 0 0 14px; padding: 10px 12px; border-radius: 12px; background: var(--kb-blue-50); color: var(--kb-blue); font-weight: 600; font-size: 14px; text-decoration: none; transition: background .15s; }
-.kb-navlink:hover { background: var(--kb-blue-100); }
-.kb-navlink.is-on { background: var(--kb-blue); color: #fff; }
-.kb-navlink svg { flex-shrink: 0; width: 18px; height: 18px; }
+/* Sol menü: Pazarlama grubu (PopupNavLink) Blog grubunun hemen altında */
+.nav__wrap > * { order: 2; }
+.nav__wrap > .kb-navgroup + .nav-group { order: 0; }
+.nav__wrap > .kb-navgroup { order: 1; width: 100%; }
 
 /* Açılır pencere yönetimi (/admin/pencereler) */
 .kb-pb { display: grid; gap: 24px; padding: 28px 0 60px; }

@@ -1,4 +1,4 @@
-// /admin/pencereler: tüm açılır pencereler tek sayfada, aktif ve pasif olarak ayrılmış.
+// /admin/ilanlar: tüm açılır pencereler tek sayfada, aktif ve pasif olarak ayrılmış.
 // Panelin standart çerçevesi (sol menü, üst bar) içinde gösterilir; içerik istemci tarafında yönetilir.
 import type { AdminViewServerProps } from 'payload'
 import { DefaultTemplate } from '@payloadcms/next/templates'
@@ -8,7 +8,7 @@ import { PopupBoard } from './PopupBoard'
 
 export function PopupBoardView({ initPageResult, params, searchParams }: AdminViewServerProps) {
   const { req, locale, permissions, visibleEntities } = initPageResult
-  if (!req.user) redirect('/admin/login?redirect=/admin/pencereler')
+  if (!req.user) redirect('/admin/login?redirect=/admin/ilanlar')
   return (
     <DefaultTemplate
       i18n={req.i18n} locale={locale} params={params} payload={req.payload} permissions={permissions}

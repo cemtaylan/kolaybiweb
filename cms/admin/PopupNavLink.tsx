@@ -1,13 +1,30 @@
 'use client'
-// Sol menüde "Açılır pencere yönetimi" bağlantısı
+// Sol menüde "Pazarlama" grubu: İlan oluştur ve Aktif ve Pasif İlanlar.
+// İlanlar koleksiyonu menüden gizli (group: false); grup CSS ile Blog grubunun altına yerleşir.
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { NavGroup } from '@payloadcms/ui'
+
+const LINKS = [
+  { href: '/admin/collections/popups/create', l: 'İlan oluştur', on: (p: string) => p.startsWith('/admin/collections/popups') },
+  { href: '/admin/ilanlar', l: 'Aktif ve Pasif İlanlar', on: (p: string) => p.startsWith('/admin/ilanlar') },
+]
 
 export function PopupNavLink() {
-  const on = usePathname()?.startsWith('/admin/pencereler')
+  const path = usePathname() || ''
   return (
-    <a href="/admin/pencereler" className={`kb-navlink${on ? ' is-on' : ''}`} aria-current={on ? 'page' : undefined}>
-      <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="3.5" width="15" height="13" rx="2.5" fill="none" stroke="currentColor" strokeWidth="1.6" /><rect x="6" y="7" width="8" height="6" rx="1.2" fill="currentColor" /></svg>
-      Açılır pencere yönetimi
-    </a>
+    <div className="kb-navgroup">
+      <NavGroup label="Pazarlama">
+        {LINKS.map((x) => {
+          const on = x.on(path)
+          return (
+            <Link key={x.href} href={x.href} className="nav__link" prefetch={false} aria-current={on ? 'page' : undefined}>
+              {on && <div className="nav__link-indicator" />}
+              <span className="nav__link-label">{x.l}</span>
+            </Link>
+          )
+        })}
+      </NavGroup>
+    </div>
   )
 }
