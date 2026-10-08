@@ -69,6 +69,53 @@
 .inline-cta span { font-size: 14.5px; color: var(--ink-2); }
 .prose .inline-cta a.btn { color: #fff; text-decoration: none; }
 
+/* Yazara açık çağrı kutuları (CMS > yazı içi "Çağrı kutusu"): sitedeki .inline-cta, .final-cta ve .side-cta tasarımları, ürün renk temasıyla */
+.prose .bcta a.btn { text-decoration: none; }
+.prose .bcta a.btn-primary { color: #fff; background: var(--c-accent); }
+.prose .bcta a.btn-light { color: var(--navy); }
+.bcta b em { font-style: normal; }
+.inline-cta.bcta b span { font-size: inherit; color: inherit; } /* başlıktaki e-kelimeleri (.nw) küçülmesin */
+.prose .side-cta.bcta b, .prose .final-cta.bcta b { color: #fff; }
+.bcta .note { text-align: left; }
+.bcta-act { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.bcta .note { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; font-size: 13px; line-height: 1.4; color: var(--muted); }
+.bcta .note svg { flex-shrink: 0; width: 16px; height: 16px; color: var(--green); }
+/* Açık kutu: blog ara kutusu, renk temaya göre */
+.inline-cta.bcta { background: linear-gradient(135deg, var(--bg-a), color-mix(in srgb, var(--bg-b) 60%, #fff)); border-color: color-mix(in srgb, var(--c-accent) 18%, transparent); }
+.inline-cta.bcta > div:first-child { flex: 1 1 320px; }
+.inline-cta.bcta b { margin-bottom: 4px; font-size: 20px; line-height: 1.25; }
+.inline-cta.bcta b em { color: var(--c-accent); }
+/* Koyu bant: sayfa sonu kapanışı, yazı genişliğine uyarlanmış */
+.final-cta.bcta { display: block; margin: 2.6em 0; padding: 48px 32px 40px; }
+.final-cta.bcta::before, .final-cta.bcta::after { background: radial-gradient(circle, color-mix(in srgb, var(--c-accent) 50%, transparent), transparent 70%); }
+.final-cta.bcta .bcta-h { display: block; font: 800 clamp(24px, 3vw, 34px)/1.15 var(--font-head); text-transform: uppercase; color: #fff; }
+.final-cta.bcta .bcta-h em { color: var(--accent); }
+.prose .final-cta.bcta p { max-width: 560px; margin: 14px auto 26px; font-size: 16.5px; color: rgba(255, 255, 255, .8); }
+.final-cta.bcta .note { display: flex; justify-content: center; margin-top: 16px; color: rgba(255, 255, 255, .7); }
+.final-cta.bcta .note svg { color: currentColor; }
+/* Koyu kart: blog yan sütun kutusu, yatay */
+.side-cta.bcta { display: flex; align-items: center; justify-content: space-between; gap: 18px 28px; flex-wrap: wrap; margin: 2.2em 0; padding: 26px 28px; }
+.side-cta.bcta > div:first-child { flex: 1 1 320px; }
+.side-cta.bcta b { font-size: 20px; }
+.side-cta.bcta b em { color: var(--logo-cyan); }
+.prose .side-cta.bcta p { margin: 8px 0 0; font-size: 14.5px; color: color-mix(in srgb, #fff 72%, transparent); }
+.side-cta.bcta .btn { width: auto; }
+.side-cta.bcta .note { color: rgba(255, 255, 255, .7); }
+.side-cta.bcta .note svg { color: var(--logo-cyan); }
+.side-cta.bcta.theme-jet, .final-cta.bcta.theme-jet { background: linear-gradient(135deg, var(--navy), var(--cyan-700)); }
+.side-cta.bcta.theme-link, .final-cta.bcta.theme-link { background: linear-gradient(135deg, var(--navy), var(--indigo-700)); }
+/* Tek buton */
+.prose .bbtn { margin: 1.6em 0; }
+.prose .bbtn--center { text-align: center; }
+.prose .bbtn a.btn { text-decoration: none; }
+.prose .bbtn a.bbtn-primary { background: var(--primary); color: #fff; box-shadow: 0 10px 24px -8px color-mix(in srgb, var(--blue-500) 55%, transparent); }
+.prose .bbtn a.bbtn-outline { border: 1.5px solid var(--navy); color: var(--navy); }
+.prose .bbtn a.bbtn-dark { background: var(--navy); color: #fff; }
+@media (max-width: 640px) {
+  .final-cta.bcta { padding: 36px 20px 30px; }
+  .inline-cta.bcta .bcta-act, .side-cta.bcta .bcta-act { width: 100%; }
+}
+
 /* Yazı sonu: SSS, yazar kutusu, önceki/sonraki */
 .ps-faq { margin-top: 48px; max-width: 760px; }
 .ps-faq h2 { font: 800 26px var(--font-head); color: var(--navy); margin-bottom: 16px; }

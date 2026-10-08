@@ -197,7 +197,6 @@ export interface Media {
    * Görme engelli kullanıcılar ve Google için görselin kısa açıklaması
    */
   alt?: string | null;
-  _objectKey?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -592,7 +591,6 @@ export interface AnalyticsSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
-  _objectKey?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -702,6 +700,45 @@ export interface CollectionsWidget {
     [k: string]: unknown;
   };
   width: 'full';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CtaBlock".
+ */
+export interface CtaBlock {
+  preset: 'deneme' | 'efatura' | 'jet' | 'banka' | 'ai' | 'link' | 'iletisim' | 'ozel';
+  style: 'acik' | 'koyu' | 'kart';
+  /**
+   * Boşsa hazır CTA’nın rengi
+   */
+  theme?: ('ofis' | 'jet' | 'banka' | 'link') | null;
+  /**
+   * Vurgulamak istediğiniz kısmı *yıldız* arasına yazın
+   */
+  title?: string | null;
+  text?: string | null;
+  button?: string | null;
+  link?: string | null;
+  /**
+   * Örn. "Kredi kartı istenmez, deneme sonunda otomatik ödeme alınmaz." Notu tamamen gizlemek için - yazın.
+   */
+  note?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'cta';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ButtonBlock".
+ */
+export interface ButtonBlock {
+  text: string;
+  link: string;
+  variant: 'primary' | 'outline' | 'dark';
+  align: 'left' | 'center';
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'button';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
