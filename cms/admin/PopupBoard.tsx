@@ -2,6 +2,7 @@
 // Açılır pencere yönetimi: aktif ve pasif pencereler, yayın süreleri ve tek tıkla açma/kapatma.
 import { useCallback, useEffect, useState } from 'react'
 import type { Popup } from '@/cms/payload-types'
+import type { PopupStat } from '../analytics'
 
 const TASARIM: Record<string, string> = { klasik: 'Klasik', 'yan-gorsel': 'Yan görselli', kose: 'Köşe kartı', serit: 'Alt şerit', 'tam-ekran': 'Tam ekran', 'yan-panel': 'Yan panel' }
 const CIHAZ: Record<string, string> = { all: 'Tüm cihazlar', desktop: 'Masaüstü', mobile: 'Mobil' }
@@ -31,7 +32,7 @@ const nerede = (p: Popup) => {
 }
 const ne_zaman = (p: Popup) => (p.trigger === 'scroll' ? `%${p.scroll ?? 50} kaydırınca` : p.trigger === 'exit' ? 'Sayfadan çıkarken' : `${p.delay ?? 5} sn sonra`)
 
-export function PopupBoard() {
+export function PopupBoard({ stats = {} }: { stats?: Record<number, PopupStat> }) {
   const [docs, setDocs] = useState<Popup[] | null>(null)
   const [busy, setBusy] = useState<number | null>(null)
   const [hata, setHata] = useState('')
@@ -65,6 +66,7 @@ export function PopupBoard() {
 
   const Satir = ({ p }: { p: Popup }) => {
     const d = durum(p)
+    const st = stats[p.id]
     return (
       <li className={`kb-pb-row${busy === p.id ? ' is-busy' : ''}`}>
         <label className="kb-pb-switch" title={p.active ? 'Pasif yap' : 'Aktif yap'}>
@@ -81,6 +83,7 @@ export function PopupBoard() {
             {typeof p.priority === 'number' && p.priority !== 0 && <span>Öncelik {p.priority}</span>}
           </div>
           <span className={`kb-pb-state is-${d.cls}`}>{d.l}</span>
+          {st && <span className="kb-pb-stat" title="Son 30 gün">Son 30 gün: <b>{st.views.toLocaleString('tr-TR')}</b> görüntüleme · <b>{st.clicks.toLocaleString('tr-TR')}</b> tıklama · tıklama oranı <b>{st.views ? `%${((st.clicks / st.views) * 100).toLocaleString('tr-TR', { maximumFractionDigits: 1 })}` : '–'}</b></span>}
         </div>
         <div className="kb-pb-dates">
           <label>Başlangıç

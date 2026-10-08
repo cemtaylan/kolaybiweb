@@ -71,6 +71,7 @@ export interface Config {
     categories: Category;
     authors: Author;
     popups: Popup;
+    analytics: Analytics;
     media: Media;
     users: User;
     'payload-kv': PayloadKv;
@@ -84,6 +85,7 @@ export interface Config {
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     authors: AuthorsSelect<false> | AuthorsSelect<true>;
     popups: PopupsSelect<false> | PopupsSelect<true>;
+    analytics: AnalyticsSelect<false> | AnalyticsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -195,6 +197,7 @@ export interface Media {
    * Görme engelli kullanıcılar ve Google için görselin kısa açıklaması
    */
   alt?: string | null;
+  _objectKey?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -346,6 +349,24 @@ export interface Popup {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "analytics".
+ */
+export interface Analytics {
+  id: number;
+  bucket: string;
+  day: string;
+  kind: string;
+  path: string;
+  popup?: number | null;
+  event: string;
+  device: string;
+  source?: string | null;
+  count: number;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -410,6 +431,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'popups';
         value: number | Popup;
+      } | null)
+    | ({
+        relationTo: 'analytics';
+        value: number | Analytics;
       } | null)
     | ({
         relationTo: 'media';
@@ -544,10 +569,28 @@ export interface PopupsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "analytics_select".
+ */
+export interface AnalyticsSelect<T extends boolean = true> {
+  bucket?: T;
+  day?: T;
+  kind?: T;
+  path?: T;
+  popup?: T;
+  event?: T;
+  device?: T;
+  source?: T;
+  count?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  _objectKey?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;

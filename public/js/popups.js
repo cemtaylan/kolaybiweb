@@ -1,6 +1,7 @@
 // Açılır pencereler: /popups.json'daki yayındaki pencerelerden bu sayfaya, cihaza ve tarihe uyan en yüksek öncelikli
 // olanı seçer; tetikleyici (süre / kaydırma / çıkış) gelince gösterir. Kapatma sıklık ayarına göre hatırlanır.
 import { MODAL, popupHTML } from './popup-markup.js?v=2'
+import { track } from './track.js?v=1'
 
 const path = location.pathname.replace(/\/+$/, '') || '/'
 const mobile = matchMedia('(max-width: 767px)').matches
@@ -42,7 +43,12 @@ function show(p) {
   const prevOverflow = document.documentElement.style.overflow
   if (modal) document.documentElement.style.overflow = 'hidden'
   requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('is-open')))
+  track({ t: 'popup', id: p.id, e: 'view' })
+  let closed = false
   const close = () => {
+    if (closed) return
+    closed = true
+    track({ t: 'popup', id: p.id, e: 'close' })
     remember(p)
     el.classList.remove('is-open')
     document.documentElement.style.overflow = prevOverflow
@@ -59,7 +65,7 @@ function show(p) {
   }
   addEventListener('keydown', onKey)
   el.querySelectorAll('[data-kbp-close]').forEach((b) => b.addEventListener('click', close))
-  el.querySelector('[data-kbp-cta]')?.addEventListener('click', () => remember(p))
+  el.querySelector('[data-kbp-cta]')?.addEventListener('click', () => { track({ t: 'popup', id: p.id, e: 'click' }); remember(p) })
   if (modal) setTimeout(() => el.querySelector('.kbp-x')?.focus(), 60)
 }
 

@@ -1,17 +1,47 @@
 'use client'
-// Sol menüde "Pazarlama" grubu: İlan oluştur ve Aktif ve Pasif İlanlar.
+// Sol menüde "Pazarlama" grubu: İlan oluştur, Aktif ve Pasif İlanlar, Analitik.
 // İlanlar koleksiyonu menüden gizli (group: false); grup CSS ile Blog grubunun altına yerleşir.
+import { useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { NavGroup } from '@payloadcms/ui'
+import { NavGroup, useNav, useWindowInfo } from '@payloadcms/ui'
+
+// Payload menüyü 1440 px ve altında kapalı açar. Masaüstünde (1024 px üstü) açık gelsin;
+// kullanıcı menü düğmesiyle kapatırsa bu tarayıcıda kapalı kalsın.
+const KAPALI = 'kb-nav-kapali'
+function useNavAcik() {
+  const { setNavOpen } = useNav()
+  const { breakpoints: { m: orta } } = useWindowInfo()
+  useEffect(() => {
+    if (orta !== false) return
+    let kapali = false
+    try { kapali = localStorage.getItem(KAPALI) === '1' } catch {}
+    if (kapali) return
+    const t = setTimeout(() => setNavOpen(true), 0) // Payload'ın kendi kapatmasından sonra çalışsın
+    return () => clearTimeout(t)
+  }, [orta, setNavOpen])
+  useEffect(() => {
+    const tik = (e: MouseEvent) => {
+      if (!(e.target as Element)?.closest?.('.nav-toggler')) return
+      setTimeout(() => {
+        const acik = document.querySelector('.template-default--nav-open') !== null
+        try { if (acik) localStorage.removeItem(KAPALI); else localStorage.setItem(KAPALI, '1') } catch {}
+      }, 50)
+    }
+    document.addEventListener('click', tik, true)
+    return () => document.removeEventListener('click', tik, true)
+  }, [])
+}
 
 const LINKS = [
   { href: '/admin/collections/popups/create', l: 'İlan oluştur', on: (p: string) => p.startsWith('/admin/collections/popups') },
   { href: '/admin/ilanlar', l: 'Aktif ve Pasif İlanlar', on: (p: string) => p.startsWith('/admin/ilanlar') },
+  { href: '/admin/analitik', l: 'Analitik', on: (p: string) => p.startsWith('/admin/analitik') },
 ]
 
 export function PopupNavLink() {
   const path = usePathname() || ''
+  useNavAcik()
   return (
     <div className="kb-navgroup">
       <NavGroup label="Pazarlama">
