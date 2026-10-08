@@ -780,3 +780,9 @@ body.vd-lock { overflow: hidden; }
 @keyframes scPaperM { 0%, 6% { left: calc(max(16px, 7%) + 100px); opacity: 0; } 12% { opacity: 1; } 80%, 94% { left: calc(100% - max(16px, 9%) - 86px); opacity: 1; } 100% { left: calc(100% - max(16px, 9%) - 86px); opacity: 0; } }
 @keyframes scFlyXm { 0%, 8% { left: calc(max(16px, 7%) + 76px); opacity: 0; } 14% { opacity: 1; } 70% { left: calc(100% - max(16px, 7%) - 104px); opacity: 1; } 78%, 100% { left: calc(100% - max(16px, 7%) - 104px); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .sc-fly, .sc-fly svg, .sc-check, .sc-arm, .sc-rope, .sc-paper, .sc-glide, .sc-glide > span { animation: none; } .sc-glide { opacity: 1; left: 40%; } .sc-fly { display: none; } .sc-desk-r .sc-check { opacity: 1; } }
+
+/* e-Arşiv: "GİB Portal mı, KolayBi mi?" — sağda ücretsiz portal rehberi kaynak olarak */
+.gib-vs { align-items: center; }
+.gib-vs-src { display: grid; gap: 12px; align-content: center; }
+.gib-vs-lbl { font: 700 13px var(--font-body); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.gib-vs-src .posts { grid-template-columns: 1fr; max-width: 440px; }
