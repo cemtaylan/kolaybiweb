@@ -8,7 +8,7 @@ import path from 'node:path'
 const ROOT = path.join(/*turbopackIgnore: true*/ process.cwd(), 'legacy')
 
 // React/CMS'e taşınan adresler: genel rota bunları üretmez (özel rota sunar)
-const MIGRATED = (slug: string[]) => slug[0] === 'blog' && slug.length === 2 // /blog/<yazı> → app/(site)/blog/[slug]
+const MIGRATED = (slug: string[]) => slug[0] === 'blog' && slug.length <= 2 // /blog → app/(site)/blog/page.tsx, /blog/<yazı> → [slug]
 
 // legacy/<yol>/index.html → ['yol', ...]; kök sayfa → []
 export function legacySlugs(dir = ROOT, prefix: string[] = []): string[][] {

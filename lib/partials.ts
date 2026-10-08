@@ -8,3 +8,4 @@ const read = (f: string) => readFileSync(path.join(DIR, f), 'utf8')
 
 export const blogHeader = () => read('blog-header.html')
 export const blogFooter = () => read('blog-footer.html')
+export const blogIndexBottom = () => read('blog-index-bottom.html')

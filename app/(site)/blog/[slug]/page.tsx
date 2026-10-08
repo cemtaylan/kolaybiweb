@@ -74,7 +74,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   return (
     <>
-      <link rel="stylesheet" href="/css/blog.css?v=2" precedence="default" />
+      <link rel="stylesheet" href="/css/blog.css?v=4" precedence="default" />
       <link rel="stylesheet" href="/css/post.css?v=5" precedence="default" />
       {ld && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld).replace(/</g, '\\u003c') }} />}
       <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: blogHeader() }} />
