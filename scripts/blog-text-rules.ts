@@ -25,10 +25,12 @@ export const YAZIM: [string, string][] = [
   ['ticarri', 'ticari'],
   ['ne olduğunua', 'ne olduğuna'],
   ['Güncel Sınırlar Neler Nelerdir?', 'Güncel Sınırlar Nelerdir?'],
+  // CMS'ten kalan alan etiketi
+  ['Meta Açıklama 593 Sıra', '593 Sıra'],
 ]
 
 // e-belge adları: e-Fatura, e-Arşiv, e-İrsaliye… (e-SMM kısaltma olarak kalır); ekler korunur (e-faturanın → e-Faturanın)
-const BELGE = ['fatura', 'arşiv', 'irsaliye', 'ihracat', 'imza', 'defter', 'beyanname', 'ticaret', 'dönüşüm', 'müstahsil', 'adisyon', 'bilet', 'döviz', 'belge']
+const BELGE = ['fatura', 'arşiv', 'irsaliye', 'ihracat', 'imza', 'defter', 'beyanname', 'ticaret', 'dönüşüm', 'müstahsil', 'adisyon', 'bilet', 'döviz', 'belge', 'haciz']
 const ilkBuyuk = (w: string) => (w[0] === 'i' ? 'İ' : w[0].toLocaleUpperCase('tr-TR')) + w.slice(1)
 const RE = new RegExp(`(?<![\\p{L}\\d/_.-])[eE]-(${BELGE.join('|')})`, 'giu')
 

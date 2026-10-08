@@ -1,6 +1,7 @@
 // /blog: yazı listesi CMS'ten, sunucuda üretilir. Sayfalama (?29587b79_page=2, canlı siteyle aynı), kategori (?kategori=…)
 // ve arama (?q=…) gerçek bağlantılardır; her sayfa kendi canonical adresini gösterir. Tasarım eski statik sayfayla aynıdır.
 import type { Metadata } from 'next'
+import { Fragment } from 'react'
 import { allPosts, cat, cms, isoDate, media, nowrap, REG, SITE, trDate } from '@/lib/blog'
 import { blogFooter, blogHeader, blogIndexBottom } from '@/lib/partials'
 import type { Category, Post } from '@/cms/payload-types'
@@ -184,7 +185,7 @@ export default async function BlogIndex({ searchParams }: { searchParams: SP }) 
             {toplam > 1 && (
               <nav className="bl-pager" aria-label="Sayfalar">
                 <a className={`pg-nav prev${page === 1 ? ' off' : ''}`} href={adres({ kat, q, page: page - 1 })} aria-label="Önceki sayfa" rel="prev"><I id="i-right" /><span>Önceki</span></a>
-                <div className="pg-nums">{SayfaNo(page, toplam).map((n, i) => n === '…' ? <span key={`g${i}`} className="pg-gap">…</span> : <a key={n} href={adres({ kat, q, page: n })} className={n === page ? 'on' : undefined} aria-current={n === page ? 'page' : undefined}>{n}</a>)}</div>
+                <div className="pg-nums">{SayfaNo(page, toplam).map((n, i) => <Fragment key={n === '…' ? `g${i}` : n}>{i > 0 && ' '}{n === '…' ? <span className="pg-gap" aria-hidden="true">…</span> : <a href={adres({ kat, q, page: n })} className={n === page ? 'on' : undefined} aria-current={n === page ? 'page' : undefined} aria-label={`Sayfa ${n}`}>{n}</a>}</Fragment>)}</div>
                 <a className={`pg-nav next${page === toplam ? ' off' : ''}`} href={adres({ kat, q, page: page + 1 })} aria-label="Sonraki sayfa" rel="next"><span>Sonraki</span><I id="i-right" /></a>
               </nav>
             )}
