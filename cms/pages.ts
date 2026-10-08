@@ -33,5 +33,10 @@ export const SITE_PAGES = [
   { label: 'e-İmza Programı (/e-imza-programi)', value: '/e-imza-programi' },
   { label: 'e-İrsaliye Programı (/e-irsaliye)', value: '/e-irsaliye' },
   { label: 'Ön Muhasebe Raporlama Programı (/on-muhasebe-raporlama-programi)', value: '/on-muhasebe-raporlama-programi' },
+  { label: 'Gizlilik Politikası (/gizlilik-politikasi)', value: '/gizlilik-politikasi' },
+  { label: 'Çerez Politikası (/cerez-politikasi)', value: '/cerez-politikasi' },
+  { label: 'Cayma Hakkı Metni (/cayma-hakki-metni)', value: '/cayma-hakki-metni' },
+  { label: 'Ticari Elektronik İleti Onay Metni (/ticari-elektronik-ileti)', value: '/ticari-elektronik-ileti' },
+  { label: 'Kişisel Verilerin Korunması (/kisisel-verilerin-korunmasi)', value: '/kisisel-verilerin-korunmasi' },
   { label: 'Tüm blog yazıları (/blog/*)', value: '/blog/*' },
 ] as const

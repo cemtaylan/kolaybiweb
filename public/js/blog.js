@@ -1,5 +1,6 @@
 // Blog listesi: kategori filtresi, arama ve sayfalama.
 // Sayfa adresi canlı siteyle aynı: /blog?29587b79_page=2 (sayfa başına 24 yazı).
+// /blog?kategori=e-fatura o kategoriyi seçili açar (eski /kategori/... adresleri buraya yönlenir).
 (function () {
   const grid = document.getElementById('posts');
   if (!grid) return;
@@ -12,7 +13,8 @@
   const pager = document.getElementById('blPager');
   const top = document.querySelector('.bl-top-wrap');
   const norm = s => s.toLocaleLowerCase('tr-TR');
-  let cat = 'all';
+  const ilkKat = new URLSearchParams(location.search).get('kategori');
+  let cat = ilkKat && cats.some(b => b.dataset.cat === ilkKat) ? ilkKat : 'all';
   let page = Math.max(1, parseInt(new URLSearchParams(location.search).get(KEY), 10) || 1);
 
   const href = n => n === 1 ? location.pathname : `${location.pathname}?${KEY}=${n}`;
@@ -46,8 +48,9 @@
         `<a href="${href(n)}" data-p="${n}"${n === page ? ' class="on" aria-current="page"' : ''}>${n}</a>`).join('') + `</div>` +
       `<a class="pg-nav next${page === total ? ' off' : ''}" href="${href(Math.min(total, page + 1))}" data-p="${page + 1}" aria-label="Sonraki sayfa"><span>Sonraki</span>${arrow}</a>`;
 
-    // Filtre/arama yokken adres çubuğu sayfayla eşleşir
+    // Filtre/arama yokken adres çubuğu sayfayla eşleşir; kategori seçiliyse adres o kategoriyi gösterir (paylaşılabilir)
     if (!filtered) history.replaceState(null, '', href(page));
+    else if (cat !== 'all' && !q) history.replaceState(null, '', `${location.pathname}?kategori=${cat}`);
     if (scroll) document.getElementById('tum-yazilar').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
@@ -64,5 +67,8 @@
   }));
   search.addEventListener('input', () => { page = 1; render(); });
   addEventListener('popstate', () => { page = Math.max(1, parseInt(new URLSearchParams(location.search).get(KEY), 10) || 1); render(); });
-  render();
+  if (cat !== 'all') {
+    cats.forEach(x => x.classList.toggle('is-active', x.dataset.cat === cat));
+    render(true);
+  } else render();
 })();

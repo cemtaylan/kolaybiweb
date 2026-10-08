@@ -73,6 +73,7 @@ export interface Config {
     popups: Popup;
     analytics: Analytics;
     redirects: Redirect;
+    pages: Page;
     media: Media;
     users: User;
     'payload-kv': PayloadKv;
@@ -88,6 +89,7 @@ export interface Config {
     popups: PopupsSelect<false> | PopupsSelect<true>;
     analytics: AnalyticsSelect<false> | AnalyticsSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
+    pages: PagesSelect<false> | PagesSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -339,6 +341,11 @@ export interface Popup {
         | '/e-imza-programi'
         | '/e-irsaliye'
         | '/on-muhasebe-raporlama-programi'
+        | '/gizlilik-politikasi'
+        | '/cerez-politikasi'
+        | '/cayma-hakki-metni'
+        | '/ticari-elektronik-ileti'
+        | '/kisisel-verilerin-korunmasi'
         | '/blog/*'
       )[]
     | null;
@@ -396,6 +403,43 @@ export interface Redirect {
   createdAt: string;
 }
 /**
+ * Gizlilik politikası, çerez politikası gibi metin sayfaları. Kaydettiğinizde sitede birkaç saniye içinde güncellenir.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: number;
+  title: string;
+  /**
+   * Sitedeki adres, örn. gizlilik-politikasi (değiştirilirse sayfa açılmaz; kod tarafında da aynı adres olmalı)
+   */
+  slug: string;
+  metaTitle?: string | null;
+  metaDescription?: string | null;
+  body?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * Doluysa metnin altında PDF gösterilir ve indirilebilir, örn. /docs/kvkk.pdf
+   */
+  pdf?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * Panele giriş yapabilen kişiler. "Seçili menüler" rolündeki kişi yalnızca işaretlediğiniz bölümleri görür ve düzenler.
  *
  * This interface was referenced by `Config`'s JSON-Schema
@@ -420,6 +464,7 @@ export interface User {
     yonlendirmeler?: boolean | null;
     bulunamayan?: boolean | null;
     gorseller?: boolean | null;
+    sayfalar?: boolean | null;
   };
   updatedAt: string;
   createdAt: string;
@@ -488,6 +533,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'redirects';
         value: number | Redirect;
+      } | null)
+    | ({
+        relationTo: 'pages';
+        value: number | Page;
       } | null)
     | ({
         relationTo: 'media';
@@ -654,6 +703,20 @@ export interface RedirectsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  metaTitle?: T;
+  metaDescription?: T;
+  body?: T;
+  pdf?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
@@ -713,6 +776,7 @@ export interface UsersSelect<T extends boolean = true> {
         yonlendirmeler?: T;
         bulunamayan?: T;
         gorseller?: T;
+        sayfalar?: T;
       };
   updatedAt?: T;
   createdAt?: T;

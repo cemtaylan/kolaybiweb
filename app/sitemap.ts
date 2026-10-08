@@ -8,11 +8,13 @@ import { SITE } from '@/lib/blog'
 
 export const revalidate = 3600
 
+const YASAL = new Set(['/gizlilik-politikasi', '/cerez-politikasi', '/cayma-hakki-metni', '/ticari-elektronik-ileti', '/kisisel-verilerin-korunmasi'])
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const sayfalar: MetadataRoute.Sitemap = SITE_PAGES.filter((p) => !p.value.includes('*')).map((p) => ({
     url: p.value === '/' ? `${SITE}/` : SITE + p.value,
-    changeFrequency: p.value === '/blog' ? 'daily' : 'weekly',
-    priority: p.value === '/' ? 1 : p.value === '/fiyatlar' ? 0.9 : 0.8,
+    changeFrequency: p.value === '/blog' ? 'daily' : YASAL.has(p.value) ? 'yearly' : 'weekly',
+    priority: p.value === '/' ? 1 : p.value === '/fiyatlar' ? 0.9 : YASAL.has(p.value) ? 0.3 : 0.8,
   }))
   const payload = await getPayload({ config })
   const r = await payload.find({ collection: 'posts', where: { _status: { equals: 'published' } }, pagination: false, limit: 5000, depth: 0, select: { slug: true, updatedAt: true }, sort: '-publishedAt' })
