@@ -21,7 +21,7 @@ export const allPosts = cache(async () => {
   // Liste/önceki-sonraki/ilgili yazılar için gövde gerekmez: yalnız kart alanları çekilir (gövde postBySlug'da)
   const r = await p.find({
     collection: 'posts', where: { _status: { equals: 'published' } }, limit: 1000, depth: 1, pagination: false,
-    select: { title: true, slug: true, description: true, publishedAt: true, category: true, cover: true },
+    select: { title: true, slug: true, description: true, publishedAt: true, category: true, cover: true, author: true },
   })
   // Tarihsiz yazılar sona (veritabanları boş tarihleri farklı sıralar; burada sabitlenir)
   return (r.docs as Post[]).sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''))

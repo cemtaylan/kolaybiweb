@@ -2,7 +2,7 @@
 // ve arama (?q=…) gerçek bağlantılardır; her sayfa kendi canonical adresini gösterir. Tasarım eski statik sayfayla aynıdır.
 import type { Metadata } from 'next'
 import { Fragment } from 'react'
-import { allPosts, cat, cms, isoDate, media, nowrap, REG, SITE, trDate } from '@/lib/blog'
+import { allPosts, author, cat, cms, isoDate, media, nowrap, REG, SITE, trDate } from '@/lib/blog'
 import { blogFooter, blogHeader, blogIndexBottom } from '@/lib/partials'
 import type { Category, Post } from '@/cms/payload-types'
 
@@ -58,7 +58,7 @@ function Kart({ p }: { p: Post }) {
     <article className={`post ${tema(p)}`} data-cat={c?.slug}>
       <div className="post-img">{gorsel(p, 'card') && <img src={gorsel(p, 'card')} alt="" loading="lazy" width={800} height={450} />}</div>
       <div className="post-body">
-        <div className="post-meta">{c && <span className="post-tag">{c.title}</span>}<span className="post-sep" aria-hidden="true">·</span><time dateTime={isoDate(p.publishedAt)}>{trDate(p.publishedAt)}</time></div>
+        <div className="post-meta">{c && <span className="post-tag">{c.title}</span>}<span className="post-sep" aria-hidden="true">·</span><time dateTime={isoDate(p.publishedAt)}>{trDate(p.publishedAt)}</time>{author(p) && <><span className="post-sep" aria-hidden="true">·</span><span className="post-author">{author(p)!.name}</span></>}</div>
         <h3><a href={`/blog/${p.slug}`} dangerouslySetInnerHTML={{ __html: nowrap(p.title.replace(/&/g, '&amp;').replace(/</g, '&lt;')) }} /></h3>
         {p.description && <Html as="p" html={p.description} />}
         <span className="more">Rehberi Okuyun<span className="sr-only">: {p.title}</span><I id="i-right" /></span>
@@ -113,7 +113,7 @@ export default async function BlogIndex({ searchParams }: { searchParams: SP }) 
 
   return (
     <>
-      <link rel="stylesheet" href="/css/blog.css?v=7" precedence="default" />
+      <link rel="stylesheet" href="/css/blog.css?v=8" precedence="default" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld).replace(/</g, '\\u003c') }} />
       <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: blogHeader() }} />
       <main>
@@ -149,7 +149,7 @@ export default async function BlogIndex({ searchParams }: { searchParams: SP }) 
                   <span className="bl-label"><i></i>Son yazı</span>
                   <h2><a href={`/blog/${one_cikan.slug}`} dangerouslySetInnerHTML={{ __html: nowrap(one_cikan.title.replace(/</g, '&lt;')) }} /></h2>
                   {one_cikan.description && <Html as="p" html={one_cikan.description} />}
-                  <div className="post-meta"><span className="post-tag">{cat(one_cikan)?.title}</span><span className="post-sep" aria-hidden="true">·</span><time dateTime={isoDate(one_cikan.publishedAt)}>{trDate(one_cikan.publishedAt)}</time></div>
+                  <div className="post-meta"><span className="post-tag">{cat(one_cikan)?.title}</span><span className="post-sep" aria-hidden="true">·</span><time dateTime={isoDate(one_cikan.publishedAt)}>{trDate(one_cikan.publishedAt)}</time>{author(one_cikan) && <><span className="post-sep" aria-hidden="true">·</span><span className="post-author">{author(one_cikan)!.name}</span></>}</div>
                 </div>
               </article>
               <div className="bl-side">

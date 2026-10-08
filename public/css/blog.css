@@ -113,3 +113,4 @@
 .bl-hero-cta .arr { width: 32px; height: 32px; }
 .bl-cats a, .bl-cats button { min-height: 44px; padding-top: 0; padding-bottom: 0; }
 .bl-hero-note { margin-top: 10px; font-size: 13px; color: color-mix(in srgb, #fff 60%, transparent); }
+.post-meta .post-author { font-size: 13px; color: var(--muted); }
