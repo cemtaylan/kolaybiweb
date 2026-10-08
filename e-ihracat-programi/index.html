@@ -61,10 +61,10 @@
   },
   {
    "@type": "Question",
-   "name": "Mikro ihracat faturası program üzerinden nasıl kesilir?",
+   "name": "Mikro ihracat faturası KolayBi üzerinden nasıl kesilir?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Mikro ihracat faturası oluştururken yurt dışındaki alıcının bilgileri, gönderilecek ürünler, ürün tutarları, para birimi ve teslimat bilgileri programa girilir. İhracatın KDV istisnasına uygun olması halinde ilgili istisna bilgisi seçilerek fatura oluşturulur.ETGB kapsamındaki mikro ihracatta gönderici e-Arşiv kullanıcısıysa fatura e-Arşiv Fatura olarak düzenlenir. Düzenlenen faturadaki ürün ve tutar bilgilerinin kargo operatörüne verilen ETGB bilgileriyle uyumlu olması önemlidir (Kaynak: eFatura Forum)."
+    "text": "KolayBi panelinde fatura oluştururken \"e-Arşiv Fatura\" tipini seçip KDV istisna kodunu (301) işaretleyin; yurt dışı alıcı bilgileri, para birimi ve ürün tutarları girildiğinde toplamlar ve kur çevrimleri otomatik hesaplanır. Faturayı tek tıkla oluşturup kargo operatörünüze iletebilir, ETGB süreciyle tam uyumlu e-Arşiv Faturanızı anında alıcınıza gönderebilirsiniz. Mevzuat gereği; ETGB (Elektronik Ticaret Gümrük Beyannamesi) kapsamındaki mikro ihracat satışlarında gönderici e-Arşiv kullanıcısıysa fatura e-Arşiv Fatura olarak düzenlenir. Ceza veya uyumsuzluk yaşanmaması adına, düzenlenen faturadaki ürün ve tutar bilgilerinin kargo firmasına bildirilen ETGB verileriyle tam olarak örtüşmesi gerekir."
    }
   },
   {
@@ -460,13 +460,15 @@
   <div class="container duty">
     <div class="duty-head">
       <h2><span class="nw">e-İhracat</span> faturası nedir, <span style="color:var(--primary)">ne zaman kullanılır?</span></h2>
-      <p>Yurt dışındaki alıcılara yapılan satışlar için düzenlenen faturadır; ayrı bir belge türü değil, <span class="nw">e-Fatura</span>’nın ihracata özel kullanımıdır.</p>
+      <p>Yurt dışındaki alıcılara yapılan satışlar için düzenlenen faturalardır. İhracatın türüne göre iki farklı fatura tipi kullanılır:</p>
+      <p><b>Gümrük Beyannameli İhracat (<span class="nw">e-Fatura</span>):</b> Tam beyannameli mal ihracatında, <span class="nw">e-Fatura</span> mükellefleri faturalarını &quot;İHRACAT&quot; senaryosuyla <span class="nw">e-Fatura</span> olarak düzenler.</p>
+      <p><b>ETGB'li Mikro İhracat (<span class="nw">e-Arşiv</span> Fatura):</b> Elektronik Ticaret Gümrük Beyannamesi (ETGB) ile yapılan mikro ihracat işlemlerinde faturalar &quot;<span class="nw">e-Arşiv</span> Fatura&quot; (KDV İstisnalı) olarak düzenlenir.</p>
     </div>
     <svg class="duty-arrow" viewBox="0 0 120 160" aria-hidden="true"><path class="dash" d="M6 20 C 70 20, 40 128, 108 120"/><path class="tip" d="M97 111 L109 120 L97 129"/></svg>
     <div class="duty-list">
         <div class="duty-row"><div><b>Yurt dışına mal satıyorsanız</b><span>Fiziksel ürün ihracatı</span></div><em class="duty-tag info"><span class="nw">e-İhracat</span></em></div>
         <div class="duty-row"><div><b>Yurt dışına hizmet veriyorsanız</b><span>Hizmet ihracatı</span></div><em class="duty-tag info"><span class="nw">e-İhracat</span></em></div>
-        <div class="duty-row"><div><b>Mikro ihracat yapıyorsanız</b><span><span class="nw">e-Ticaret</span> ile yurt dışına satış</span></div><em class="duty-tag info"><span class="nw">e-İhracat</span></em></div>
+        <div class="duty-row"><div><b>Mikro ihracat yapıyorsanız</b><span><span class="nw">e-Ticaret</span> ile yurt dışına satış</span></div><em class="duty-tag info"><span class="nw">e-Arşiv</span></em></div>
         <div class="duty-foot"><div><b>KDV istisnası için doğru belge</b><span><span class="nw">e-Fatura</span> mükellefiyseniz ihracat satışlarınızı bu faturayla belgeler, KDV istisnasından yararlanırsınız.</span></div><a href="https://app.kolaybi.com/?activeForm=register" class="btn btn-primary">14 Gün Ücretsiz Deneyin<span class="arr"><svg><use href="#i-arrow"/></svg></span></a></div>
     </div>
   </div>
@@ -642,6 +644,14 @@
         <tr><th>Gümrük işlemiyle ilişkisi var mı?</th><td class="me">Mal ihracatında gümrük beyannamesiyle ilişkilendirilir</td><td>Yok</td></tr>
       </tbody>
     </table></div>
+    <div class="cmp cmp-tur" style="margin-top:16px"><table>
+      <thead><tr><th>İhracat Türü</th><th>Belge Tipi</th><th>Beyanname Türü</th><th>Senaryo / Özellik</th></tr></thead>
+      <tbody>
+        <tr><th>Gümrük Beyannameli İhracat</th><td><span class="nw">e-Fatura</span></td><td>Standart Gümrük Beyannamesi</td><td>İHRACAT Senaryosu</td></tr>
+        <tr><th>Mikro İhracat</th><td><span class="nw">e-Arşiv</span> Fatura</td><td>ETGB (Kargo / Hızlı Kargo)</td><td>KDV İstisna Kodlu</td></tr>
+        <tr><th>Hizmet İhracatı</th><td><span class="nw">e-Fatura</span> / <span class="nw">e-Arşiv</span></td><td>Beyannamesiz / Muhtelif</td><td>İstisna / Özel Matrah</td></tr>
+      </tbody>
+    </table></div>
   </div>
 </section>
 
@@ -692,8 +702,8 @@
           <div class="faq-a" id="faq-a-4" role="region" aria-labelledby="faq-q-4"><div><p>Evet, ancak kullanılacak belge türü ihracatın şekline göre değişir. Gümrük beyannamesi ekinde gerçekleştirilen mal ihracında, <span class="nw">e-Fatura</span> sistemine kayıtlı mükelleflerin faturalarını ihracat <span class="nw">e-Faturası</span> olarak düzenlemesi gerekir; GİB’in Gümrük İşlemleri Kılavuzu da bu zorunluluğun gümrük beyannamesi ekinde yer alan ihracat faturaları için geçerli olduğunu belirtir (Kaynak: eBelge). Mikro ihracatta ETGB kullanılması durumunda ise <span class="nw">e-Arşiv</span> Fatura düzenlenir; GİB <span class="nw">e-Fatura</span> Forumu’ndaki açıklamada ETGB kapsamındaki mikro ihracat faturalarının <span class="nw">e-Arşiv</span> kullanıcısı olan işletmeler tarafından <span class="nw">e-Arşiv</span> Fatura olarak düzenleneceği belirtilmektedir (Kaynak: eFatura Forum).</p></div></div>
         </details>
         <details class="faq-item" data-cat="all">
-          <summary class="faq-q" id="faq-q-5"><span class="no">05</span>Mikro ihracat faturası program üzerinden nasıl kesilir?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary>
-          <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><div><p>Mikro ihracat faturası oluştururken yurt dışındaki alıcının bilgileri, gönderilecek ürünler, ürün tutarları, para birimi ve teslimat bilgileri programa girilir. İhracatın KDV istisnasına uygun olması halinde ilgili istisna bilgisi seçilerek fatura oluşturulur.</p><p>ETGB kapsamındaki mikro ihracatta gönderici <span class="nw">e-Arşiv</span> kullanıcısıysa fatura <span class="nw">e-Arşiv</span> Fatura olarak düzenlenir. Düzenlenen faturadaki ürün ve tutar bilgilerinin kargo operatörüne verilen ETGB bilgileriyle uyumlu olması önemlidir (Kaynak: eFatura Forum).</p></div></div>
+          <summary class="faq-q" id="faq-q-5"><span class="no">05</span>Mikro ihracat faturası KolayBi üzerinden nasıl kesilir?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary>
+          <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><div><p>KolayBi panelinde fatura oluştururken &quot;<span class="nw">e-Arşiv</span> Fatura&quot; tipini seçip KDV istisna kodunu (301) işaretleyin; yurt dışı alıcı bilgileri, para birimi ve ürün tutarları girildiğinde toplamlar ve kur çevrimleri otomatik hesaplanır. Faturayı tek tıkla oluşturup kargo operatörünüze iletebilir, ETGB süreciyle tam uyumlu <span class="nw">e-Arşiv</span> Faturanızı anında alıcınıza gönderebilirsiniz.</p><p>Mevzuat gereği; ETGB (Elektronik Ticaret Gümrük Beyannamesi) kapsamındaki mikro ihracat satışlarında gönderici <span class="nw">e-Arşiv</span> kullanıcısıysa fatura <span class="nw">e-Arşiv</span> Fatura olarak düzenlenir. Ceza veya uyumsuzluk yaşanmaması adına, düzenlenen faturadaki ürün ve tutar bilgilerinin kargo firmasına bildirilen ETGB verileriyle tam olarak örtüşmesi gerekir.</p></div></div>
         </details>
         <details class="faq-item" data-cat="all">
           <summary class="faq-q" id="faq-q-6"><span class="no">06</span>ETGB nedir ve gümrük beyannamesiyle nasıl ilişkilidir?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary>
