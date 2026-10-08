@@ -1,5 +1,6 @@
 # Test/önizleme sitesi: arama motorlarına kapalı.
 # kolaybi.com yayına alınınca bu dosya canlı sitenin robots.txt içeriğiyle değiştirilmeli
 # ve Vercel'de SITE_INDEXABLE=1 eklenmeli (X-Robots-Tag başlığı da kalkar).
+# Canlı robots.txt'ye şu satır da eklenmeli: Sitemap: https://www.kolaybi.com/sitemap.xml
 User-agent: *
 Disallow: /

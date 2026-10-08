@@ -1,5 +1,5 @@
 // Açılır pencerelerin gösterileceği sayfalar (panelde listeden seçilir).
-// Yeni sayfa eklenince buraya da eklenmeli; '/blog/*' tüm blog yazılarını kapsar.
+// Yeni sayfa eklenince buraya da eklenmeli (sitemap.xml de bu listeden üretilir); '/blog/*' tüm blog yazılarını kapsar.
 export const SITE_PAGES = [
   { label: 'Ana sayfa (/)', value: '/' },
   { label: 'Online Ön Muhasebe Programı Fiyatları (/fiyatlar)', value: '/fiyatlar' },
