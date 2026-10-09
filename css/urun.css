@@ -224,3 +224,6 @@
 .lk-btn b { font-size: 15px; font-weight: 700; color: var(--navy); }
 .lk-btn small { font-size: 13px; color: var(--ink-2); }
 .lk-btn .go { flex-shrink: 0; box-sizing: content-box; width: 16px; height: 16px; padding: 9px; border-radius: 50%; background: var(--primary); color: #fff; }@media (max-width: 560px) { .lf-links { grid-template-columns: 1fr; } }
+/* Form gönder butonu lacivert */
+.lf-form .btn-primary { background: var(--navy); box-shadow: 0 12px 26px -12px color-mix(in srgb, var(--navy) 70%, transparent); }
+.lf-form .btn-primary:hover { background: var(--navy); }
