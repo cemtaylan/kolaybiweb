@@ -1,5 +1,5 @@
 import type { CollectionConfig } from 'payload'
-import { revalidatePath } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 import { readingTime, slugFromTitle } from '../hooks'
 import { CTA_PRESETS } from '../blocks'
 import { gizle, yazabilir } from '../access'
@@ -25,12 +25,14 @@ export const Posts: CollectionConfig = {
   hooks: {
     beforeChange: [readingTime],
     // Yayınlanan/güncellenen yazının sayfası ve blog listesi yeniden üretilir (Vercel ISR)
+    afterDelete: [() => { try { revalidateTag('posts', 'max'); revalidatePath('/blog') } catch { /* betik bağlamı */ } }],
     afterChange: [
       ({ doc, previousDoc }) => {
         try {
           revalidatePath(`/blog/${doc.slug}`)
           if (previousDoc?.slug && previousDoc.slug !== doc.slug) revalidatePath(`/blog/${previousDoc.slug}`)
           revalidatePath('/blog')
+          revalidateTag('posts', 'max')
         } catch {
           // betiklerden (içe aktarma) çalışırken Next.js bağlamı yoktur
         }

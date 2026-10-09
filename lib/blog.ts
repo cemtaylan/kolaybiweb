@@ -1,6 +1,7 @@
 // Blog: CMS'ten okuma ve eski sitenin HTML kurallarını (başlık kimlikleri, tarih biçimi, e- kelimeleri) aynen uygulama
 import 'server-only'
 import { cache } from 'react'
+import { unstable_cache } from 'next/cache'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 import { convertLexicalToHTML, defaultHTMLConverters, type HTMLConverters } from '@payloadcms/richtext-lexical/html'
@@ -16,7 +17,9 @@ import { REG } from '@/cms/blocks'
 export const cms = cache(() => getPayload({ config }))
 
 // Yayındaki tüm yazılar, yeniden eskiye (blog listesi ve önceki/sonraki sırası)
-export const allPosts = cache(async () => {
+// Veritabanı aktarımını azaltmak için sonuç Next veri önbelleğinde tutulur (10 dk); yazı ya da kategori
+// kaydedilince 'posts' etiketi yenilenir (cms/collections/Posts.ts, Categories.ts)
+export const allPosts = cache(unstable_cache(async () => {
   const p = await cms()
   // Liste/önceki-sonraki/ilgili yazılar için gövde gerekmez: yalnız kart alanları çekilir (gövde postBySlug'da)
   const r = await p.find({
@@ -25,7 +28,7 @@ export const allPosts = cache(async () => {
   })
   // Tarihsiz yazılar sona (veritabanları boş tarihleri farklı sıralar; burada sabitlenir)
   return (r.docs as Post[]).sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''))
-})
+}, ['blog-all-posts'], { tags: ['posts'], revalidate: 600 }))
 
 export const postBySlug = cache(async (slug: string) => {
   const p = await cms()

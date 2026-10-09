@@ -2,6 +2,7 @@
 // ve arama (?q=…) gerçek bağlantılardır; her sayfa kendi canonical adresini gösterir. Tasarım eski statik sayfayla aynıdır.
 import type { Metadata } from 'next'
 import { Fragment } from 'react'
+import { unstable_cache } from 'next/cache'
 import { allPosts, author, cat, cms, isoDate, media, nowrap, REG, SITE, trDate } from '@/lib/blog'
 import { blogFooter, blogHeader, blogIndexBottom } from '@/lib/partials'
 import type { Category, Post } from '@/cms/payload-types'
@@ -23,7 +24,7 @@ const HERO_SVG = `<svg viewBox="0 0 1440 520" preserveAspectRatio="none" aria-hi
 
 type SP = Promise<{ [k: string]: string | string[] | undefined }>
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) || ''
-const kategoriler = async () => (await (await cms()).find({ collection: 'categories', limit: 100, depth: 0, sort: 'order', pagination: false })).docs as Category[]
+const kategoriler = unstable_cache(async () => (await (await cms()).find({ collection: 'categories', limit: 100, depth: 0, sort: 'order', pagination: false })).docs as Category[], ['blog-categories'], { tags: ['posts'], revalidate: 600 })
 const adres = (o: { kat?: string; q?: string; page?: number }) => {
   const u = new URLSearchParams()
   if (o.kat) u.set('kategori', o.kat)

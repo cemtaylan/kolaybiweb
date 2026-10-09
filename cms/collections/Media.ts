@@ -18,6 +18,13 @@ export const Media: CollectionConfig = {
       { name: 'cover', width: 1280 }, // yazı kapağı
     ],
     formatOptions: { format: 'webp', options: { quality: 82 } },
+    // Görseller CDN'de bir yıl önbelleklenir: her istek sunucuya ve veritabanına uğramaz.
+    // Güvenli, çünkü aynı adla yüklenen dosyaya Payload yeni ad verir (ör. gorsel-1.webp).
+    modifyResponseHeaders: ({ headers }) => {
+      headers.set('Cache-Control', 'public, max-age=31536000, immutable')
+      headers.set('CDN-Cache-Control', 'public, max-age=31536000, immutable')
+      return headers
+    },
   },
   fields: [{ name: 'alt', type: 'text', label: 'Alternatif metin', admin: { description: 'Görme engelli kullanıcılar ve Google için görselin kısa açıklaması' } }],
 }
