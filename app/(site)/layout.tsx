@@ -8,7 +8,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
         <link rel="preload" href="/fonts/jakarta.woff2?v=1" as="font" type="font/woff2" crossOrigin="" />
         <link rel="preload" href="/fonts/inter.woff2?v=1" as="font" type="font/woff2" crossOrigin="" />
         <link rel="stylesheet" href="/css/renkler.css?v=7" />
-        <link rel="stylesheet" href="/css/site.css?v=87" />
+        <link rel="stylesheet" href="/css/site.css?v=88" />
       </head>
       <body>{children}</body>
     </html>
