@@ -1006,4 +1006,5 @@ summary.nav-link::marker { content: ""; }
 @media (max-width: 760px) { .tb-hours { display: none; } }
 @media (max-width: 560px) { .tb-in { padding: 0 16px; gap: 12px; } .tb-links { gap: 14px; } .topbar { font-size: 12.5px; } }
 @media (max-width: 360px) { .tb-in { padding: 0 12px; } .tb-links { gap: 10px; } .topbar { font-size: 12px; } }
-@media (max-width: 374px) { .tb-x, .tb-tel svg { display: none; } }
+/* Hero dikey sekme açıklaması (ör. KolayBi Link · Mali müşavirler için) */
+.panel-tab span small { display: block; margin-block-start: 6px; font-family: var(--font-body); font-weight: 500; font-size: 13px; opacity: .72; }
