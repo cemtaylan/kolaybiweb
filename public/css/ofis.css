@@ -37,3 +37,6 @@
 @media (max-width: 760px) { .of-visual { height: 380px; } .device-list { grid-template-columns: 1fr; } .of-chip.c2, .of-chip.c4 { display: none; } }
 /* Hero kartlarındaki küçük satırlar en az 12 px */
 .of-chip small, .of-chip div small { font-size: 12px; }
+/* Fiyat kartı HTML sırasında başlıktan sonra gelir (başlık hiyerarşisi), ekranda solda durur */
+.of-price-card { order: -1; }
+.of-price-note { margin-top: 12px; max-width: 440px; font-size: 13.5px; color: var(--muted); }
