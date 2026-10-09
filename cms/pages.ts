@@ -16,6 +16,7 @@ export const SITE_PAGES = [
   { label: 'Gelir Gider Takip Programı (/gelir-gider-takip-programi)', value: '/gelir-gider-takip-programi' },
   { label: 'KolayBi Kullanım Videoları: Fatura, Cari, Rapor (/kullanim-videolari)', value: '/kullanim-videolari' },
   { label: 'KolayBi Link Başvuru Formu (/kolaybi-bilink-formu)', value: '/kolaybi-bilink-formu' },
+  { label: 'KolayBi Bayilik Programı (/bayi)', value: '/bayi' },
   { label: 'KolayBi’ye Geçiş: e-Fatura, Stok ve Cari Aktarımı (/kolaybiye-gecis)', value: '/kolaybiye-gecis' },
   { label: 'Kullanıcılarımız ve Hakkımızdaki Görüşleri (/referanslar)', value: '/referanslar' },
   { label: 'Muhasebe ve Finans Blogu (/blog)', value: '/blog' },
