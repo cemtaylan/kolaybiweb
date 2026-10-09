@@ -76,8 +76,8 @@
     aylik.title = monthly ? '' : 'KolayBi Jet yalnızca yıllık ödemeyle sunulur';
     aylik.querySelector('small').hidden = monthly;
     billSeg.querySelector('.save').hidden = !monthly;
-    prodBtns.forEach(b => b.classList.toggle('on', b.dataset.product === product));
-    billBtns.forEach(b => b.classList.toggle('on', b.dataset.bill === bill));
+    prodBtns.forEach(b => { const on = b.dataset.product === product; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+    billBtns.forEach(b => { const on = b.dataset.bill === bill; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
     root.innerHTML = card(set.std, 'std') + card(set.plus, 'plus');
     document.querySelectorAll('[data-col]').forEach(th => th.classList.toggle('me', th.dataset.col === product));
   }
