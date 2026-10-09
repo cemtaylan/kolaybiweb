@@ -325,6 +325,7 @@ export interface Popup {
         | '/gelir-gider-takip-programi'
         | '/kullanim-videolari'
         | '/kolaybi-bilink-formu'
+        | '/bayi'
         | '/kolaybiye-gecis'
         | '/referanslar'
         | '/blog'
