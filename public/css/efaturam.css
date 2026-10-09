@@ -33,6 +33,7 @@
 .fz-stats { display: flex; gap: 34px; margin-top: 34px; padding-top: 24px; border-top: 1px solid color-mix(in srgb, #fff 12%, transparent); }
 .fz-stats b { display: block; font: 800 28px var(--font-head); letter-spacing: -.02em; }
 .fz-stats small { font-size: 13px; color: color-mix(in srgb, #fff 60%, transparent); }
+.fz-stats small.fz-cond { display: block; max-width: 150px; margin-top: 4px; font-size: 12px; line-height: 1.35; color: color-mix(in srgb, #fff 48%, transparent); }
 
 /* Sahne: sonsuz kontör sayacı + canlı fatura akışı */
 .fz-stage { position: relative; height: 560px; }
