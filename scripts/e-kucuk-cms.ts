@@ -12,17 +12,19 @@ const config = (await import('../payload.config')).default
 const payload = await getPayload({ config })
 
 const RE = /(?<![\p{L}\d_/.\-%])E-(?=\p{Lu}\p{Ll}|\p{Ll})/gu
+// Metin içi özel durumlar: noktadan sonra boşluksuz ("verilmiştir.E-Adisyon") ve eğik çizgiyle ("Luca/E-Fatura")
+const RE2 = /(?<=\p{Ll})\.E-(?=\p{Lu}\p{Ll})/gu, RE3 = /(?<=\p{L})\/E-(?=\p{Lu}\p{Ll})/gu
 const ATLA = new Set(['id', 'slug', 'url', 'href', 'src', 'filename', 'mimeType', 'thumbnailURL', 'link', 'newTab', 'type', 'format', 'version', 'direction', 'mode', 'style', 'tag', 'listType', 'blockType', 'createdAt', 'updatedAt', 'publishedAt', 'contentUpdatedAt'])
 const ATTR = /\b(href|src|srcset|id|class)="[^"]*"/g
 const duzelt = (s: string) => {
   // HTML içeren metinde öznitelik değerlerine dokunma
   const parcalar: string[] = []; let i = 0
   for (const m of s.matchAll(ATTR)) { parcalar.push(s.slice(i, m.index).replace(RE, 'e-'), m[0]); i = m.index! + m[0].length }
-  parcalar.push(s.slice(i).replace(RE, 'e-')); return parcalar.join('')
+  parcalar.push(s.slice(i).replace(RE, 'e-')); return parcalar.join('').replace(RE2, '. e-').replace(RE3, '/e-')
 }
 let sayi = 0
 const gez = (v: unknown, k = ''): unknown => {
-  if (typeof v === 'string') { if (ATLA.has(k) || /^(https?:|\/)/.test(v)) return v; const t = duzelt(v); if (t !== v) sayi += (v.match(RE) || []).length; return t }
+  if (typeof v === 'string') { if (ATLA.has(k) || /^(https?:|\/)/.test(v)) return v; const t = duzelt(v); if (t !== v) sayi += (v.match(RE) || []).length + (v.match(RE2) || []).length + (v.match(RE3) || []).length; return t }
   if (Array.isArray(v)) return v.map(x => gez(x, k))
   if (v && typeof v === 'object') return Object.fromEntries(Object.entries(v).map(([kk, x]) => [kk, gez(x, kk)]))
   return v
