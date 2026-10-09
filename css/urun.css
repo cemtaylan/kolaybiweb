@@ -195,3 +195,19 @@
 .lf-more .lf-steps { margin-top: 0; }
 @media (min-width: 961px) { .lf-wrap:has(.lf-more) { grid-template-rows: auto 1fr; } .lf-wrap:has(.lf-more) .lf-card { grid-column: 2; grid-row: 1 / span 2; } }
 @media (max-width: 960px) { .lf-wrap:has(.lf-more) { row-gap: 32px; } .lf-more { margin-top: 0; } }
+/* İş ortaklığı formu: başvuru türü seçimi */
+.lf-ways { display: grid; gap: 12px; margin-top: 24px; padding: 0; list-style: none; }
+.lf-ways li { display: grid; gap: 2px; padding-left: 14px; border-left: 3px solid var(--primary-soft); }
+.lf-ways b { font-size: 15px; color: var(--navy); }
+.lf-ways span { font-size: 14.5px; color: var(--ink-2); }
+.lf-type { border: 0; padding: 0; margin: 18px 0 0; min-width: 0; }
+.lf-type legend { padding: 0; margin-bottom: 8px; font-size: 14px; font-weight: 600; color: var(--ink); }
+.lf-type-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.lf-type label { position: relative; display: grid; gap: 2px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--bg); cursor: pointer; }
+.lf-type input { position: absolute; opacity: 0; pointer-events: none; }
+.lf-type b { font-size: 15px; color: var(--navy); }
+.lf-type small { font-size: 12.5px; color: var(--ink-2); }
+.lf-type label:has(input:checked) { border-color: var(--primary); background: var(--primary-soft); box-shadow: inset 0 0 0 1px var(--primary); }
+.lf-type label:has(input:focus-visible) { outline: 2px solid var(--primary); outline-offset: 2px; }
+.lf-links { display: grid; gap: 12px; }
+.lf-links .lf-back { margin-top: 0; }

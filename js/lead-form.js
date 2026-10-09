@@ -15,12 +15,23 @@
     };
     // Telefon: boşluk/tire temizlenir, baştaki 0 atılır; 10 hane ve 5 ile başlamalı (cep)
     const phoneDigits = v => { let d = v.replace(/\D/g, ''); if (d.length === 11 && d[0] === '0') d = d.slice(1); return d; };
+    // Başvuru türü seçilen formlarda (ör. /bayi): mali müşavir başvurusunda e-posta istenmez; ?tur=mali-musavir ile ön seçim
+    const emailBox = form.querySelector('.lf-email');
+    const syncType = () => {
+      const v = (form.querySelector('input[name="type"]:checked') || {}).value;
+      if (emailBox) { const off = v === 'mali-musavir'; emailBox.hidden = off; emailBox.querySelector('input').disabled = off; }
+    };
+    const tur = new URLSearchParams(location.search).get('tur');
+    const pre = tur && form.querySelector('input[name="type"][value="' + CSS.escape(tur) + '"]');
+    if (pre) pre.checked = true;
+    form.querySelectorAll('input[name="type"]').forEach(r => r.addEventListener('change', syncType));
+    syncType();
 
     form.addEventListener('submit', async e => {
       e.preventDefault();
       const f = form.elements, name = f.name, phone = f.phone;
       if (name.value.trim().length < 3) return showError('Lütfen adınızı ve soyadınızı yazın.', name);
-      if (f.email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.value.trim())) return showError('Lütfen geçerli bir e-posta adresi yazın (ör. ad@firma.com).', f.email);
+      if (f.email && !f.email.disabled && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.value.trim())) return showError('Lütfen geçerli bir e-posta adresi yazın (ör. ad@firma.com).', f.email);
       if (f.subject && f.subject.required && f.subject.value.trim().length < 3) return showError('Lütfen mesajınızın konusunu yazın.', f.subject);
       // Telefon zorunluysa ya da yazılmışsa doğrulanır
       const digits = phone ? phoneDigits(phone.value) : '';
