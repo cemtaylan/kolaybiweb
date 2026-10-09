@@ -62,7 +62,7 @@
       <div class="plan-top"><h2>${p.name}</h2><span class="plan-for">${p.for}</span></div>
       <div class="plan-price"><b>${tl(yearlyOnly ? p.price.yillik : price)} ₺</b><span>${yearlyOnly ? '/ yıl' : '/ ay'}</span></div>
       <div class="plan-total">${total}</div>
-      <a href="${REG}" class="btn btn-primary">${tier === 'plus' ? 'PLUS Paketini' : 'Standart Paketi'} 14 Gün Ücretsiz Deneyin<span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
+      <a href="${REG}" class="btn btn-primary">14 Gün Ücretsiz Deneyin<span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
       <ul>${gifts}${perks}<li class="plan-sep" aria-hidden="true"></li>${common}</ul></article>`;
   }
 
