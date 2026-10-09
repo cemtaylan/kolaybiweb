@@ -195,14 +195,21 @@
 .lf-more .lf-steps { margin-top: 0; }
 @media (min-width: 961px) { .lf-wrap:has(.lf-more) { grid-template-rows: auto 1fr; } .lf-wrap:has(.lf-more) .lf-card { grid-column: 2; grid-row: 1 / span 2; } }
 @media (max-width: 960px) { .lf-wrap:has(.lf-more) { row-gap: 32px; } .lf-more { margin-top: 0; } }
+/* Form gönder butonu lacivert */
+.lf-form .btn-primary { background: var(--navy); box-shadow: 0 12px 26px -12px color-mix(in srgb, var(--navy) 70%, transparent); }
+.lf-form .btn-primary:hover { background: var(--navy); }
 /* İş ortaklığı formu: başvuru türü seçimi */
 .lf-ways { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
-.lw { padding: 20px; border-radius: 18px; background: var(--card); border: 1px solid var(--line); }
-.lw-h { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.lw-h i { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: var(--primary-soft); color: var(--primary); }
+.lw { position: relative; padding: 20px; border-radius: 18px; background: var(--card); border: 1px solid var(--line); }
+.lw-tag { position: absolute; top: -1px; right: -1px; padding: 7px 14px; border-radius: 0 18px 0 14px; font: 800 12.5px var(--font-head); letter-spacing: .02em; }
+.lw-tag.n { background: var(--navy); color: #fff; }
+.lw-tag.y { background: var(--accent); color: var(--navy); }
+.lw-h { display: grid; grid-template-columns: 38px 1fr; align-items: center; column-gap: 12px; row-gap: 4px; }
+.lw-h i { grid-row: span 2; }
+.lw-h i { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 11px; background: var(--primary-soft); color: var(--primary); }
 .lw-h i svg { width: 18px; height: 18px; }
 .lw-h b { font: 800 18px var(--font-head); color: var(--navy); }
-.lw-h small { padding: 3px 8px; border-radius: 999px; background: var(--bg); font-size: 12px; font-weight: 600; color: var(--ink-2); }
+.lw-h small { justify-self: start; font-size: 13px; font-weight: 500; color: var(--ink-2); }
 .lw ul { display: grid; gap: 10px; margin: 16px 0 0; padding: 0; list-style: none; }
 .lw li { display: grid; grid-template-columns: 18px 1fr; gap: 8px; font-size: 15px; line-height: 1.45; color: var(--ink); }
 .lw li svg { width: 18px; height: 18px; margin-top: 2px; color: var(--primary); }@media (max-width: 560px) { .lf-ways { grid-template-columns: 1fr; } }
@@ -224,6 +231,3 @@
 .lk-btn b { font-size: 15px; font-weight: 700; color: var(--navy); }
 .lk-btn small { font-size: 13px; color: var(--ink-2); }
 .lk-btn .go { flex-shrink: 0; box-sizing: content-box; width: 16px; height: 16px; padding: 9px; border-radius: 50%; background: var(--primary); color: #fff; }@media (max-width: 560px) { .lf-links { grid-template-columns: 1fr; } }
-/* Form gönder butonu lacivert */
-.lf-form .btn-primary { background: var(--navy); box-shadow: 0 12px 26px -12px color-mix(in srgb, var(--navy) 70%, transparent); }
-.lf-form .btn-primary:hover { background: var(--navy); }
