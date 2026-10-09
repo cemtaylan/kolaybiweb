@@ -14,8 +14,8 @@ export const metadata: Metadata = {
 
 // "Ek Özellikler" kartları tek makaledeki başlıklara gider (canlı sayfadaki kart metinleri)
 const EK = [
-  { baslik: 'E-İmza Başvurusu', aciklama: 'Siz neredeyseniz imzanız orada' },
-  { baslik: 'E-Fatura Entegrasyon', aciklama: '10 dakikada ücretsiz entegrasyon', h: 'E-Fatura Entegrasyonları' },
+  { baslik: 'e-İmza Başvurusu', aciklama: 'Siz neredeyseniz imzanız orada' },
+  { baslik: 'e-Fatura Entegrasyon', aciklama: '10 dakikada ücretsiz entegrasyon', h: 'e-Fatura Entegrasyonları' },
   { baslik: 'KolayBi’ Banka', aciklama: "20'den fazla Banka ile entegrasyon", h: 'Banka Entegrasyonları' },
   { baslik: 'Sanal POS', aciklama: 'Uzaktan tahsilatlarınızı kolayca gerçekleştirin!', h: 'Sanal Pos' },
   { baslik: 'Pazaryeri Entegrasyon', aciklama: 'E - ticaretinizi uçtan uca yönetmenin kolay yolu', h: 'Pazaryeri Entegrasyonu' },

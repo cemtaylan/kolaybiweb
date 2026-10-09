@@ -59,7 +59,7 @@
           <tr><td>02.09</td><td>POS tahsilat</td><td class="r"></td><td class="r">₺15.000</td></tr>
           <tr><td>04.10</td><td>Satış faturası</td><td class="r">₺15.000</td><td class="r"></td></tr>
           <tr class="tot"><td colspan="2">Bakiye</td><td class="r pos" colspan="2">₺18.750 alacak</td></tr></table></div>
-        <div class="rc-actions"><span class="rc-btn primary" data-press>${icon('i-mail')}E-posta ile gönder</span><span class="rc-btn">PDF indir</span></div>
+        <div class="rc-actions"><span class="rc-btn primary" data-press>${icon('i-mail')}e-posta ile gönder</span><span class="rc-btn">PDF indir</span></div>
       </div>`,
       after: `<span class="tag-ok">${icon('i-check-solid')}Gönderildi</span><p style="margin-top:8px">Ekstre PDF olarak Emirhan Yılmaz'a e-posta ile iletildi.</p>`
     },
