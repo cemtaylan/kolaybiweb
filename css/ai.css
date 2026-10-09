@@ -392,7 +392,7 @@
 /* Kullanıcı alıntısı (Son söz bölümünden önce) */
 .ai-quote { position: relative; max-width: 1000px; margin: 0 auto; padding: clamp(36px, 5vw, 64px) clamp(22px, 6vw, 88px); text-align: center; border-radius: var(--radius-xl); background: linear-gradient(135deg, var(--blue-100) 0%, var(--cyan-100) 100%); }
 .aq-mark { width: 44px; height: 33px; fill: var(--primary); opacity: .5; margin-bottom: 18px; }
-.ai-quote blockquote p { font-family: var(--font-head); font-size: clamp(22px, 2.4vw, 30px); font-weight: 700; line-height: 1.35; letter-spacing: -.01em; color: var(--navy); }
+.ai-quote blockquote p { max-width: 760px; margin: 0 auto; font-family: var(--font-head); font-size: clamp(17px, 1.6vw, 21px); font-weight: 600; line-height: 1.55; letter-spacing: 0; color: var(--navy); }
 .ai-quote figcaption { margin-top: 22px; display: flex; flex-direction: column; gap: 4px; align-items: center; }
 .ai-quote figcaption b { font-family: var(--font-head); font-size: 16px; color: var(--ink); }
 .ai-quote figcaption span { font-size: 14px; color: var(--ink-2); }
