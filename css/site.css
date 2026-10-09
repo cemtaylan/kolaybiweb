@@ -996,13 +996,13 @@ summary.nav-link::marker { content: ""; }
 .tb-links { display: flex; gap: 22px; }
 .topbar a { color: inherit; text-decoration: none; opacity: .88; }
 .topbar a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
-.tb-links a { white-space: nowrap; font-weight: 500; opacity: 1; }.tb-links b { margin-left: 10px; font-weight: 700; }
+.tb-links a { white-space: nowrap; font-weight: 700; opacity: 1; }
 .tb-tel { display: inline-flex; align-items: center; gap: 7px; font-weight: 600; white-space: nowrap; }
 .tb-tel svg { width: 14px; height: 14px; }
 .tb-hours { font-weight: 500; opacity: .72; }
 @media (min-width: 1321px) { .tb-in { max-width: 1440px; } }
 @media (max-width: 760px) { .tb-hours { display: none; } }
 @media (max-width: 560px) { .tb-in { padding: 0 16px; gap: 18px; } .tb-links { gap: 14px; } .topbar { font-size: 12.5px; } }
-@media (max-width: 360px) { .tb-in { padding: 0 12px; } .tb-links { gap: 10px; } .topbar { font-size: 12px; } }
+@media (max-width: 360px) { .tb-in { padding: 0 12px; } .tb-links { gap: 10px; } .topbar { font-size: 12px; } }@media (max-width: 400px) { .tb-x, .tb-tel svg { display: none; } .tb-in { gap: 14px; } }
 /* Hero dikey sekme açıklaması (ör. KolayBi Link · Mali müşavirler için) */
 .panel-tab span small { display: block; margin-block-start: 6px; font-family: var(--font-body); font-weight: 500; font-size: 13px; opacity: .72; }
