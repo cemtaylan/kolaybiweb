@@ -196,10 +196,16 @@
 @media (min-width: 961px) { .lf-wrap:has(.lf-more) { grid-template-rows: auto 1fr; } .lf-wrap:has(.lf-more) .lf-card { grid-column: 2; grid-row: 1 / span 2; } }
 @media (max-width: 960px) { .lf-wrap:has(.lf-more) { row-gap: 32px; } .lf-more { margin-top: 0; } }
 /* İş ortaklığı formu: başvuru türü seçimi */
-.lf-ways { display: grid; gap: 12px; margin-top: 24px; padding: 0; list-style: none; }
-.lf-ways li { display: grid; gap: 2px; padding-left: 14px; border-left: 3px solid var(--primary-soft); }
-.lf-ways b { font-size: 15px; color: var(--navy); }
-.lf-ways span { font-size: 14.5px; color: var(--ink-2); }
+.lf-ways { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+.lw { padding: 20px; border-radius: 18px; background: var(--card); border: 1px solid var(--line); }
+.lw-h { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.lw-h i { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: var(--primary-soft); color: var(--primary); }
+.lw-h i svg { width: 18px; height: 18px; }
+.lw-h b { font: 800 18px var(--font-head); color: var(--navy); }
+.lw-h small { padding: 3px 8px; border-radius: 999px; background: var(--bg); font-size: 12px; font-weight: 600; color: var(--ink-2); }
+.lw ul { display: grid; gap: 10px; margin: 16px 0 0; padding: 0; list-style: none; }
+.lw li { display: grid; grid-template-columns: 18px 1fr; gap: 8px; font-size: 15px; line-height: 1.45; color: var(--ink); }
+.lw li svg { width: 18px; height: 18px; margin-top: 2px; color: var(--primary); }@media (max-width: 560px) { .lf-ways { grid-template-columns: 1fr; } }
 .lf-type { border: 0; padding: 0; margin: 18px 0 0; min-width: 0; }
 .lf-type legend { padding: 0; margin-bottom: 8px; font-size: 14px; font-weight: 600; color: var(--ink); }
 .lf-type-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
